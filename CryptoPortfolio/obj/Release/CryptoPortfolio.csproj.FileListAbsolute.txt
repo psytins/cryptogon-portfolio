@@ -1,0 +1,16 @@
+D:\Trabalho\PROJETOS\CryptoPortfolio\CryptoPortfolio\bin\Release\CryptoPortfolio.exe.config
+D:\Trabalho\PROJETOS\CryptoPortfolio\CryptoPortfolio\bin\Release\CryptoPortfolio.exe
+D:\Trabalho\PROJETOS\CryptoPortfolio\CryptoPortfolio\bin\Release\CryptoPortfolio.pdb
+D:\Trabalho\PROJETOS\CryptoPortfolio\CryptoPortfolio\obj\Release\CryptoPortfolio.Properties.Resources.resources
+D:\Trabalho\PROJETOS\CryptoPortfolio\CryptoPortfolio\obj\Release\CryptoPortfolio.csproj.GenerateResource.cache
+D:\Trabalho\PROJETOS\CryptoPortfolio\CryptoPortfolio\obj\Release\CryptoPortfolio.csproj.CoreCompileInputs.cache
+D:\Trabalho\PROJETOS\CryptoPortfolio\CryptoPortfolio\obj\Release\CryptoPortfolio.exe
+D:\Trabalho\PROJETOS\CryptoPortfolio\CryptoPortfolio\obj\Release\CryptoPortfolio.pdb
+D:\Trabalho\PROJETOS\CryptoPortfolio\CryptoPortfolio\bin\Release\CryptoPortfolio.exe.manifest
+D:\Trabalho\PROJETOS\CryptoPortfolio\CryptoPortfolio\bin\Release\CryptoPortfolio.application
+D:\Trabalho\PROJETOS\CryptoPortfolio\CryptoPortfolio\obj\Release\CryptoPortfolio.csproj.AssemblyReference.cache
+D:\Trabalho\PROJETOS\CryptoPortfolio\CryptoPortfolio\obj\Release\CryptoPortfolio.newTransaction_form.resources
+D:\Trabalho\PROJETOS\CryptoPortfolio\CryptoPortfolio\obj\Release\CryptoPortfolio.portfolioStart_form.resources
+D:\Trabalho\PROJETOS\CryptoPortfolio\CryptoPortfolio\obj\Release\CryptoPortfolio.TrustInfo.xml
+D:\Trabalho\PROJETOS\CryptoPortfolio\CryptoPortfolio\obj\Release\CryptoPortfolio.exe.manifest
+D:\Trabalho\PROJETOS\CryptoPortfolio\CryptoPortfolio\obj\Release\CryptoPortfolio.application
