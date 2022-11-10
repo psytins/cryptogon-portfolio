@@ -181,9 +181,9 @@ namespace CryptoPortfolio
             // 
             // addTransaction_button
             // 
-            this.addTransaction_button.Location = new System.Drawing.Point(17, 337);
+            this.addTransaction_button.Location = new System.Drawing.Point(17, 324);
             this.addTransaction_button.Name = "addTransaction_button";
-            this.addTransaction_button.Size = new System.Drawing.Size(159, 40);
+            this.addTransaction_button.Size = new System.Drawing.Size(159, 28);
             this.addTransaction_button.TabIndex = 15;
             this.addTransaction_button.Text = "Adicionar Transação";
             this.addTransaction_button.UseVisualStyleBackColor = true;
@@ -191,9 +191,9 @@ namespace CryptoPortfolio
             // 
             // cancel_button
             // 
-            this.cancel_button.Location = new System.Drawing.Point(182, 337);
+            this.cancel_button.Location = new System.Drawing.Point(182, 324);
             this.cancel_button.Name = "cancel_button";
-            this.cancel_button.Size = new System.Drawing.Size(90, 40);
+            this.cancel_button.Size = new System.Drawing.Size(90, 28);
             this.cancel_button.TabIndex = 16;
             this.cancel_button.Text = "Cancelar";
             this.cancel_button.UseVisualStyleBackColor = true;
@@ -203,7 +203,7 @@ namespace CryptoPortfolio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 389);
+            this.ClientSize = new System.Drawing.Size(284, 361);
             this.Controls.Add(this.cancel_button);
             this.Controls.Add(this.addTransaction_button);
             this.Controls.Add(this.taxesEuro_textBox);

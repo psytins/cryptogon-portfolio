@@ -63,13 +63,13 @@ namespace CryptoPortfolio
             this.portfolio_dataGridView.Location = new System.Drawing.Point(12, 12);
             this.portfolio_dataGridView.Name = "portfolio_dataGridView";
             this.portfolio_dataGridView.ReadOnly = true;
-            this.portfolio_dataGridView.Size = new System.Drawing.Size(862, 490);
+            this.portfolio_dataGridView.Size = new System.Drawing.Size(766, 658);
             this.portfolio_dataGridView.TabIndex = 1;
             // 
             // newTransaction_button
             // 
             this.newTransaction_button.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.newTransaction_button.Location = new System.Drawing.Point(12, 508);
+            this.newTransaction_button.Location = new System.Drawing.Point(12, 676);
             this.newTransaction_button.Name = "newTransaction_button";
             this.newTransaction_button.Size = new System.Drawing.Size(116, 45);
             this.newTransaction_button.TabIndex = 2;
@@ -80,7 +80,7 @@ namespace CryptoPortfolio
             // exit_button
             // 
             this.exit_button.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.exit_button.Location = new System.Drawing.Point(1020, 508);
+            this.exit_button.Location = new System.Drawing.Point(915, 676);
             this.exit_button.Name = "exit_button";
             this.exit_button.Size = new System.Drawing.Size(81, 45);
             this.exit_button.TabIndex = 3;
@@ -102,9 +102,9 @@ namespace CryptoPortfolio
             this.information_groupBox.Controls.Add(this.panel2);
             this.information_groupBox.Controls.Add(this.panel1);
             this.information_groupBox.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.information_groupBox.Location = new System.Drawing.Point(880, 12);
+            this.information_groupBox.Location = new System.Drawing.Point(784, 12);
             this.information_groupBox.Name = "information_groupBox";
-            this.information_groupBox.Size = new System.Drawing.Size(221, 490);
+            this.information_groupBox.Size = new System.Drawing.Size(212, 658);
             this.information_groupBox.TabIndex = 4;
             this.information_groupBox.TabStop = false;
             this.information_groupBox.Text = "Dashboard";
@@ -112,7 +112,7 @@ namespace CryptoPortfolio
             // coinbShort_label
             // 
             this.coinbShort_label.AutoSize = true;
-            this.coinbShort_label.Location = new System.Drawing.Point(106, 409);
+            this.coinbShort_label.Location = new System.Drawing.Point(104, 579);
             this.coinbShort_label.Name = "coinbShort_label";
             this.coinbShort_label.Size = new System.Drawing.Size(42, 15);
             this.coinbShort_label.TabIndex = 9;
@@ -121,7 +121,7 @@ namespace CryptoPortfolio
             // coinName_label
             // 
             this.coinName_label.AutoSize = true;
-            this.coinName_label.Location = new System.Drawing.Point(3, 409);
+            this.coinName_label.Location = new System.Drawing.Point(2, 579);
             this.coinName_label.Name = "coinName_label";
             this.coinName_label.Size = new System.Drawing.Size(77, 15);
             this.coinName_label.TabIndex = 8;
@@ -129,7 +129,7 @@ namespace CryptoPortfolio
             // 
             // addCoin_button
             // 
-            this.addCoin_button.Location = new System.Drawing.Point(163, 427);
+            this.addCoin_button.Location = new System.Drawing.Point(157, 597);
             this.addCoin_button.Name = "addCoin_button";
             this.addCoin_button.Size = new System.Drawing.Size(52, 23);
             this.addCoin_button.TabIndex = 7;
@@ -139,16 +139,16 @@ namespace CryptoPortfolio
             // 
             // coinShort_textBox
             // 
-            this.coinShort_textBox.Location = new System.Drawing.Point(109, 427);
+            this.coinShort_textBox.Location = new System.Drawing.Point(106, 597);
             this.coinShort_textBox.Name = "coinShort_textBox";
             this.coinShort_textBox.Size = new System.Drawing.Size(48, 23);
             this.coinShort_textBox.TabIndex = 6;
             // 
             // coinName_textbox
             // 
-            this.coinName_textbox.Location = new System.Drawing.Point(6, 427);
+            this.coinName_textbox.Location = new System.Drawing.Point(5, 597);
             this.coinName_textbox.Name = "coinName_textbox";
-            this.coinName_textbox.Size = new System.Drawing.Size(100, 23);
+            this.coinName_textbox.Size = new System.Drawing.Size(97, 23);
             this.coinName_textbox.TabIndex = 5;
             // 
             // versionLabel
@@ -156,7 +156,7 @@ namespace CryptoPortfolio
             this.versionLabel.AutoSize = true;
             this.versionLabel.Font = new System.Drawing.Font("Constantia", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.versionLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.versionLabel.Location = new System.Drawing.Point(87, 468);
+            this.versionLabel.Location = new System.Drawing.Point(78, 641);
             this.versionLabel.Name = "versionLabel";
             this.versionLabel.Size = new System.Drawing.Size(128, 13);
             this.versionLabel.TabIndex = 4;
@@ -170,7 +170,7 @@ namespace CryptoPortfolio
             this.panel2.Controls.Add(this.label2);
             this.panel2.Location = new System.Drawing.Point(6, 112);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(209, 43);
+            this.panel2.Size = new System.Drawing.Size(200, 43);
             this.panel2.TabIndex = 3;
             // 
             // label1
@@ -213,7 +213,7 @@ namespace CryptoPortfolio
             this.panel1.Controls.Add(this.portfofioTotal_label);
             this.panel1.Location = new System.Drawing.Point(6, 19);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(209, 87);
+            this.panel1.Size = new System.Drawing.Size(200, 87);
             this.panel1.TabIndex = 0;
             // 
             // moneySign_label
@@ -252,7 +252,7 @@ namespace CryptoPortfolio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1104, 561);
+            this.ClientSize = new System.Drawing.Size(1008, 729);
             this.Controls.Add(this.information_groupBox);
             this.Controls.Add(this.exit_button);
             this.Controls.Add(this.newTransaction_button);
