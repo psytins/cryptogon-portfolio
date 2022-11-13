@@ -16,7 +16,7 @@ namespace CryptoPortfolio
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new portfolioStart_form());
+            Application.Run(new MainForm());
         }
     }
 }
