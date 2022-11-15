@@ -121,6 +121,7 @@ namespace CryptoPortfolio
                 //Update Main Form and Close this Form
                 rootPortfolioForm.UpdateForm();
                 this.Dispose();
+                
             }
         }
 

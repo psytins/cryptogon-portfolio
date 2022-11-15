@@ -14,3 +14,6 @@ D:\Trabalho\PROJETOS\CryptoPortfolio\CryptoPortfolio\obj\Debug\CryptoPortfolio.T
 D:\Trabalho\PROJETOS\CryptoPortfolio\CryptoPortfolio\obj\Debug\CryptoPortfolio.exe.manifest
 D:\Trabalho\PROJETOS\CryptoPortfolio\CryptoPortfolio\obj\Debug\CryptoPortfolio.application
 D:\Trabalho\PROJETOS\CryptoPortfolio\CryptoPortfolio\obj\Debug\CryptoPortfolio.csproj.AssemblyReference.cache
+D:\Trabalho\PROJETOS\CryptoPortfolio\CryptoPortfolio\obj\Debug\CryptoPortfolio.MainForm.resources
+D:\Trabalho\PROJETOS\CryptoPortfolio\CryptoPortfolio\obj\Debug\CryptoPortfolio.registerForm.resources
+D:\Trabalho\PROJETOS\CryptoPortfolio\CryptoPortfolio\obj\Debug\CryptoPortfolio.loginForm.resources

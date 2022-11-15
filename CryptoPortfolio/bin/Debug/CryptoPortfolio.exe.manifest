@@ -42,24 +42,24 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CryptoPortfolio.exe" size="24096">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CryptoPortfolio.exe" size="132640">
       <assemblyIdentity name="CryptoPortfolio" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>NC/eVMs3cu1ckIrmKuS7zWJ9QjEr0ngI8t5J9KznMiY=</dsig:DigestValue>
+        <dsig:DigestValue>UfulhmZ+MXYplQYGSdlM6XDL6uZ6XZHEkJT+9v7U2rM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="CryptoPortfolio.exe.config" size="1091">
+  <file name="CryptoPortfolio.exe.config" size="1228">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>F94WPey4KuNiNGGCMgYPiqADiAvOHwVc8CUi8CvGbNU=</dsig:DigestValue>
+      <dsig:DigestValue>u5QVPSqnh5vfwDw/gBlhrXmi52/OBPyB+Kx6Z4PHeRQ=</dsig:DigestValue>
     </hash>
   </file>
   <file name="data\coins.xml" size="928" writeableType="applicationData">
@@ -78,6 +78,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>jbN40tdwCOUIv66QYuSUi74cy5xEuCcndQGmsbitKSo=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="data\users.xml" size="63" writeableType="applicationData">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>L/L+HnXcg7k/t3xZr0z3Sx2Yb5vQZZixjklmOHZFDvU=</dsig:DigestValue>
     </hash>
   </file>
   <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">

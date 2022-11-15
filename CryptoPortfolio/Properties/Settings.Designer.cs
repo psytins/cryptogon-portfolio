@@ -40,5 +40,14 @@ namespace CryptoPortfolio.Properties {
                 return ((string)(this["XMLportfolioPath"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("//data//users.xml")]
+        public string XMLuserPath {
+            get {
+                return ((string)(this["XMLuserPath"]));
+            }
+        }
     }
 }

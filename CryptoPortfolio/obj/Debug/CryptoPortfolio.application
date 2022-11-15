@@ -7,14 +7,14 @@
     <framework targetVersion="4.7.2" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="CryptoPortfolio.exe.manifest" size="5453">
+    <dependentAssembly dependencyType="install" codebase="CryptoPortfolio.exe.manifest" size="5876">
       <assemblyIdentity name="CryptoPortfolio.exe" version="1.0.0.3" publicKeyToken="0000000000000000" language="pt" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>m0J6veExujGpAi6wsOo9LhZRx/i/57+uS8x7KyBEVBU=</dsig:DigestValue>
+        <dsig:DigestValue>BPXEfljrLM8WE6eFEytBzoI68yaPhIg2aaXNziUT3XY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
