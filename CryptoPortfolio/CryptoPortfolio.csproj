@@ -177,6 +177,7 @@
     <Content Include="data\coins.xml" />
     <Content Include="data\portfolio.xml" />
     <Content Include="data\users.xml" />
+    <None Include="Resources\Logo.png" />
     <None Include="Resources\signinButton.png" />
     <None Include="Resources\signupButton-hover.png" />
     <None Include="Resources\signinButton-hover.png" />
