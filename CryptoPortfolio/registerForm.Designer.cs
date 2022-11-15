@@ -31,11 +31,14 @@ namespace CryptoPortfolio
         {
             this.mouseGrab = new System.Windows.Forms.Panel();
             this.topPanel = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.nothinErrorLabel = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.confirmPasswordErrorLabel = new System.Windows.Forms.TextBox();
             this.passwordErrorLabel = new System.Windows.Forms.TextBox();
             this.emailErrorLabel = new System.Windows.Forms.TextBox();
             this.nameErrorLabel = new System.Windows.Forms.TextBox();
+            this.signupButton = new System.Windows.Forms.Button();
             this.confirmPasswordTextBox = new System.Windows.Forms.TextBox();
             this.confirmPasswordLineLabel = new System.Windows.Forms.Label();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
@@ -46,12 +49,9 @@ namespace CryptoPortfolio
             this.lastNameLineLabel = new System.Windows.Forms.Label();
             this.firstNameTextBox = new System.Windows.Forms.TextBox();
             this.firstNameLineLabel = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.signInButton = new System.Windows.Forms.Button();
-            this.signupButton = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.topPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -95,6 +95,19 @@ namespace CryptoPortfolio
             this.topPanel.Size = new System.Drawing.Size(512, 553);
             this.topPanel.TabIndex = 1;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label1.Font = new System.Drawing.Font("Inter Black", 20F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
+            this.label1.Location = new System.Drawing.Point(197, 36);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(116, 33);
+            this.label1.TabIndex = 20;
+            this.label1.Text = "Sign up";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // nothinErrorLabel
             // 
             this.nothinErrorLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
@@ -108,6 +121,17 @@ namespace CryptoPortfolio
             this.nothinErrorLabel.Text = "Please, complete all the spaces.";
             this.nothinErrorLabel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.nothinErrorLabel.Visible = false;
+            // 
+            // label2
+            // 
+            this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(150)))), ((int)(((byte)(186)))));
+            this.label2.Location = new System.Drawing.Point(188, 67);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(132, 21);
+            this.label2.TabIndex = 21;
+            this.label2.Text = "____________________________________________________________";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // confirmPasswordErrorLabel
             // 
@@ -145,11 +169,11 @@ namespace CryptoPortfolio
             this.emailErrorLabel.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.emailErrorLabel.Font = new System.Drawing.Font("Inter SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.emailErrorLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(118)))), ((int)(((byte)(112)))));
-            this.emailErrorLabel.Location = new System.Drawing.Point(156, 207);
+            this.emailErrorLabel.Location = new System.Drawing.Point(129, 207);
             this.emailErrorLabel.Name = "emailErrorLabel";
-            this.emailErrorLabel.Size = new System.Drawing.Size(208, 16);
+            this.emailErrorLabel.Size = new System.Drawing.Size(250, 16);
             this.emailErrorLabel.TabIndex = 14;
-            this.emailErrorLabel.Text = "E-mail incorrect form.";
+            this.emailErrorLabel.Text = "Error";
             this.emailErrorLabel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.emailErrorLabel.Visible = false;
             // 
@@ -166,6 +190,26 @@ namespace CryptoPortfolio
             this.nameErrorLabel.Text = "Don\'t add spaces or numbers.";
             this.nameErrorLabel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.nameErrorLabel.Visible = false;
+            // 
+            // signupButton
+            // 
+            this.signupButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.signupButton.BackgroundImage = global::CryptoPortfolio.Properties.Resources.signupButton;
+            this.signupButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.signupButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.signupButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.signupButton.FlatAppearance.BorderSize = 0;
+            this.signupButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.signupButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.signupButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.signupButton.Location = new System.Drawing.Point(100, 400);
+            this.signupButton.Name = "signupButton";
+            this.signupButton.Size = new System.Drawing.Size(300, 50);
+            this.signupButton.TabIndex = 12;
+            this.signupButton.UseVisualStyleBackColor = false;
+            this.signupButton.Click += new System.EventHandler(this.signupButton_Click);
+            this.signupButton.MouseEnter += new System.EventHandler(this.signupButton_MouseEnter);
+            this.signupButton.MouseLeave += new System.EventHandler(this.signupButton_MouseLeave);
             // 
             // confirmPasswordTextBox
             // 
@@ -299,6 +343,17 @@ namespace CryptoPortfolio
             this.firstNameLineLabel.Text = "____________________________";
             this.firstNameLineLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.pictureBox1.BackgroundImage = global::CryptoPortfolio.Properties.Resources.Logo_login;
+            this.pictureBox1.Location = new System.Drawing.Point(11, 11);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(155, 50);
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -329,61 +384,6 @@ namespace CryptoPortfolio
             this.signInButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.signInButton.UseVisualStyleBackColor = false;
             this.signInButton.Click += new System.EventHandler(this.signInButton_Click);
-            // 
-            // signupButton
-            // 
-            this.signupButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.signupButton.BackgroundImage = global::CryptoPortfolio.Properties.Resources.signupButton;
-            this.signupButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.signupButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.signupButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.signupButton.FlatAppearance.BorderSize = 0;
-            this.signupButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.signupButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.signupButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.signupButton.Location = new System.Drawing.Point(100, 400);
-            this.signupButton.Name = "signupButton";
-            this.signupButton.Size = new System.Drawing.Size(300, 50);
-            this.signupButton.TabIndex = 12;
-            this.signupButton.UseVisualStyleBackColor = false;
-            this.signupButton.Click += new System.EventHandler(this.signupButton_Click);
-            this.signupButton.MouseEnter += new System.EventHandler(this.signupButton_MouseEnter);
-            this.signupButton.MouseLeave += new System.EventHandler(this.signupButton_MouseLeave);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.pictureBox1.BackgroundImage = global::CryptoPortfolio.Properties.Resources.Logo_login;
-            this.pictureBox1.Location = new System.Drawing.Point(11, 11);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(155, 50);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label1.Font = new System.Drawing.Font("Inter Black", 20F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
-            this.label1.Location = new System.Drawing.Point(197, 36);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(116, 33);
-            this.label1.TabIndex = 20;
-            this.label1.Text = "Sign up";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label2
-            // 
-            this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(150)))), ((int)(((byte)(186)))));
-            this.label2.Location = new System.Drawing.Point(188, 67);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(132, 21);
-            this.label2.TabIndex = 21;
-            this.label2.Text = "____________________________________________________________";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // registerForm
             // 

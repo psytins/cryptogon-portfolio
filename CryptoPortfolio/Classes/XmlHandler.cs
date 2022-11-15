@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using System.Text;
 using System.Windows.Forms;
 using System.Xml.Linq;
 
@@ -27,14 +29,46 @@ namespace CryptoPortfolio.Classes
         }
         public void writePortfolio(Portfolio portfolioToRegister) { }
         //Read
-        public void readCoin(int coinID) { }
-        public void readUser(int userID) 
+        // public Coin readCoin(string coinName) { }
+        public User readUser(string email) 
         {
+            //Load xml
+            XDocument xdoc = XDocument.Load(Application.LocalUserAppDataPath + Properties.Settings.Default.XMLuserPath);
 
+            //Run query to select all User objects
+            var userQuery = from user in xdoc.Descendants("User")
+                           select new User(
+                               int.Parse(user.Element("ID").Value),
+                               user.Element("FirstName").Value,
+                               user.Element("LastName").Value,
+                               user.Element("EmailAddress").Value,
+                               user.Element("Password").Value);
+            //Go throught each user objects
+            foreach (User users in userQuery)
+            {
+                if (users.EmailAddress == email) //return the correct user
+                    return users;
+            }
 
-        
+            return null; //return null if there is no user with the respective email
         }
-        public void readPortfolio(int portfolioID) { }
+
+        public int readUserLastID()
+        {
+            //Load xml
+            XDocument xdoc = XDocument.Load(Application.LocalUserAppDataPath + Properties.Settings.Default.XMLuserPath);
+
+            //Run query to select all IDS
+            var idsQuery = from user in xdoc.Descendants("User")
+                             select user.Element("ID").Value;
+
+            if (idsQuery.Count() == 0)
+                return -1;
+            else
+                return int.Parse(idsQuery.Last<string>());
+        }
+
+        //public void readPortfolio(int portfolioID) { }
 
         //Update...
     }

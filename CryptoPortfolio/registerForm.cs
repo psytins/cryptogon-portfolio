@@ -140,11 +140,8 @@ namespace CryptoPortfolio
                 //Regist new user information to the data base
                 //Create User object
 
-                //ID is missing !!!
-
                 User user = new User(firstNameTextBox.Text, lastNameTextBox.Text, emailAddressTextBox.Text, passwordTextBox.Text); 
                 new XmlHandler().writeUser(user); //write user in xml
-                
                 
                 // -------------
                 MessageBox.Show("Thanks! Please Sign in now", "All done!", MessageBoxButtons.OK,MessageBoxIcon.Information);
@@ -200,6 +197,15 @@ namespace CryptoPortfolio
             else if (!email_regex.IsMatch(emailAddressTextBox.Text))
             {
                 buttonRun();
+                emailErrorLabel.Text = "Email incorrect form.";
+                emailErrorLabel.Visible = true;
+                emailLineLabel.ForeColor = Color.FromArgb(194, 118, 112);
+                return false;
+            }
+            else if (new XmlHandler().readUser(emailAddressTextBox.Text) != null) //The email already exists
+            {
+                buttonRun();
+                emailErrorLabel.Text = "Email already exists.";
                 emailErrorLabel.Visible = true;
                 emailLineLabel.ForeColor = Color.FromArgb(194, 118, 112);
                 return false;
