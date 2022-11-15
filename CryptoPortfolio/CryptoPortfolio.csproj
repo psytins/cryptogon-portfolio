@@ -85,13 +85,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Coin.cs" />
+    <Compile Include="Classes\Coin.cs" />
+    <Compile Include="Classes\XmlHandler.cs" />
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="newTransaction.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="newTransaction.Designer.cs">
       <DependentUpon>newTransaction.cs</DependentUpon>
     </Compile>
+    <Compile Include="Classes\Portfolio.cs" />
     <Compile Include="portfolioStart.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +108,22 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="loginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="loginForm.Designer.cs">
+      <DependentUpon>loginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="registerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="registerForm.Designer.cs">
+      <DependentUpon>registerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\User.cs" />
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="newTransaction.resx">
       <DependentUpon>newTransaction.cs</DependentUpon>
     </EmbeddedResource>
@@ -114,7 +138,14 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="loginForm.resx">
+      <DependentUpon>loginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="registerForm.resx">
+      <DependentUpon>registerForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="CryptoPortfolio_TemporaryKey.pfx" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
@@ -145,6 +176,30 @@
   <ItemGroup>
     <Content Include="data\coins.xml" />
     <Content Include="data\portfolio.xml" />
+    <Content Include="data\users.xml" />
+    <None Include="Resources\signinButton.png" />
+    <None Include="Resources\signupButton-hover.png" />
+    <None Include="Resources\signinButton-hover.png" />
+    <None Include="Resources\signupButton.png" />
+    <None Include="Resources\Logo-login.png" />
+    <None Include="Resources\Polygon 2.png" />
+    <None Include="Resources\Polygon 1.png" />
+    <None Include="Resources\percentageUP.png" />
+    <None Include="Resources\percentageDOWN.png" />
+    <None Include="Resources\logout-button.png" />
+    <None Include="Resources\login button.png" />
+    <None Include="Resources\Assets-hover.png" />
+    <None Include="Resources\Insights-hover.png" />
+    <None Include="Resources\History-hover.png" />
+    <None Include="Resources\Dashboard-hover.png" />
+    <None Include="Resources\Insights.png" />
+    <None Include="Resources\History.png" />
+    <None Include="Resources\Dashboard.png" />
+    <None Include="Resources\Assets.png" />
+    <None Include="Resources\Insights-selected.png" />
+    <None Include="Resources\History-selected.png" />
+    <None Include="Resources\Dashboard-selected.png" />
+    <None Include="Resources\Assets-selected.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
