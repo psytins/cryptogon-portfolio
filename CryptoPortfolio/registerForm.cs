@@ -47,7 +47,6 @@ namespace CryptoPortfolio
         {
             if (firstNameTextBox.Text == "")
                 firstNameTextBox.Text = "First name";
-
         }
 
         private void lastNameTextBox_MouseClick(object sender, MouseEventArgs e)
@@ -87,7 +86,6 @@ namespace CryptoPortfolio
             if (!(passwordTextBox.Text == "Password"))
                 passwordTextBox.PasswordChar = '*';
         }
-
         private void passwordTextBox_MouseLeave(object sender, EventArgs e)
         {
             if (passwordTextBox.Text == "")
@@ -96,7 +94,6 @@ namespace CryptoPortfolio
                 passwordTextBox.Text = "Password";
             }
         }
-
         private void confirmPasswordTextBox_MouseClick(object sender, MouseEventArgs e)
         {
             if (confirmPasswordTextBox.Text == "Confirm password")
@@ -106,7 +103,6 @@ namespace CryptoPortfolio
             }
 
         }
-
         private void confirmPasswordTextBox_TextChanged(object sender, EventArgs e)
         {
             if (!(confirmPasswordTextBox.Text == "Confirm password"))
@@ -138,13 +134,15 @@ namespace CryptoPortfolio
             if (validateRegister())
             {
                 //Regist new user information to the data base
-                //Create User object
 
+                //Create User object
                 User user = new User(firstNameTextBox.Text, lastNameTextBox.Text, emailAddressTextBox.Text, passwordTextBox.Text); 
                 XmlHandler.writeUser(user); //write user in xml
                 
-                // -------------
+                // ------------
+
                 MessageBox.Show("Thanks! Please Sign in now", "All done!", MessageBoxButtons.OK,MessageBoxIcon.Information);
+
                 new loginForm().Show();
                 this.Close();
             }
@@ -152,15 +150,18 @@ namespace CryptoPortfolio
 
         private bool validateRegister()
         {
-            //Reset error labels
+            //Reset error labels and text lines
             nothinErrorLabel.Visible = false;
             nameErrorLabel.Visible = false;
             firstNameLineLabel.ForeColor = Color.FromArgb(231, 236, 239);
             lastNameLineLabel.ForeColor = Color.FromArgb(231, 236, 239);
+
             emailErrorLabel.Visible = false;
             emailLineLabel.ForeColor = Color.FromArgb(231, 236, 239);
+
             passwordErrorLabel.Visible = false;
             passwordLineLabel.ForeColor = Color.FromArgb(231, 236, 239);
+
             confirmPasswordErrorLabel.Visible = false;
             confirmPasswordLineLabel.ForeColor = Color.FromArgb(231, 236, 239);
 
@@ -230,9 +231,9 @@ namespace CryptoPortfolio
             }
         }
 
-        private void buttonRun()
+        private void buttonRun() //allow the button to "run" if register validation returns false
         {
-            if(signupButton.Location.Y == 400) //default localization
+            if(signupButton.Location.Y == 400) //default localization of the button
             {
                 signupButton.Location = new Point(signupButton.Location.X + new Random().Next(-40, 40), signupButton.Location.Y + new Random().Next(50,80));
             }
