@@ -638,6 +638,7 @@ namespace CryptoPortfolio
             this.MinimumSize = new System.Drawing.Size(1024, 768);
             this.Name = "MainForm";
             this.Text = "CryptoGon";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.mouseGrab.ResumeLayout(false);
             this.mouseGrab.PerformLayout();

@@ -24,14 +24,40 @@ namespace CryptoPortfolio
         public MainForm()
         {
             InitializeComponent();
+            this.FormClosed += new FormClosedEventHandler(this.MainForm_FormClosed);
+
+        }
+
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            //Closed here
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            //Currency Labels
             valueCurrencyLabel.Text = CURRENT_CURRENCY;
+            totalInvestedCurrencyLabel.Text = CURRENT_CURRENCY;
+            gainLossCurrencyLabel.Text = CURRENT_CURRENCY;
+
+            //Version Label
             versionLabel.Text = CURRENT_VERSION;
-            //Load Components
+
+            //Load Components ----
+            
+            //Read Existant Portfolios
+
+            //If the current user don't have any portfolio:
+                //Show pop up to user write new portfolio name
+                //Create default portfolio
+                //added to portolios xml
+            //else
+                //Show first portfolio returned and load it' components 
+
+
             showPositivePercentage(100);
+
+
             dashboardButton.BackgroundImage = Properties.Resources.Dashboard_selected; //maybe
         }
 
@@ -43,7 +69,6 @@ namespace CryptoPortfolio
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
-
 
         private void showNegativePercentage(int percentage)
         {
