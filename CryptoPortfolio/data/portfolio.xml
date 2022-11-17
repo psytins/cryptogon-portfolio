@@ -1,3 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Portfolio>
-</Portfolio>
+<Portfolios>
+  
+  <Portfolio>
+
+    <ID>0</ID>
+    <OwnershipID>0</OwnershipID>
+    
+    <PortfolioName></PortfolioName>
+    <TotalInvested></TotalInvested>
+    
+    <TransactionHistory>
+      <Transaction>
+        <Type>BUY</Type>
+        <Coin>Ethereum</Coin>
+        <Date>08/11/2022 00:00:00</Date>
+        <Amount>1,00000</Amount>
+        <Price>1,00000</Price>
+        <Cost>1,00</Cost>
+        <Fee>1,00</Fee>
+        <Total>2,00</Total>
+      </Transaction>
+      <Transaction>
+        <Type>BUY</Type>
+        <Coin>Ethereum</Coin>
+        <Date>08/11/2022 00:00:00</Date>
+        <Amount>1,00000</Amount>
+        <Price>1,00000</Price>
+        <Cost>1,00</Cost>
+        <Fee>1,00</Fee>
+        <Total>2,00</Total>
+      </Transaction>
+    </TransactionHistory>
+    
+  </Portfolio>
+  
+</Portfolios>
