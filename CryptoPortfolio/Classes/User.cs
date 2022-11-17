@@ -60,7 +60,7 @@ namespace CryptoPortfolio
         //Functions
         private int readLastID()
         {
-            int lastID = new XmlHandler().readUserLastID();
+            int lastID = XmlHandler.readUserLastID();
             if (lastID == -1)
                 return 0;
             else

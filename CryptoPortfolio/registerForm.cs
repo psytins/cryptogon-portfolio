@@ -141,7 +141,7 @@ namespace CryptoPortfolio
                 //Create User object
 
                 User user = new User(firstNameTextBox.Text, lastNameTextBox.Text, emailAddressTextBox.Text, passwordTextBox.Text); 
-                new XmlHandler().writeUser(user); //write user in xml
+                XmlHandler.writeUser(user); //write user in xml
                 
                 // -------------
                 MessageBox.Show("Thanks! Please Sign in now", "All done!", MessageBoxButtons.OK,MessageBoxIcon.Information);
@@ -202,7 +202,7 @@ namespace CryptoPortfolio
                 emailLineLabel.ForeColor = Color.FromArgb(194, 118, 112);
                 return false;
             }
-            else if (new XmlHandler().readUser(emailAddressTextBox.Text) != null) //The email already exists
+            else if (XmlHandler.readUser(emailAddressTextBox.Text) != null) //The email already exists
             {
                 buttonRun();
                 emailErrorLabel.Text = "Email already exists.";
