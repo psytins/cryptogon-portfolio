@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CryptoPortfolio.Classes;
+using System;
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
@@ -8,6 +9,8 @@ namespace CryptoPortfolio
 {
     public partial class loginForm : Form
     {
+        User SESSION;
+
         //Lets the mouse move the form withou border
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
@@ -61,7 +64,6 @@ namespace CryptoPortfolio
             if (!(passwordTextBox.Text == "Password"))
                 passwordTextBox.PasswordChar = '*';
         }
-
         private void passwordTextBox_MouseLeave(object sender, EventArgs e)
         {
             if (passwordTextBox.Text == "")
@@ -86,7 +88,10 @@ namespace CryptoPortfolio
         {
             if (validateRegister())
             {
-                MessageBox.Show("Ok");
+                //Get the user
+                SESSION = XmlHandler.readUser(emailAddressTextBox.Text);
+
+                MessageBox.Show("Welcome " + SESSION.FirstName + " " + SESSION.LastName);
             }
         }
 
@@ -99,9 +104,7 @@ namespace CryptoPortfolio
             emailLineLabel.ForeColor = Color.FromArgb(231, 236, 239);
             passwordLineLabel.ForeColor = Color.FromArgb(231, 236, 239);
 
-            //Regex name_regex = new Regex(@"^[a-zA-Z\u00C0-\u00FF]*$"); //No spaces and allow alphabets and accented characters
             Regex email_regex = new Regex(@"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"); //Email format
-            //Regex password_regex = new Regex(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$");//Minimum eight characters, at least one uppercase letter, one lowercase letter and one number
             if (emailAddressTextBox.Text == "E-mail address" || passwordTextBox.Text == "Password")
             {
                 buttonRun();
@@ -112,18 +115,18 @@ namespace CryptoPortfolio
                     passwordLineLabel.ForeColor = Color.FromArgb(194, 118, 112);
                 return false;
             }
-            else if (!email_regex.IsMatch(emailAddressTextBox.Text))
+            else if (XmlHandler.readUser(emailAddressTextBox.Text) == null) //The email don't exists
             {
                 buttonRun();
                 emailErrorLabel.Visible = true;
-                if (!email_regex.IsMatch(emailAddressTextBox.Text))
-                    emailLineLabel.ForeColor = Color.FromArgb(194, 118, 112);
+                emailLineLabel.ForeColor = Color.FromArgb(194, 118, 112);
                 return false;
             }
-            else if (passwordTextBox.Text != "123") //incomplete
+            else if (XmlHandler.readUser(emailAddressTextBox.Text).Password != passwordTextBox.Text) //check if the password is correct
             {
                 buttonRun();
                 passwordErrorLabel.Visible = true;
+                passwordLineLabel.ForeColor = Color.FromArgb(194, 118, 112);
                 return false;
             }
             else

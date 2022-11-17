@@ -8,8 +8,9 @@ namespace CryptoPortfolio.Classes
 {
     class XmlHandler
     {
-        //Write
+        //Write ------------------------------
         public static void writeCoin(Coin coinToRegister) { }
+
         public static void writeUser(User userToRegister) 
         {
             XDocument xmldoc = XDocument.Load(Application.LocalUserAppDataPath + Properties.Settings.Default.XMLuserPath);
@@ -25,9 +26,12 @@ namespace CryptoPortfolio.Classes
             //Save to XML
             xmldoc.Save(Application.LocalUserAppDataPath + Properties.Settings.Default.XMLuserPath);
         }
+
         public static void writePortfolio(Portfolio portfolioToRegister) { }
-        //Read
+
+        //Read ----------------------
         // public Coin readCoin(string coinName) { }
+
         public static User readUser(string email) 
         {
             //Load xml
@@ -50,7 +54,6 @@ namespace CryptoPortfolio.Classes
 
             return null; //return null if there is no user with the respective email
         }
-
         public static int readUserLastID()
         {
             //Load xml
