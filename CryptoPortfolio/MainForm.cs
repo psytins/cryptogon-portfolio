@@ -1,5 +1,7 @@
 ﻿using CryptoPortfolio;
+using Microsoft.VisualBasic;
 using System;
+using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
@@ -22,6 +24,8 @@ namespace CryptoPortfolio
         int CURRENT_PAGE = 1;
 
         private User SESSION;
+        private List<Portfolio> SESSION_PORTFOLIO;
+
         internal void setSession(User session)
         {
             this.SESSION = session;            
@@ -50,21 +54,31 @@ namespace CryptoPortfolio
             versionLabel.Text = CURRENT_VERSION;
 
             //Load Components ----
-            
+
             //Read Existant Portfolios
+            SESSION_PORTFOLIO = XmlHandler.readPortfolio(SESSION.ID);
 
-            //If the current user don't have any portfolio:
-                //Show pop up to user write new portfolio name
-                //Create default portfolio
-                //added to portolios xml
-            //else
-                //Show first portfolio returned and load it' components 
-
-
-            showPositivePercentage(100);
-
+            if(SESSION_PORTFOLIO.Count == 0)
+            {
+                //Create a new portfolio
+                String portfolioName = Interaction.InputBox("Welcome! Please create a new portfolio", "Portfolio Name");
+                Portfolio portfolio = new Portfolio(SESSION.ID, portfolioName, 0);
+                SESSION_PORTFOLIO.Add(portfolio);
+                XmlHandler.writePortfolio(portfolio);
+                UpdateForm();
+            }
+            else 
+            {
+                UpdateForm();               
+            }
 
             dashboardButton.BackgroundImage = Properties.Resources.Dashboard_selected; //maybe
+        }
+
+        private void UpdateForm()
+        {
+            accountNameLabel.Text = SESSION.FirstName + " " + SESSION.LastName;
+            portfolioNameLabel.Text = SESSION_PORTFOLIO.ToArray()[0].PorfolioName;
         }
 
         private void mouseGrab_MouseDown(object sender, MouseEventArgs e)

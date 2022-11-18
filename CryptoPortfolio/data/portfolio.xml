@@ -11,7 +11,7 @@
     
     <TransactionHistory>
       <Transaction>
-        <Type>BUY</Type>
+        <Type>1</Type>
         <Coin>Ethereum</Coin>
         <Date>08/11/2022 00:00:00</Date>
         <Amount>1,00000</Amount>
