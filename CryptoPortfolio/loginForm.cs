@@ -1,4 +1,4 @@
-﻿using CryptoPortfolio.Classes;
+﻿using CryptoPortfolio;
 using System;
 using System.Drawing;
 using System.Runtime.InteropServices;
@@ -9,8 +9,6 @@ namespace CryptoPortfolio
 {
     public partial class loginForm : Form
     {
-        User SESSION;
-
         //Lets the mouse move the form withou border
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
@@ -88,10 +86,17 @@ namespace CryptoPortfolio
         {
             if (validateRegister())
             {
-                //Get the user
-                SESSION = XmlHandler.readUser(emailAddressTextBox.Text);
+                User validatedUser = XmlHandler.readUser(emailAddressTextBox.Text);
+                MessageBox.Show("Welcome " + validatedUser.FirstName + " " + validatedUser.LastName);
 
-                MessageBox.Show("Welcome " + SESSION.FirstName + " " + SESSION.LastName);
+                //Create new MainForm Object
+                MainForm mainForm = new MainForm();
+
+                //Get the user
+                mainForm.setSession(validatedUser);
+
+                mainForm.Show();
+                this.Close();
             }
         }
 

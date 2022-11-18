@@ -86,6 +86,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Coin.cs" />
+    <Compile Include="Classes\Portfolio\Transaction.cs" />
     <Compile Include="Classes\XmlHandler.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -99,7 +100,7 @@
     <Compile Include="newTransaction.Designer.cs">
       <DependentUpon>newTransaction.cs</DependentUpon>
     </Compile>
-    <Compile Include="Classes\Portfolio.cs" />
+    <Compile Include="Classes\Portfolio\Portfolio.cs" />
     <Compile Include="portfolioStart.cs">
       <SubType>Form</SubType>
     </Compile>

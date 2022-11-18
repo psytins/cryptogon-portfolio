@@ -15,20 +15,22 @@
         <Coin>Ethereum</Coin>
         <Date>08/11/2022 00:00:00</Date>
         <Amount>1,00000</Amount>
-        <Price>1,00000</Price>
+        <CoinPrice>1,00000</CoinPrice>
         <Cost>1,00</Cost>
         <Fee>1,00</Fee>
         <Total>2,00</Total>
+        <Notes>Foo</Notes>
       </Transaction>
       <Transaction>
         <Type>BUY</Type>
         <Coin>Ethereum</Coin>
         <Date>08/11/2022 00:00:00</Date>
         <Amount>1,00000</Amount>
-        <Price>1,00000</Price>
+        <CoinPrice>1,00000</CoinPrice>
         <Cost>1,00</Cost>
         <Fee>1,00</Fee>
         <Total>2,00</Total>
+        <Notes>Foo</Notes>
       </Transaction>
     </TransactionHistory>
     

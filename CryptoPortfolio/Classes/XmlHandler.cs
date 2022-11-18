@@ -4,7 +4,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Xml.Linq;
 
-namespace CryptoPortfolio.Classes
+namespace CryptoPortfolio
 {
     class XmlHandler
     {
@@ -69,7 +69,13 @@ namespace CryptoPortfolio.Classes
                 return int.Parse(idsQuery.Last<string>());
         }
 
-        //public void readPortfolio(int portfolioID) { }
+        public static Portfolio readPortfolio(int ownerID) {
+
+
+
+
+            return null;
+        }
 
         //Update...
     }

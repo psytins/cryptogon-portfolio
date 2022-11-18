@@ -22,7 +22,6 @@ D:\Trabalho\PROJETOS\CryptoPortfolio_\CryptoPortfolio\CryptoPortfolio\bin\Debug\
 D:\Trabalho\PROJETOS\CryptoPortfolio_\CryptoPortfolio\CryptoPortfolio\bin\Debug\CryptoPortfolio.application
 D:\Trabalho\PROJETOS\CryptoPortfolio_\CryptoPortfolio\CryptoPortfolio\bin\Debug\CryptoPortfolio.exe
 D:\Trabalho\PROJETOS\CryptoPortfolio_\CryptoPortfolio\CryptoPortfolio\bin\Debug\CryptoPortfolio.pdb
-D:\Trabalho\PROJETOS\CryptoPortfolio_\CryptoPortfolio\CryptoPortfolio\obj\Debug\CryptoPortfolio.csproj.AssemblyReference.cache
 D:\Trabalho\PROJETOS\CryptoPortfolio_\CryptoPortfolio\CryptoPortfolio\obj\Debug\CryptoPortfolio.MainForm.resources
 D:\Trabalho\PROJETOS\CryptoPortfolio_\CryptoPortfolio\CryptoPortfolio\obj\Debug\CryptoPortfolio.newTransaction_form.resources
 D:\Trabalho\PROJETOS\CryptoPortfolio_\CryptoPortfolio\CryptoPortfolio\obj\Debug\CryptoPortfolio.portfolioStart_form.resources

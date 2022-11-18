@@ -1,5 +1,5 @@
-﻿using System;
-using System.Drawing;
+﻿using CryptoPortfolio;
+using System;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
@@ -20,6 +20,12 @@ namespace CryptoPortfolio
         String CURRENT_CURRENCY = "€";
         String CURRENT_VERSION = "Current Version 1.0.0.2 - pre-alpha";
         int CURRENT_PAGE = 1;
+
+        private User SESSION;
+        internal void setSession(User session)
+        {
+            this.SESSION = session;            
+        }
 
         public MainForm()
         {

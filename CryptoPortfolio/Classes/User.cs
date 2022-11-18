@@ -1,4 +1,4 @@
-﻿using CryptoPortfolio.Classes;
+﻿using CryptoPortfolio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +23,7 @@ namespace CryptoPortfolio
             this.emailAddress = emailAddress;
             this.password = password;
         }
+        
         public User(int id, String firstName, String lastName, String emailAddress, String password)
         {
 
@@ -57,7 +58,7 @@ namespace CryptoPortfolio
             set { this.password = value; }
         }
 
-        //Functions
+        //---------
         private int readLastID()
         {
             int lastID = XmlHandler.readUserLastID();
