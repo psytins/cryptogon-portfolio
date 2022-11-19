@@ -92,7 +92,7 @@ namespace CryptoPortfolio
                 //Create new MainForm Object
                 MainForm mainForm = new MainForm();
 
-                //Get the user
+                //Set the user
                 mainForm.setSession(validatedUser);
 
                 mainForm.Show();

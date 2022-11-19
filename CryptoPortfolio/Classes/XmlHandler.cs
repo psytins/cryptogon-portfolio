@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using System.Xml.Linq;
 
@@ -22,7 +20,7 @@ namespace CryptoPortfolio
             sub_root.Add(new XElement("FirstName", userToRegister.FirstName));
             sub_root.Add(new XElement("LastName", userToRegister.LastName));
             sub_root.Add(new XElement("EmailAddress", userToRegister.EmailAddress));
-            sub_root.Add(new XElement("Password", userToRegister.Password));
+            sub_root.Add(new XElement("Password", userToRegister.Password)); //not encrypted
             root.Add(sub_root);//Add the Head to the root
             //Save to XML
             xmldoc.Save(Application.LocalUserAppDataPath + Properties.Settings.Default.XMLuserPath);
@@ -50,7 +48,7 @@ namespace CryptoPortfolio
                 sub_root_transaction.Add(new XElement("CoinPrice", transactions.CoinPrice));
                 sub_root_transaction.Add(new XElement("Cost", transactions.Cost));
                 sub_root_transaction.Add(new XElement("Fee", transactions.Fee));
-                sub_root_transaction.Add(new XElement("Total", transactions.TotaLCost));
+                sub_root_transaction.Add(new XElement("TotalCost", transactions.TotaLCost));
                 sub_root_transaction.Add(new XElement("Notes", transactions.Notes));
                 sub_root_transactions.Add(sub_root_transaction);
             }
@@ -120,17 +118,18 @@ namespace CryptoPortfolio
             //Go throught each portfolio objects
             foreach (Portfolio portfolios in portfolioQuery)
             {
-                var transactionQuery = from transactions in xdoc.Descendants("Transaction")
-                                            select new Transaction(
-                                                int.Parse(transactions.Element("Type").Value) == 1 ? Transaction.Type.Buy : Transaction.Type.Sell,
-                                                transactions.Element("Coin").Value,
-                                                transactions.Element("Date").Value,
-                                                float.Parse(transactions.Element("Amount").Value),
-                                                float.Parse(transactions.Element("CoinPrice").Value),
-                                                float.Parse(transactions.Element("Cost").Value),
-                                                float.Parse(transactions.Element("Fee").Value),
-                                                float.Parse(transactions.Element("TotalCost").Value),
-                                                transactions.Element("Notes").Value);
+                var transactionQuery = from transactions in xdoc.Descendants("Portfolio").Where(x => x.Element("ID").Value == portfolios.ID.ToString()).Descendants("TransactionHistory").Descendants("Transaction")
+                                       select new Transaction(
+                                               int.Parse(transactions.Element("Type").Value) == 1 ? Transaction.Type.Buy : Transaction.Type.Sell,
+                                               transactions.Element("Coin").Value,
+                                               transactions.Element("Date").Value,
+                                               float.Parse(transactions.Element("Amount").Value),
+                                               float.Parse(transactions.Element("CoinPrice").Value),
+                                               float.Parse(transactions.Element("Cost").Value),
+                                               float.Parse(transactions.Element("Fee").Value),
+                                               float.Parse(transactions.Element("TotalCost").Value),
+                                               transactions.Element("Notes").Value);
+                                        
 
                 portfolios.Transactions = transactionQuery.ToList();
 

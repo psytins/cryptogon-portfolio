@@ -2,6 +2,7 @@
 using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
@@ -19,12 +20,13 @@ namespace CryptoPortfolio
         public static extern bool ReleaseCapture();
         // -------------------
         //Global Variables
-        String CURRENT_CURRENCY = "€";
-        String CURRENT_VERSION = "Current Version 1.0.0.2 - pre-alpha";
-        int CURRENT_PAGE = 1;
+        private String CURRENT_CURRENCY = "€";
+        private String CURRENT_VERSION = "Current Version 1.0.0.2 - pre-alpha";
+        private int CURRENT_PAGE = 1;
 
         private User SESSION;
         private List<Portfolio> SESSION_PORTFOLIO;
+        private int CURRENT_PORTFOLIO_INDEX;
 
         internal void setSession(User session)
         {
@@ -45,12 +47,12 @@ namespace CryptoPortfolio
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            //Currency Labels
+            //Set Currency Labels
             valueCurrencyLabel.Text = CURRENT_CURRENCY;
             totalInvestedCurrencyLabel.Text = CURRENT_CURRENCY;
             gainLossCurrencyLabel.Text = CURRENT_CURRENCY;
 
-            //Version Label
+            //Set Version Label
             versionLabel.Text = CURRENT_VERSION;
 
             //Load Components ----
@@ -64,11 +66,13 @@ namespace CryptoPortfolio
                 String portfolioName = Interaction.InputBox("Welcome! Please create a new portfolio", "Portfolio Name");
                 Portfolio portfolio = new Portfolio(SESSION.ID, portfolioName, 0);
                 SESSION_PORTFOLIO.Add(portfolio);
+                CURRENT_PORTFOLIO_INDEX = 0;
                 XmlHandler.writePortfolio(portfolio);
                 UpdateForm();
             }
             else 
             {
+                CURRENT_PORTFOLIO_INDEX = 0;
                 UpdateForm();               
             }
 
@@ -78,7 +82,13 @@ namespace CryptoPortfolio
         private void UpdateForm()
         {
             accountNameLabel.Text = SESSION.FirstName + " " + SESSION.LastName;
-            portfolioNameLabel.Text = SESSION_PORTFOLIO.ToArray()[0].PorfolioName;
+            portfolioNameLabel.Text = SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].PorfolioName;
+
+            //It will change when I implement true values depending on crypto values
+            currentValueLabel.Text = SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].TotalInvested.ToString();
+            totalInvestedLabel.Text = currentValueLabel.Text; //in the future create a method to read the sum of all transactions costs
+            gainLossLabel.Text = (float.Parse(currentValueLabel.Text) - float.Parse(totalInvestedLabel.Text)).ToString(); //it will be always zero for now 
+            checkGainLoss();
         }
 
         private void mouseGrab_MouseDown(object sender, MouseEventArgs e)
@@ -102,6 +112,21 @@ namespace CryptoPortfolio
             arrowPanel.BackgroundImage = Properties.Resources.Polygon_1;
             percentageNumberLabel.Text = percentage.ToString() + "%";
         }
+        private void checkGainLoss()
+        {
+            if(float.Parse(gainLossLabel.Text) == 0f)
+            {
+                gainLossLabel.ForeColor = Color.FromArgb(87, 116, 149); 
+            }
+            else if (float.Parse(gainLossLabel.Text) > 0f)
+            {
+                gainLossLabel.ForeColor = Color.FromArgb(120, 188, 97);
+            }
+            else if (float.Parse(gainLossLabel.Text) < 0f)
+            {
+                gainLossLabel.ForeColor = Color.FromArgb(194, 118, 112);
+            }
+        }
 
         private void notificationButton_Click(object sender, EventArgs e)
         {
@@ -113,7 +138,7 @@ namespace CryptoPortfolio
             
         }
 
-        private void dashboardButton_MouseHover(object sender, EventArgs e)
+        private void dashboardButton_MouseEnter(object sender, EventArgs e)
         {
             if(CURRENT_PAGE != 1)
                 dashboardButton.BackgroundImage = Properties.Resources.Dashboard_hover;
@@ -121,24 +146,22 @@ namespace CryptoPortfolio
                 dashboardButton.BackgroundImage = Properties.Resources.Dashboard_selected;
         }
 
-        private void insightButton_MouseHover(object sender, EventArgs e)
+        private void insightButton_MouseEnter(object sender, EventArgs e)
         {
-            if(CURRENT_PAGE != 2)
+            if (CURRENT_PAGE != 2)
                 insightButton.BackgroundImage = Properties.Resources.Insights_hover;
             else
                 insightButton.BackgroundImage = Properties.Resources.Insights_selected;
+        }      
 
-        }
-
-        private void assetsButton_MouseHover(object sender, EventArgs e)
+        private void assetsButton_MouseEnter(object sender, EventArgs e)
         {
             if (CURRENT_PAGE != 3)
                 assetsButton.BackgroundImage = Properties.Resources.Assets_hover;
             else
                 assetsButton.BackgroundImage = Properties.Resources.Assets_selected;
         }
-
-        private void historyButton_MouseHover(object sender, EventArgs e)
+        private void historyButton_MouseEnter(object sender, EventArgs e)
         {
             if (CURRENT_PAGE != 4)
                 historyButton.BackgroundImage = Properties.Resources.History_hover;

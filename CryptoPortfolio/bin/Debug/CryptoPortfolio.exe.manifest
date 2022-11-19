@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CryptoPortfolio.exe" size="131104">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CryptoPortfolio.exe" size="132128">
       <assemblyIdentity name="CryptoPortfolio" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>buFy3L6Whh1zevJxNbTvsJQNNF7Uqq45sRazc1K8B0M=</dsig:DigestValue>
+        <dsig:DigestValue>xoblZwmxeRpbfU2/gNpXw/Mwy2MD9DnbICGseytkdRU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -71,13 +71,13 @@
       <dsig:DigestValue>QGfljvPSy2I4p2gJZzuuKo6MRR/RkkmEYGOB1ReTvrM=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="data\portfolio.xml" size="954" writeableType="applicationData">
+  <file name="data\portfolio.xml" size="70" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>P+Ys64nuClju9F+ouWX5z1OvZc9N86YS2X9Gs5LzXvQ=</dsig:DigestValue>
+      <dsig:DigestValue>G8sq1X3+Ma8OJP1TpPDotS+oX0chOGKJhvR3GBdMQsw=</dsig:DigestValue>
     </hash>
   </file>
   <file name="data\users.xml" size="63" writeableType="applicationData">
