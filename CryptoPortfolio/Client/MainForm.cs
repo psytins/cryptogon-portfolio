@@ -140,10 +140,14 @@ namespace CryptoPortfolio
 
         private void showPortfoliosButton_Click(object sender, EventArgs e) //display all portfolios of the current user
         {
+
             //Show panel
-            if(showPortfoliosPanel.Visible == false)    
+            if (showPortfoliosPanel.Visible == false)
+            {
+                showPortfoliosPanel.BringToFront();
                 showPortfoliosPanel.Visible = true;
-            else if(showPortfoliosPanel.Visible == true)
+            }
+            else if (showPortfoliosPanel.Visible == true)
                 showPortfoliosPanel.Visible = false;
 
             for(int i = 0; i < SESSION_PORTFOLIO.Count; i++)
@@ -151,7 +155,8 @@ namespace CryptoPortfolio
                 switch (i)
                 {
                     case 0:
-                        openPortfolio0Button.Text = SESSION_PORTFOLIO.ToArray()[i].PorfolioName;
+                        openPortfolio0Button.Text = SESSION_PORTFOLIO.ToArray()[i].PorfolioName; 
+                        openPortfolio0Button.ForeColor = Color.FromArgb(230, 235, 238);
                         openPortfolio0Button.Tag = 0;
 
                         //Check if this is the current portfolio
@@ -166,6 +171,7 @@ namespace CryptoPortfolio
 
                     case 1:
                         openPortfolio1Button.Text = SESSION_PORTFOLIO.ToArray()[i].PorfolioName;
+                        openPortfolio1Button.ForeColor = Color.FromArgb(230, 235, 238);
                         openPortfolio1Button.Tag = 1;
 
                         if (CURRENT_PORTFOLIO_INDEX == i)
@@ -179,6 +185,7 @@ namespace CryptoPortfolio
 
                     case 2:
                         openPortfolio2Button.Text = SESSION_PORTFOLIO.ToArray()[i].PorfolioName;
+                        openPortfolio2Button.ForeColor = Color.FromArgb(230, 235, 238);
                         openPortfolio2Button.Tag= 2;
 
                         if (CURRENT_PORTFOLIO_INDEX == i)
