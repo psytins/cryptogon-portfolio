@@ -100,6 +100,34 @@ namespace CryptoPortfolio
         }
 
         /// <summary>
+        /// Updates the Insight Form with the data of the selected portfolio.
+        /// </summary>
+        /// <param name="portfolio_index">Update to this portfolio index</param>
+        private void UpdateInsights(int portfolio_index)
+        {
+            CURRENT_PORTFOLIO_INDEX = portfolio_index;
+        }
+
+        /// <summary>
+        /// Updates the Assets Form with the data of the selected portfolio.
+        /// </summary>
+        /// <param name="portfolio_index">Update to this portfolio index</param>
+        private void UpdateAssets(int portfolio_index)
+        {
+            CURRENT_PORTFOLIO_INDEX = portfolio_index;
+        }
+
+        /// <summary>
+        /// Updates the History Form with the data of the selected portfolio.
+        /// </summary>
+        /// <param name="portfolio_index">Update to this portfolio index</param>
+        private void UpdateHistory(int portfolio_index)
+        {
+            CURRENT_PORTFOLIO_INDEX = portfolio_index;
+        }
+
+
+        /// <summary>
         /// Create a new portfolio for the current user and then load the just created portfolio. The limit per user is three.
         /// </summary>
         private void CreateNewPortfolio()
