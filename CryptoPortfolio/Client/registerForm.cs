@@ -27,6 +27,17 @@ namespace CryptoPortfolio
             //can be closed here
         }
 
+        // TEMPORARY. JUST FOR TESTING ! --------------------
+
+        private void registerForm_Load(object sender, EventArgs e)
+        {
+            signInButton_Click(sender, e);
+        }
+
+        // TEMPORARY. JUST FOR TESTING ! --------------------
+
+
+
         private void mouseGrab_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -251,5 +262,6 @@ namespace CryptoPortfolio
             new loginForm().Show(); 
             this.Close();
         }
+
     }
 }

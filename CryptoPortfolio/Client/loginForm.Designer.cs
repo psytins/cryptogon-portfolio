@@ -275,6 +275,7 @@ namespace CryptoPortfolio
             this.Name = "loginForm";
             this.Text = "Login";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.loginForm_FormClosed);
+            this.Load += new System.EventHandler(this.loginForm_Load);
             this.topPanel.ResumeLayout(false);
             this.topPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

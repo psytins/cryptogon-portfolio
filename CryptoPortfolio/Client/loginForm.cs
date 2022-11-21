@@ -27,6 +27,18 @@ namespace CryptoPortfolio
             //can be closed here
         }
 
+        // TEMPORARY. JUST FOR TESTING ! --------------------
+
+        private void loginForm_Load(object sender, EventArgs e)
+        {
+            emailAddressTextBox.Text = "teste";
+            passwordTextBox.Text = "teste";
+            signinButton_Click(sender, e);
+        }
+
+        // TEMPORARY. JUST FOR TESTING ! --------------------
+
+
         private void mouseGrab_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -92,7 +104,7 @@ namespace CryptoPortfolio
                 MainForm mainForm = new MainForm();
 
                 //Set the user
-                mainForm.setSession(validatedUser);
+                mainForm.SetSession(validatedUser);
 
                 mainForm.Show();
                 this.Close();

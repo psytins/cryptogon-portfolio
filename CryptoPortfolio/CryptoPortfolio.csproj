@@ -71,6 +71,16 @@
   <PropertyGroup>
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Test|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Test\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
@@ -179,6 +189,9 @@
     <Content Include="data\coins.xml" />
     <Content Include="data\portfolio.xml" />
     <Content Include="data\users.xml" />
+    <None Include="Resources\portfolioCreated.png" />
+    <None Include="Resources\currentPortfolio.png" />
+    <None Include="Resources\portfolioNotCreated.png" />
     <None Include="Resources\Logo.png" />
     <None Include="Resources\signinButton.png" />
     <None Include="Resources\signupButton-hover.png" />

@@ -33,6 +33,9 @@ namespace CryptoPortfolio
             this.accountNameLabel = new System.Windows.Forms.Label();
             this.portfolioNameLabel = new System.Windows.Forms.Label();
             this.mouseGrab = new System.Windows.Forms.Panel();
+            this.notificationButton = new System.Windows.Forms.Button();
+            this.showPortfoliosButton = new System.Windows.Forms.Button();
+            this.settingsButton = new System.Windows.Forms.Button();
             this.mainInsightPanel = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.mainAssetsPanel = new System.Windows.Forms.Panel();
@@ -52,11 +55,16 @@ namespace CryptoPortfolio
             this.gainLossLabel = new System.Windows.Forms.Label();
             this.currentValueLabel = new System.Windows.Forms.Label();
             this.mainDashboardPanel = new System.Windows.Forms.Panel();
+            this.percentageShowPanel = new System.Windows.Forms.Panel();
+            this.percentageNumberLabel = new System.Windows.Forms.Label();
+            this.arrowPanel = new System.Windows.Forms.Panel();
+            this.newTransactionButton = new System.Windows.Forms.Button();
             this.gainLossCurrencyLabel = new System.Windows.Forms.Label();
+            this.showPortfoliosPanel = new System.Windows.Forms.Panel();
+            this.openPortfolio2Button = new System.Windows.Forms.Button();
+            this.openPortfolio1Button = new System.Windows.Forms.Button();
+            this.openPortfolio0Button = new System.Windows.Forms.Button();
             this.logoImage = new System.Windows.Forms.PictureBox();
-            this.notificationButton = new System.Windows.Forms.Button();
-            this.showPortfoliosButton = new System.Windows.Forms.Button();
-            this.settingsButton = new System.Windows.Forms.Button();
             this.sideBar = new System.Windows.Forms.Panel();
             this.versionLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -67,19 +75,16 @@ namespace CryptoPortfolio
             this.insightButton = new System.Windows.Forms.Button();
             this.assetsButton = new System.Windows.Forms.Button();
             this.historyButton = new System.Windows.Forms.Button();
-            this.percentageShowPanel = new System.Windows.Forms.Panel();
-            this.percentageNumberLabel = new System.Windows.Forms.Label();
-            this.arrowPanel = new System.Windows.Forms.Panel();
-            this.newTransactionButton = new System.Windows.Forms.Button();
             this.mouseGrab.SuspendLayout();
             this.mainInsightPanel.SuspendLayout();
             this.mainAssetsPanel.SuspendLayout();
             this.mainHistoryPanel.SuspendLayout();
             this.mainDashboardPanel.SuspendLayout();
+            this.percentageShowPanel.SuspendLayout();
+            this.showPortfoliosPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logoImage)).BeginInit();
             this.sideBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.percentageShowPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // accountNameLabel
@@ -118,9 +123,57 @@ namespace CryptoPortfolio
             this.mouseGrab.Location = new System.Drawing.Point(0, 0);
             this.mouseGrab.Margin = new System.Windows.Forms.Padding(4);
             this.mouseGrab.Name = "mouseGrab";
-            this.mouseGrab.Size = new System.Drawing.Size(1464, 69);
+            this.mouseGrab.Size = new System.Drawing.Size(1024, 69);
             this.mouseGrab.TabIndex = 13;
             this.mouseGrab.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mouseGrab_MouseDown);
+            // 
+            // notificationButton
+            // 
+            this.notificationButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
+            this.notificationButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("notificationButton.BackgroundImage")));
+            this.notificationButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.notificationButton.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.notificationButton.FlatAppearance.BorderSize = 0;
+            this.notificationButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.notificationButton.Location = new System.Drawing.Point(804, 35);
+            this.notificationButton.Margin = new System.Windows.Forms.Padding(4);
+            this.notificationButton.Name = "notificationButton";
+            this.notificationButton.Size = new System.Drawing.Size(24, 22);
+            this.notificationButton.TabIndex = 2;
+            this.notificationButton.UseVisualStyleBackColor = false;
+            this.notificationButton.Click += new System.EventHandler(this.notificationButton_Click);
+            // 
+            // showPortfoliosButton
+            // 
+            this.showPortfoliosButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
+            this.showPortfoliosButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("showPortfoliosButton.BackgroundImage")));
+            this.showPortfoliosButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.showPortfoliosButton.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.showPortfoliosButton.FlatAppearance.BorderSize = 0;
+            this.showPortfoliosButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.showPortfoliosButton.Location = new System.Drawing.Point(981, 32);
+            this.showPortfoliosButton.Margin = new System.Windows.Forms.Padding(4);
+            this.showPortfoliosButton.Name = "showPortfoliosButton";
+            this.showPortfoliosButton.Size = new System.Drawing.Size(32, 15);
+            this.showPortfoliosButton.TabIndex = 6;
+            this.showPortfoliosButton.UseVisualStyleBackColor = false;
+            this.showPortfoliosButton.Click += new System.EventHandler(this.showPortfoliosButton_Click);
+            // 
+            // settingsButton
+            // 
+            this.settingsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
+            this.settingsButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("settingsButton.BackgroundImage")));
+            this.settingsButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.settingsButton.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.settingsButton.FlatAppearance.BorderSize = 0;
+            this.settingsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.settingsButton.Location = new System.Drawing.Point(830, 34);
+            this.settingsButton.Margin = new System.Windows.Forms.Padding(4);
+            this.settingsButton.Name = "settingsButton";
+            this.settingsButton.Size = new System.Drawing.Size(24, 22);
+            this.settingsButton.TabIndex = 3;
+            this.settingsButton.UseVisualStyleBackColor = false;
+            this.settingsButton.Click += new System.EventHandler(this.settingsButton_Click);
             // 
             // mainInsightPanel
             // 
@@ -217,7 +270,7 @@ namespace CryptoPortfolio
             this.valueLabel.Location = new System.Drawing.Point(19, 31);
             this.valueLabel.Margin = new System.Windows.Forms.Padding(0);
             this.valueLabel.Name = "valueLabel";
-            this.valueLabel.Size = new System.Drawing.Size(98, 16);
+            this.valueLabel.Size = new System.Drawing.Size(97, 16);
             this.valueLabel.TabIndex = 7;
             this.valueLabel.Text = "Portfolio Value";
             // 
@@ -332,6 +385,57 @@ namespace CryptoPortfolio
             this.mainDashboardPanel.Size = new System.Drawing.Size(804, 691);
             this.mainDashboardPanel.TabIndex = 24;
             // 
+            // percentageShowPanel
+            // 
+            this.percentageShowPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.percentageShowPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("percentageShowPanel.BackgroundImage")));
+            this.percentageShowPanel.Controls.Add(this.percentageNumberLabel);
+            this.percentageShowPanel.Controls.Add(this.arrowPanel);
+            this.percentageShowPanel.Location = new System.Drawing.Point(213, 57);
+            this.percentageShowPanel.Name = "percentageShowPanel";
+            this.percentageShowPanel.Size = new System.Drawing.Size(60, 30);
+            this.percentageShowPanel.TabIndex = 19;
+            this.percentageShowPanel.Visible = false;
+            // 
+            // percentageNumberLabel
+            // 
+            this.percentageNumberLabel.AutoSize = true;
+            this.percentageNumberLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.percentageNumberLabel.Font = new System.Drawing.Font("Inter Light", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.percentageNumberLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
+            this.percentageNumberLabel.Location = new System.Drawing.Point(17, 7);
+            this.percentageNumberLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.percentageNumberLabel.Name = "percentageNumberLabel";
+            this.percentageNumberLabel.Size = new System.Drawing.Size(39, 16);
+            this.percentageNumberLabel.TabIndex = 23;
+            this.percentageNumberLabel.Text = "100%";
+            // 
+            // arrowPanel
+            // 
+            this.arrowPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.arrowPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("arrowPanel.BackgroundImage")));
+            this.arrowPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.arrowPanel.Location = new System.Drawing.Point(3, 11);
+            this.arrowPanel.Name = "arrowPanel";
+            this.arrowPanel.Size = new System.Drawing.Size(15, 9);
+            this.arrowPanel.TabIndex = 21;
+            // 
+            // newTransactionButton
+            // 
+            this.newTransactionButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.newTransactionButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("newTransactionButton.BackgroundImage")));
+            this.newTransactionButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.newTransactionButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.newTransactionButton.FlatAppearance.BorderSize = 0;
+            this.newTransactionButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.newTransactionButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.newTransactionButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.newTransactionButton.Location = new System.Drawing.Point(654, 114);
+            this.newTransactionButton.Name = "newTransactionButton";
+            this.newTransactionButton.Size = new System.Drawing.Size(130, 30);
+            this.newTransactionButton.TabIndex = 23;
+            this.newTransactionButton.UseVisualStyleBackColor = false;
+            // 
             // gainLossCurrencyLabel
             // 
             this.gainLossCurrencyLabel.AutoSize = true;
@@ -345,6 +449,69 @@ namespace CryptoPortfolio
             this.gainLossCurrencyLabel.TabIndex = 16;
             this.gainLossCurrencyLabel.Text = "€";
             // 
+            // showPortfoliosPanel
+            // 
+            this.showPortfoliosPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
+            this.showPortfoliosPanel.Controls.Add(this.openPortfolio2Button);
+            this.showPortfoliosPanel.Controls.Add(this.openPortfolio1Button);
+            this.showPortfoliosPanel.Controls.Add(this.openPortfolio0Button);
+            this.showPortfoliosPanel.Location = new System.Drawing.Point(861, 62);
+            this.showPortfoliosPanel.Name = "showPortfoliosPanel";
+            this.showPortfoliosPanel.Size = new System.Drawing.Size(151, 121);
+            this.showPortfoliosPanel.TabIndex = 24;
+            this.showPortfoliosPanel.Visible = false;
+            // 
+            // openPortfolio2Button
+            // 
+            this.openPortfolio2Button.BackgroundImage = global::CryptoPortfolio.Properties.Resources.portfolioNotCreated;
+            this.openPortfolio2Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.openPortfolio2Button.FlatAppearance.BorderSize = 0;
+            this.openPortfolio2Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.openPortfolio2Button.Font = new System.Drawing.Font("Inter", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.openPortfolio2Button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(235)))), ((int)(((byte)(238)))));
+            this.openPortfolio2Button.Location = new System.Drawing.Point(11, 80);
+            this.openPortfolio2Button.Name = "openPortfolio2Button";
+            this.openPortfolio2Button.Size = new System.Drawing.Size(130, 27);
+            this.openPortfolio2Button.TabIndex = 2;
+            this.openPortfolio2Button.Tag = "-1";
+            this.openPortfolio2Button.Text = "- Click to add -";
+            this.openPortfolio2Button.UseVisualStyleBackColor = true;
+            this.openPortfolio2Button.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SelectPortfolio);
+            // 
+            // openPortfolio1Button
+            // 
+            this.openPortfolio1Button.BackgroundImage = global::CryptoPortfolio.Properties.Resources.portfolioNotCreated;
+            this.openPortfolio1Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.openPortfolio1Button.FlatAppearance.BorderSize = 0;
+            this.openPortfolio1Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.openPortfolio1Button.Font = new System.Drawing.Font("Inter", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.openPortfolio1Button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(235)))), ((int)(((byte)(238)))));
+            this.openPortfolio1Button.Location = new System.Drawing.Point(11, 45);
+            this.openPortfolio1Button.Name = "openPortfolio1Button";
+            this.openPortfolio1Button.Size = new System.Drawing.Size(130, 27);
+            this.openPortfolio1Button.TabIndex = 1;
+            this.openPortfolio1Button.Tag = "-1";
+            this.openPortfolio1Button.Text = "- Click to add -";
+            this.openPortfolio1Button.UseVisualStyleBackColor = true;
+            this.openPortfolio1Button.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SelectPortfolio);
+            // 
+            // openPortfolio0Button
+            // 
+            this.openPortfolio0Button.BackgroundImage = global::CryptoPortfolio.Properties.Resources.portfolioNotCreated;
+            this.openPortfolio0Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.openPortfolio0Button.FlatAppearance.BorderSize = 0;
+            this.openPortfolio0Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.openPortfolio0Button.Font = new System.Drawing.Font("Inter", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.openPortfolio0Button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(235)))), ((int)(((byte)(238)))));
+            this.openPortfolio0Button.Location = new System.Drawing.Point(11, 10);
+            this.openPortfolio0Button.Name = "openPortfolio0Button";
+            this.openPortfolio0Button.Size = new System.Drawing.Size(130, 27);
+            this.openPortfolio0Button.TabIndex = 0;
+            this.openPortfolio0Button.Tag = "-1";
+            this.openPortfolio0Button.Text = "- Click to add -";
+            this.openPortfolio0Button.UseVisualStyleBackColor = true;
+            this.openPortfolio0Button.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SelectPortfolio);
+            // 
             // logoImage
             // 
             this.logoImage.BackgroundImage = global::CryptoPortfolio.Properties.Resources.Logo;
@@ -355,53 +522,6 @@ namespace CryptoPortfolio
             this.logoImage.Size = new System.Drawing.Size(156, 48);
             this.logoImage.TabIndex = 1;
             this.logoImage.TabStop = false;
-            // 
-            // notificationButton
-            // 
-            this.notificationButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
-            this.notificationButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("notificationButton.BackgroundImage")));
-            this.notificationButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.notificationButton.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.notificationButton.FlatAppearance.BorderSize = 0;
-            this.notificationButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.notificationButton.Location = new System.Drawing.Point(804, 35);
-            this.notificationButton.Margin = new System.Windows.Forms.Padding(4);
-            this.notificationButton.Name = "notificationButton";
-            this.notificationButton.Size = new System.Drawing.Size(24, 22);
-            this.notificationButton.TabIndex = 2;
-            this.notificationButton.UseVisualStyleBackColor = false;
-            this.notificationButton.Click += new System.EventHandler(this.notificationButton_Click);
-            // 
-            // showPortfoliosButton
-            // 
-            this.showPortfoliosButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
-            this.showPortfoliosButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("showPortfoliosButton.BackgroundImage")));
-            this.showPortfoliosButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.showPortfoliosButton.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.showPortfoliosButton.FlatAppearance.BorderSize = 0;
-            this.showPortfoliosButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.showPortfoliosButton.Location = new System.Drawing.Point(981, 32);
-            this.showPortfoliosButton.Margin = new System.Windows.Forms.Padding(4);
-            this.showPortfoliosButton.Name = "showPortfoliosButton";
-            this.showPortfoliosButton.Size = new System.Drawing.Size(32, 15);
-            this.showPortfoliosButton.TabIndex = 6;
-            this.showPortfoliosButton.UseVisualStyleBackColor = false;
-            // 
-            // settingsButton
-            // 
-            this.settingsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
-            this.settingsButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("settingsButton.BackgroundImage")));
-            this.settingsButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.settingsButton.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.settingsButton.FlatAppearance.BorderSize = 0;
-            this.settingsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.settingsButton.Location = new System.Drawing.Point(830, 34);
-            this.settingsButton.Margin = new System.Windows.Forms.Padding(4);
-            this.settingsButton.Name = "settingsButton";
-            this.settingsButton.Size = new System.Drawing.Size(24, 22);
-            this.settingsButton.TabIndex = 3;
-            this.settingsButton.UseVisualStyleBackColor = false;
-            this.settingsButton.Click += new System.EventHandler(this.settingsButton_Click);
             // 
             // sideBar
             // 
@@ -462,7 +582,7 @@ namespace CryptoPortfolio
             this.signInOutButton.FlatAppearance.BorderSize = 0;
             this.signInOutButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.signInOutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.signInOutButton.Location = new System.Drawing.Point(12, 38);
+            this.signInOutButton.Location = new System.Drawing.Point(21, 31);
             this.signInOutButton.Name = "signInOutButton";
             this.signInOutButton.Size = new System.Drawing.Size(160, 30);
             this.signInOutButton.TabIndex = 5;
@@ -554,63 +674,13 @@ namespace CryptoPortfolio
             this.historyButton.MouseEnter += new System.EventHandler(this.historyButton_MouseEnter);
             this.historyButton.MouseLeave += new System.EventHandler(this.historyButton_MouseLeave);
             // 
-            // percentageShowPanel
-            // 
-            this.percentageShowPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.percentageShowPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("percentageShowPanel.BackgroundImage")));
-            this.percentageShowPanel.Controls.Add(this.percentageNumberLabel);
-            this.percentageShowPanel.Controls.Add(this.arrowPanel);
-            this.percentageShowPanel.Location = new System.Drawing.Point(213, 57);
-            this.percentageShowPanel.Name = "percentageShowPanel";
-            this.percentageShowPanel.Size = new System.Drawing.Size(60, 30);
-            this.percentageShowPanel.TabIndex = 19;
-            this.percentageShowPanel.Visible = false;
-            // 
-            // percentageNumberLabel
-            // 
-            this.percentageNumberLabel.AutoSize = true;
-            this.percentageNumberLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.percentageNumberLabel.Font = new System.Drawing.Font("Inter Light", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.percentageNumberLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
-            this.percentageNumberLabel.Location = new System.Drawing.Point(17, 7);
-            this.percentageNumberLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.percentageNumberLabel.Name = "percentageNumberLabel";
-            this.percentageNumberLabel.Size = new System.Drawing.Size(40, 16);
-            this.percentageNumberLabel.TabIndex = 23;
-            this.percentageNumberLabel.Text = "100%";
-            // 
-            // arrowPanel
-            // 
-            this.arrowPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.arrowPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("arrowPanel.BackgroundImage")));
-            this.arrowPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.arrowPanel.Location = new System.Drawing.Point(3, 11);
-            this.arrowPanel.Name = "arrowPanel";
-            this.arrowPanel.Size = new System.Drawing.Size(15, 9);
-            this.arrowPanel.TabIndex = 21;
-            // 
-            // newTransactionButton
-            // 
-            this.newTransactionButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.newTransactionButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("newTransactionButton.BackgroundImage")));
-            this.newTransactionButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.newTransactionButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.newTransactionButton.FlatAppearance.BorderSize = 0;
-            this.newTransactionButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.newTransactionButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.newTransactionButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.newTransactionButton.Location = new System.Drawing.Point(654, 114);
-            this.newTransactionButton.Name = "newTransactionButton";
-            this.newTransactionButton.Size = new System.Drawing.Size(130, 30);
-            this.newTransactionButton.TabIndex = 23;
-            this.newTransactionButton.UseVisualStyleBackColor = false;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.showPortfoliosPanel);
             this.Controls.Add(this.logoImage);
             this.Controls.Add(this.mouseGrab);
             this.Controls.Add(this.sideBar);
@@ -638,12 +708,13 @@ namespace CryptoPortfolio
             this.mainHistoryPanel.PerformLayout();
             this.mainDashboardPanel.ResumeLayout(false);
             this.mainDashboardPanel.PerformLayout();
+            this.percentageShowPanel.ResumeLayout(false);
+            this.percentageShowPanel.PerformLayout();
+            this.showPortfoliosPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.logoImage)).EndInit();
             this.sideBar.ResumeLayout(false);
             this.sideBar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.percentageShowPanel.ResumeLayout(false);
-            this.percentageShowPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -691,5 +762,9 @@ namespace CryptoPortfolio
         private System.Windows.Forms.Panel arrowPanel;
         private System.Windows.Forms.Panel mainDashboardPanel;
         private System.Windows.Forms.Label gainLossCurrencyLabel;
+        private System.Windows.Forms.Panel showPortfoliosPanel;
+        private System.Windows.Forms.Button openPortfolio0Button;
+        private System.Windows.Forms.Button openPortfolio2Button;
+        private System.Windows.Forms.Button openPortfolio1Button;
     }
 }

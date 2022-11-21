@@ -400,6 +400,7 @@ namespace CryptoPortfolio
             this.Name = "registerForm";
             this.Text = "Register";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.registerForm_FormClosed);
+            this.Load += new System.EventHandler(this.registerForm_Load);
             this.topPanel.ResumeLayout(false);
             this.topPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

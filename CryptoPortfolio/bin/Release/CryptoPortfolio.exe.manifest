@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
-  <asmv1:assemblyIdentity name="CryptoPortfolio.exe" version="1.0.0.2" publicKeyToken="0000000000000000" language="pt" processorArchitecture="msil" type="win32" />
+  <asmv1:assemblyIdentity name="CryptoPortfolio.exe" version="1.0.0.3" publicKeyToken="0000000000000000" language="pt" processorArchitecture="msil" type="win32" />
   <application />
   <entryPoint>
     <assemblyIdentity name="CryptoPortfolio" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
@@ -42,24 +42,24 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CryptoPortfolio.exe" size="22560">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CryptoPortfolio.exe" size="124960">
       <assemblyIdentity name="CryptoPortfolio" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>X8vyLCmSAXBK93GbaJ/MwjSoOxz+HKZg9R6MyTreBHM=</dsig:DigestValue>
+        <dsig:DigestValue>VSnKbrufiIV2CFMN6IINADzwCFq7Fa6nitbxOHZxiH8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="CryptoPortfolio.exe.config" size="234">
+  <file name="CryptoPortfolio.exe.config" size="1228">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>PcKz7eADFF3VPsAOId3cf5mvnveMFAEHYkAHMe6OdLk=</dsig:DigestValue>
+      <dsig:DigestValue>u5QVPSqnh5vfwDw/gBlhrXmi52/OBPyB+Kx6Z4PHeRQ=</dsig:DigestValue>
     </hash>
   </file>
   <file name="data\coins.xml" size="928" writeableType="applicationData">
@@ -71,13 +71,22 @@
       <dsig:DigestValue>QGfljvPSy2I4p2gJZzuuKo6MRR/RkkmEYGOB1ReTvrM=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="data\portfolio.xml" size="372" writeableType="applicationData">
+  <file name="data\portfolio.xml" size="70" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>z/TRbSPhj7fXhc7MIsJZbP42beb59R+szbAiRTVbLx8=</dsig:DigestValue>
+      <dsig:DigestValue>G8sq1X3+Ma8OJP1TpPDotS+oX0chOGKJhvR3GBdMQsw=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="data\users.xml" size="63" writeableType="applicationData">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>L/L+HnXcg7k/t3xZr0z3Sx2Yb5vQZZixjklmOHZFDvU=</dsig:DigestValue>
     </hash>
   </file>
   <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">
