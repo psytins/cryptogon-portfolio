@@ -118,85 +118,112 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="signupButton-hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\signupButton-hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Insights_selected" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Insights-selected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="logout-button" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logout-button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Assets_selected" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Assets-selected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="History_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\History-hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="percentageDOWN" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\percentageDOWN.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Insights_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Insights-hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Insights" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Insights.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Assets_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Assets-hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="signinButton-hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\signinButton-hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Polygon_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Polygon 2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Assets" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Assets.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Dashboard" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Dashboard.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="signinButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\signinButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="login button" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\login button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="History_selected" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\History-selected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Polygon_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Polygon 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Dashboard_selected" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Dashboard-selected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="History" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\History.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="signupButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\signupButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="History_selected" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\History-selected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="percentageUP" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\percentageUP.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="percentageDOWN" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\percentageDOWN.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Logo_login" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Logo-login.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="next1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\next.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Dashboard_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Dashboard-hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Insights" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Insights.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Insights_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Insights-hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="coinButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\coinButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="signinButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\signinButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Logo_login" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Logo-login.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="currentPortfolio" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\currentPortfolio.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Dashboard_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Dashboard-hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="portfolioCreated" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\portfolioCreated.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Assets_selected" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Assets-selected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Assets" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Assets.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="percentageUP" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\percentageUP.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Dashboard_selected" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Dashboard-selected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Polygon_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Polygon 2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="addTransactionPanel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\addTransactionPanel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="portfolioNotCreated" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\portfolioNotCreated.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="signinButton-hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\signinButton-hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="next" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\next.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="login button" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\login button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="search" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\search.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="signupButton-hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\signupButton-hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="signupButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\signupButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Assets_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Assets-hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="History_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\History-hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="logout-button" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logout-button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Insights_selected" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Insights-selected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="buyTab" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\buyTab.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="buyTab_un" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\buyTab_un.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sellTab" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sellTab.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sellTab_un" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sellTab_un.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

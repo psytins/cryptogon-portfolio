@@ -81,11 +81,22 @@ namespace CryptoPortfolio
         }
 
         /// <summary>
-        /// Updates the Dashboard Form with the data of the selected portfolio.
+        /// Shows and updates the Dashboard Panel with the data of the selected portfolio.
         /// </summary>
         /// <param name="portfolio_index">Update to this portfolio index</param>
         private void UpdateDashboard(int portfolio_index)
         {
+            mainDashboardPanel.BringToFront();
+            CURRENT_PAGE = 1;
+            //Change Side buttons --------
+            //Normalize other buttons
+            insightButton.BackgroundImage = Properties.Resources.Insights;
+            assetsButton.BackgroundImage = Properties.Resources.Assets;
+            historyButton.BackgroundImage = Properties.Resources.History;
+            //Select current
+            dashboardButton.BackgroundImage = Properties.Resources.Dashboard_selected;
+            //-------------
+
             CURRENT_PORTFOLIO_INDEX = portfolio_index;
             //Dashboard Update -------------
             accountNameLabel.Text = SESSION.FirstName + " " + SESSION.LastName;
@@ -100,32 +111,64 @@ namespace CryptoPortfolio
         }
 
         /// <summary>
-        /// Updates the Insight Form with the data of the selected portfolio.
+        /// Shows and updates the Insight Panel with the data of the selected portfolio.
         /// </summary>
         /// <param name="portfolio_index">Update to this portfolio index</param>
         private void UpdateInsights(int portfolio_index)
         {
+            mainInsightPanel.BringToFront();
+            CURRENT_PAGE = 2;
+            //Change Side buttons --------
+            //Normalize other buttons
+            dashboardButton.BackgroundImage = Properties.Resources.Dashboard;
+            assetsButton.BackgroundImage = Properties.Resources.Assets;
+            historyButton.BackgroundImage = Properties.Resources.History;
+            //Select current
+            insightButton.BackgroundImage = Properties.Resources.Insights_selected;
+            //-------------
+
             CURRENT_PORTFOLIO_INDEX = portfolio_index;
         }
 
         /// <summary>
-        /// Updates the Assets Form with the data of the selected portfolio.
+        /// Show and updates the Assets Panel with the data of the selected portfolio.
         /// </summary>
         /// <param name="portfolio_index">Update to this portfolio index</param>
         private void UpdateAssets(int portfolio_index)
         {
+            mainAssetsPanel.BringToFront();
+            CURRENT_PAGE = 3;
+            //Change Side buttons --------
+            //Normalize other buttons
+            dashboardButton.BackgroundImage = Properties.Resources.Dashboard;
+            insightButton.BackgroundImage = Properties.Resources.Insights;
+            historyButton.BackgroundImage = Properties.Resources.History;
+            //Select current
+            assetsButton.BackgroundImage = Properties.Resources.Assets_selected;
+            //-------------
+
             CURRENT_PORTFOLIO_INDEX = portfolio_index;
         }
 
         /// <summary>
-        /// Updates the History Form with the data of the selected portfolio.
+        /// Shows and updates the History Panel with the data of the selected portfolio.
         /// </summary>
         /// <param name="portfolio_index">Update to this portfolio index</param>
         private void UpdateHistory(int portfolio_index)
         {
+            mainHistoryPanel.BringToFront();
+            CURRENT_PAGE = 4;
+            //Change Side buttons --------
+            //Normalize other buttons
+            dashboardButton.BackgroundImage = Properties.Resources.Dashboard;
+            insightButton.BackgroundImage = Properties.Resources.Insights;
+            assetsButton.BackgroundImage = Properties.Resources.Assets;
+            //Select current
+            historyButton.BackgroundImage = Properties.Resources.History_selected;
+            //-------------
+
             CURRENT_PORTFOLIO_INDEX = portfolio_index;
         }
-
 
         /// <summary>
         /// Create a new portfolio for the current user and then load the just created portfolio. The limit per user is three.
@@ -359,52 +402,22 @@ namespace CryptoPortfolio
 
         private void dashboardButton_Click(object sender, EventArgs e)
         {
-            CURRENT_PAGE = 1;
-            mainDashboardPanel.BringToFront();
-            //Normalize other buttons
-            insightButton.BackgroundImage = Properties.Resources.Insights;
-            assetsButton.BackgroundImage = Properties.Resources.Assets;
-            historyButton.BackgroundImage = Properties.Resources.History;
-            //Select current
-            dashboardButton.BackgroundImage = Properties.Resources.Dashboard_selected;
+            UpdateDashboard(CURRENT_PORTFOLIO_INDEX);
         }
 
         private void insightButton_Click(object sender, EventArgs e)
         {
-            CURRENT_PAGE = 2;
-            mainInsightPanel.BringToFront();
-            //Normalize other buttons
-            dashboardButton.BackgroundImage = Properties.Resources.Dashboard;
-            assetsButton.BackgroundImage = Properties.Resources.Assets;
-            historyButton.BackgroundImage = Properties.Resources.History;
-            //Select current
-            insightButton.BackgroundImage = Properties.Resources.Insights_selected;
-
+            UpdateInsights(CURRENT_PORTFOLIO_INDEX);
         }
 
         private void assetsButton_Click(object sender, EventArgs e)
         {
-            CURRENT_PAGE = 3;
-            mainAssetsPanel.BringToFront();
-            //Normalize other buttons
-            dashboardButton.BackgroundImage = Properties.Resources.Dashboard;
-            insightButton.BackgroundImage = Properties.Resources.Insights;
-            historyButton.BackgroundImage = Properties.Resources.History;
-            //Select current
-            assetsButton.BackgroundImage = Properties.Resources.Assets_selected;
-
+            UpdateAssets(CURRENT_PORTFOLIO_INDEX);
         }
 
         private void historyButton_Click(object sender, EventArgs e)
         {
-            CURRENT_PAGE = 4;
-            mainHistoryPanel.BringToFront();
-            //Normalize other buttons
-            dashboardButton.BackgroundImage = Properties.Resources.Dashboard;
-            insightButton.BackgroundImage = Properties.Resources.Insights;
-            assetsButton.BackgroundImage = Properties.Resources.Assets;
-            //Select current
-            historyButton.BackgroundImage = Properties.Resources.History_selected;
+            UpdateHistory(CURRENT_PORTFOLIO_INDEX);
         }
     }
 }

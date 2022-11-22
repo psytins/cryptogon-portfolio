@@ -37,3 +37,4 @@ D:\Trabalho\PROJETOS\CryptoPortfolio_\CryptoPortfolio\CryptoPortfolio\obj\Debug\
 D:\Trabalho\PROJETOS\CryptoPortfolio_\CryptoPortfolio\CryptoPortfolio\obj\Debug\CryptoPortfolio.pdb
 D:\Trabalho\PROJETOS\CryptoPortfolio_\CryptoPortfolio\CryptoPortfolio\obj\Debug\CryptoPortfolio.csproj.AssemblyReference.cache
 D:\Trabalho\PROJETOS\CryptoPortfolio_\CryptoPortfolio\CryptoPortfolio\obj\Debug\CryptoPortfolio.csproj.SuggestedBindingRedirects.cache
+D:\Trabalho\PROJETOS\CryptoPortfolio_\CryptoPortfolio\CryptoPortfolio\obj\Debug\CryptoPortfolio.TransactionForm.resources

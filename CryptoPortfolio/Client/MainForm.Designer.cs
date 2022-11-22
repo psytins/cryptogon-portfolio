@@ -151,7 +151,7 @@ namespace CryptoPortfolio
             this.showPortfoliosButton.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.showPortfoliosButton.FlatAppearance.BorderSize = 0;
             this.showPortfoliosButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.showPortfoliosButton.Location = new System.Drawing.Point(981, 32);
+            this.showPortfoliosButton.Location = new System.Drawing.Point(981, 31);
             this.showPortfoliosButton.Margin = new System.Windows.Forms.Padding(4);
             this.showPortfoliosButton.Name = "showPortfoliosButton";
             this.showPortfoliosButton.Size = new System.Drawing.Size(32, 15);

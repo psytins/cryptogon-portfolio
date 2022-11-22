@@ -63,6 +63,16 @@ namespace CryptoPortfolio.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap addTransactionPanel {
+            get {
+                object obj = ResourceManager.GetObject("addTransactionPanel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Assets {
             get {
                 object obj = ResourceManager.GetObject("Assets", resourceCulture);
@@ -86,6 +96,36 @@ namespace CryptoPortfolio.Properties {
         internal static System.Drawing.Bitmap Assets_selected {
             get {
                 object obj = ResourceManager.GetObject("Assets_selected", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap buyTab {
+            get {
+                object obj = ResourceManager.GetObject("buyTab", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap buyTab_un {
+            get {
+                object obj = ResourceManager.GetObject("buyTab_un", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap coinButton {
+            get {
+                object obj = ResourceManager.GetObject("coinButton", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -233,6 +273,26 @@ namespace CryptoPortfolio.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap next {
+            get {
+                object obj = ResourceManager.GetObject("next", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap next1 {
+            get {
+                object obj = ResourceManager.GetObject("next1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap percentageDOWN {
             get {
                 object obj = ResourceManager.GetObject("percentageDOWN", resourceCulture);
@@ -286,6 +346,36 @@ namespace CryptoPortfolio.Properties {
         internal static System.Drawing.Bitmap portfolioNotCreated {
             get {
                 object obj = ResourceManager.GetObject("portfolioNotCreated", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap search {
+            get {
+                object obj = ResourceManager.GetObject("search", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sellTab {
+            get {
+                object obj = ResourceManager.GetObject("sellTab", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sellTab_un {
+            get {
+                object obj = ResourceManager.GetObject("sellTab_un", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
