@@ -63,9 +63,29 @@ namespace CryptoPortfolio.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap addTransactionButton {
+            get {
+                object obj = ResourceManager.GetObject("addTransactionButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap addTransactionPanel {
             get {
                 object obj = ResourceManager.GetObject("addTransactionPanel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap amountTextBox {
+            get {
+                object obj = ResourceManager.GetObject("amountTextBox", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -166,6 +186,26 @@ namespace CryptoPortfolio.Properties {
         internal static System.Drawing.Bitmap Dashboard_selected {
             get {
                 object obj = ResourceManager.GetObject("Dashboard_selected", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap dateTimeTextBox {
+            get {
+                object obj = ResourceManager.GetObject("dateTimeTextBox", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap feesTextBox {
+            get {
+                object obj = ResourceManager.GetObject("feesTextBox", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -293,6 +333,16 @@ namespace CryptoPortfolio.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap notesTextBox {
+            get {
+                object obj = ResourceManager.GetObject("notesTextBox", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap percentageDOWN {
             get {
                 object obj = ResourceManager.GetObject("percentageDOWN", resourceCulture);
@@ -346,6 +396,26 @@ namespace CryptoPortfolio.Properties {
         internal static System.Drawing.Bitmap portfolioNotCreated {
             get {
                 object obj = ResourceManager.GetObject("portfolioNotCreated", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pricePerCoinLabel {
+            get {
+                object obj = ResourceManager.GetObject("pricePerCoinLabel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pricePerCoinTextBox {
+            get {
+                object obj = ResourceManager.GetObject("pricePerCoinTextBox", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -416,6 +486,16 @@ namespace CryptoPortfolio.Properties {
         internal static System.Drawing.Bitmap signupButton_hover {
             get {
                 object obj = ResourceManager.GetObject("signupButton-hover", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap totalSpent {
+            get {
+                object obj = ResourceManager.GetObject("totalSpent", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

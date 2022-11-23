@@ -198,6 +198,14 @@
     <Content Include="data\coins.xml" />
     <Content Include="data\portfolio.xml" />
     <Content Include="data\users.xml" />
+    <None Include="Resources\addTransactionButton.png" />
+    <None Include="Resources\totalSpent.png" />
+    <None Include="Resources\dateTimeTextBox.png" />
+    <None Include="Resources\notesTextBox.png" />
+    <None Include="Resources\feesTextBox.png" />
+    <None Include="Resources\pricePerCoinLabel.png" />
+    <None Include="Resources\pricePerCoinTextBox.png" />
+    <None Include="Resources\amountTextBox.png" />
     <None Include="Resources\sellTab_un.png" />
     <None Include="Resources\sellTab.png" />
     <None Include="Resources\buyTab_un.png" />
