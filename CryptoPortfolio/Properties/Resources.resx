@@ -148,9 +148,6 @@
   <data name="sellTab" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sellTab.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Insights" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Insights.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Insights_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Insights-hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -159,9 +156,6 @@
   </data>
   <data name="Logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="portfolioNotCreated" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\portfolioNotCreated.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="amountTextBox" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\amountTextBox.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -174,6 +168,9 @@
   </data>
   <data name="currentPortfolio" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\currentPortfolio.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="signupButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\signupButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Dashboard_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Dashboard-hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -202,11 +199,17 @@
   <data name="Polygon_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Polygon 2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="addTransactionPanel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\addTransactionPanel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="addTransactionButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\addTransactionButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="feesTextBox" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\feesTextBox.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="addTransactionPanel" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\addTransactionPanel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="portfolioNotCreated" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\portfolioNotCreated.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="signinButton-hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\signinButton-hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -226,8 +229,8 @@
   <data name="signupButton-hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\signupButton-hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="signupButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\signupButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Insights" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Insights.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="dateTimeTextBox" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\dateTimeTextBox.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -247,7 +250,7 @@
   <data name="Insights_selected" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Insights-selected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="addTransactionButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\addTransactionButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="closeButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\closeButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

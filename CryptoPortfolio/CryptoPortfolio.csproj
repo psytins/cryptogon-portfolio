@@ -198,6 +198,7 @@
     <Content Include="data\coins.xml" />
     <Content Include="data\portfolio.xml" />
     <Content Include="data\users.xml" />
+    <None Include="Resources\closeButton.png" />
     <None Include="Resources\addTransactionButton.png" />
     <None Include="Resources\totalSpent.png" />
     <None Include="Resources\dateTimeTextBox.png" />

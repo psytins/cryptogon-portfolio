@@ -60,7 +60,19 @@ namespace CryptoPortfolio
         }
 
         //Read ----------------------
-        // public Coin readCoin(string coinName) { }
+        public static List<Coin> readAllCoins() {
+
+            //Load xml
+            XDocument xdoc = XDocument.Load(Application.LocalUserAppDataPath + Properties.Settings.Default.XMLcoinPath);
+
+            //Run query
+            var coinQuery = from coins in xdoc.Descendants("Coin")
+                            select new Coin(
+                                coins.Element("Name").Value,
+                                coins.Element("Short").Value);
+
+            return coinQuery.ToList();
+        }
 
         public static User readUser(string email) 
         {

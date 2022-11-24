@@ -11,5 +11,8 @@
     <Setting Name="XMLuserPath" Type="System.String" Scope="Application">
       <Value Profile="(Default)">//data//users.xml</Value>
     </Setting>
+    <Setting Name="Currency" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">€</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

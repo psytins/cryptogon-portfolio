@@ -19,7 +19,6 @@ namespace CryptoPortfolio
         public static extern bool ReleaseCapture();
         // -------------------
         //Global Variables
-        private string CURRENT_CURRENCY = "€";
         private string CURRENT_VERSION = "Current Version 1.0.0.2 - pre-alpha";
         private int CURRENT_PAGE = 1;
 
@@ -56,9 +55,9 @@ namespace CryptoPortfolio
         private void MainForm_Load(object sender, EventArgs e)
         {
             //Set Currency Labels
-            valueCurrencyLabel.Text = CURRENT_CURRENCY;
-            totalInvestedCurrencyLabel.Text = CURRENT_CURRENCY;
-            gainLossCurrencyLabel.Text = CURRENT_CURRENCY;
+            valueCurrencyLabel.Text = Properties.Settings.Default.Currency;
+            totalInvestedCurrencyLabel.Text = Properties.Settings.Default.Currency;
+            gainLossCurrencyLabel.Text = Properties.Settings.Default.Currency;
 
             //Set Version Label
             versionLabel.Text = CURRENT_VERSION;
@@ -326,6 +325,11 @@ namespace CryptoPortfolio
             }
         }
 
+        private void newTransactionButton_Click(object sender, EventArgs e)
+        {
+            new TransactionForm().ShowDialog();
+        }
+
         private void notificationButton_Click(object sender, EventArgs e)
         {
            
@@ -418,6 +422,11 @@ namespace CryptoPortfolio
         private void historyButton_Click(object sender, EventArgs e)
         {
             UpdateHistory(CURRENT_PORTFOLIO_INDEX);
+        }
+
+        private void SelectPortfolio(object sender, MouseEventArgs e)
+        {
+
         }
     }
 }
