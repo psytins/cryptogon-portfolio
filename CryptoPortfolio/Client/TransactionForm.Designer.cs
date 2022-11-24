@@ -38,7 +38,11 @@
             this.addTransactionPanel = new System.Windows.Forms.Panel();
             this.closeTwoButton = new System.Windows.Forms.Button();
             this.buyPanel = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.pricePerCoinLabel = new System.Windows.Forms.Label();
+            this.amountLabel = new System.Windows.Forms.Label();
+            this.pricePerCoinRequiredLabel = new System.Windows.Forms.Label();
+            this.amountRequiredLabel = new System.Windows.Forms.Label();
+            this.addTransactionButon = new System.Windows.Forms.Button();
             this.totalSpentPanel = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.currencyTotalSpent = new System.Windows.Forms.Label();
@@ -58,19 +62,17 @@
             this.notesTextPanel = new System.Windows.Forms.Panel();
             this.notesTextBox = new System.Windows.Forms.TextBox();
             this.feeTextPanel = new System.Windows.Forms.Panel();
-            this.feeTextBox = new System.Windows.Forms.TextBox();
+            this.feeNum = new System.Windows.Forms.NumericUpDown();
             this.currencyFeeLabel = new System.Windows.Forms.Label();
             this.pricePerCoinTextPanel = new System.Windows.Forms.Panel();
-            this.pricePerCoinTextBox = new System.Windows.Forms.TextBox();
+            this.pricePerCoinNum = new System.Windows.Forms.NumericUpDown();
             this.currencyLabel = new System.Windows.Forms.Label();
             this.amountTextPanel = new System.Windows.Forms.Panel();
-            this.amountTextBox = new System.Windows.Forms.TextBox();
+            this.amountNum = new System.Windows.Forms.NumericUpDown();
             this.coinShortLabel = new System.Windows.Forms.Label();
             this.dateLabel = new System.Windows.Forms.Label();
             this.notesLabel = new System.Windows.Forms.Label();
             this.feeLabel = new System.Windows.Forms.Label();
-            this.pricePerCoinLabel = new System.Windows.Forms.Label();
-            this.amountLabel = new System.Windows.Forms.Label();
             this.sellButon = new System.Windows.Forms.Button();
             this.buyButton = new System.Windows.Forms.Button();
             this.goBackButton = new System.Windows.Forms.Button();
@@ -84,8 +86,11 @@
             this.dateTextPanel.SuspendLayout();
             this.notesTextPanel.SuspendLayout();
             this.feeTextPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.feeNum)).BeginInit();
             this.pricePerCoinTextPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pricePerCoinNum)).BeginInit();
             this.amountTextPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.amountNum)).BeginInit();
             this.SuspendLayout();
             // 
             // selectCoinPanel
@@ -210,7 +215,11 @@
             this.buyPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(220)))), ((int)(((byte)(227)))));
             this.buyPanel.BackgroundImage = global::CryptoPortfolio.Properties.Resources.addTransactionPanel;
             this.buyPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.buyPanel.Controls.Add(this.button1);
+            this.buyPanel.Controls.Add(this.pricePerCoinLabel);
+            this.buyPanel.Controls.Add(this.amountLabel);
+            this.buyPanel.Controls.Add(this.pricePerCoinRequiredLabel);
+            this.buyPanel.Controls.Add(this.amountRequiredLabel);
+            this.buyPanel.Controls.Add(this.addTransactionButon);
             this.buyPanel.Controls.Add(this.totalSpentPanel);
             this.buyPanel.Controls.Add(this.timeTextPanel);
             this.buyPanel.Controls.Add(this.dateTextPanel);
@@ -221,28 +230,76 @@
             this.buyPanel.Controls.Add(this.dateLabel);
             this.buyPanel.Controls.Add(this.notesLabel);
             this.buyPanel.Controls.Add(this.feeLabel);
-            this.buyPanel.Controls.Add(this.pricePerCoinLabel);
-            this.buyPanel.Controls.Add(this.amountLabel);
             this.buyPanel.Location = new System.Drawing.Point(7, 67);
             this.buyPanel.Name = "buyPanel";
             this.buyPanel.Size = new System.Drawing.Size(338, 410);
             this.buyPanel.TabIndex = 7;
             // 
-            // button1
+            // pricePerCoinLabel
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button1.BackgroundImage = global::CryptoPortfolio.Properties.Resources.addTransactionButton;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Inter", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(220)))), ((int)(((byte)(227)))));
-            this.button1.Location = new System.Drawing.Point(15, 356);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(307, 37);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "Add Transaction";
-            this.button1.UseVisualStyleBackColor = false;
+            this.pricePerCoinLabel.AutoSize = true;
+            this.pricePerCoinLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
+            this.pricePerCoinLabel.Location = new System.Drawing.Point(156, 14);
+            this.pricePerCoinLabel.Name = "pricePerCoinLabel";
+            this.pricePerCoinLabel.Size = new System.Drawing.Size(117, 19);
+            this.pricePerCoinLabel.TabIndex = 1;
+            this.pricePerCoinLabel.Text = "Price Per Coin";
+            // 
+            // amountLabel
+            // 
+            this.amountLabel.AutoSize = true;
+            this.amountLabel.Font = new System.Drawing.Font("Inter", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.amountLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
+            this.amountLabel.Location = new System.Drawing.Point(3, 14);
+            this.amountLabel.Name = "amountLabel";
+            this.amountLabel.Size = new System.Drawing.Size(68, 19);
+            this.amountLabel.TabIndex = 0;
+            this.amountLabel.Text = "Amount";
+            // 
+            // pricePerCoinRequiredLabel
+            // 
+            this.pricePerCoinRequiredLabel.AutoSize = true;
+            this.pricePerCoinRequiredLabel.Font = new System.Drawing.Font("Inter SemiBold", 9.75F);
+            this.pricePerCoinRequiredLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(118)))), ((int)(((byte)(112)))));
+            this.pricePerCoinRequiredLabel.Location = new System.Drawing.Point(270, 15);
+            this.pricePerCoinRequiredLabel.Name = "pricePerCoinRequiredLabel";
+            this.pricePerCoinRequiredLabel.Size = new System.Drawing.Size(67, 16);
+            this.pricePerCoinRequiredLabel.TabIndex = 18;
+            this.pricePerCoinRequiredLabel.Text = "required !";
+            this.pricePerCoinRequiredLabel.Visible = false;
+            // 
+            // amountRequiredLabel
+            // 
+            this.amountRequiredLabel.AutoSize = true;
+            this.amountRequiredLabel.Font = new System.Drawing.Font("Inter SemiBold", 9.75F);
+            this.amountRequiredLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(118)))), ((int)(((byte)(112)))));
+            this.amountRequiredLabel.Location = new System.Drawing.Point(68, 15);
+            this.amountRequiredLabel.Name = "amountRequiredLabel";
+            this.amountRequiredLabel.Size = new System.Drawing.Size(67, 16);
+            this.amountRequiredLabel.TabIndex = 17;
+            this.amountRequiredLabel.Text = "required !";
+            this.amountRequiredLabel.Visible = false;
+            // 
+            // addTransactionButon
+            // 
+            this.addTransactionButon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.addTransactionButon.BackgroundImage = global::CryptoPortfolio.Properties.Resources.addTransactionButton;
+            this.addTransactionButon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.addTransactionButon.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.addTransactionButon.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.addTransactionButon.FlatAppearance.BorderSize = 0;
+            this.addTransactionButon.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.addTransactionButon.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.addTransactionButon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addTransactionButon.Font = new System.Drawing.Font("Inter", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addTransactionButon.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(220)))), ((int)(((byte)(227)))));
+            this.addTransactionButon.Location = new System.Drawing.Point(15, 356);
+            this.addTransactionButon.Name = "addTransactionButon";
+            this.addTransactionButon.Size = new System.Drawing.Size(307, 37);
+            this.addTransactionButon.TabIndex = 16;
+            this.addTransactionButon.Text = "Add Transaction";
+            this.addTransactionButon.UseVisualStyleBackColor = false;
+            this.addTransactionButon.Click += new System.EventHandler(this.addTransactionButon_Click);
             // 
             // totalSpentPanel
             // 
@@ -469,22 +526,29 @@
             // 
             this.feeTextPanel.BackgroundImage = global::CryptoPortfolio.Properties.Resources.feesTextBox;
             this.feeTextPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.feeTextPanel.Controls.Add(this.feeTextBox);
+            this.feeTextPanel.Controls.Add(this.feeNum);
             this.feeTextPanel.Controls.Add(this.currencyFeeLabel);
             this.feeTextPanel.Location = new System.Drawing.Point(6, 104);
             this.feeTextPanel.Name = "feeTextPanel";
             this.feeTextPanel.Size = new System.Drawing.Size(148, 38);
             this.feeTextPanel.TabIndex = 7;
             // 
-            // feeTextBox
+            // feeNum
             // 
-            this.feeTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(220)))), ((int)(((byte)(227)))));
-            this.feeTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.feeTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
-            this.feeTextBox.Location = new System.Drawing.Point(22, 7);
-            this.feeTextBox.Name = "feeTextBox";
-            this.feeTextBox.Size = new System.Drawing.Size(115, 20);
-            this.feeTextBox.TabIndex = 1;
+            this.feeNum.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(220)))), ((int)(((byte)(227)))));
+            this.feeNum.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.feeNum.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.feeNum.DecimalPlaces = 2;
+            this.feeNum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
+            this.feeNum.Location = new System.Drawing.Point(22, 7);
+            this.feeNum.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
+            this.feeNum.Name = "feeNum";
+            this.feeNum.Size = new System.Drawing.Size(118, 23);
+            this.feeNum.TabIndex = 20;
             // 
             // currencyFeeLabel
             // 
@@ -500,22 +564,29 @@
             // 
             this.pricePerCoinTextPanel.BackgroundImage = global::CryptoPortfolio.Properties.Resources.pricePerCoinLabel;
             this.pricePerCoinTextPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pricePerCoinTextPanel.Controls.Add(this.pricePerCoinTextBox);
+            this.pricePerCoinTextPanel.Controls.Add(this.pricePerCoinNum);
             this.pricePerCoinTextPanel.Controls.Add(this.currencyLabel);
             this.pricePerCoinTextPanel.Location = new System.Drawing.Point(160, 36);
             this.pricePerCoinTextPanel.Name = "pricePerCoinTextPanel";
             this.pricePerCoinTextPanel.Size = new System.Drawing.Size(172, 38);
             this.pricePerCoinTextPanel.TabIndex = 6;
             // 
-            // pricePerCoinTextBox
+            // pricePerCoinNum
             // 
-            this.pricePerCoinTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(220)))), ((int)(((byte)(227)))));
-            this.pricePerCoinTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.pricePerCoinTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
-            this.pricePerCoinTextBox.Location = new System.Drawing.Point(22, 8);
-            this.pricePerCoinTextBox.Name = "pricePerCoinTextBox";
-            this.pricePerCoinTextBox.Size = new System.Drawing.Size(138, 20);
-            this.pricePerCoinTextBox.TabIndex = 1;
+            this.pricePerCoinNum.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(220)))), ((int)(((byte)(227)))));
+            this.pricePerCoinNum.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.pricePerCoinNum.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.pricePerCoinNum.DecimalPlaces = 2;
+            this.pricePerCoinNum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
+            this.pricePerCoinNum.Location = new System.Drawing.Point(22, 7);
+            this.pricePerCoinNum.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
+            this.pricePerCoinNum.Name = "pricePerCoinNum";
+            this.pricePerCoinNum.Size = new System.Drawing.Size(140, 23);
+            this.pricePerCoinNum.TabIndex = 20;
             // 
             // currencyLabel
             // 
@@ -531,29 +602,36 @@
             // 
             this.amountTextPanel.BackgroundImage = global::CryptoPortfolio.Properties.Resources.amountTextBox;
             this.amountTextPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.amountTextPanel.Controls.Add(this.amountTextBox);
+            this.amountTextPanel.Controls.Add(this.amountNum);
             this.amountTextPanel.Controls.Add(this.coinShortLabel);
             this.amountTextPanel.Location = new System.Drawing.Point(6, 36);
             this.amountTextPanel.Name = "amountTextPanel";
             this.amountTextPanel.Size = new System.Drawing.Size(148, 38);
             this.amountTextPanel.TabIndex = 5;
             // 
-            // amountTextBox
+            // amountNum
             // 
-            this.amountTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(220)))), ((int)(((byte)(227)))));
-            this.amountTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.amountTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
-            this.amountTextBox.Location = new System.Drawing.Point(8, 8);
-            this.amountTextBox.Name = "amountTextBox";
-            this.amountTextBox.Size = new System.Drawing.Size(94, 20);
-            this.amountTextBox.TabIndex = 1;
+            this.amountNum.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(220)))), ((int)(((byte)(227)))));
+            this.amountNum.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.amountNum.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.amountNum.DecimalPlaces = 2;
+            this.amountNum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
+            this.amountNum.Location = new System.Drawing.Point(51, 7);
+            this.amountNum.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
+            this.amountNum.Name = "amountNum";
+            this.amountNum.Size = new System.Drawing.Size(90, 23);
+            this.amountNum.TabIndex = 19;
             // 
             // coinShortLabel
             // 
             this.coinShortLabel.AutoSize = true;
             this.coinShortLabel.Font = new System.Drawing.Font("Inter", 8F);
             this.coinShortLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(148)))), ((int)(((byte)(173)))));
-            this.coinShortLabel.Location = new System.Drawing.Point(106, 10);
+            this.coinShortLabel.Location = new System.Drawing.Point(4, 10);
             this.coinShortLabel.Name = "coinShortLabel";
             this.coinShortLabel.Size = new System.Drawing.Size(0, 14);
             this.coinShortLabel.TabIndex = 0;
@@ -588,32 +666,15 @@
             this.feeLabel.TabIndex = 2;
             this.feeLabel.Text = "Fee";
             // 
-            // pricePerCoinLabel
-            // 
-            this.pricePerCoinLabel.AutoSize = true;
-            this.pricePerCoinLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
-            this.pricePerCoinLabel.Location = new System.Drawing.Point(156, 14);
-            this.pricePerCoinLabel.Name = "pricePerCoinLabel";
-            this.pricePerCoinLabel.Size = new System.Drawing.Size(117, 19);
-            this.pricePerCoinLabel.TabIndex = 1;
-            this.pricePerCoinLabel.Text = "Price Per Coin";
-            // 
-            // amountLabel
-            // 
-            this.amountLabel.AutoSize = true;
-            this.amountLabel.Font = new System.Drawing.Font("Inter", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.amountLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
-            this.amountLabel.Location = new System.Drawing.Point(3, 14);
-            this.amountLabel.Name = "amountLabel";
-            this.amountLabel.Size = new System.Drawing.Size(68, 19);
-            this.amountLabel.TabIndex = 0;
-            this.amountLabel.Text = "Amount";
-            // 
             // sellButon
             // 
             this.sellButon.BackgroundImage = global::CryptoPortfolio.Properties.Resources.sellTab_un;
             this.sellButon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.sellButon.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.sellButon.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.sellButon.FlatAppearance.BorderSize = 0;
+            this.sellButon.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.sellButon.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.sellButon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.sellButon.Location = new System.Drawing.Point(101, 38);
             this.sellButon.Name = "sellButon";
@@ -625,7 +686,11 @@
             // 
             this.buyButton.BackgroundImage = global::CryptoPortfolio.Properties.Resources.buyTab;
             this.buyButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.buyButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buyButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.buyButton.FlatAppearance.BorderSize = 0;
+            this.buyButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.buyButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.buyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buyButton.Location = new System.Drawing.Point(7, 38);
             this.buyButton.Name = "buyButton";
@@ -697,10 +762,13 @@
             this.notesTextPanel.PerformLayout();
             this.feeTextPanel.ResumeLayout(false);
             this.feeTextPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.feeNum)).EndInit();
             this.pricePerCoinTextPanel.ResumeLayout(false);
             this.pricePerCoinTextPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pricePerCoinNum)).EndInit();
             this.amountTextPanel.ResumeLayout(false);
             this.amountTextPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.amountNum)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -725,13 +793,10 @@
         private System.Windows.Forms.Label pricePerCoinLabel;
         private System.Windows.Forms.Label amountLabel;
         private System.Windows.Forms.Panel amountTextPanel;
-        private System.Windows.Forms.TextBox amountTextBox;
         private System.Windows.Forms.Label coinShortLabel;
         private System.Windows.Forms.Panel pricePerCoinTextPanel;
-        private System.Windows.Forms.TextBox pricePerCoinTextBox;
         private System.Windows.Forms.Label currencyLabel;
         private System.Windows.Forms.Panel feeTextPanel;
-        private System.Windows.Forms.TextBox feeTextBox;
         private System.Windows.Forms.Label currencyFeeLabel;
         private System.Windows.Forms.Panel notesTextPanel;
         private System.Windows.Forms.TextBox notesTextBox;
@@ -748,11 +813,16 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox hourTextBox;
         private System.Windows.Forms.Panel totalSpentPanel;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button addTransactionButon;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label currencyTotalSpent;
         private System.Windows.Forms.Label totalSpentLabel;
         private System.Windows.Forms.Button closeOneButton;
         private System.Windows.Forms.Button closeTwoButton;
+        private System.Windows.Forms.Label amountRequiredLabel;
+        private System.Windows.Forms.Label pricePerCoinRequiredLabel;
+        private System.Windows.Forms.NumericUpDown amountNum;
+        private System.Windows.Forms.NumericUpDown pricePerCoinNum;
+        private System.Windows.Forms.NumericUpDown feeNum;
     }
 }

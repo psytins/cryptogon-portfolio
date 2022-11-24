@@ -62,9 +62,9 @@ namespace CryptoPortfolio
         private void LoadAddTransaction(Coin coin)
         {
             addTransactionPanel.BringToFront();
-            amountTextBox       .Text = string.Empty;
-            pricePerCoinTextBox .Text = string.Empty;
-            feeTextBox          .Text = string.Empty;
+            amountNum           .Value = 0;
+            pricePerCoinNum     .Value = 0;
+            feeNum              .Value = 0;
             notesTextBox        .Text = string.Empty;
             dayTextBox          .Text = string.Empty;
             monthComboBox       .SelectedIndex = 0;    
@@ -74,7 +74,7 @@ namespace CryptoPortfolio
             secondTextBox       .Text = string.Empty;
 
             //Set up labels
-            coinShortLabel.Text = coin.Symbol;
+            coinShortLabel.Text = coin.Symbol + " |";
             currencyLabel.Text = Properties.Settings.Default.Currency;
             currencyFeeLabel.Text = Properties.Settings.Default.Currency;
             currencyTotalSpent.Text = Properties.Settings.Default.Currency;
@@ -83,6 +83,12 @@ namespace CryptoPortfolio
         private void CloseForm(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void addTransactionButon_Click(object sender, EventArgs e)
+        {
+
+
         }
     }
 }
