@@ -85,6 +85,9 @@ namespace CryptoPortfolio
         /// <param name="portfolio_index">Update to this portfolio index</param>
         private void UpdateDashboard(int portfolio_index)
         {
+            SESSION_PORTFOLIO.Clear();
+            SESSION_PORTFOLIO = XmlHandler.readPortfolio(SESSION.ID);
+
             mainDashboardPanel.BringToFront();
             CURRENT_PAGE = 1;
             //Change Side buttons --------
@@ -115,6 +118,9 @@ namespace CryptoPortfolio
         /// <param name="portfolio_index">Update to this portfolio index</param>
         private void UpdateInsights(int portfolio_index)
         {
+            SESSION_PORTFOLIO.Clear();
+            SESSION_PORTFOLIO = XmlHandler.readPortfolio(SESSION.ID);
+
             mainInsightPanel.BringToFront();
             CURRENT_PAGE = 2;
             //Change Side buttons --------
@@ -135,6 +141,9 @@ namespace CryptoPortfolio
         /// <param name="portfolio_index">Update to this portfolio index</param>
         private void UpdateAssets(int portfolio_index)
         {
+            SESSION_PORTFOLIO.Clear();
+            SESSION_PORTFOLIO = XmlHandler.readPortfolio(SESSION.ID);
+
             mainAssetsPanel.BringToFront();
             CURRENT_PAGE = 3;
             //Change Side buttons --------
@@ -155,6 +164,9 @@ namespace CryptoPortfolio
         /// <param name="portfolio_index">Update to this portfolio index</param>
         private void UpdateHistory(int portfolio_index)
         {
+            SESSION_PORTFOLIO.Clear();
+            SESSION_PORTFOLIO = XmlHandler.readPortfolio(SESSION.ID);
+
             mainHistoryPanel.BringToFront();
             CURRENT_PAGE = 4;
             //Change Side buttons --------
@@ -182,7 +194,6 @@ namespace CryptoPortfolio
                 //Create a new portfolio
                 string portfolioName = Interaction.InputBox("Please create a new portfolio", "Portfolio Name"); //What if user clicks cancel ????
                 Portfolio portfolio = new Portfolio(SESSION.ID, portfolioName, 0);
-                SESSION_PORTFOLIO.Add(portfolio);
                 XmlHandler.writePortfolio(portfolio);
 
                 UpdateDashboard(SESSION_PORTFOLIO.Count-1); //Update the dashboard with the just created portfolio
@@ -201,7 +212,7 @@ namespace CryptoPortfolio
             }
             else
             {
-                //Check where the user is (future)
+                //Check where the user is (future) (use if with CURRENT_PAGE)
                 UpdateDashboard(int.Parse(currButton.Tag.ToString()));
             }
 
@@ -269,10 +280,6 @@ namespace CryptoPortfolio
                     default: break;
                 }
             }
-
-
-
-
         }
 
         private void mouseGrab_MouseDown(object sender, MouseEventArgs e)
@@ -327,7 +334,9 @@ namespace CryptoPortfolio
 
         private void newTransactionButton_Click(object sender, EventArgs e)
         {
-            new TransactionForm().ShowDialog();
+            TransactionForm newTransaction = new TransactionForm();
+            newTransaction.SetPortfolio(SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX]);
+            newTransaction.ShowDialog();
         }
 
         private void notificationButton_Click(object sender, EventArgs e)
@@ -422,11 +431,6 @@ namespace CryptoPortfolio
         private void historyButton_Click(object sender, EventArgs e)
         {
             UpdateHistory(CURRENT_PORTFOLIO_INDEX);
-        }
-
-        private void SelectPortfolio(object sender, MouseEventArgs e)
-        {
-
         }
     }
 }

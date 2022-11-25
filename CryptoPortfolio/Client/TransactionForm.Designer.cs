@@ -549,6 +549,7 @@
             this.feeNum.Name = "feeNum";
             this.feeNum.Size = new System.Drawing.Size(118, 23);
             this.feeNum.TabIndex = 20;
+            this.feeNum.ValueChanged += new System.EventHandler(this.CalculateTotal);
             // 
             // currencyFeeLabel
             // 
@@ -587,6 +588,7 @@
             this.pricePerCoinNum.Name = "pricePerCoinNum";
             this.pricePerCoinNum.Size = new System.Drawing.Size(140, 23);
             this.pricePerCoinNum.TabIndex = 20;
+            this.pricePerCoinNum.ValueChanged += new System.EventHandler(this.CalculateTotal);
             // 
             // currencyLabel
             // 
@@ -625,6 +627,7 @@
             this.amountNum.Name = "amountNum";
             this.amountNum.Size = new System.Drawing.Size(90, 23);
             this.amountNum.TabIndex = 19;
+            this.amountNum.ValueChanged += new System.EventHandler(this.CalculateTotal);
             // 
             // coinShortLabel
             // 

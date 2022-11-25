@@ -8,7 +8,7 @@ namespace CryptoPortfolio
         public enum Type { Buy = 1, Sell = 0 }
         //Variables - Buy
         private Type type;
-        private String coin; //temp string
+        private Coin coin;
         private String date;
         private float amount;
         private float coinPrice;
@@ -17,7 +17,7 @@ namespace CryptoPortfolio
         private float totalCost;
         private String notes;
 
-        public Transaction(Type type, String coin, String date, float amount, float coinPrice, float cost, float fee, float totalCost, String notes)
+        public Transaction(Type type, Coin coin, String date, float amount, float coinPrice, float cost, float fee, float totalCost, String notes)
         {
             this.type = type;
             this.coin = coin;
@@ -34,7 +34,7 @@ namespace CryptoPortfolio
         {
             get { return this.type; }
         }
-        public String Coin {
+        public Coin Coin {
 
             get { return this.coin; }
             set { this.coin = value; }
