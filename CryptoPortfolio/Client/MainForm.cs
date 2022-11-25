@@ -9,7 +9,7 @@ namespace CryptoPortfolio
 {
     public partial class MainForm : Form
     {
-        //Lets the mouse move the form withou border
+        //Lets the mouse move the form without border
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
 
@@ -75,15 +75,13 @@ namespace CryptoPortfolio
             {
                 UpdateDashboard(0);               
             }
-
-            dashboardButton.BackgroundImage = Properties.Resources.Dashboard_selected; //maybe
         }
 
         /// <summary>
         /// Shows and updates the Dashboard Panel with the data of the selected portfolio.
         /// </summary>
         /// <param name="portfolio_index">Update to this portfolio index</param>
-        private void UpdateDashboard(int portfolio_index)
+        public void UpdateDashboard(int portfolio_index)
         {
             SESSION_PORTFOLIO.Clear();
             SESSION_PORTFOLIO = XmlHandler.readPortfolio(SESSION.ID);
@@ -116,7 +114,7 @@ namespace CryptoPortfolio
         /// Shows and updates the Insight Panel with the data of the selected portfolio.
         /// </summary>
         /// <param name="portfolio_index">Update to this portfolio index</param>
-        private void UpdateInsights(int portfolio_index)
+        public void UpdateInsights(int portfolio_index)
         {
             SESSION_PORTFOLIO.Clear();
             SESSION_PORTFOLIO = XmlHandler.readPortfolio(SESSION.ID);
@@ -139,7 +137,7 @@ namespace CryptoPortfolio
         /// Show and updates the Assets Panel with the data of the selected portfolio.
         /// </summary>
         /// <param name="portfolio_index">Update to this portfolio index</param>
-        private void UpdateAssets(int portfolio_index)
+        public void UpdateAssets(int portfolio_index)
         {
             SESSION_PORTFOLIO.Clear();
             SESSION_PORTFOLIO = XmlHandler.readPortfolio(SESSION.ID);
@@ -162,7 +160,7 @@ namespace CryptoPortfolio
         /// Shows and updates the History Panel with the data of the selected portfolio.
         /// </summary>
         /// <param name="portfolio_index">Update to this portfolio index</param>
-        private void UpdateHistory(int portfolio_index)
+        public void UpdateHistory(int portfolio_index)
         {
             SESSION_PORTFOLIO.Clear();
             SESSION_PORTFOLIO = XmlHandler.readPortfolio(SESSION.ID);
@@ -335,7 +333,8 @@ namespace CryptoPortfolio
         private void newTransactionButton_Click(object sender, EventArgs e)
         {
             TransactionForm newTransaction = new TransactionForm();
-            newTransaction.SetPortfolio(SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX]);
+            newTransaction.MdiParent = this;//error
+            newTransaction.SetPortfolio(SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX], CURRENT_PORTFOLIO_INDEX);
             newTransaction.ShowDialog();
         }
 

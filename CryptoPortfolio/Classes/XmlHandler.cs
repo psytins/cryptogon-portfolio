@@ -40,7 +40,6 @@ namespace CryptoPortfolio
             sub_root            .Add(new XElement("ID", portfolioToRegister.ID));
             sub_root            .Add(new XElement("OwnershipID", portfolioToRegister.OwnerID));
             sub_root            .Add(new XElement("PortfolioName", portfolioToRegister.PorfolioName));
-            sub_root            .Add(new XElement("TotalInvested", portfolioToRegister.TotalInvested));
 
             //Add Transactions -----------
             XElement sub_root_transactions = new XElement("TransactionHistory");//Create the Head for transactions

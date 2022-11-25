@@ -48,7 +48,6 @@ namespace CryptoPortfolio
         {
 
             get { return this.totalInvested; }
-            set { this.totalInvested = value; }
         }
 
         public List<Transaction> Transactions

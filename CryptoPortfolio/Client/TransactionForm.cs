@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Drawing;
-using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace CryptoPortfolio
@@ -15,9 +14,11 @@ namespace CryptoPortfolio
         /// The current portfolio that the current user is adding the transaction.
         /// </summary>
         private Portfolio CURRENT_PORTFOLIO;
-        internal void SetPortfolio(Portfolio portfolio)
+        private int CURRENT_PORTFOLIO_INDEX;
+        internal void SetPortfolio(Portfolio portfolio, int index)
         {
-            this.CURRENT_PORTFOLIO = portfolio;
+            this.CURRENT_PORTFOLIO       = portfolio;
+            this.CURRENT_PORTFOLIO_INDEX = index;
         }
 
         public TransactionForm()
@@ -29,7 +30,6 @@ namespace CryptoPortfolio
             selectCoinPanel.BringToFront(); //Get always the coin selection first
             //load all coins in the coin panel
             LoadCoins();
-
         }
 
         private void LoadCoins()
@@ -125,7 +125,10 @@ namespace CryptoPortfolio
                     notesTextBox.Text);
 
                 XmlHandler.writeTransaction(tempTransaction, CURRENT_PORTFOLIO);
-                this.Dispose(); //and update MainForm ? 
+
+                ((MainForm)ParentForm).UpdateDashboard(CURRENT_PORTFOLIO_INDEX);
+
+                this.Dispose();
             }
         }
 
