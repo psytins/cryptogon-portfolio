@@ -106,8 +106,8 @@ namespace CryptoPortfolio
             showPortfoliosPanel.Visible = false;
 
             //It will change when I implement true values depending on crypto values
-            currentValueLabel.Text = SESSION_PORTFOLIO.ToArray()[portfolio_index].TotalInvested.ToString();
-            totalInvestedLabel.Text = currentValueLabel.Text; //in the future create a method to read the sum of all transactions costs
+            totalInvestedLabel.Text = SESSION_PORTFOLIO.ToArray()[portfolio_index].TotalInvested.ToString();
+            currentValueLabel.Text = totalInvestedLabel.Text; //in the future this values changes depending crypto values
             gainLossLabel.Text = (float.Parse(currentValueLabel.Text) - float.Parse(totalInvestedLabel.Text)).ToString(); //it will be always zero for now 
             CheckGainLoss(); //Set the color of Gains/Losses Label
         }
@@ -193,10 +193,10 @@ namespace CryptoPortfolio
             {
                 //Create a new portfolio
                 string portfolioName = Interaction.InputBox("Please create a new portfolio", "Portfolio Name"); //What if user clicks cancel ????
-                Portfolio portfolio = new Portfolio(SESSION.ID, portfolioName, 0);
+                Portfolio portfolio = new Portfolio(SESSION.ID, portfolioName);
                 XmlHandler.writePortfolio(portfolio);
 
-                UpdateDashboard(SESSION_PORTFOLIO.Count-1); //Update the dashboard with the just created portfolio
+                UpdateDashboard(SESSION_PORTFOLIO.Count); //Update the dashboard with the just created portfolio
             }
         }
 

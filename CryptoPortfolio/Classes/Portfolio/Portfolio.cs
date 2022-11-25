@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net.Http.Headers;
 
 namespace CryptoPortfolio
 {
@@ -13,21 +14,21 @@ namespace CryptoPortfolio
         private List<Transaction> transactions;
 
         //New Portfolio (no transaction)
-        public Portfolio(int ownerID, String portfolioName, float totalInvested)
+        public Portfolio(int ownerID, String portfolioName)
         {
             this.transactions = new List<Transaction>();
             this.id = readLastID();
             this.ownerID = ownerID;
             this.portfolioName = portfolioName;
-            this.totalInvested = totalInvested;           
+            this.totalInvested = CalculateTotalInvested();           
         }
-        public Portfolio(int id, int ownerID, String portfolioName, float totalInvested)
+        public Portfolio(int id, int ownerID, String portfolioName)
         {
             this.transactions = new List<Transaction>();
             this.id = id;
             this.ownerID = ownerID;
             this.portfolioName = portfolioName;
-            this.totalInvested = totalInvested;
+            this.totalInvested = CalculateTotalInvested();
         }
 
         public int ID
@@ -64,6 +65,23 @@ namespace CryptoPortfolio
                 return 0;
             else
                 return lastID + 1;
+        }
+
+        private float CalculateTotalInvested()
+        {
+            float totalInvested = 0;
+
+            if(this.transactions.Count == 0)
+                return 0;
+            else
+            {
+                foreach (Transaction transaction in this.transactions)
+                {
+                    totalInvested += transaction.TotaLCost;
+                }
+
+                return totalInvested;
+            }
         }
     }
 }

@@ -176,8 +176,7 @@ namespace CryptoPortfolio
                                  select new Portfolio(
                                      int.Parse(portfolio.Element("ID").Value),
                                      int.Parse(portfolio.Element("OwnershipID").Value),
-                                     portfolio.Element("PortfolioName").Value,
-                                     float.Parse(portfolio.Element("TotalInvested").Value));
+                                     portfolio.Element("PortfolioName").Value);
 
 
             //Go throught each portfolio objects
