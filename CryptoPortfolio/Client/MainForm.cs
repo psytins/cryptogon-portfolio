@@ -83,6 +83,7 @@ namespace CryptoPortfolio
         /// <param name="portfolio_index">Update to this portfolio index</param>
         public void UpdateDashboard(int portfolio_index)
         {
+            //Update Portfolio Global (Maybe in future change update Potfolio Global when strictly necessary)
             SESSION_PORTFOLIO.Clear();
             SESSION_PORTFOLIO = XmlHandler.readPortfolio(SESSION.ID);
 
@@ -104,7 +105,7 @@ namespace CryptoPortfolio
             showPortfoliosPanel.Visible = false;
 
             //It will change when I implement true values depending on crypto values
-            totalInvestedLabel.Text = SESSION_PORTFOLIO.ToArray()[portfolio_index].TotalInvested.ToString();
+            totalInvestedLabel.Text = SESSION_PORTFOLIO.ToArray()[portfolio_index].CalculateTotalInvested().ToString();
             currentValueLabel.Text = totalInvestedLabel.Text; //in the future this values changes depending crypto values
             gainLossLabel.Text = (float.Parse(currentValueLabel.Text) - float.Parse(totalInvestedLabel.Text)).ToString(); //it will be always zero for now 
             CheckGainLoss(); //Set the color of Gains/Losses Label
@@ -333,9 +334,8 @@ namespace CryptoPortfolio
         private void newTransactionButton_Click(object sender, EventArgs e)
         {
             TransactionForm newTransaction = new TransactionForm();
-            newTransaction.MdiParent = this;//error
             newTransaction.SetPortfolio(SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX], CURRENT_PORTFOLIO_INDEX);
-            newTransaction.ShowDialog();
+            newTransaction.ShowDialog(this);
         }
 
         private void notificationButton_Click(object sender, EventArgs e)

@@ -10,7 +10,6 @@ namespace CryptoPortfolio
         private int id;
         private int ownerID;
         private String portfolioName;
-        private float totalInvested;
         private List<Transaction> transactions;
 
         //New Portfolio (no transaction)
@@ -19,8 +18,7 @@ namespace CryptoPortfolio
             this.transactions = new List<Transaction>();
             this.id = readLastID();
             this.ownerID = ownerID;
-            this.portfolioName = portfolioName;
-            this.totalInvested = CalculateTotalInvested();           
+            this.portfolioName = portfolioName;       
         }
         public Portfolio(int id, int ownerID, String portfolioName)
         {
@@ -28,7 +26,6 @@ namespace CryptoPortfolio
             this.id = id;
             this.ownerID = ownerID;
             this.portfolioName = portfolioName;
-            this.totalInvested = CalculateTotalInvested();
         }
 
         public int ID
@@ -44,12 +41,6 @@ namespace CryptoPortfolio
             get { return this.portfolioName; }
             set { this.portfolioName = value; }
         }
-        public float TotalInvested
-        {
-
-            get { return this.totalInvested; }
-        }
-
         public List<Transaction> Transactions
         {
             get { return this.transactions; }
@@ -66,7 +57,7 @@ namespace CryptoPortfolio
                 return lastID + 1;
         }
 
-        private float CalculateTotalInvested()
+        public float CalculateTotalInvested()
         {
             float totalInvested = 0;
 

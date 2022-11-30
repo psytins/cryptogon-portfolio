@@ -171,7 +171,7 @@ namespace CryptoPortfolio
             XDocument xdoc = XDocument.Load(Application.LocalUserAppDataPath + Properties.Settings.Default.XMLportfolioPath);
 
             //Run query to select all Portfolio objects
-            var portfolioQuery = from portfolio in xdoc.Descendants("Portfolio")
+            var portfolioQuery = from portfolio in xdoc.Descendants("Portfolio").Where(x => x.Element("OwnershipID").Value == ownerID.ToString())
                                  select new Portfolio(
                                      int.Parse(portfolio.Element("ID").Value),
                                      int.Parse(portfolio.Element("OwnershipID").Value),
@@ -196,10 +196,8 @@ namespace CryptoPortfolio
 
                 portfolios.Transactions = transactionQuery.ToList();
 
-                if (portfolios.OwnerID == ownerID)
-                {
-                    finalList.Add(portfolios);
-                }
+
+                finalList.Add(portfolios); // !!!    
             }
 
             return finalList;

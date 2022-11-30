@@ -103,7 +103,7 @@ namespace CryptoPortfolio
             this.Dispose();
         }
 
-        private void CalculateTotal(object sender, EventArgs e) //bug: when numeric is empty, this don't trigger.
+        private void CalculateTotal(object sender, EventArgs e) //bug: when numeric is leaved empty, this don't trigger.
         {
             decimal newValue = (amountNum.Value * pricePerCoinNum.Value) + feeNum.Value;
             totalSpentLabel.Text = newValue.ToString(); //Show a total updated
@@ -126,7 +126,7 @@ namespace CryptoPortfolio
 
                 XmlHandler.writeTransaction(tempTransaction, CURRENT_PORTFOLIO);
 
-                ((MainForm)ParentForm).UpdateDashboard(CURRENT_PORTFOLIO_INDEX);
+                ((MainForm)Owner).UpdateDashboard(CURRENT_PORTFOLIO_INDEX); //errors
 
                 this.Dispose();
             }
