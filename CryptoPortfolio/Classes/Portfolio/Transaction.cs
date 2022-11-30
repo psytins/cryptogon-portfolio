@@ -7,6 +7,7 @@ namespace CryptoPortfolio
         //Enum - Type
         public enum Type { Buy = 1, Sell = 0 }
         //Variables - Buy
+        private int id;
         private Type type;
         private Coin coin;
         private String date;
@@ -19,6 +20,7 @@ namespace CryptoPortfolio
 
         public Transaction(Type type, Coin coin, String date, float amount, float coinPrice, float cost, float fee, float totalCost, String notes)
         {
+            this.id = this.readLastID();
             this.type = type;
             this.coin = coin;
             this.date = date;
@@ -30,6 +32,23 @@ namespace CryptoPortfolio
             this.notes = notes;
         }
 
+        public Transaction(int id, Type type, Coin coin, String date, float amount, float coinPrice, float cost, float fee, float totalCost, String notes)
+        {
+            this.id = id;
+            this.type = type;
+            this.coin = coin;
+            this.date = date;
+            this.amount = amount;
+            this.coinPrice = coinPrice;
+            this.cost = cost;
+            this.fee = fee;
+            this.totalCost = totalCost;
+            this.notes = notes;
+        }
+        public int ID
+        {
+            get { return this.id; }
+        }
         public Type TransactionType
         {
             get { return this.type; }
@@ -82,5 +101,13 @@ namespace CryptoPortfolio
             set { this.notes = value; }
         }
 
+        private int readLastID()
+        {
+            int lastID = XmlHandler.readTransactionLastID();
+            if (lastID == -1)
+                return 0;
+            else
+                return lastID + 1;
+        }
     }
 }

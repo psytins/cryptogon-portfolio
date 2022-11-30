@@ -44,9 +44,10 @@ namespace CryptoPortfolio
             //Add Transactions -----------
             XElement sub_root_transactions = new XElement("TransactionHistory");//Create the Head for transactions
 
-            foreach(Transaction transactions in portfolioToRegister.Transactions)
+            foreach(Transaction transactions in portfolioToRegister.Transactions) //Usually is not used, because this method creates new portfolios (with no transaction)
             {
                 XElement sub_root_transaction   = new XElement("Transaction");//Create the Head for each transaction
+                sub_root_transaction            .Add(new XElement("ID", transactions.ID));
                 sub_root_transaction            .Add(new XElement("Type", ((int)transactions.TransactionType)));
                 sub_root_transaction            .Add(new XElement("Coin", transactions.Coin.Name));
                 sub_root_transaction            .Add(new XElement("Date", transactions.Date));
@@ -79,6 +80,7 @@ namespace CryptoPortfolio
 
 
             XElement sub_root_transaction   = new XElement("Transaction");//Create the Head for the transaction
+            sub_root_transaction            .Add(new XElement("ID", transactionToRegister.ID));
             sub_root_transaction            .Add(new XElement("Type", ((int)transactionToRegister.TransactionType)));
             sub_root_transaction            .Add(new XElement("Coin", transactionToRegister.Coin.Name));
             sub_root_transaction            .Add(new XElement("Date", transactionToRegister.Date));
@@ -183,6 +185,7 @@ namespace CryptoPortfolio
             {
                 var transactionQuery = from transactions in xdoc.Descendants("Portfolio").Where(x => x.Element("ID").Value == portfolios.ID.ToString()).Descendants("TransactionHistory").Descendants("Transaction")
                                        select new Transaction(
+                                               int.Parse(transactions.Element("ID").Value),
                                                int.Parse(transactions.Element("Type").Value) == 1 ? Transaction.Type.Buy : Transaction.Type.Sell,
                                                readCoin(transactions.Element("Coin").Value),                                   
                                                transactions.Element("Date").Value,
@@ -218,6 +221,20 @@ namespace CryptoPortfolio
                 return int.Parse(idsQuery.Last<string>());
         }
 
+        public static int readTransactionLastID()
+        {
+            //Load xml
+            XDocument xdoc = XDocument.Load(Application.LocalUserAppDataPath + Properties.Settings.Default.XMLportfolioPath);
+
+            //Run query to select all IDS
+            var idsQuery = from transaction in xdoc.Descendants("Portfolio").Descendants("TransactionHistory").Descendants("Transaction")
+                           select transaction.Element("ID").Value;
+
+            if (idsQuery.Count() == 0)
+                return -1;
+            else
+                return int.Parse(idsQuery.Last<string>());
+        }
 
         // UPDATE #########################################################
         // ###############################################################

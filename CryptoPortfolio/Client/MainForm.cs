@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
@@ -19,7 +20,7 @@ namespace CryptoPortfolio
         public static extern bool ReleaseCapture();
         // -------------------
         //Global Variables
-        private string CURRENT_VERSION = "Current Version 1.0.0.2 - pre-alpha";
+        private string CURRENT_VERSION = "Current Version 2.0.0.0 - pre-alpha";
         private int CURRENT_PAGE = 1;
 
         /// <summary>
@@ -34,7 +35,6 @@ namespace CryptoPortfolio
         /// Current portfolio index. MAX VALUE = 2
         /// </summary>
         private int CURRENT_PORTFOLIO_INDEX;
-
         internal void SetSession(User session)
         {
             this.SESSION = session;            
@@ -103,12 +103,66 @@ namespace CryptoPortfolio
             accountNameLabel.Text = SESSION.FirstName + " " + SESSION.LastName;
             portfolioNameLabel.Text = SESSION_PORTFOLIO.ToArray()[portfolio_index].PorfolioName;
             showPortfoliosPanel.Visible = false;
+            //Update Sub Panels
+            UpdateSubHistoryPanel();
+            UpdateSubChartPanel();  
+            UpdateSubAssetsPanel();
 
             //It will change when I implement true values depending on crypto values
             totalInvestedLabel.Text = SESSION_PORTFOLIO.ToArray()[portfolio_index].CalculateTotalInvested().ToString();
             currentValueLabel.Text = totalInvestedLabel.Text; //in the future this values changes depending crypto values
             gainLossLabel.Text = (float.Parse(currentValueLabel.Text) - float.Parse(totalInvestedLabel.Text)).ToString(); //it will be always zero for now 
             CheckGainLoss(); //Set the color of Gains/Losses Label
+        }
+
+        /// <summary>
+        /// Updates the sub History Panel in Dashboard Panel with the data of the selected portfolio.
+        /// </summary>
+        private void UpdateSubHistoryPanel()
+        {
+            //int y_location = 0;
+
+            //foreach (Transaction transaction in SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].Transactions) //Go throught all existant transactions
+            //{
+            //    Panel tempPanel = new Panel();
+            //    Button tempButton = new Button();
+
+            //    tempButton.Text = coin.Name;
+            //    tempButton.Tag = coin;
+            //    //Design attributes
+            //    tempButton.SetBounds(5, y_location, 329, 32);
+
+            //    tempButton.BackgroundImage = Properties.Resources.coinButton;
+            //    tempButton.BackgroundImageLayout = ImageLayout.None;
+            //    tempButton.FlatAppearance.BorderSize = 0;
+            //    tempButton.FlatStyle = FlatStyle.Flat;
+            //    tempButton.ForeColor = Color.FromArgb(39, 76, 119);
+            //    tempButton.TextAlign = ContentAlignment.MiddleLeft;
+
+            //    //add the event listener
+            //    tempButton.MouseClick += new MouseEventHandler(CoinSelected);
+            //    //add it to the coin panel
+            //    coinPanel.Controls.Add(tempButton);
+
+            //    y_location += 35;
+            //}
+
+        }
+
+        /// <summary>
+        /// Updates the sub Chart Panel in Dashboard Panel with the data of the selected portfolio.
+        /// </summary>
+        private void UpdateSubChartPanel()
+        {
+
+        }
+
+        /// <summary>
+        /// Updates the sub Assets Panel in Dashboard Panel with the data of the selected portfolio.
+        /// </summary>
+        private void UpdateSubAssetsPanel()
+        {
+
         }
 
         /// <summary>
@@ -337,17 +391,14 @@ namespace CryptoPortfolio
             newTransaction.SetPortfolio(SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX], CURRENT_PORTFOLIO_INDEX);
             newTransaction.ShowDialog(this);
         }
-
         private void notificationButton_Click(object sender, EventArgs e)
         {
            
         }
-
         private void settingsButton_Click(object sender, EventArgs e)
         {
             
         }
-
         private void dashboardButton_MouseEnter(object sender, EventArgs e)
         {
             if(CURRENT_PAGE != 1)
@@ -355,7 +406,6 @@ namespace CryptoPortfolio
             else
                 dashboardButton.BackgroundImage = Properties.Resources.Dashboard_selected;
         }
-
         private void insightButton_MouseEnter(object sender, EventArgs e)
         {
             if (CURRENT_PAGE != 2)
@@ -363,7 +413,6 @@ namespace CryptoPortfolio
             else
                 insightButton.BackgroundImage = Properties.Resources.Insights_selected;
         }      
-
         private void assetsButton_MouseEnter(object sender, EventArgs e)
         {
             if (CURRENT_PAGE != 3)
@@ -378,7 +427,6 @@ namespace CryptoPortfolio
             else
                 historyButton.BackgroundImage = Properties.Resources.History_selected;
         }
-
         private void dashboardButton_MouseLeave(object sender, EventArgs e)
         {
             if(CURRENT_PAGE != 1)
@@ -386,7 +434,6 @@ namespace CryptoPortfolio
             else
                 dashboardButton.BackgroundImage = Properties.Resources.Dashboard_selected;
         }
-
         private void insightButton_MouseLeave(object sender, EventArgs e)
         {
 
@@ -395,7 +442,6 @@ namespace CryptoPortfolio
             else
                 insightButton.BackgroundImage = Properties.Resources.Insights_selected;
         }
-
         private void assetsButton_MouseLeave(object sender, EventArgs e)
         {
             if (CURRENT_PAGE != 3)
@@ -403,7 +449,6 @@ namespace CryptoPortfolio
             else
                 assetsButton.BackgroundImage = Properties.Resources.Assets_selected;
         }
-
         private void historyButton_MouseLeave(object sender, EventArgs e)
         {
             if (CURRENT_PAGE != 4)
@@ -411,22 +456,18 @@ namespace CryptoPortfolio
             else
                 historyButton.BackgroundImage = Properties.Resources.History_selected;
         }
-
         private void dashboardButton_Click(object sender, EventArgs e)
         {
             UpdateDashboard(CURRENT_PORTFOLIO_INDEX);
         }
-
         private void insightButton_Click(object sender, EventArgs e)
         {
             UpdateInsights(CURRENT_PORTFOLIO_INDEX);
         }
-
         private void assetsButton_Click(object sender, EventArgs e)
         {
             UpdateAssets(CURRENT_PORTFOLIO_INDEX);
         }
-
         private void historyButton_Click(object sender, EventArgs e)
         {
             UpdateHistory(CURRENT_PORTFOLIO_INDEX);

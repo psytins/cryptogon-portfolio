@@ -736,8 +736,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
             this.ClientSize = new System.Drawing.Size(375, 500);
-            this.Controls.Add(this.addTransactionPanel);
             this.Controls.Add(this.selectCoinPanel);
+            this.Controls.Add(this.addTransactionPanel);
             this.Font = new System.Drawing.Font("Inter", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
