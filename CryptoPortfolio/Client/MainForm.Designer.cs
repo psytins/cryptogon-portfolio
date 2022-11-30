@@ -33,6 +33,9 @@ namespace CryptoPortfolio
             this.accountNameLabel = new System.Windows.Forms.Label();
             this.portfolioNameLabel = new System.Windows.Forms.Label();
             this.mouseGrab = new System.Windows.Forms.Panel();
+            this.notificationButton = new System.Windows.Forms.Button();
+            this.showPortfoliosButton = new System.Windows.Forms.Button();
+            this.settingsButton = new System.Windows.Forms.Button();
             this.mainInsightPanel = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.mainAssetsPanel = new System.Windows.Forms.Panel();
@@ -40,35 +43,37 @@ namespace CryptoPortfolio
             this.mainHistoryPanel = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.chartPanel = new System.Windows.Forms.Panel();
+            this.chartLabel = new System.Windows.Forms.Label();
             this.totalInvestedStaticLabel = new System.Windows.Forms.Label();
             this.totalInvestedCurrencyLabel = new System.Windows.Forms.Label();
             this.valueLabel = new System.Windows.Forms.Label();
             this.totalInvestedLabel = new System.Windows.Forms.Label();
             this.separatorPanel = new System.Windows.Forms.Panel();
             this.historyPanel = new System.Windows.Forms.Panel();
+            this.transactionsPanel = new System.Windows.Forms.Panel();
+            this.costHistoryLabel = new System.Windows.Forms.Label();
+            this.typeHistoryLabel = new System.Windows.Forms.Label();
+            this.amountHistoryLabel = new System.Windows.Forms.Label();
+            this.coinHistoryLabel = new System.Windows.Forms.Label();
+            this.dateHistoryLabel = new System.Windows.Forms.Label();
             this.latestTransactionLabel = new System.Windows.Forms.Label();
             this.gainLossStaticLabel = new System.Windows.Forms.Label();
             this.valueCurrencyLabel = new System.Windows.Forms.Label();
             this.assetsPanel = new System.Windows.Forms.Panel();
+            this.allocationLabel = new System.Windows.Forms.Label();
             this.gainLossLabel = new System.Windows.Forms.Label();
             this.currentValueLabel = new System.Windows.Forms.Label();
             this.mainDashboardPanel = new System.Windows.Forms.Panel();
+            this.percentageShowPanel = new System.Windows.Forms.Panel();
+            this.percentageNumberLabel = new System.Windows.Forms.Label();
+            this.arrowPanel = new System.Windows.Forms.Panel();
+            this.newTransactionButton = new System.Windows.Forms.Button();
             this.gainLossCurrencyLabel = new System.Windows.Forms.Label();
             this.showPortfoliosPanel = new System.Windows.Forms.Panel();
-            this.allocationLabel = new System.Windows.Forms.Label();
-            this.chartLabel = new System.Windows.Forms.Label();
-            this.dateHistoryLabel = new System.Windows.Forms.Label();
-            this.coinHistoryLabel = new System.Windows.Forms.Label();
-            this.amountHistoryLabel = new System.Windows.Forms.Label();
-            this.typeHistoryLabel = new System.Windows.Forms.Label();
-            this.costHistoryLabel = new System.Windows.Forms.Label();
             this.openPortfolio2Button = new System.Windows.Forms.Button();
             this.openPortfolio1Button = new System.Windows.Forms.Button();
             this.openPortfolio0Button = new System.Windows.Forms.Button();
             this.logoImage = new System.Windows.Forms.PictureBox();
-            this.notificationButton = new System.Windows.Forms.Button();
-            this.showPortfoliosButton = new System.Windows.Forms.Button();
-            this.settingsButton = new System.Windows.Forms.Button();
             this.sideBar = new System.Windows.Forms.Panel();
             this.versionLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -79,45 +84,6 @@ namespace CryptoPortfolio
             this.insightButton = new System.Windows.Forms.Button();
             this.assetsButton = new System.Windows.Forms.Button();
             this.historyButton = new System.Windows.Forms.Button();
-            this.percentageShowPanel = new System.Windows.Forms.Panel();
-            this.percentageNumberLabel = new System.Windows.Forms.Label();
-            this.arrowPanel = new System.Windows.Forms.Panel();
-            this.newTransactionButton = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
             this.mouseGrab.SuspendLayout();
             this.mainInsightPanel.SuspendLayout();
             this.mainAssetsPanel.SuspendLayout();
@@ -126,16 +92,11 @@ namespace CryptoPortfolio
             this.historyPanel.SuspendLayout();
             this.assetsPanel.SuspendLayout();
             this.mainDashboardPanel.SuspendLayout();
+            this.percentageShowPanel.SuspendLayout();
             this.showPortfoliosPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logoImage)).BeginInit();
             this.sideBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.percentageShowPanel.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // accountNameLabel
@@ -177,6 +138,54 @@ namespace CryptoPortfolio
             this.mouseGrab.Size = new System.Drawing.Size(1024, 69);
             this.mouseGrab.TabIndex = 13;
             this.mouseGrab.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mouseGrab_MouseDown);
+            // 
+            // notificationButton
+            // 
+            this.notificationButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
+            this.notificationButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("notificationButton.BackgroundImage")));
+            this.notificationButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.notificationButton.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.notificationButton.FlatAppearance.BorderSize = 0;
+            this.notificationButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.notificationButton.Location = new System.Drawing.Point(804, 35);
+            this.notificationButton.Margin = new System.Windows.Forms.Padding(4);
+            this.notificationButton.Name = "notificationButton";
+            this.notificationButton.Size = new System.Drawing.Size(24, 22);
+            this.notificationButton.TabIndex = 2;
+            this.notificationButton.UseVisualStyleBackColor = false;
+            this.notificationButton.Click += new System.EventHandler(this.notificationButton_Click);
+            // 
+            // showPortfoliosButton
+            // 
+            this.showPortfoliosButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
+            this.showPortfoliosButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("showPortfoliosButton.BackgroundImage")));
+            this.showPortfoliosButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.showPortfoliosButton.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.showPortfoliosButton.FlatAppearance.BorderSize = 0;
+            this.showPortfoliosButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.showPortfoliosButton.Location = new System.Drawing.Point(981, 31);
+            this.showPortfoliosButton.Margin = new System.Windows.Forms.Padding(4);
+            this.showPortfoliosButton.Name = "showPortfoliosButton";
+            this.showPortfoliosButton.Size = new System.Drawing.Size(32, 15);
+            this.showPortfoliosButton.TabIndex = 6;
+            this.showPortfoliosButton.UseVisualStyleBackColor = false;
+            this.showPortfoliosButton.Click += new System.EventHandler(this.showPortfoliosButton_Click);
+            // 
+            // settingsButton
+            // 
+            this.settingsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
+            this.settingsButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("settingsButton.BackgroundImage")));
+            this.settingsButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.settingsButton.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.settingsButton.FlatAppearance.BorderSize = 0;
+            this.settingsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.settingsButton.Location = new System.Drawing.Point(830, 34);
+            this.settingsButton.Margin = new System.Windows.Forms.Padding(4);
+            this.settingsButton.Name = "settingsButton";
+            this.settingsButton.Size = new System.Drawing.Size(24, 22);
+            this.settingsButton.TabIndex = 3;
+            this.settingsButton.UseVisualStyleBackColor = false;
+            this.settingsButton.Click += new System.EventHandler(this.settingsButton_Click);
             // 
             // mainInsightPanel
             // 
@@ -238,6 +247,19 @@ namespace CryptoPortfolio
             this.chartPanel.Name = "chartPanel";
             this.chartPanel.Size = new System.Drawing.Size(481, 250);
             this.chartPanel.TabIndex = 20;
+            // 
+            // chartLabel
+            // 
+            this.chartLabel.AutoSize = true;
+            this.chartLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chartLabel.Font = new System.Drawing.Font("Inter SemiBold", 16F, System.Drawing.FontStyle.Bold);
+            this.chartLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(156)))), ((int)(((byte)(179)))));
+            this.chartLabel.Location = new System.Drawing.Point(10, 15);
+            this.chartLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.chartLabel.Name = "chartLabel";
+            this.chartLabel.Size = new System.Drawing.Size(126, 26);
+            this.chartLabel.TabIndex = 12;
+            this.chartLabel.Text = "Your Chart";
             // 
             // totalInvestedStaticLabel
             // 
@@ -302,11 +324,7 @@ namespace CryptoPortfolio
             // historyPanel
             // 
             this.historyPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(241)))), ((int)(((byte)(244)))));
-            this.historyPanel.Controls.Add(this.panel6);
-            this.historyPanel.Controls.Add(this.panel5);
-            this.historyPanel.Controls.Add(this.panel4);
-            this.historyPanel.Controls.Add(this.panel3);
-            this.historyPanel.Controls.Add(this.panel1);
+            this.historyPanel.Controls.Add(this.transactionsPanel);
             this.historyPanel.Controls.Add(this.costHistoryLabel);
             this.historyPanel.Controls.Add(this.typeHistoryLabel);
             this.historyPanel.Controls.Add(this.amountHistoryLabel);
@@ -318,6 +336,79 @@ namespace CryptoPortfolio
             this.historyPanel.Name = "historyPanel";
             this.historyPanel.Size = new System.Drawing.Size(481, 260);
             this.historyPanel.TabIndex = 21;
+            // 
+            // transactionsPanel
+            // 
+            this.transactionsPanel.ForeColor = System.Drawing.Color.White;
+            this.transactionsPanel.Location = new System.Drawing.Point(15, 70);
+            this.transactionsPanel.Name = "transactionsPanel";
+            this.transactionsPanel.Size = new System.Drawing.Size(450, 187);
+            this.transactionsPanel.TabIndex = 17;
+            // 
+            // costHistoryLabel
+            // 
+            this.costHistoryLabel.AutoSize = true;
+            this.costHistoryLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.costHistoryLabel.Font = new System.Drawing.Font("Inter SemiBold", 9F, System.Drawing.FontStyle.Bold);
+            this.costHistoryLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(156)))), ((int)(((byte)(179)))));
+            this.costHistoryLabel.Location = new System.Drawing.Point(322, 50);
+            this.costHistoryLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.costHistoryLabel.Name = "costHistoryLabel";
+            this.costHistoryLabel.Size = new System.Drawing.Size(67, 15);
+            this.costHistoryLabel.TabIndex = 16;
+            this.costHistoryLabel.Text = "Total Cost";
+            // 
+            // typeHistoryLabel
+            // 
+            this.typeHistoryLabel.AutoSize = true;
+            this.typeHistoryLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.typeHistoryLabel.Font = new System.Drawing.Font("Inter SemiBold", 9F, System.Drawing.FontStyle.Bold);
+            this.typeHistoryLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(156)))), ((int)(((byte)(179)))));
+            this.typeHistoryLabel.Location = new System.Drawing.Point(279, 50);
+            this.typeHistoryLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.typeHistoryLabel.Name = "typeHistoryLabel";
+            this.typeHistoryLabel.Size = new System.Drawing.Size(36, 15);
+            this.typeHistoryLabel.TabIndex = 15;
+            this.typeHistoryLabel.Text = "Type";
+            // 
+            // amountHistoryLabel
+            // 
+            this.amountHistoryLabel.AutoSize = true;
+            this.amountHistoryLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.amountHistoryLabel.Font = new System.Drawing.Font("Inter SemiBold", 9F, System.Drawing.FontStyle.Bold);
+            this.amountHistoryLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(156)))), ((int)(((byte)(179)))));
+            this.amountHistoryLabel.Location = new System.Drawing.Point(170, 50);
+            this.amountHistoryLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.amountHistoryLabel.Name = "amountHistoryLabel";
+            this.amountHistoryLabel.Size = new System.Drawing.Size(53, 15);
+            this.amountHistoryLabel.TabIndex = 14;
+            this.amountHistoryLabel.Text = "Amount";
+            // 
+            // coinHistoryLabel
+            // 
+            this.coinHistoryLabel.AutoSize = true;
+            this.coinHistoryLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.coinHistoryLabel.Font = new System.Drawing.Font("Inter SemiBold", 9F, System.Drawing.FontStyle.Bold);
+            this.coinHistoryLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(156)))), ((int)(((byte)(179)))));
+            this.coinHistoryLabel.Location = new System.Drawing.Point(80, 50);
+            this.coinHistoryLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.coinHistoryLabel.Name = "coinHistoryLabel";
+            this.coinHistoryLabel.Size = new System.Drawing.Size(33, 15);
+            this.coinHistoryLabel.TabIndex = 13;
+            this.coinHistoryLabel.Text = "Coin";
+            // 
+            // dateHistoryLabel
+            // 
+            this.dateHistoryLabel.AutoSize = true;
+            this.dateHistoryLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dateHistoryLabel.Font = new System.Drawing.Font("Inter SemiBold", 9F, System.Drawing.FontStyle.Bold);
+            this.dateHistoryLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(156)))), ((int)(((byte)(179)))));
+            this.dateHistoryLabel.Location = new System.Drawing.Point(20, 50);
+            this.dateHistoryLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.dateHistoryLabel.Name = "dateHistoryLabel";
+            this.dateHistoryLabel.Size = new System.Drawing.Size(35, 15);
+            this.dateHistoryLabel.TabIndex = 12;
+            this.dateHistoryLabel.Text = "Date";
             // 
             // latestTransactionLabel
             // 
@@ -367,6 +458,19 @@ namespace CryptoPortfolio
             this.assetsPanel.Size = new System.Drawing.Size(275, 516);
             this.assetsPanel.TabIndex = 22;
             // 
+            // allocationLabel
+            // 
+            this.allocationLabel.AutoSize = true;
+            this.allocationLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.allocationLabel.Font = new System.Drawing.Font("Inter SemiBold", 16F, System.Drawing.FontStyle.Bold);
+            this.allocationLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(156)))), ((int)(((byte)(179)))));
+            this.allocationLabel.Location = new System.Drawing.Point(10, 15);
+            this.allocationLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.allocationLabel.Name = "allocationLabel";
+            this.allocationLabel.Size = new System.Drawing.Size(119, 26);
+            this.allocationLabel.TabIndex = 12;
+            this.allocationLabel.Text = "Allocation";
+            // 
             // gainLossLabel
             // 
             this.gainLossLabel.AutoSize = true;
@@ -415,6 +519,58 @@ namespace CryptoPortfolio
             this.mainDashboardPanel.Size = new System.Drawing.Size(804, 691);
             this.mainDashboardPanel.TabIndex = 24;
             // 
+            // percentageShowPanel
+            // 
+            this.percentageShowPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.percentageShowPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("percentageShowPanel.BackgroundImage")));
+            this.percentageShowPanel.Controls.Add(this.percentageNumberLabel);
+            this.percentageShowPanel.Controls.Add(this.arrowPanel);
+            this.percentageShowPanel.Location = new System.Drawing.Point(213, 57);
+            this.percentageShowPanel.Name = "percentageShowPanel";
+            this.percentageShowPanel.Size = new System.Drawing.Size(60, 30);
+            this.percentageShowPanel.TabIndex = 19;
+            this.percentageShowPanel.Visible = false;
+            // 
+            // percentageNumberLabel
+            // 
+            this.percentageNumberLabel.AutoSize = true;
+            this.percentageNumberLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.percentageNumberLabel.Font = new System.Drawing.Font("Inter Light", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.percentageNumberLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
+            this.percentageNumberLabel.Location = new System.Drawing.Point(17, 7);
+            this.percentageNumberLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.percentageNumberLabel.Name = "percentageNumberLabel";
+            this.percentageNumberLabel.Size = new System.Drawing.Size(39, 16);
+            this.percentageNumberLabel.TabIndex = 23;
+            this.percentageNumberLabel.Text = "100%";
+            // 
+            // arrowPanel
+            // 
+            this.arrowPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.arrowPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("arrowPanel.BackgroundImage")));
+            this.arrowPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.arrowPanel.Location = new System.Drawing.Point(3, 11);
+            this.arrowPanel.Name = "arrowPanel";
+            this.arrowPanel.Size = new System.Drawing.Size(15, 9);
+            this.arrowPanel.TabIndex = 21;
+            // 
+            // newTransactionButton
+            // 
+            this.newTransactionButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.newTransactionButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("newTransactionButton.BackgroundImage")));
+            this.newTransactionButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.newTransactionButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.newTransactionButton.FlatAppearance.BorderSize = 0;
+            this.newTransactionButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.newTransactionButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.newTransactionButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.newTransactionButton.Location = new System.Drawing.Point(654, 114);
+            this.newTransactionButton.Name = "newTransactionButton";
+            this.newTransactionButton.Size = new System.Drawing.Size(130, 30);
+            this.newTransactionButton.TabIndex = 23;
+            this.newTransactionButton.UseVisualStyleBackColor = false;
+            this.newTransactionButton.Click += new System.EventHandler(this.newTransactionButton_Click);
+            // 
             // gainLossCurrencyLabel
             // 
             this.gainLossCurrencyLabel.AutoSize = true;
@@ -439,97 +595,6 @@ namespace CryptoPortfolio
             this.showPortfoliosPanel.Size = new System.Drawing.Size(151, 121);
             this.showPortfoliosPanel.TabIndex = 24;
             this.showPortfoliosPanel.Visible = false;
-            // 
-            // allocationLabel
-            // 
-            this.allocationLabel.AutoSize = true;
-            this.allocationLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.allocationLabel.Font = new System.Drawing.Font("Inter SemiBold", 16F, System.Drawing.FontStyle.Bold);
-            this.allocationLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(156)))), ((int)(((byte)(179)))));
-            this.allocationLabel.Location = new System.Drawing.Point(10, 15);
-            this.allocationLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.allocationLabel.Name = "allocationLabel";
-            this.allocationLabel.Size = new System.Drawing.Size(119, 26);
-            this.allocationLabel.TabIndex = 12;
-            this.allocationLabel.Text = "Allocation";
-            // 
-            // chartLabel
-            // 
-            this.chartLabel.AutoSize = true;
-            this.chartLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chartLabel.Font = new System.Drawing.Font("Inter SemiBold", 16F, System.Drawing.FontStyle.Bold);
-            this.chartLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(156)))), ((int)(((byte)(179)))));
-            this.chartLabel.Location = new System.Drawing.Point(10, 15);
-            this.chartLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.chartLabel.Name = "chartLabel";
-            this.chartLabel.Size = new System.Drawing.Size(126, 26);
-            this.chartLabel.TabIndex = 12;
-            this.chartLabel.Text = "Your Chart";
-            // 
-            // dateHistoryLabel
-            // 
-            this.dateHistoryLabel.AutoSize = true;
-            this.dateHistoryLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dateHistoryLabel.Font = new System.Drawing.Font("Inter SemiBold", 9F, System.Drawing.FontStyle.Bold);
-            this.dateHistoryLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(156)))), ((int)(((byte)(179)))));
-            this.dateHistoryLabel.Location = new System.Drawing.Point(20, 50);
-            this.dateHistoryLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.dateHistoryLabel.Name = "dateHistoryLabel";
-            this.dateHistoryLabel.Size = new System.Drawing.Size(35, 15);
-            this.dateHistoryLabel.TabIndex = 12;
-            this.dateHistoryLabel.Text = "Date";
-            // 
-            // coinHistoryLabel
-            // 
-            this.coinHistoryLabel.AutoSize = true;
-            this.coinHistoryLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.coinHistoryLabel.Font = new System.Drawing.Font("Inter SemiBold", 9F, System.Drawing.FontStyle.Bold);
-            this.coinHistoryLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(156)))), ((int)(((byte)(179)))));
-            this.coinHistoryLabel.Location = new System.Drawing.Point(80, 50);
-            this.coinHistoryLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.coinHistoryLabel.Name = "coinHistoryLabel";
-            this.coinHistoryLabel.Size = new System.Drawing.Size(33, 15);
-            this.coinHistoryLabel.TabIndex = 13;
-            this.coinHistoryLabel.Text = "Coin";
-            // 
-            // amountHistoryLabel
-            // 
-            this.amountHistoryLabel.AutoSize = true;
-            this.amountHistoryLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.amountHistoryLabel.Font = new System.Drawing.Font("Inter SemiBold", 9F, System.Drawing.FontStyle.Bold);
-            this.amountHistoryLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(156)))), ((int)(((byte)(179)))));
-            this.amountHistoryLabel.Location = new System.Drawing.Point(170, 50);
-            this.amountHistoryLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.amountHistoryLabel.Name = "amountHistoryLabel";
-            this.amountHistoryLabel.Size = new System.Drawing.Size(53, 15);
-            this.amountHistoryLabel.TabIndex = 14;
-            this.amountHistoryLabel.Text = "Amount";
-            // 
-            // typeHistoryLabel
-            // 
-            this.typeHistoryLabel.AutoSize = true;
-            this.typeHistoryLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.typeHistoryLabel.Font = new System.Drawing.Font("Inter SemiBold", 9F, System.Drawing.FontStyle.Bold);
-            this.typeHistoryLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(156)))), ((int)(((byte)(179)))));
-            this.typeHistoryLabel.Location = new System.Drawing.Point(279, 50);
-            this.typeHistoryLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.typeHistoryLabel.Name = "typeHistoryLabel";
-            this.typeHistoryLabel.Size = new System.Drawing.Size(36, 15);
-            this.typeHistoryLabel.TabIndex = 15;
-            this.typeHistoryLabel.Text = "Type";
-            // 
-            // costHistoryLabel
-            // 
-            this.costHistoryLabel.AutoSize = true;
-            this.costHistoryLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.costHistoryLabel.Font = new System.Drawing.Font("Inter SemiBold", 9F, System.Drawing.FontStyle.Bold);
-            this.costHistoryLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(156)))), ((int)(((byte)(179)))));
-            this.costHistoryLabel.Location = new System.Drawing.Point(322, 50);
-            this.costHistoryLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.costHistoryLabel.Name = "costHistoryLabel";
-            this.costHistoryLabel.Size = new System.Drawing.Size(67, 15);
-            this.costHistoryLabel.TabIndex = 16;
-            this.costHistoryLabel.Text = "Total Cost";
             // 
             // openPortfolio2Button
             // 
@@ -592,54 +657,6 @@ namespace CryptoPortfolio
             this.logoImage.Size = new System.Drawing.Size(156, 48);
             this.logoImage.TabIndex = 1;
             this.logoImage.TabStop = false;
-            // 
-            // notificationButton
-            // 
-            this.notificationButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
-            this.notificationButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("notificationButton.BackgroundImage")));
-            this.notificationButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.notificationButton.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.notificationButton.FlatAppearance.BorderSize = 0;
-            this.notificationButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.notificationButton.Location = new System.Drawing.Point(804, 35);
-            this.notificationButton.Margin = new System.Windows.Forms.Padding(4);
-            this.notificationButton.Name = "notificationButton";
-            this.notificationButton.Size = new System.Drawing.Size(24, 22);
-            this.notificationButton.TabIndex = 2;
-            this.notificationButton.UseVisualStyleBackColor = false;
-            this.notificationButton.Click += new System.EventHandler(this.notificationButton_Click);
-            // 
-            // showPortfoliosButton
-            // 
-            this.showPortfoliosButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
-            this.showPortfoliosButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("showPortfoliosButton.BackgroundImage")));
-            this.showPortfoliosButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.showPortfoliosButton.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.showPortfoliosButton.FlatAppearance.BorderSize = 0;
-            this.showPortfoliosButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.showPortfoliosButton.Location = new System.Drawing.Point(981, 31);
-            this.showPortfoliosButton.Margin = new System.Windows.Forms.Padding(4);
-            this.showPortfoliosButton.Name = "showPortfoliosButton";
-            this.showPortfoliosButton.Size = new System.Drawing.Size(32, 15);
-            this.showPortfoliosButton.TabIndex = 6;
-            this.showPortfoliosButton.UseVisualStyleBackColor = false;
-            this.showPortfoliosButton.Click += new System.EventHandler(this.showPortfoliosButton_Click);
-            // 
-            // settingsButton
-            // 
-            this.settingsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
-            this.settingsButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("settingsButton.BackgroundImage")));
-            this.settingsButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.settingsButton.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.settingsButton.FlatAppearance.BorderSize = 0;
-            this.settingsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.settingsButton.Location = new System.Drawing.Point(830, 34);
-            this.settingsButton.Margin = new System.Windows.Forms.Padding(4);
-            this.settingsButton.Name = "settingsButton";
-            this.settingsButton.Size = new System.Drawing.Size(24, 22);
-            this.settingsButton.TabIndex = 3;
-            this.settingsButton.UseVisualStyleBackColor = false;
-            this.settingsButton.Click += new System.EventHandler(this.settingsButton_Click);
             // 
             // sideBar
             // 
@@ -792,518 +809,6 @@ namespace CryptoPortfolio
             this.historyButton.MouseEnter += new System.EventHandler(this.historyButton_MouseEnter);
             this.historyButton.MouseLeave += new System.EventHandler(this.historyButton_MouseLeave);
             // 
-            // percentageShowPanel
-            // 
-            this.percentageShowPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.percentageShowPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("percentageShowPanel.BackgroundImage")));
-            this.percentageShowPanel.Controls.Add(this.percentageNumberLabel);
-            this.percentageShowPanel.Controls.Add(this.arrowPanel);
-            this.percentageShowPanel.Location = new System.Drawing.Point(213, 57);
-            this.percentageShowPanel.Name = "percentageShowPanel";
-            this.percentageShowPanel.Size = new System.Drawing.Size(60, 30);
-            this.percentageShowPanel.TabIndex = 19;
-            this.percentageShowPanel.Visible = false;
-            // 
-            // percentageNumberLabel
-            // 
-            this.percentageNumberLabel.AutoSize = true;
-            this.percentageNumberLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.percentageNumberLabel.Font = new System.Drawing.Font("Inter Light", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.percentageNumberLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
-            this.percentageNumberLabel.Location = new System.Drawing.Point(17, 7);
-            this.percentageNumberLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.percentageNumberLabel.Name = "percentageNumberLabel";
-            this.percentageNumberLabel.Size = new System.Drawing.Size(39, 16);
-            this.percentageNumberLabel.TabIndex = 23;
-            this.percentageNumberLabel.Text = "100%";
-            // 
-            // arrowPanel
-            // 
-            this.arrowPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.arrowPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("arrowPanel.BackgroundImage")));
-            this.arrowPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.arrowPanel.Location = new System.Drawing.Point(3, 11);
-            this.arrowPanel.Name = "arrowPanel";
-            this.arrowPanel.Size = new System.Drawing.Size(15, 9);
-            this.arrowPanel.TabIndex = 21;
-            // 
-            // newTransactionButton
-            // 
-            this.newTransactionButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.newTransactionButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("newTransactionButton.BackgroundImage")));
-            this.newTransactionButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.newTransactionButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.newTransactionButton.FlatAppearance.BorderSize = 0;
-            this.newTransactionButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.newTransactionButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.newTransactionButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.newTransactionButton.Location = new System.Drawing.Point(654, 114);
-            this.newTransactionButton.Name = "newTransactionButton";
-            this.newTransactionButton.Size = new System.Drawing.Size(130, 30);
-            this.newTransactionButton.TabIndex = 23;
-            this.newTransactionButton.UseVisualStyleBackColor = false;
-            this.newTransactionButton.Click += new System.EventHandler(this.newTransactionButton_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.BackgroundImage = global::CryptoPortfolio.Properties.Resources.historyPanelSample;
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.ForeColor = System.Drawing.Color.Black;
-            this.panel1.Location = new System.Drawing.Point(15, 70);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(450, 30);
-            this.panel1.TabIndex = 17;
-            // 
-            // button1
-            // 
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(421, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(24, 24);
-            this.button1.TabIndex = 0;
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(113)))), ((int)(((byte)(153)))));
-            this.label4.Location = new System.Drawing.Point(4, 6);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(47, 16);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Today";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(113)))), ((int)(((byte)(153)))));
-            this.label6.Location = new System.Drawing.Point(64, 6);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(69, 16);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "Ethereum";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(156)))), ((int)(((byte)(179)))));
-            this.label7.Location = new System.Drawing.Point(152, 6);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(101, 16);
-            this.label7.TabIndex = 3;
-            this.label7.Text = "+ 270000 ETH";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(166)))), ((int)(((byte)(101)))));
-            this.label8.Location = new System.Drawing.Point(265, 6);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(32, 16);
-            this.label8.TabIndex = 4;
-            this.label8.Text = "Buy";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Inter Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(113)))), ((int)(((byte)(153)))));
-            this.label9.Location = new System.Drawing.Point(304, 6);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(108, 16);
-            this.label9.TabIndex = 5;
-            this.label9.Text = "- 231.242,423€";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // panel3
-            // 
-            this.panel3.BackgroundImage = global::CryptoPortfolio.Properties.Resources.historyPanelSample;
-            this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.panel3.Controls.Add(this.label10);
-            this.panel3.Controls.Add(this.label11);
-            this.panel3.Controls.Add(this.label12);
-            this.panel3.Controls.Add(this.label13);
-            this.panel3.Controls.Add(this.label14);
-            this.panel3.Controls.Add(this.button2);
-            this.panel3.ForeColor = System.Drawing.Color.Black;
-            this.panel3.Location = new System.Drawing.Point(15, 106);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(450, 30);
-            this.panel3.TabIndex = 18;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Inter Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(113)))), ((int)(((byte)(153)))));
-            this.label10.Location = new System.Drawing.Point(304, 6);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(108, 16);
-            this.label10.TabIndex = 5;
-            this.label10.Text = "- 231.242,423€";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(166)))), ((int)(((byte)(101)))));
-            this.label11.Location = new System.Drawing.Point(265, 6);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(32, 16);
-            this.label11.TabIndex = 4;
-            this.label11.Text = "Buy";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(156)))), ((int)(((byte)(179)))));
-            this.label12.Location = new System.Drawing.Point(152, 6);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(101, 16);
-            this.label12.TabIndex = 3;
-            this.label12.Text = "+ 270000 ETH";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(113)))), ((int)(((byte)(153)))));
-            this.label13.Location = new System.Drawing.Point(64, 6);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(69, 16);
-            this.label13.TabIndex = 2;
-            this.label13.Text = "Ethereum";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(113)))), ((int)(((byte)(153)))));
-            this.label14.Location = new System.Drawing.Point(4, 6);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(47, 16);
-            this.label14.TabIndex = 1;
-            this.label14.Text = "Today";
-            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // button2
-            // 
-            this.button2.BackgroundImage = global::CryptoPortfolio.Properties.Resources.historyButtonSample;
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(421, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(24, 24);
-            this.button2.TabIndex = 0;
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // panel4
-            // 
-            this.panel4.BackgroundImage = global::CryptoPortfolio.Properties.Resources.historyPanelSample;
-            this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.panel4.Controls.Add(this.label15);
-            this.panel4.Controls.Add(this.label16);
-            this.panel4.Controls.Add(this.label17);
-            this.panel4.Controls.Add(this.label18);
-            this.panel4.Controls.Add(this.label19);
-            this.panel4.Controls.Add(this.button3);
-            this.panel4.ForeColor = System.Drawing.Color.Black;
-            this.panel4.Location = new System.Drawing.Point(15, 142);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(450, 30);
-            this.panel4.TabIndex = 19;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Inter Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(113)))), ((int)(((byte)(153)))));
-            this.label15.Location = new System.Drawing.Point(304, 6);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(108, 16);
-            this.label15.TabIndex = 5;
-            this.label15.Text = "- 231.242,423€";
-            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(166)))), ((int)(((byte)(101)))));
-            this.label16.Location = new System.Drawing.Point(265, 6);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(32, 16);
-            this.label16.TabIndex = 4;
-            this.label16.Text = "Buy";
-            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(156)))), ((int)(((byte)(179)))));
-            this.label17.Location = new System.Drawing.Point(152, 6);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(101, 16);
-            this.label17.TabIndex = 3;
-            this.label17.Text = "+ 270000 ETH";
-            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(113)))), ((int)(((byte)(153)))));
-            this.label18.Location = new System.Drawing.Point(64, 6);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(69, 16);
-            this.label18.TabIndex = 2;
-            this.label18.Text = "Ethereum";
-            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(113)))), ((int)(((byte)(153)))));
-            this.label19.Location = new System.Drawing.Point(4, 6);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(47, 16);
-            this.label19.TabIndex = 1;
-            this.label19.Text = "Today";
-            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // button3
-            // 
-            this.button3.BackgroundImage = global::CryptoPortfolio.Properties.Resources.historyButtonSample;
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(421, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(24, 24);
-            this.button3.TabIndex = 0;
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // panel5
-            // 
-            this.panel5.BackgroundImage = global::CryptoPortfolio.Properties.Resources.historyPanelSample;
-            this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.panel5.Controls.Add(this.label20);
-            this.panel5.Controls.Add(this.label21);
-            this.panel5.Controls.Add(this.label22);
-            this.panel5.Controls.Add(this.label23);
-            this.panel5.Controls.Add(this.label24);
-            this.panel5.Controls.Add(this.button4);
-            this.panel5.ForeColor = System.Drawing.Color.Black;
-            this.panel5.Location = new System.Drawing.Point(15, 178);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(450, 30);
-            this.panel5.TabIndex = 19;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Inter Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(113)))), ((int)(((byte)(153)))));
-            this.label20.Location = new System.Drawing.Point(304, 6);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(108, 16);
-            this.label20.TabIndex = 5;
-            this.label20.Text = "- 231.242,423€";
-            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(166)))), ((int)(((byte)(101)))));
-            this.label21.Location = new System.Drawing.Point(265, 6);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(32, 16);
-            this.label21.TabIndex = 4;
-            this.label21.Text = "Buy";
-            this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(156)))), ((int)(((byte)(179)))));
-            this.label22.Location = new System.Drawing.Point(152, 6);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(101, 16);
-            this.label22.TabIndex = 3;
-            this.label22.Text = "+ 270000 ETH";
-            this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(113)))), ((int)(((byte)(153)))));
-            this.label23.Location = new System.Drawing.Point(64, 6);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(69, 16);
-            this.label23.TabIndex = 2;
-            this.label23.Text = "Ethereum";
-            this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(113)))), ((int)(((byte)(153)))));
-            this.label24.Location = new System.Drawing.Point(4, 6);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(47, 16);
-            this.label24.TabIndex = 1;
-            this.label24.Text = "Today";
-            this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // button4
-            // 
-            this.button4.BackgroundImage = global::CryptoPortfolio.Properties.Resources.historyButtonSample;
-            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Location = new System.Drawing.Point(421, 3);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(24, 24);
-            this.button4.TabIndex = 0;
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // panel6
-            // 
-            this.panel6.BackgroundImage = global::CryptoPortfolio.Properties.Resources.historyPanelSample;
-            this.panel6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.panel6.Controls.Add(this.label25);
-            this.panel6.Controls.Add(this.label26);
-            this.panel6.Controls.Add(this.label27);
-            this.panel6.Controls.Add(this.label28);
-            this.panel6.Controls.Add(this.label29);
-            this.panel6.Controls.Add(this.button5);
-            this.panel6.ForeColor = System.Drawing.Color.Black;
-            this.panel6.Location = new System.Drawing.Point(15, 214);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(450, 30);
-            this.panel6.TabIndex = 19;
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Inter Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(113)))), ((int)(((byte)(153)))));
-            this.label25.Location = new System.Drawing.Point(304, 6);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(108, 16);
-            this.label25.TabIndex = 5;
-            this.label25.Text = "- 231.242,423€";
-            this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(166)))), ((int)(((byte)(101)))));
-            this.label26.Location = new System.Drawing.Point(265, 6);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(32, 16);
-            this.label26.TabIndex = 4;
-            this.label26.Text = "Buy";
-            this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(156)))), ((int)(((byte)(179)))));
-            this.label27.Location = new System.Drawing.Point(152, 6);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(101, 16);
-            this.label27.TabIndex = 3;
-            this.label27.Text = "+ 270000 ETH";
-            this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(113)))), ((int)(((byte)(153)))));
-            this.label28.Location = new System.Drawing.Point(64, 6);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(69, 16);
-            this.label28.TabIndex = 2;
-            this.label28.Text = "Ethereum";
-            this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(113)))), ((int)(((byte)(153)))));
-            this.label29.Location = new System.Drawing.Point(4, 6);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(47, 16);
-            this.label29.TabIndex = 1;
-            this.label29.Text = "Today";
-            this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // button5
-            // 
-            this.button5.BackgroundImage = global::CryptoPortfolio.Properties.Resources.historyButtonSample;
-            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Location = new System.Drawing.Point(421, 3);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(24, 24);
-            this.button5.TabIndex = 0;
-            this.button5.UseVisualStyleBackColor = true;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 19F);
@@ -1344,23 +849,13 @@ namespace CryptoPortfolio
             this.assetsPanel.PerformLayout();
             this.mainDashboardPanel.ResumeLayout(false);
             this.mainDashboardPanel.PerformLayout();
+            this.percentageShowPanel.ResumeLayout(false);
+            this.percentageShowPanel.PerformLayout();
             this.showPortfoliosPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.logoImage)).EndInit();
             this.sideBar.ResumeLayout(false);
             this.sideBar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.percentageShowPanel.ResumeLayout(false);
-            this.percentageShowPanel.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1420,40 +915,6 @@ namespace CryptoPortfolio
         private System.Windows.Forms.Label typeHistoryLabel;
         private System.Windows.Forms.Label amountHistoryLabel;
         private System.Windows.Forms.Label coinHistoryLabel;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Panel transactionsPanel;
     }
 }
