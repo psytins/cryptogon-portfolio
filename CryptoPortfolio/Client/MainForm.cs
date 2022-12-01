@@ -124,10 +124,9 @@ namespace CryptoPortfolio
             int y_location = 0;
             int limit = 5;
 
-            List<Transaction> reversedTransactions = SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].Transactions;
-            reversedTransactions.Reverse(); //to display the new transactions first
-
-            foreach (Transaction transaction in reversedTransactions) //Go throught all existant transactions (first 5)
+            List<Transaction> orderedTransactions = SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].Transactions;
+            //to display the new transactions first
+            foreach (Transaction transaction in orderedTransactions.OrderByDescending(e => e.Date)) //Go throught all existant transactions (first 5)
             {
                 if (limit != 0)
                 {
@@ -142,7 +141,7 @@ namespace CryptoPortfolio
                     //Add the child components 
                     Label dateLabel = new Label();
                     dateLabel.AutoSize = true;
-                    dateLabel.Text = "04/01";
+                    _ = transaction.Date.ToShortDateString() == DateTime.Today.ToShortDateString() ? dateLabel.Text = "Today" : dateLabel.Text = transaction.Date.ToShortDateString().Substring(0, 5); 
                     dateLabel.Font = new Font("Inter", 9.75f, FontStyle.Bold);
                     dateLabel.ForeColor = Color.FromArgb(68, 113, 153);
                     dateLabel.Location = new Point(4, 6);

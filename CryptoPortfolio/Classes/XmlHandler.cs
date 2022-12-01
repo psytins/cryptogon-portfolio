@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
@@ -188,7 +189,7 @@ namespace CryptoPortfolio
                                                int.Parse(transactions.Element("ID").Value),
                                                int.Parse(transactions.Element("Type").Value) == 1 ? Transaction.Type.Buy : Transaction.Type.Sell,
                                                readCoin(transactions.Element("Coin").Value),                                   
-                                               transactions.Element("Date").Value,
+                                               DateTime.Parse(transactions.Element("Date").Value),
                                                float.Parse(transactions.Element("Amount").Value),
                                                float.Parse(transactions.Element("CoinPrice").Value),
                                                float.Parse(transactions.Element("Cost").Value),

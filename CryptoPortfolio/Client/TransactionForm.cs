@@ -84,12 +84,6 @@ namespace CryptoPortfolio
             pricePerCoinNum     .Value = 0;
             feeNum              .Value = 0;
             notesTextBox        .Text = string.Empty;
-            dayTextBox          .Text = string.Empty;
-            monthComboBox       .SelectedIndex = 0;    
-            yearTextBox         .Text = string.Empty;
-            hourTextBox         .Text = string.Empty;
-            minuteTextBox       .Text = string.Empty;
-            secondTextBox       .Text = string.Empty;
 
             //Set up labels
             coinShortLabel.Text      = coin.Symbol + " |";
@@ -116,7 +110,7 @@ namespace CryptoPortfolio
                 Transaction tempTransaction = new Transaction(
                     Transaction.Type.Buy,
                     CURRENT_COIN,
-                    dayTextBox.Text + "/" + monthComboBox.Text + "/" + yearTextBox.Text + " " + hourTextBox.Text + ":" + minuteTextBox.Text + ":" + secondTextBox.Text,
+                    DateTime.Parse(datePicker.Value.ToShortDateString() + " " + timePicker.Value.ToLongTimeString()),
                     (float)amountNum.Value,
                     (float)pricePerCoinNum.Value,
                     (float.Parse(totalSpentLabel.Text) - (float)feeNum.Value),

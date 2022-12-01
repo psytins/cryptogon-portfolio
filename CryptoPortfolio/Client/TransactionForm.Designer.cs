@@ -47,18 +47,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.currencyTotalSpent = new System.Windows.Forms.Label();
             this.totalSpentLabel = new System.Windows.Forms.Label();
-            this.timeTextPanel = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.secondTextBox = new System.Windows.Forms.TextBox();
-            this.minuteTextBox = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.hourTextBox = new System.Windows.Forms.TextBox();
-            this.dateTextPanel = new System.Windows.Forms.Panel();
-            this.monthComboBox = new System.Windows.Forms.ComboBox();
-            this.yearTextBox = new System.Windows.Forms.TextBox();
-            this.dayTextBox = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.timePicker = new System.Windows.Forms.DateTimePicker();
             this.notesTextPanel = new System.Windows.Forms.Panel();
             this.notesTextBox = new System.Windows.Forms.TextBox();
             this.feeTextPanel = new System.Windows.Forms.Panel();
@@ -77,13 +66,12 @@
             this.buyButton = new System.Windows.Forms.Button();
             this.goBackButton = new System.Windows.Forms.Button();
             this.addTransactionLabel = new System.Windows.Forms.Label();
+            this.datePicker = new System.Windows.Forms.DateTimePicker();
             this.selectCoinPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.addTransactionPanel.SuspendLayout();
             this.buyPanel.SuspendLayout();
             this.totalSpentPanel.SuspendLayout();
-            this.timeTextPanel.SuspendLayout();
-            this.dateTextPanel.SuspendLayout();
             this.notesTextPanel.SuspendLayout();
             this.feeTextPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.feeNum)).BeginInit();
@@ -215,14 +203,14 @@
             this.buyPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(220)))), ((int)(((byte)(227)))));
             this.buyPanel.BackgroundImage = global::CryptoPortfolio.Properties.Resources.addTransactionPanel;
             this.buyPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.buyPanel.Controls.Add(this.timePicker);
+            this.buyPanel.Controls.Add(this.datePicker);
             this.buyPanel.Controls.Add(this.pricePerCoinLabel);
             this.buyPanel.Controls.Add(this.amountLabel);
             this.buyPanel.Controls.Add(this.pricePerCoinRequiredLabel);
             this.buyPanel.Controls.Add(this.amountRequiredLabel);
             this.buyPanel.Controls.Add(this.addTransactionButon);
             this.buyPanel.Controls.Add(this.totalSpentPanel);
-            this.buyPanel.Controls.Add(this.timeTextPanel);
-            this.buyPanel.Controls.Add(this.dateTextPanel);
             this.buyPanel.Controls.Add(this.notesTextPanel);
             this.buyPanel.Controls.Add(this.feeTextPanel);
             this.buyPanel.Controls.Add(this.pricePerCoinTextPanel);
@@ -348,157 +336,18 @@
             this.totalSpentLabel.TabIndex = 18;
             this.totalSpentLabel.Text = "0";
             // 
-            // timeTextPanel
+            // timePicker
             // 
-            this.timeTextPanel.BackgroundImage = global::CryptoPortfolio.Properties.Resources.feesTextBox;
-            this.timeTextPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.timeTextPanel.Controls.Add(this.label4);
-            this.timeTextPanel.Controls.Add(this.secondTextBox);
-            this.timeTextPanel.Controls.Add(this.minuteTextBox);
-            this.timeTextPanel.Controls.Add(this.label3);
-            this.timeTextPanel.Controls.Add(this.hourTextBox);
-            this.timeTextPanel.Location = new System.Drawing.Point(6, 220);
-            this.timeTextPanel.Name = "timeTextPanel";
-            this.timeTextPanel.Size = new System.Drawing.Size(148, 38);
-            this.timeTextPanel.TabIndex = 9;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(148)))), ((int)(((byte)(173)))));
-            this.label4.Location = new System.Drawing.Point(80, 7);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(13, 19);
-            this.label4.TabIndex = 12;
-            this.label4.Text = ":";
-            // 
-            // secondTextBox
-            // 
-            this.secondTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(220)))), ((int)(((byte)(227)))));
-            this.secondTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.secondTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
-            this.secondTextBox.Location = new System.Drawing.Point(89, 8);
-            this.secondTextBox.MaxLength = 2;
-            this.secondTextBox.Name = "secondTextBox";
-            this.secondTextBox.Size = new System.Drawing.Size(29, 20);
-            this.secondTextBox.TabIndex = 14;
-            this.secondTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // minuteTextBox
-            // 
-            this.minuteTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(220)))), ((int)(((byte)(227)))));
-            this.minuteTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.minuteTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
-            this.minuteTextBox.Location = new System.Drawing.Point(55, 8);
-            this.minuteTextBox.MaxLength = 2;
-            this.minuteTextBox.Name = "minuteTextBox";
-            this.minuteTextBox.Size = new System.Drawing.Size(29, 20);
-            this.minuteTextBox.TabIndex = 13;
-            this.minuteTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(148)))), ((int)(((byte)(173)))));
-            this.label3.Location = new System.Drawing.Point(46, 7);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(13, 19);
-            this.label3.TabIndex = 12;
-            this.label3.Text = ":";
-            // 
-            // hourTextBox
-            // 
-            this.hourTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(220)))), ((int)(((byte)(227)))));
-            this.hourTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.hourTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
-            this.hourTextBox.Location = new System.Drawing.Point(21, 8);
-            this.hourTextBox.MaxLength = 2;
-            this.hourTextBox.Name = "hourTextBox";
-            this.hourTextBox.Size = new System.Drawing.Size(29, 20);
-            this.hourTextBox.TabIndex = 12;
-            this.hourTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // dateTextPanel
-            // 
-            this.dateTextPanel.BackgroundImage = global::CryptoPortfolio.Properties.Resources.feesTextBox;
-            this.dateTextPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.dateTextPanel.Controls.Add(this.monthComboBox);
-            this.dateTextPanel.Controls.Add(this.yearTextBox);
-            this.dateTextPanel.Controls.Add(this.dayTextBox);
-            this.dateTextPanel.Controls.Add(this.label2);
-            this.dateTextPanel.Controls.Add(this.label1);
-            this.dateTextPanel.Location = new System.Drawing.Point(6, 180);
-            this.dateTextPanel.Name = "dateTextPanel";
-            this.dateTextPanel.Size = new System.Drawing.Size(148, 38);
-            this.dateTextPanel.TabIndex = 8;
-            // 
-            // monthComboBox
-            // 
-            this.monthComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(220)))), ((int)(((byte)(227)))));
-            this.monthComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.monthComboBox.Font = new System.Drawing.Font("Inter", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.monthComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
-            this.monthComboBox.Items.AddRange(new object[] {
-            "JAN",
-            "FEB",
-            "MAR",
-            "APR",
-            "MAY",
-            "JUN",
-            "JUL",
-            "AUG",
-            "SEPT",
-            "OCT",
-            "NOV",
-            "DEC"});
-            this.monthComboBox.Location = new System.Drawing.Point(44, 5);
-            this.monthComboBox.Name = "monthComboBox";
-            this.monthComboBox.Size = new System.Drawing.Size(53, 24);
-            this.monthComboBox.TabIndex = 10;
-            // 
-            // yearTextBox
-            // 
-            this.yearTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(220)))), ((int)(((byte)(227)))));
-            this.yearTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.yearTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
-            this.yearTextBox.Location = new System.Drawing.Point(113, 8);
-            this.yearTextBox.MaxLength = 2;
-            this.yearTextBox.Name = "yearTextBox";
-            this.yearTextBox.Size = new System.Drawing.Size(29, 20);
-            this.yearTextBox.TabIndex = 11;
-            this.yearTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // dayTextBox
-            // 
-            this.dayTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(220)))), ((int)(((byte)(227)))));
-            this.dayTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dayTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
-            this.dayTextBox.Location = new System.Drawing.Point(3, 8);
-            this.dayTextBox.MaxLength = 2;
-            this.dayTextBox.Name = "dayTextBox";
-            this.dayTextBox.Size = new System.Drawing.Size(29, 20);
-            this.dayTextBox.TabIndex = 2;
-            this.dayTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(148)))), ((int)(((byte)(173)))));
-            this.label2.Location = new System.Drawing.Point(100, 8);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(15, 19);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "/";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(148)))), ((int)(((byte)(173)))));
-            this.label1.Location = new System.Drawing.Point(28, 8);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(15, 19);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "/";
+            this.timePicker.CalendarFont = new System.Drawing.Font("Inter", 9F);
+            this.timePicker.Font = new System.Drawing.Font("Inter", 12F);
+            this.timePicker.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.timePicker.Location = new System.Drawing.Point(6, 217);
+            this.timePicker.Name = "timePicker";
+            this.timePicker.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.timePicker.ShowUpDown = true;
+            this.timePicker.Size = new System.Drawing.Size(134, 27);
+            this.timePicker.TabIndex = 2;
+            this.timePicker.Value = new System.DateTime(2022, 12, 1, 13, 35, 0, 0);
             // 
             // notesTextPanel
             // 
@@ -643,7 +492,7 @@
             // 
             this.dateLabel.AutoSize = true;
             this.dateLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
-            this.dateLabel.Location = new System.Drawing.Point(3, 153);
+            this.dateLabel.Location = new System.Drawing.Point(3, 157);
             this.dateLabel.Name = "dateLabel";
             this.dateLabel.Size = new System.Drawing.Size(120, 19);
             this.dateLabel.TabIndex = 4;
@@ -730,14 +579,28 @@
             this.addTransactionLabel.TabIndex = 0;
             this.addTransactionLabel.Text = "Add Transaction";
             // 
+            // datePicker
+            // 
+            this.datePicker.CalendarFont = new System.Drawing.Font("Inter", 9F);
+            this.datePicker.CalendarForeColor = System.Drawing.Color.DarkBlue;
+            this.datePicker.CalendarMonthBackground = System.Drawing.SystemColors.HotTrack;
+            this.datePicker.CalendarTitleBackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.datePicker.CalendarTrailingForeColor = System.Drawing.Color.Green;
+            this.datePicker.Font = new System.Drawing.Font("Inter", 12F);
+            this.datePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.datePicker.Location = new System.Drawing.Point(6, 184);
+            this.datePicker.Name = "datePicker";
+            this.datePicker.Size = new System.Drawing.Size(135, 27);
+            this.datePicker.TabIndex = 1;
+            // 
             // TransactionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
             this.ClientSize = new System.Drawing.Size(375, 500);
-            this.Controls.Add(this.selectCoinPanel);
             this.Controls.Add(this.addTransactionPanel);
+            this.Controls.Add(this.selectCoinPanel);
             this.Font = new System.Drawing.Font("Inter", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
@@ -757,10 +620,6 @@
             this.buyPanel.PerformLayout();
             this.totalSpentPanel.ResumeLayout(false);
             this.totalSpentPanel.PerformLayout();
-            this.timeTextPanel.ResumeLayout(false);
-            this.timeTextPanel.PerformLayout();
-            this.dateTextPanel.ResumeLayout(false);
-            this.dateTextPanel.PerformLayout();
             this.notesTextPanel.ResumeLayout(false);
             this.notesTextPanel.PerformLayout();
             this.feeTextPanel.ResumeLayout(false);
@@ -803,18 +662,6 @@
         private System.Windows.Forms.Label currencyFeeLabel;
         private System.Windows.Forms.Panel notesTextPanel;
         private System.Windows.Forms.TextBox notesTextBox;
-        private System.Windows.Forms.Panel timeTextPanel;
-        private System.Windows.Forms.Panel dateTextPanel;
-        private System.Windows.Forms.ComboBox monthComboBox;
-        private System.Windows.Forms.TextBox yearTextBox;
-        private System.Windows.Forms.TextBox dayTextBox;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox secondTextBox;
-        private System.Windows.Forms.TextBox minuteTextBox;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox hourTextBox;
         private System.Windows.Forms.Panel totalSpentPanel;
         private System.Windows.Forms.Button addTransactionButon;
         private System.Windows.Forms.Label label5;
@@ -827,5 +674,7 @@
         private System.Windows.Forms.NumericUpDown amountNum;
         private System.Windows.Forms.NumericUpDown pricePerCoinNum;
         private System.Windows.Forms.NumericUpDown feeNum;
+        private System.Windows.Forms.DateTimePicker datePicker;
+        private System.Windows.Forms.DateTimePicker timePicker;
     }
 }

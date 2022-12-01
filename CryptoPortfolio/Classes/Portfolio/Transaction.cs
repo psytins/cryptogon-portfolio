@@ -10,15 +10,15 @@ namespace CryptoPortfolio
         private int id;
         private Type type;
         private Coin coin;
-        private String date;
+        private DateTime date;
         private float amount;
         private float coinPrice;
         private float cost;
         private float fee;
         private float totalCost;
-        private String notes;
+        private string notes;
 
-        public Transaction(Type type, Coin coin, String date, float amount, float coinPrice, float cost, float fee, float totalCost, String notes)
+        public Transaction(Type type, Coin coin, DateTime date, float amount, float coinPrice, float cost, float fee, float totalCost, string notes)
         {
             this.id = this.readLastID();
             this.type = type;
@@ -32,7 +32,7 @@ namespace CryptoPortfolio
             this.notes = notes;
         }
 
-        public Transaction(int id, Type type, Coin coin, String date, float amount, float coinPrice, float cost, float fee, float totalCost, String notes)
+        public Transaction(int id, Type type, Coin coin, DateTime date, float amount, float coinPrice, float cost, float fee, float totalCost, string notes)
         {
             this.id = id;
             this.type = type;
@@ -58,7 +58,7 @@ namespace CryptoPortfolio
             get { return this.coin; }
             set { this.coin = value; }
         }
-        public String Date
+        public DateTime Date
         {
 
             get { return this.date; }
@@ -94,7 +94,7 @@ namespace CryptoPortfolio
             get { return this.totalCost; }
             set { this.totalCost = value; }
         }
-        public String Notes
+        public string Notes
         {
 
             get { return this.notes; }
