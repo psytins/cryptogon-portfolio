@@ -60,6 +60,14 @@ namespace CryptoPortfolio
             this.gainLossStaticLabel = new System.Windows.Forms.Label();
             this.valueCurrencyLabel = new System.Windows.Forms.Label();
             this.assetsPanel = new System.Windows.Forms.Panel();
+            this.coinPercentageN2Label = new System.Windows.Forms.Label();
+            this.coinNameN2Label = new System.Windows.Forms.Label();
+            this.coinPercentageN3Label = new System.Windows.Forms.Label();
+            this.coinNameN3Label = new System.Windows.Forms.Label();
+            this.coinPercentageN4Label = new System.Windows.Forms.Label();
+            this.coinNameN4Label = new System.Windows.Forms.Label();
+            this.coinPercentageN1Label = new System.Windows.Forms.Label();
+            this.coinNameN1Label = new System.Windows.Forms.Label();
             this.allocationLabel = new System.Windows.Forms.Label();
             this.gainLossLabel = new System.Windows.Forms.Label();
             this.currentValueLabel = new System.Windows.Forms.Label();
@@ -452,11 +460,116 @@ namespace CryptoPortfolio
             // assetsPanel
             // 
             this.assetsPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(241)))), ((int)(((byte)(244)))));
+            this.assetsPanel.Controls.Add(this.coinPercentageN2Label);
+            this.assetsPanel.Controls.Add(this.coinNameN2Label);
+            this.assetsPanel.Controls.Add(this.coinPercentageN3Label);
+            this.assetsPanel.Controls.Add(this.coinNameN3Label);
+            this.assetsPanel.Controls.Add(this.coinPercentageN4Label);
+            this.assetsPanel.Controls.Add(this.coinNameN4Label);
+            this.assetsPanel.Controls.Add(this.coinPercentageN1Label);
+            this.assetsPanel.Controls.Add(this.coinNameN1Label);
             this.assetsPanel.Controls.Add(this.allocationLabel);
+            this.assetsPanel.Font = new System.Drawing.Font("Inter", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.assetsPanel.Location = new System.Drawing.Point(509, 162);
             this.assetsPanel.Name = "assetsPanel";
             this.assetsPanel.Size = new System.Drawing.Size(275, 516);
             this.assetsPanel.TabIndex = 22;
+            // 
+            // coinPercentageN2Label
+            // 
+            this.coinPercentageN2Label.AutoSize = true;
+            this.coinPercentageN2Label.Font = new System.Drawing.Font("Inter SemiBold", 9.75F);
+            this.coinPercentageN2Label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(156)))), ((int)(((byte)(179)))));
+            this.coinPercentageN2Label.Location = new System.Drawing.Point(19, 124);
+            this.coinPercentageN2Label.Name = "coinPercentageN2Label";
+            this.coinPercentageN2Label.Size = new System.Drawing.Size(49, 16);
+            this.coinPercentageN2Label.TabIndex = 20;
+            this.coinPercentageN2Label.Text = "0,00%";
+            this.coinPercentageN2Label.Visible = false;
+            // 
+            // coinNameN2Label
+            // 
+            this.coinNameN2Label.AutoSize = true;
+            this.coinNameN2Label.Font = new System.Drawing.Font("Inter", 12F, System.Drawing.FontStyle.Bold);
+            this.coinNameN2Label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(186)))), ((int)(((byte)(143)))));
+            this.coinNameN2Label.Location = new System.Drawing.Point(13, 105);
+            this.coinNameN2Label.Name = "coinNameN2Label";
+            this.coinNameN2Label.Size = new System.Drawing.Size(17, 19);
+            this.coinNameN2Label.TabIndex = 19;
+            this.coinNameN2Label.Text = "-";
+            this.coinNameN2Label.Visible = false;
+            // 
+            // coinPercentageN3Label
+            // 
+            this.coinPercentageN3Label.AutoSize = true;
+            this.coinPercentageN3Label.Font = new System.Drawing.Font("Inter SemiBold", 9.75F);
+            this.coinPercentageN3Label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(156)))), ((int)(((byte)(179)))));
+            this.coinPercentageN3Label.Location = new System.Drawing.Point(12, 174);
+            this.coinPercentageN3Label.Name = "coinPercentageN3Label";
+            this.coinPercentageN3Label.Size = new System.Drawing.Size(49, 16);
+            this.coinPercentageN3Label.TabIndex = 18;
+            this.coinPercentageN3Label.Text = "0,00%";
+            this.coinPercentageN3Label.Visible = false;
+            // 
+            // coinNameN3Label
+            // 
+            this.coinNameN3Label.AutoSize = true;
+            this.coinNameN3Label.Font = new System.Drawing.Font("Inter", 12F, System.Drawing.FontStyle.Bold);
+            this.coinNameN3Label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(96)))), ((int)(((byte)(96)))));
+            this.coinNameN3Label.Location = new System.Drawing.Point(6, 155);
+            this.coinNameN3Label.Name = "coinNameN3Label";
+            this.coinNameN3Label.Size = new System.Drawing.Size(17, 19);
+            this.coinNameN3Label.TabIndex = 17;
+            this.coinNameN3Label.Text = "-";
+            this.coinNameN3Label.Visible = false;
+            // 
+            // coinPercentageN4Label
+            // 
+            this.coinPercentageN4Label.AutoSize = true;
+            this.coinPercentageN4Label.Font = new System.Drawing.Font("Inter SemiBold", 9.75F);
+            this.coinPercentageN4Label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(156)))), ((int)(((byte)(179)))));
+            this.coinPercentageN4Label.Location = new System.Drawing.Point(20, 228);
+            this.coinPercentageN4Label.Name = "coinPercentageN4Label";
+            this.coinPercentageN4Label.Size = new System.Drawing.Size(49, 16);
+            this.coinPercentageN4Label.TabIndex = 16;
+            this.coinPercentageN4Label.Text = "0,00%";
+            this.coinPercentageN4Label.Visible = false;
+            // 
+            // coinNameN4Label
+            // 
+            this.coinNameN4Label.AutoSize = true;
+            this.coinNameN4Label.Font = new System.Drawing.Font("Inter", 12F, System.Drawing.FontStyle.Bold);
+            this.coinNameN4Label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(137)))), ((int)(((byte)(186)))));
+            this.coinNameN4Label.Location = new System.Drawing.Point(14, 209);
+            this.coinNameN4Label.Name = "coinNameN4Label";
+            this.coinNameN4Label.Size = new System.Drawing.Size(74, 19);
+            this.coinNameN4Label.TabIndex = 15;
+            this.coinNameN4Label.Text = "Another";
+            this.coinNameN4Label.Visible = false;
+            // 
+            // coinPercentageN1Label
+            // 
+            this.coinPercentageN1Label.AutoSize = true;
+            this.coinPercentageN1Label.Font = new System.Drawing.Font("Inter SemiBold", 9.75F);
+            this.coinPercentageN1Label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(156)))), ((int)(((byte)(179)))));
+            this.coinPercentageN1Label.Location = new System.Drawing.Point(32, 75);
+            this.coinPercentageN1Label.Name = "coinPercentageN1Label";
+            this.coinPercentageN1Label.Size = new System.Drawing.Size(49, 16);
+            this.coinPercentageN1Label.TabIndex = 14;
+            this.coinPercentageN1Label.Text = "0,00%";
+            this.coinPercentageN1Label.Visible = false;
+            // 
+            // coinNameN1Label
+            // 
+            this.coinNameN1Label.AutoSize = true;
+            this.coinNameN1Label.Font = new System.Drawing.Font("Inter", 12F, System.Drawing.FontStyle.Bold);
+            this.coinNameN1Label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(161)))), ((int)(((byte)(96)))));
+            this.coinNameN1Label.Location = new System.Drawing.Point(26, 56);
+            this.coinNameN1Label.Name = "coinNameN1Label";
+            this.coinNameN1Label.Size = new System.Drawing.Size(17, 19);
+            this.coinNameN1Label.TabIndex = 13;
+            this.coinNameN1Label.Text = "-";
+            this.coinNameN1Label.Visible = false;
             // 
             // allocationLabel
             // 
@@ -916,5 +1029,13 @@ namespace CryptoPortfolio
         private System.Windows.Forms.Label amountHistoryLabel;
         private System.Windows.Forms.Label coinHistoryLabel;
         private System.Windows.Forms.Panel transactionsPanel;
+        private System.Windows.Forms.Label coinPercentageN2Label;
+        private System.Windows.Forms.Label coinNameN2Label;
+        private System.Windows.Forms.Label coinPercentageN3Label;
+        private System.Windows.Forms.Label coinNameN3Label;
+        private System.Windows.Forms.Label coinPercentageN4Label;
+        private System.Windows.Forms.Label coinNameN4Label;
+        private System.Windows.Forms.Label coinPercentageN1Label;
+        private System.Windows.Forms.Label coinNameN1Label;
     }
 }

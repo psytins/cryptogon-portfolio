@@ -57,6 +57,11 @@ namespace CryptoPortfolio
                 return lastID + 1;
         }
 
+
+        /// <summary>
+        /// Calculate the total invested in the current portfolio.
+        /// </summary>
+        /// <returns>Return a float number corresponding to the total invested or return 0 in case the current portfolio does not have any transactions.</returns>
         public float CalculateTotalInvested()
         {
             float totalInvested = 0;
@@ -67,11 +72,63 @@ namespace CryptoPortfolio
             {
                 foreach (Transaction transaction in this.transactions)
                 {
-                    totalInvested += transaction.TotaLCost;
+                    totalInvested += transaction.TotalCost;
                 }
 
                 return totalInvested;
             }
+        }
+
+        /// <summary>
+        /// Calculate the total cost of a coin in the current portfolio.
+        /// </summary>
+        /// <param name="coin">A Coin object that corresponds to the the coin that is suppose to search.</param>
+        /// <returns>Return a float number corresponding to the coin cost or return -1 in case the current portfolio does not have any transactions.</returns>
+        public float TotalCostOf(Coin coin)
+        {
+            float totalCost = 0;
+
+            if (this.transactions.Count == 0)
+                return -1;
+            else
+            {
+                foreach (Transaction transaction in this.transactions)
+                {
+                    if(transaction.TransactionType == Transaction.Type.Buy && transaction.Coin.Symbol == coin.Symbol)
+                        totalCost += transaction.Cost;
+
+                    if (transaction.TransactionType == Transaction.Type.Sell && transaction.Coin.Symbol == coin.Symbol)
+                        totalCost -= transaction.Cost; //in the future these values will updated
+                }
+
+                return totalCost;
+            }
+        }
+
+        /// <summary>
+        /// Calculate the total cost of all coins in the current portfolio.
+        /// </summary>
+        /// <returns>Return a float number corresponding to the total coin cost or return -1 in case the current portfolio does not have any transactions.</returns>
+        public float TotalCost() {
+
+            float totalCost = 0;
+
+            if (this.transactions.Count == 0)
+                return -1;
+            else
+            {
+                foreach (Transaction transaction in this.transactions)
+                {
+                    if (transaction.TransactionType == Transaction.Type.Buy)
+                        totalCost += transaction.Cost;
+
+                    if (transaction.TransactionType == Transaction.Type.Sell)
+                        totalCost -= transaction.Cost;
+                }
+
+                return totalCost;
+            }
+
         }
     }
 }

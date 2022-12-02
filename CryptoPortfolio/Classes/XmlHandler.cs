@@ -56,7 +56,7 @@ namespace CryptoPortfolio
                 sub_root_transaction            .Add(new XElement("CoinPrice", transactions.CoinPrice.ToString("N", commaDecimal)));
                 sub_root_transaction            .Add(new XElement("Cost", transactions.Cost.ToString("N", commaDecimal)));
                 sub_root_transaction            .Add(new XElement("Fee", transactions.Fee.ToString("N", commaDecimal)));
-                sub_root_transaction            .Add(new XElement("TotalCost", transactions.TotaLCost.ToString("N", commaDecimal)));
+                sub_root_transaction            .Add(new XElement("TotalCost", transactions.TotalCost.ToString("N", commaDecimal)));
                 sub_root_transaction            .Add(new XElement("Notes", transactions.Notes));
                 sub_root_transactions           .Add(sub_root_transaction);
             }
@@ -89,7 +89,7 @@ namespace CryptoPortfolio
             sub_root_transaction            .Add(new XElement("CoinPrice", transactionToRegister.CoinPrice.ToString("N", commaDecimal)));
             sub_root_transaction            .Add(new XElement("Cost", transactionToRegister.Cost.ToString("N", commaDecimal)));
             sub_root_transaction            .Add(new XElement("Fee", transactionToRegister.Fee.ToString("N", commaDecimal)));
-            sub_root_transaction            .Add(new XElement("TotalCost", transactionToRegister.TotaLCost.ToString("N", commaDecimal)));
+            sub_root_transaction            .Add(new XElement("TotalCost", transactionToRegister.TotalCost.ToString("N", commaDecimal)));
             sub_root_transaction            .Add(new XElement("Notes", transactionToRegister.Notes));
             sub_root_transactions           .Add(sub_root_transaction);
 

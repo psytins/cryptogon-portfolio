@@ -88,7 +88,7 @@ namespace CryptoPortfolio
             get { return this.fee; }
             set { this.fee = value; }
         }
-        public float TotaLCost
+        public float TotalCost
         {
 
             get { return this.totalCost; }

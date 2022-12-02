@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace CryptoPortfolio
 {
@@ -63,7 +64,7 @@ namespace CryptoPortfolio
             versionLabel.Text = CURRENT_VERSION;
 
             //Load Components ----
-
+            
             //Read Existant Portfolios
             SESSION_PORTFOLIO = XmlHandler.readPortfolio(SESSION.ID);
 
@@ -110,7 +111,7 @@ namespace CryptoPortfolio
 
             //It will change when I implement true values depending on crypto values
             totalInvestedLabel.Text = SESSION_PORTFOLIO.ToArray()[portfolio_index].CalculateTotalInvested().ToString();
-            currentValueLabel.Text = totalInvestedLabel.Text; //in the future this values changes depending crypto values
+            currentValueLabel.Text = SESSION_PORTFOLIO.ToArray()[portfolio_index].TotalCost().ToString(); //in the future this values changes depending crypto values
             gainLossLabel.Text = (float.Parse(currentValueLabel.Text) - float.Parse(totalInvestedLabel.Text)).ToString(); //it will be always zero for now 
             CheckGainLoss(); //Set the color of Gains/Losses Label
         }
@@ -173,7 +174,7 @@ namespace CryptoPortfolio
 
                     Label totalCostLabel = new Label();
                     totalCostLabel.AutoSize = true;
-                    totalCostLabel.Text = "- " + transaction.TotaLCost + Properties.Settings.Default.Currency; //if the type is sell, it should be the symbol of the coin instead of €
+                    totalCostLabel.Text = "- " + transaction.TotalCost + Properties.Settings.Default.Currency; //if the type is sell, it should be the symbol of the coin instead of €
                     totalCostLabel.Font = new Font("Inter Black", 9.75f, FontStyle.Bold);
                     totalCostLabel.ForeColor = Color.FromArgb(135, 156, 179);
                     totalCostLabel.Location = new Point(330, 6);
@@ -204,6 +205,82 @@ namespace CryptoPortfolio
         /// </summary>
         private void UpdateSubChartPanel()
         {
+            LoadAssetsChart();
+
+        }
+
+        private void LoadAssetsChart()
+        {
+            //Modify top 3 coins percentage Labels ----------------
+            //Calculate the percentages
+            Dictionary<string, float> tempDict = new Dictionary<string, float>(); //This dict will temporary hold the coins percentage
+            int topCoins = 3; //the top <3> coins will be shown in labels 
+            float totalCostCoins = SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].TotalCost();
+            var totalCoins = from transactions in SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].Transactions select transactions.Coin; //IEnumerable of all possesive coins taken from each transaction (here will get repeated coins)
+
+            //Go through the coins and calculate the total percetage for each one.
+            foreach (Coin coin in totalCoins)
+            {
+                try
+                {
+
+                    tempDict.Add(coin.Symbol, ((SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].TotalCostOf(coin) / totalCostCoins) * 100));
+                }
+                catch //In case a coin is repeated
+                {
+                    //do nothing
+                }
+            }
+
+            //Reset top 3 labels
+            coinNameN1Label.Visible = false;
+            coinPercentageN1Label.Visible = false;
+
+            coinNameN2Label.Visible = false;
+            coinPercentageN2Label.Visible = false;
+
+            coinNameN3Label.Visible = false;
+            coinPercentageN3Label.Visible = false;
+
+            coinNameN4Label.Visible = false;
+            coinPercentageN4Label.Visible = false;
+            //Populate top 3 labels
+            float accum = 0;
+            foreach (var x in tempDict.OrderByDescending(e => e.Value))
+            {
+                switch (topCoins)
+                {
+                    case 3:
+                        coinNameN1Label.Visible = true;
+                        coinPercentageN1Label.Visible = true;
+                        coinNameN1Label.Text = x.Key;
+                        coinPercentageN1Label.Text = x.Value.ToString() + "%";
+                        topCoins--;
+                        break;
+                    case 2:
+                        coinNameN2Label.Visible = true;
+                        coinPercentageN2Label.Visible = true;
+                        coinNameN2Label.Text = x.Key;
+                        coinPercentageN2Label.Text = x.Value.ToString() + "%";
+                        topCoins--;
+                        break;
+                    case 1:
+                        coinNameN3Label.Visible = true;
+                        coinPercentageN3Label.Visible = true;
+                        coinNameN3Label.Text = x.Key;
+                        coinPercentageN3Label.Text = x.Value.ToString() + "%";
+                        topCoins--;
+                        break;
+                    case 0:
+                        accum += x.Value;
+                        coinNameN4Label.Visible = true;
+                        coinPercentageN4Label.Visible = true;
+                        coinPercentageN4Label.Text = accum.ToString() + "%";
+                        break;
+                }
+            }
+
+            // Create and poupulate the chart.
 
         }
 
