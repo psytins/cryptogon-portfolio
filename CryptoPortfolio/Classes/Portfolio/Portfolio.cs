@@ -62,7 +62,7 @@ namespace CryptoPortfolio
         /// Calculate the total invested in the current portfolio.
         /// </summary>
         /// <returns>Return a float number corresponding to the total invested or return 0 in case the current portfolio does not have any transactions.</returns>
-        public float CalculateTotalInvested()
+        public float TotalInvested()
         {
             float totalInvested = 0;
 
@@ -83,13 +83,13 @@ namespace CryptoPortfolio
         /// Calculate the total cost of a coin in the current portfolio.
         /// </summary>
         /// <param name="coin">A Coin object that corresponds to the the coin that is suppose to search.</param>
-        /// <returns>Return a float number corresponding to the coin cost or return -1 in case the current portfolio does not have any transactions.</returns>
+        /// <returns>Return a float number corresponding to the coin cost or return 0 in case the current portfolio does not have any transactions.</returns>
         public float TotalCostOf(Coin coin)
         {
             float totalCost = 0;
 
             if (this.transactions.Count == 0)
-                return -1;
+                return 0;
             else
             {
                 foreach (Transaction transaction in this.transactions)
@@ -108,13 +108,13 @@ namespace CryptoPortfolio
         /// <summary>
         /// Calculate the total cost of all coins in the current portfolio.
         /// </summary>
-        /// <returns>Return a float number corresponding to the total coin cost or return -1 in case the current portfolio does not have any transactions.</returns>
+        /// <returns>Return a float number corresponding to the total coin cost or return 0 in case the current portfolio does not have any transactions.</returns>
         public float TotalCost() {
 
             float totalCost = 0;
 
             if (this.transactions.Count == 0)
-                return -1;
+                return 0;
             else
             {
                 foreach (Transaction transaction in this.transactions)

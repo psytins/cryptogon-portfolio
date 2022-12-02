@@ -110,7 +110,7 @@ namespace CryptoPortfolio
             UpdateSubAssetsPanel();
 
             //It will change when I implement true values depending on crypto values
-            totalInvestedLabel.Text = SESSION_PORTFOLIO.ToArray()[portfolio_index].CalculateTotalInvested().ToString();
+            totalInvestedLabel.Text = SESSION_PORTFOLIO.ToArray()[portfolio_index].TotalInvested().ToString();
             currentValueLabel.Text = SESSION_PORTFOLIO.ToArray()[portfolio_index].TotalCost().ToString(); //in the future this values changes depending crypto values
             gainLossLabel.Text = (float.Parse(currentValueLabel.Text) - float.Parse(totalInvestedLabel.Text)).ToString(); //it will be always zero for now 
             CheckGainLoss(); //Set the color of Gains/Losses Label
