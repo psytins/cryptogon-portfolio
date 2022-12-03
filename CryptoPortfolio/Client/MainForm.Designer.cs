@@ -60,6 +60,9 @@ namespace CryptoPortfolio
             this.gainLossStaticLabel = new System.Windows.Forms.Label();
             this.valueCurrencyLabel = new System.Windows.Forms.Label();
             this.assetsPanel = new System.Windows.Forms.Panel();
+            this.switchAllocationViewButton = new System.Windows.Forms.Button();
+            this.assetsAllocationPanel = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.coinPercentageN2Label = new System.Windows.Forms.Label();
             this.coinNameN2Label = new System.Windows.Forms.Label();
             this.coinPercentageN3Label = new System.Windows.Forms.Label();
@@ -99,6 +102,7 @@ namespace CryptoPortfolio
             this.chartPanel.SuspendLayout();
             this.historyPanel.SuspendLayout();
             this.assetsPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.mainDashboardPanel.SuspendLayout();
             this.percentageShowPanel.SuspendLayout();
             this.showPortfoliosPanel.SuspendLayout();
@@ -460,6 +464,9 @@ namespace CryptoPortfolio
             // assetsPanel
             // 
             this.assetsPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(241)))), ((int)(((byte)(244)))));
+            this.assetsPanel.Controls.Add(this.switchAllocationViewButton);
+            this.assetsPanel.Controls.Add(this.assetsAllocationPanel);
+            this.assetsPanel.Controls.Add(this.pictureBox2);
             this.assetsPanel.Controls.Add(this.coinPercentageN2Label);
             this.assetsPanel.Controls.Add(this.coinNameN2Label);
             this.assetsPanel.Controls.Add(this.coinPercentageN3Label);
@@ -474,6 +481,45 @@ namespace CryptoPortfolio
             this.assetsPanel.Name = "assetsPanel";
             this.assetsPanel.Size = new System.Drawing.Size(275, 516);
             this.assetsPanel.TabIndex = 22;
+            // 
+            // switchAllocationViewButton
+            // 
+            this.switchAllocationViewButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.switchAllocationViewButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.switchAllocationViewButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.switchAllocationViewButton.FlatAppearance.BorderSize = 0;
+            this.switchAllocationViewButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.switchAllocationViewButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.switchAllocationViewButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.switchAllocationViewButton.Font = new System.Drawing.Font("Inter Medium", 9.75F);
+            this.switchAllocationViewButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(156)))), ((int)(((byte)(179)))));
+            this.switchAllocationViewButton.Location = new System.Drawing.Point(153, 245);
+            this.switchAllocationViewButton.Name = "switchAllocationViewButton";
+            this.switchAllocationViewButton.Size = new System.Drawing.Size(105, 25);
+            this.switchAllocationViewButton.TabIndex = 0;
+            this.switchAllocationViewButton.Tag = "0";
+            this.switchAllocationViewButton.Text = "money €";
+            this.switchAllocationViewButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.switchAllocationViewButton.UseVisualStyleBackColor = false;
+            this.switchAllocationViewButton.Click += new System.EventHandler(this.switchAllocationViewButton_Click);
+            // 
+            // assetsAllocationPanel
+            // 
+            this.assetsAllocationPanel.AutoScroll = true;
+            this.assetsAllocationPanel.Location = new System.Drawing.Point(3, 271);
+            this.assetsAllocationPanel.Name = "assetsAllocationPanel";
+            this.assetsAllocationPanel.Size = new System.Drawing.Size(269, 242);
+            this.assetsAllocationPanel.TabIndex = 22;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImage = global::CryptoPortfolio.Properties.Resources.allocationGraphTemp;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox2.Location = new System.Drawing.Point(114, 76);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(150, 150);
+            this.pictureBox2.TabIndex = 21;
+            this.pictureBox2.TabStop = false;
             // 
             // coinPercentageN2Label
             // 
@@ -960,6 +1006,7 @@ namespace CryptoPortfolio
             this.historyPanel.PerformLayout();
             this.assetsPanel.ResumeLayout(false);
             this.assetsPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.mainDashboardPanel.ResumeLayout(false);
             this.mainDashboardPanel.PerformLayout();
             this.percentageShowPanel.ResumeLayout(false);
@@ -1037,5 +1084,8 @@ namespace CryptoPortfolio
         private System.Windows.Forms.Label coinNameN4Label;
         private System.Windows.Forms.Label coinPercentageN1Label;
         private System.Windows.Forms.Label coinNameN1Label;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Panel assetsAllocationPanel;
+        private System.Windows.Forms.Button switchAllocationViewButton;
     }
 }

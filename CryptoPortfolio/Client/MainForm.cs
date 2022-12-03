@@ -107,7 +107,7 @@ namespace CryptoPortfolio
             //Update Sub Panels
             UpdateSubHistoryPanel();
             UpdateSubChartPanel();  
-            UpdateSubAssetsPanel();
+            UpdateSubAssetsPanel(false);
 
             //It will change when I implement true values depending on crypto values
             totalInvestedLabel.Text = SESSION_PORTFOLIO.ToArray()[portfolio_index].TotalInvested().ToString();
@@ -116,6 +116,7 @@ namespace CryptoPortfolio
             CheckGainLoss(); //Set the color of Gains/Losses Label
         }
 
+        // SUB PANELS IN DASHBOARD ------------------------------------------
         /// <summary>
         /// Updates the sub History Panel in Dashboard Panel with the data of the selected portfolio.
         /// </summary>
@@ -201,30 +202,25 @@ namespace CryptoPortfolio
         }
 
         /// <summary>
-        /// Updates the sub Chart Panel in Dashboard Panel with the data of the selected portfolio.
+        /// Updates the sub Assets Panel in Dashboard Panel with the data of the selected portfolio.
         /// </summary>
-        private void UpdateSubChartPanel()
-        {
-            LoadAssetsChart();
-
-        }
-
-        private void LoadAssetsChart()
+        /// <param name="switchButton">Is comming from the switch view button ? Yes = True / No = False.</param>
+        private void UpdateSubAssetsPanel(bool switchButton)
         {
             //Modify top 3 coins percentage Labels ----------------
             //Calculate the percentages
-            Dictionary<string, float> tempDict = new Dictionary<string, float>(); //This dict will temporary hold the coins percentage
-            int topCoins = 3; //the top <3> coins will be shown in labels 
-            float totalCostCoins = SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].TotalCost();
+            Dictionary<string, float> percentageOfEachCoin = new Dictionary<string, float>(); //This dict will temporary hold the coins percentage
+            
             var totalCoins = from transactions in SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].Transactions select transactions.Coin; //IEnumerable of all possesive coins taken from each transaction (here will get repeated coins)
-
+            
+            float totalCostCoins = SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].TotalCost(); //Total value of all coins of the portfolio
+            
             //Go through the coins and calculate the total percetage for each one.
             foreach (Coin coin in totalCoins)
             {
                 try
                 {
-
-                    tempDict.Add(coin.Symbol, ((SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].TotalCostOf(coin) / totalCostCoins) * 100));
+                    percentageOfEachCoin.Add(coin.Symbol, ((SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].TotalCostOf(coin) / totalCostCoins) * 100));
                 }
                 catch //In case a coin is repeated
                 {
@@ -232,65 +228,126 @@ namespace CryptoPortfolio
                 }
             }
 
-            //Reset top 3 labels
-            coinNameN1Label.Visible = false;
-            coinPercentageN1Label.Visible = false;
+            if (!switchButton)
+            {            
+                int topCoins = 3; //the top <3> coins will be shown in labels 
+                // TOP 3 LABELS ------------------------
+                //Reset top 3 labels
+                coinNameN1Label.Visible = false;
+                coinPercentageN1Label.Visible = false;
 
-            coinNameN2Label.Visible = false;
-            coinPercentageN2Label.Visible = false;
+                coinNameN2Label.Visible = false;
+                coinPercentageN2Label.Visible = false;
 
-            coinNameN3Label.Visible = false;
-            coinPercentageN3Label.Visible = false;
+                coinNameN3Label.Visible = false;
+                coinPercentageN3Label.Visible = false;
 
-            coinNameN4Label.Visible = false;
-            coinPercentageN4Label.Visible = false;
-            //Populate top 3 labels
-            float accum = 0;
-            foreach (var x in tempDict.OrderByDescending(e => e.Value))
-            {
-                switch (topCoins)
+                coinNameN4Label.Visible = false;
+                coinPercentageN4Label.Visible = false;
+                //Populate top 3 labels
+                float accum = 0;
+                foreach (var x in percentageOfEachCoin.OrderByDescending(e => e.Value))
                 {
-                    case 3:
-                        coinNameN1Label.Visible = true;
-                        coinPercentageN1Label.Visible = true;
-                        coinNameN1Label.Text = x.Key;
-                        coinPercentageN1Label.Text = x.Value.ToString() + "%";
-                        topCoins--;
-                        break;
-                    case 2:
-                        coinNameN2Label.Visible = true;
-                        coinPercentageN2Label.Visible = true;
-                        coinNameN2Label.Text = x.Key;
-                        coinPercentageN2Label.Text = x.Value.ToString() + "%";
-                        topCoins--;
-                        break;
-                    case 1:
-                        coinNameN3Label.Visible = true;
-                        coinPercentageN3Label.Visible = true;
-                        coinNameN3Label.Text = x.Key;
-                        coinPercentageN3Label.Text = x.Value.ToString() + "%";
-                        topCoins--;
-                        break;
-                    case 0:
-                        accum += x.Value;
-                        coinNameN4Label.Visible = true;
-                        coinPercentageN4Label.Visible = true;
-                        coinPercentageN4Label.Text = accum.ToString() + "%";
-                        break;
+                    switch (topCoins)
+                    {
+                        case 3:
+                            coinNameN1Label.Visible = true;
+                            coinPercentageN1Label.Visible = true;
+                            coinNameN1Label.Text = x.Key;
+                            coinPercentageN1Label.Text = x.Value.ToString() + "%";
+                            topCoins--;
+                            break;
+                        case 2:
+                            coinNameN2Label.Visible = true;
+                            coinPercentageN2Label.Visible = true;
+                            coinNameN2Label.Text = x.Key;
+                            coinPercentageN2Label.Text = x.Value.ToString() + "%";
+                            topCoins--;
+                            break;
+                        case 1:
+                            coinNameN3Label.Visible = true;
+                            coinPercentageN3Label.Visible = true;
+                            coinNameN3Label.Text = x.Key;
+                            coinPercentageN3Label.Text = x.Value.ToString() + "%";
+                            topCoins--;
+                            break;
+                        case 0:
+                            accum += x.Value;
+                            coinNameN4Label.Visible = true;
+                            coinPercentageN4Label.Visible = true;
+                            coinPercentageN4Label.Text = accum.ToString() + "%";
+                            break;
+                    }
                 }
+
+                // Create and poupulate the CHART ---------------
             }
 
-            // Create and poupulate the chart.
+            //ASSETS ALLOCATION PANEL -------------------
+            assetsAllocationPanel.Controls.Clear(); //reset to update
+            int y_location = 0;
 
+            foreach (var x in percentageOfEachCoin.OrderByDescending(e => e.Value))
+            {
+                Panel tempPanel = new Panel();
+
+                tempPanel.SetBounds(5, y_location, 247, 30);
+                tempPanel.BackgroundImage = Properties.Resources.assetAllocationPanelSample;
+                tempPanel.BackgroundImageLayout = ImageLayout.None;
+                //Create childs
+                Label coinName = new Label();
+                coinName.AutoSize = true;
+                coinName.Text = SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].GetCoinFromSymbol(x.Key).Name;
+                coinName.Font = new Font("Inter", 9.75f, FontStyle.Bold);
+                coinName.ForeColor = Color.FromArgb(68, 113, 153);
+                coinName.Location = new Point(4, 2);
+                tempPanel.Controls.Add(coinName);
+
+                Label coinAmount = new Label();
+                coinAmount.AutoSize = true;
+                coinAmount.Text = SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].TotalAmountOf(SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].GetCoinFromSymbol(x.Key)).ToString() + " " + x.Key;
+                coinAmount.Font = new Font("Inter Medium", 8f);
+                coinAmount.ForeColor = Color.FromArgb(135, 156, 179);
+                coinAmount.Location = new Point(4, 15);
+                tempPanel.Controls.Add(coinAmount);
+
+                Label display = new Label();       
+                _ = (switchAllocationViewButton.Tag.ToString() == "0") ? display.Text = x.Value + "%": display.Text = SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].TotalCostOf(SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].GetCoinFromSymbol(x.Key)).ToString() + Properties.Settings.Default.Currency;
+                display.Font = new Font("Inter", 8f, FontStyle.Bold);
+                display.ForeColor = Color.FromArgb(68, 113, 153);
+                display.SetBounds(100, 2, 135, 26);
+                display.TextAlign = ContentAlignment.MiddleRight;
+                tempPanel.Controls.Add(display);
+
+                assetsAllocationPanel.Controls.Add(tempPanel);
+                y_location += 36;
+            }
+        }
+        private void switchAllocationViewButton_Click(object sender, EventArgs e)
+        {
+            if(switchAllocationViewButton.Tag.ToString() == "0")
+            {
+                switchAllocationViewButton.Tag = "1";
+                switchAllocationViewButton.Text = "percentage %";
+                UpdateSubAssetsPanel(true);
+            }
+            else if(switchAllocationViewButton.Tag.ToString() == "1")
+            {
+                switchAllocationViewButton.Tag = "0";
+                switchAllocationViewButton.Text = "money " + Properties.Settings.Default.Currency;
+                UpdateSubAssetsPanel(true);
+            }
         }
 
         /// <summary>
-        /// Updates the sub Assets Panel in Dashboard Panel with the data of the selected portfolio.
+        /// Updates the sub Chart Panel in Dashboard Panel with the data of the selected portfolio.
         /// </summary>
-        private void UpdateSubAssetsPanel()
+        private void UpdateSubChartPanel()
         {
+           
 
         }
+        // -------------------------------------------------------------------
 
         /// <summary>
         /// Shows and updates the Insight Panel with the data of the selected portfolio.
@@ -511,7 +568,6 @@ namespace CryptoPortfolio
                 gainLossLabel.ForeColor = Color.FromArgb(194, 118, 112);
             }
         }
-
         private void newTransactionButton_Click(object sender, EventArgs e)
         {
             TransactionForm newTransaction = new TransactionForm();

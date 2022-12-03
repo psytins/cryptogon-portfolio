@@ -199,6 +199,8 @@
     <Content Include="data\coins.xml" />
     <Content Include="data\portfolio.xml" />
     <Content Include="data\users.xml" />
+    <None Include="Resources\assetAllocationPanelSample.png" />
+    <None Include="Resources\allocationGraphTemp.png" />
     <None Include="Resources\historyPanelSample1.png" />
     <None Include="Resources\historyPanelSample.png" />
     <None Include="Resources\historyButtonSample.png" />

@@ -83,9 +83,29 @@ namespace CryptoPortfolio.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap allocationGraphTemp {
+            get {
+                object obj = ResourceManager.GetObject("allocationGraphTemp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap amountTextBox {
             get {
                 object obj = ResourceManager.GetObject("amountTextBox", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap assetAllocationPanelSample {
+            get {
+                object obj = ResourceManager.GetObject("assetAllocationPanelSample", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -95,10 +95,10 @@ namespace CryptoPortfolio
                 foreach (Transaction transaction in this.transactions)
                 {
                     if(transaction.TransactionType == Transaction.Type.Buy && transaction.Coin.Symbol == coin.Symbol)
-                        totalCost += transaction.Cost;
+                        totalCost += transaction.Cost;//in the future these values will updated
 
                     if (transaction.TransactionType == Transaction.Type.Sell && transaction.Coin.Symbol == coin.Symbol)
-                        totalCost -= transaction.Cost; //in the future these values will updated
+                        totalCost -= transaction.Amount; 
                 }
 
                 return totalCost;
@@ -123,12 +123,54 @@ namespace CryptoPortfolio
                         totalCost += transaction.Cost;
 
                     if (transaction.TransactionType == Transaction.Type.Sell)
-                        totalCost -= transaction.Cost;
+                        totalCost -= transaction.Amount;
                 }
 
                 return totalCost;
             }
 
+        }
+
+        /// <summary>
+        /// Calculate the total amount of a coin in the current portfolio.
+        /// </summary>
+        /// <param name="coin">A Coin object that corresponds to the the coin that is suppose to search.</param>
+        /// <returns>Return a float number corresponding to the coin amount or return 0 in case the current portfolio does not have any transactions.</returns>
+        public float TotalAmountOf(Coin coin)
+        {
+            float totalAmount = 0;
+
+            if (this.transactions.Count == 0)
+                return 0;
+            else
+            {
+                foreach (Transaction transaction in this.transactions)
+                {
+                    if (transaction.TransactionType == Transaction.Type.Buy && transaction.Coin.Symbol == coin.Symbol)
+                        totalAmount += transaction.Amount;
+
+                    if (transaction.TransactionType == Transaction.Type.Sell && transaction.Coin.Symbol == coin.Symbol)
+                        totalAmount -= transaction.Cost;
+                }
+
+                return totalAmount;
+            }
+        }
+
+        /// <summary>
+        /// Get a Coin object with symbol.
+        /// </summary>
+        /// <param name="symbol">The symbol of the coin to search.</param>
+        /// <returns>Return a Coin object corresponding to the search or return null in case the current portfolio does not have any transactions or in case the seach fails.</returns>
+        public Coin GetCoinFromSymbol(string symbol)
+        {
+            foreach (Transaction transaction in this.transactions)
+            {
+                if (transaction.Coin.Symbol == symbol)
+                    return transaction.Coin;
+            }
+
+            return null;
         }
     }
 }
