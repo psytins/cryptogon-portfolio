@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 
@@ -21,6 +22,9 @@ namespace CryptoPortfolio
         public static extern bool ReleaseCapture();
         // -------------------
         //Global Variables
+        private int TIME_TO_UPDATE = 10; //in seconds
+        private int TIMER; //in seconds
+
         private string CURRENT_VERSION = "Current Version 2.0.0.0 - pre-alpha";
         private int CURRENT_PAGE = 1;
 
@@ -53,7 +57,7 @@ namespace CryptoPortfolio
             //Closed here
         }
 
-        private void MainForm_Load(object sender, EventArgs e)
+        private async void MainForm_Load(object sender, EventArgs e)
         {
             //Set Currency Labels
             valueCurrencyLabel.Text = Properties.Settings.Default.Currency;
@@ -74,16 +78,26 @@ namespace CryptoPortfolio
             }
             else 
             {
-                UpdateDashboard(0);               
+                await UpdateDashboard(0);               
             }
+        }
+
+        private void ResetUpdateTimer()
+        {
+            timeToUpdate.Visible = false;
+            updateTimer.Stop();
+            TIMER = TIME_TO_UPDATE;
+            updateTimer.Start();
         }
 
         /// <summary>
         /// Shows and updates the Dashboard Panel with the data of the selected portfolio.
         /// </summary>
         /// <param name="portfolio_index">Update to this portfolio index</param>
-        public void UpdateDashboard(int portfolio_index)
+        public async Task UpdateDashboard(int portfolio_index)
         {
+            ResetUpdateTimer();
+
             //Update Portfolio Global (Maybe in future change update Potfolio Global when strictly necessary)
             SESSION_PORTFOLIO.Clear();
             SESSION_PORTFOLIO = XmlHandler.readPortfolio(SESSION.ID);
@@ -106,14 +120,16 @@ namespace CryptoPortfolio
             showPortfoliosPanel.Visible = false;
             //Update Sub Panels
             UpdateSubHistoryPanel();
-            UpdateSubChartPanel();  
+            UpdateSubChartPanel();
             UpdateSubAssetsPanel(false);
 
-            //It will change when I implement true values depending on crypto values
+            //It will change when I implement true values depending on crypto values - done ? 
             totalInvestedLabel.Text = SESSION_PORTFOLIO.ToArray()[portfolio_index].TotalInvested().ToString();
-            currentValueLabel.Text = SESSION_PORTFOLIO.ToArray()[portfolio_index].TotalCost().ToString(); //in the future this values changes depending crypto values
-            gainLossLabel.Text = (float.Parse(currentValueLabel.Text) - float.Parse(totalInvestedLabel.Text)).ToString(); //it will be always zero for now 
-            CheckGainLoss(); //Set the color of Gains/Losses Label
+            float currentValue = await SESSION_PORTFOLIO.ToList()[portfolio_index].TotalCost();
+            currentValueLabel.Text = currentValue.ToString();
+            
+            gainLossLabel.Text = (float.Parse(currentValueLabel.Text) - float.Parse(totalInvestedLabel.Text)).ToString();
+            //CheckGainLoss(); //Set the color of Gains/Losses Label
         }
 
         // SUB PANELS IN DASHBOARD ------------------------------------------
@@ -205,7 +221,7 @@ namespace CryptoPortfolio
         /// Updates the sub Assets Panel in Dashboard Panel with the data of the selected portfolio.
         /// </summary>
         /// <param name="switchButton">Is comming from the switch view button ? Yes = True / No = False.</param>
-        private void UpdateSubAssetsPanel(bool switchButton)
+        private async void UpdateSubAssetsPanel(bool switchButton)
         {
             //Modify top 3 coins percentage Labels ----------------
             //Calculate the percentages
@@ -213,14 +229,14 @@ namespace CryptoPortfolio
             
             var totalCoins = from transactions in SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].Transactions select transactions.Coin; //IEnumerable of all possesive coins taken from each transaction (here will get repeated coins)
             
-            float totalCostCoins = SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].TotalCost(); //Total value of all coins of the portfolio
+            float totalCostCoins = await SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].TotalCost(); //Total value of all coins of the portfolio
             
             //Go through the coins and calculate the total percetage for each one.
             foreach (Coin coin in totalCoins)
             {
                 try
                 {
-                    percentageOfEachCoin.Add(coin.Symbol, ((SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].TotalCostOf(coin) / totalCostCoins) * 100));
+                    percentageOfEachCoin.Add(coin.Symbol, ( (await SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].TotalCostOf(coin)) / totalCostCoins * 100));
                 }
                 catch //In case a coin is repeated
                 {
@@ -311,8 +327,16 @@ namespace CryptoPortfolio
                 coinAmount.Location = new Point(4, 15);
                 tempPanel.Controls.Add(coinAmount);
 
-                Label display = new Label();       
-                _ = (switchAllocationViewButton.Tag.ToString() == "0") ? display.Text = x.Value + "%": display.Text = SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].TotalCostOf(SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].GetCoinFromSymbol(x.Key)).ToString() + Properties.Settings.Default.Currency;
+                Label display = new Label();
+
+                if (switchAllocationViewButton.Tag.ToString() == "0")
+                    display.Text = x.Value + "%";
+                else if(switchAllocationViewButton.Tag.ToString() == "1")
+                {
+                    float totalCostOf = await SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].TotalCostOf(SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].GetCoinFromSymbol(x.Key));
+                    display.Text = totalCostOf.ToString() + Properties.Settings.Default.Currency;
+                }
+
                 display.Font = new Font("Inter", 8f, FontStyle.Bold);
                 display.ForeColor = Color.FromArgb(68, 113, 153);
                 display.SetBounds(100, 2, 135, 26);
@@ -421,7 +445,7 @@ namespace CryptoPortfolio
         /// <summary>
         /// Create a new portfolio for the current user and then load the just created portfolio. The limit per user is three.
         /// </summary>
-        private void CreateNewPortfolio()
+        private async void CreateNewPortfolio()
         {
             if (SESSION_PORTFOLIO.Count == 3)
                 MessageBox.Show("You can only create three portfolios. If you wish to add more portfolios, please create a new account.", 
@@ -433,7 +457,7 @@ namespace CryptoPortfolio
                 Portfolio portfolio = new Portfolio(SESSION.ID, portfolioName);
                 XmlHandler.writePortfolio(portfolio);
 
-                UpdateDashboard(SESSION_PORTFOLIO.Count); //Update the dashboard with the just created portfolio
+                await UpdateDashboard(SESSION_PORTFOLIO.Count); //Update the dashboard with the just created portfolio
             }
         }
 
@@ -654,6 +678,18 @@ namespace CryptoPortfolio
         private void historyButton_Click(object sender, EventArgs e)
         {
             UpdateHistory(CURRENT_PORTFOLIO_INDEX);
+        }
+
+        private void updateTimer_Tick(object sender, EventArgs e)
+        {
+            if(timeToUpdate.Visible == false)
+                timeToUpdate.Visible = true;
+            timeToUpdate.Text = TIMER.ToString();
+            TIMER--;
+            if(TIMER < 0)
+            {
+                UpdateDashboard(CURRENT_PORTFOLIO_INDEX); //for now
+            }
         }
     }
 }

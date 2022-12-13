@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Net.Http.Headers;
+using System.Threading.Tasks;
 
 namespace CryptoPortfolio
 {
@@ -84,7 +84,7 @@ namespace CryptoPortfolio
         /// </summary>
         /// <param name="coin">A Coin object that corresponds to the the coin that is suppose to search.</param>
         /// <returns>Return a float number corresponding to the coin cost or return 0 in case the current portfolio does not have any transactions.</returns>
-        public float TotalCostOf(Coin coin)
+        public async Task<float> TotalCostOf(Coin coin)
         {
             float totalCost = 0;
 
@@ -94,11 +94,11 @@ namespace CryptoPortfolio
             {
                 foreach (Transaction transaction in this.transactions)
                 {
-                    if(transaction.TransactionType == Transaction.Type.Buy && transaction.Coin.Symbol == coin.Symbol)
-                        totalCost += transaction.Cost;//in the future these values will updated
+                    if (transaction.TransactionType == Transaction.Type.Buy && transaction.Coin.Symbol == coin.Symbol)
+                        totalCost += await this.CoinMarketValue(coin, transaction.Amount);
 
                     if (transaction.TransactionType == Transaction.Type.Sell && transaction.Coin.Symbol == coin.Symbol)
-                        totalCost -= transaction.Amount; 
+                        totalCost -= await this.CoinMarketValue(coin, transaction.Cost); //Here cost is the cost of the sell in Coins (not in fiat)
                 }
 
                 return totalCost;
@@ -109,7 +109,7 @@ namespace CryptoPortfolio
         /// Calculate the total cost of all coins in the current portfolio.
         /// </summary>
         /// <returns>Return a float number corresponding to the total coin cost or return 0 in case the current portfolio does not have any transactions.</returns>
-        public float TotalCost() {
+        public async Task<float> TotalCost() {
 
             float totalCost = 0;
 
@@ -120,10 +120,10 @@ namespace CryptoPortfolio
                 foreach (Transaction transaction in this.transactions)
                 {
                     if (transaction.TransactionType == Transaction.Type.Buy)
-                        totalCost += transaction.Cost;
+                        totalCost += await this.CoinMarketValue(transaction.Coin, transaction.Amount);
 
                     if (transaction.TransactionType == Transaction.Type.Sell)
-                        totalCost -= transaction.Amount;
+                        totalCost -= await this.CoinMarketValue(transaction.Coin, transaction.Cost); //Here cost is the cost of the sell in Coins (not in fiat)
                 }
 
                 return totalCost;
@@ -171,6 +171,18 @@ namespace CryptoPortfolio
             }
 
             return null;
+        }
+
+        public async Task<float> CoinMarketValue(Coin coin, float amount)
+        {
+            if (coin == null)
+                return 0;
+
+            float marketValue = await CurrentAvgPrice.GetMarketValue(coin.Symbol);
+
+            float value = marketValue * amount;
+
+            return value;
         }
     }
 }

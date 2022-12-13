@@ -75,15 +75,16 @@ namespace CryptoPortfolio
             selectCoinPanel.BringToFront();
         }
 
-        private void LoadAddTransaction(Coin coin)
+        private async void LoadAddTransaction(Coin coin)
         {
             CURRENT_COIN = coin;
 
             addTransactionPanel.BringToFront();
             amountNum           .Value = 0;
-            pricePerCoinNum     .Value = 0;
+            float pricePerCoin         = await CurrentAvgPrice.GetMarketValue(coin.Symbol);
+            pricePerCoinNum.Value      = decimal.Parse(pricePerCoin.ToString());
             feeNum              .Value = 0;
-            notesTextBox        .Text = string.Empty;
+            notesTextBox        .Text  = string.Empty;
 
             //Set up labels
             coinShortLabel.Text      = coin.Symbol + " |";

@@ -29,6 +29,7 @@ namespace CryptoPortfolio
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.accountNameLabel = new System.Windows.Forms.Label();
             this.portfolioNameLabel = new System.Windows.Forms.Label();
@@ -75,6 +76,7 @@ namespace CryptoPortfolio
             this.gainLossLabel = new System.Windows.Forms.Label();
             this.currentValueLabel = new System.Windows.Forms.Label();
             this.mainDashboardPanel = new System.Windows.Forms.Panel();
+            this.timeToUpdate = new System.Windows.Forms.Label();
             this.percentageShowPanel = new System.Windows.Forms.Panel();
             this.percentageNumberLabel = new System.Windows.Forms.Label();
             this.arrowPanel = new System.Windows.Forms.Panel();
@@ -95,6 +97,7 @@ namespace CryptoPortfolio
             this.insightButton = new System.Windows.Forms.Button();
             this.assetsButton = new System.Windows.Forms.Button();
             this.historyButton = new System.Windows.Forms.Button();
+            this.updateTimer = new System.Windows.Forms.Timer(this.components);
             this.mouseGrab.SuspendLayout();
             this.mainInsightPanel.SuspendLayout();
             this.mainAssetsPanel.SuspendLayout();
@@ -321,9 +324,9 @@ namespace CryptoPortfolio
             this.totalInvestedLabel.Location = new System.Drawing.Point(37, 115);
             this.totalInvestedLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.totalInvestedLabel.Name = "totalInvestedLabel";
-            this.totalInvestedLabel.Size = new System.Drawing.Size(110, 29);
+            this.totalInvestedLabel.Size = new System.Drawing.Size(24, 29);
             this.totalInvestedLabel.TabIndex = 12;
-            this.totalInvestedLabel.Text = "1000,00";
+            this.totalInvestedLabel.Text = "-";
             // 
             // separatorPanel
             // 
@@ -639,9 +642,9 @@ namespace CryptoPortfolio
             this.gainLossLabel.Location = new System.Drawing.Point(188, 114);
             this.gainLossLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.gainLossLabel.Name = "gainLossLabel";
-            this.gainLossLabel.Size = new System.Drawing.Size(110, 29);
+            this.gainLossLabel.Size = new System.Drawing.Size(24, 29);
             this.gainLossLabel.TabIndex = 17;
-            this.gainLossLabel.Text = "1000,00";
+            this.gainLossLabel.Text = "-";
             // 
             // currentValueLabel
             // 
@@ -652,12 +655,13 @@ namespace CryptoPortfolio
             this.currentValueLabel.Location = new System.Drawing.Point(35, 47);
             this.currentValueLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.currentValueLabel.Name = "currentValueLabel";
-            this.currentValueLabel.Size = new System.Drawing.Size(158, 42);
+            this.currentValueLabel.Size = new System.Drawing.Size(34, 42);
             this.currentValueLabel.TabIndex = 9;
-            this.currentValueLabel.Text = "1000,00";
+            this.currentValueLabel.Text = "-";
             // 
             // mainDashboardPanel
             // 
+            this.mainDashboardPanel.Controls.Add(this.timeToUpdate);
             this.mainDashboardPanel.Controls.Add(this.gainLossLabel);
             this.mainDashboardPanel.Controls.Add(this.percentageShowPanel);
             this.mainDashboardPanel.Controls.Add(this.newTransactionButton);
@@ -677,6 +681,16 @@ namespace CryptoPortfolio
             this.mainDashboardPanel.Name = "mainDashboardPanel";
             this.mainDashboardPanel.Size = new System.Drawing.Size(804, 691);
             this.mainDashboardPanel.TabIndex = 24;
+            // 
+            // timeToUpdate
+            // 
+            this.timeToUpdate.AutoSize = true;
+            this.timeToUpdate.Location = new System.Drawing.Point(161, 28);
+            this.timeToUpdate.Name = "timeToUpdate";
+            this.timeToUpdate.Size = new System.Drawing.Size(16, 19);
+            this.timeToUpdate.TabIndex = 24;
+            this.timeToUpdate.Text = "-";
+            this.timeToUpdate.Visible = false;
             // 
             // percentageShowPanel
             // 
@@ -968,6 +982,12 @@ namespace CryptoPortfolio
             this.historyButton.MouseEnter += new System.EventHandler(this.historyButton_MouseEnter);
             this.historyButton.MouseLeave += new System.EventHandler(this.historyButton_MouseLeave);
             // 
+            // updateTimer
+            // 
+            this.updateTimer.Enabled = true;
+            this.updateTimer.Interval = 1000;
+            this.updateTimer.Tick += new System.EventHandler(this.updateTimer_Tick);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 19F);
@@ -1087,5 +1107,7 @@ namespace CryptoPortfolio
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel assetsAllocationPanel;
         private System.Windows.Forms.Button switchAllocationViewButton;
+        private System.Windows.Forms.Timer updateTimer;
+        private System.Windows.Forms.Label timeToUpdate;
     }
 }
