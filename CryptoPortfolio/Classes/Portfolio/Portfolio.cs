@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
 namespace CryptoPortfolio
@@ -11,6 +12,10 @@ namespace CryptoPortfolio
         private int ownerID;
         private String portfolioName;
         private List<Transaction> transactions;
+        //Temp Variables
+        private float totalCost;
+        private Dictionary<Coin, float> totalCostOf;
+
 
         //New Portfolio (no transaction)
         public Portfolio(int ownerID, String portfolioName)
@@ -18,7 +23,10 @@ namespace CryptoPortfolio
             this.transactions = new List<Transaction>();
             this.id = readLastID();
             this.ownerID = ownerID;
-            this.portfolioName = portfolioName;       
+            this.portfolioName = portfolioName;
+
+            this.totalCost = 0;
+            this.totalCostOf = new Dictionary<Coin, float>();
         }
         public Portfolio(int id, int ownerID, String portfolioName)
         {
@@ -26,8 +34,25 @@ namespace CryptoPortfolio
             this.id = id;
             this.ownerID = ownerID;
             this.portfolioName = portfolioName;
+
+            this.totalCost = 0;
+            this.totalCostOf = new Dictionary<Coin, float>();
         }
 
+        //Temp ---
+        public float TotalCost
+        {
+            get { return this.totalCost; }
+            set { this.totalCost = value; }
+        }
+
+        public Dictionary<Coin,float> TotalCostOf
+        {
+            get { return this.totalCostOf; }
+            set { this.totalCostOf = value; }
+        }
+
+        //----
         public int ID
         {
             get { return this.id; }
@@ -84,7 +109,7 @@ namespace CryptoPortfolio
         /// </summary>
         /// <param name="coin">A Coin object that corresponds to the the coin that is suppose to search.</param>
         /// <returns>Return a float number corresponding to the coin cost or return 0 in case the current portfolio does not have any transactions.</returns>
-        public async Task<float> TotalCostOf(Coin coin)
+        public async Task<float> GetTotalCostOf(Coin coin)
         {
             float totalCost = 0;
 
@@ -109,7 +134,7 @@ namespace CryptoPortfolio
         /// Calculate the total cost of all coins in the current portfolio.
         /// </summary>
         /// <returns>Return a float number corresponding to the total coin cost or return 0 in case the current portfolio does not have any transactions.</returns>
-        public async Task<float> TotalCost() {
+        public async Task<float> GetTotalCost() {
 
             float totalCost = 0;
 

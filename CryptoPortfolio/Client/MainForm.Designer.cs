@@ -661,7 +661,6 @@ namespace CryptoPortfolio
             // 
             // mainDashboardPanel
             // 
-            this.mainDashboardPanel.Controls.Add(this.timeToUpdate);
             this.mainDashboardPanel.Controls.Add(this.gainLossLabel);
             this.mainDashboardPanel.Controls.Add(this.percentageShowPanel);
             this.mainDashboardPanel.Controls.Add(this.newTransactionButton);
@@ -684,12 +683,13 @@ namespace CryptoPortfolio
             // 
             // timeToUpdate
             // 
-            this.timeToUpdate.AutoSize = true;
-            this.timeToUpdate.Location = new System.Drawing.Point(161, 28);
+            this.timeToUpdate.Font = new System.Drawing.Font("Inter Medium", 10F);
+            this.timeToUpdate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(241)))), ((int)(((byte)(244)))));
+            this.timeToUpdate.Location = new System.Drawing.Point(3, 597);
             this.timeToUpdate.Name = "timeToUpdate";
-            this.timeToUpdate.Size = new System.Drawing.Size(16, 19);
+            this.timeToUpdate.Size = new System.Drawing.Size(178, 19);
             this.timeToUpdate.TabIndex = 24;
-            this.timeToUpdate.Text = "-";
+            this.timeToUpdate.Text = "Loading";
             this.timeToUpdate.Visible = false;
             // 
             // percentageShowPanel
@@ -835,6 +835,7 @@ namespace CryptoPortfolio
             // 
             this.sideBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.sideBar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("sideBar.BackgroundImage")));
+            this.sideBar.Controls.Add(this.timeToUpdate);
             this.sideBar.Controls.Add(this.versionLabel);
             this.sideBar.Controls.Add(this.label1);
             this.sideBar.Controls.Add(this.panel2);

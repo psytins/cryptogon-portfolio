@@ -121,7 +121,7 @@ namespace CryptoPortfolio
 
                 XmlHandler.writeTransaction(tempTransaction, CURRENT_PORTFOLIO);
 
-                ((MainForm)Owner).UpdateDashboard(CURRENT_PORTFOLIO_INDEX); //errors
+                ((MainForm)Owner).ResetAndUpdatePortfolio();
 
                 this.Dispose();
             }

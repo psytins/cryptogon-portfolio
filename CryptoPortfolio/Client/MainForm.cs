@@ -23,7 +23,7 @@ namespace CryptoPortfolio
         // -------------------
         //Global Variables
         private int TIME_TO_UPDATE = 10; //in seconds
-        private int TIMER; //in seconds
+        private int TIMER = -1; //in seconds
 
         private string CURRENT_VERSION = "Current Version 2.0.0.0 - pre-alpha";
         private int CURRENT_PAGE = 1;
@@ -78,7 +78,8 @@ namespace CryptoPortfolio
             }
             else 
             {
-                await UpdateDashboard(0);               
+                await GetFromAPI();
+                UpdateDashboard(0);            
             }
         }
 
@@ -90,17 +91,40 @@ namespace CryptoPortfolio
             updateTimer.Start();
         }
 
+        private async Task GetFromAPI()
+        {
+            SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].TotalCost = await SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].GetTotalCost();
+
+            var totalCoins = from transactions in SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].Transactions select transactions.Coin; //IEnumerable of all possesive coins taken from each transaction (here will get repeated coins)
+            //Go through the coins
+            foreach (Coin coin in totalCoins)
+            {
+                try
+                {
+                    SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].TotalCostOf.Add(coin, await SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].GetTotalCostOf(coin));
+                }
+                catch //In case a coin is repeated
+                {
+                    //do nothing
+                }
+            }
+        }
+
+        public void ResetAndUpdatePortfolio()
+        {            
+            //Update Portfolio Global
+            SESSION_PORTFOLIO.Clear();
+            SESSION_PORTFOLIO = XmlHandler.readPortfolio(SESSION.ID);
+            TIMER = 0;
+        }
+
         /// <summary>
         /// Shows and updates the Dashboard Panel with the data of the selected portfolio.
         /// </summary>
         /// <param name="portfolio_index">Update to this portfolio index</param>
-        public async Task UpdateDashboard(int portfolio_index)
+        public void UpdateDashboard(int portfolio_index)
         {
             ResetUpdateTimer();
-
-            //Update Portfolio Global (Maybe in future change update Potfolio Global when strictly necessary)
-            SESSION_PORTFOLIO.Clear();
-            SESSION_PORTFOLIO = XmlHandler.readPortfolio(SESSION.ID);
 
             mainDashboardPanel.BringToFront();
             CURRENT_PAGE = 1;
@@ -116,7 +140,7 @@ namespace CryptoPortfolio
             CURRENT_PORTFOLIO_INDEX = portfolio_index;
             //Dashboard Update -------------
             accountNameLabel.Text = SESSION.FirstName + " " + SESSION.LastName;
-            portfolioNameLabel.Text = SESSION_PORTFOLIO.ToArray()[portfolio_index].PorfolioName;
+            portfolioNameLabel.Text = SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].PorfolioName;
             showPortfoliosPanel.Visible = false;
             //Update Sub Panels
             UpdateSubHistoryPanel();
@@ -124,8 +148,9 @@ namespace CryptoPortfolio
             UpdateSubAssetsPanel(false);
 
             //It will change when I implement true values depending on crypto values - done ? 
-            totalInvestedLabel.Text = SESSION_PORTFOLIO.ToArray()[portfolio_index].TotalInvested().ToString();
-            float currentValue = await SESSION_PORTFOLIO.ToList()[portfolio_index].TotalCost();
+            totalInvestedLabel.Text = SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].TotalInvested().ToString();
+
+            float currentValue = SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].TotalCost;
             currentValueLabel.Text = currentValue.ToString();
             
             gainLossLabel.Text = (float.Parse(currentValueLabel.Text) - float.Parse(totalInvestedLabel.Text)).ToString();
@@ -221,7 +246,7 @@ namespace CryptoPortfolio
         /// Updates the sub Assets Panel in Dashboard Panel with the data of the selected portfolio.
         /// </summary>
         /// <param name="switchButton">Is comming from the switch view button ? Yes = True / No = False.</param>
-        private async void UpdateSubAssetsPanel(bool switchButton)
+        private void UpdateSubAssetsPanel(bool switchButton)
         {
             //Modify top 3 coins percentage Labels ----------------
             //Calculate the percentages
@@ -229,14 +254,14 @@ namespace CryptoPortfolio
             
             var totalCoins = from transactions in SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].Transactions select transactions.Coin; //IEnumerable of all possesive coins taken from each transaction (here will get repeated coins)
             
-            float totalCostCoins = await SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].TotalCost(); //Total value of all coins of the portfolio
+            float totalCostCoins = SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].TotalCost; //Total value of all coins of the portfolio
             
             //Go through the coins and calculate the total percetage for each one.
             foreach (Coin coin in totalCoins)
             {
                 try
                 {
-                    percentageOfEachCoin.Add(coin.Symbol, ( (await SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].TotalCostOf(coin)) / totalCostCoins * 100));
+                    percentageOfEachCoin.Add(coin.Symbol, (SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].TotalCostOf[coin] / totalCostCoins ) * 100);
                 }
                 catch //In case a coin is repeated
                 {
@@ -333,7 +358,7 @@ namespace CryptoPortfolio
                     display.Text = x.Value + "%";
                 else if(switchAllocationViewButton.Tag.ToString() == "1")
                 {
-                    float totalCostOf = await SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].TotalCostOf(SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].GetCoinFromSymbol(x.Key));
+                    float totalCostOf = SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].TotalCostOf[SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].GetCoinFromSymbol(x.Key)];
                     display.Text = totalCostOf.ToString() + Properties.Settings.Default.Currency;
                 }
 
@@ -445,7 +470,7 @@ namespace CryptoPortfolio
         /// <summary>
         /// Create a new portfolio for the current user and then load the just created portfolio. The limit per user is three.
         /// </summary>
-        private async void CreateNewPortfolio()
+        private void CreateNewPortfolio()
         {
             if (SESSION_PORTFOLIO.Count == 3)
                 MessageBox.Show("You can only create three portfolios. If you wish to add more portfolios, please create a new account.", 
@@ -457,7 +482,7 @@ namespace CryptoPortfolio
                 Portfolio portfolio = new Portfolio(SESSION.ID, portfolioName);
                 XmlHandler.writePortfolio(portfolio);
 
-                await UpdateDashboard(SESSION_PORTFOLIO.Count); //Update the dashboard with the just created portfolio
+                UpdateDashboard(SESSION_PORTFOLIO.Count); //Update the dashboard with the just created portfolio
             }
         }
 
@@ -680,15 +705,25 @@ namespace CryptoPortfolio
             UpdateHistory(CURRENT_PORTFOLIO_INDEX);
         }
 
-        private void updateTimer_Tick(object sender, EventArgs e)
+        private async void updateTimer_Tick(object sender, EventArgs e)
         {
             if(timeToUpdate.Visible == false)
                 timeToUpdate.Visible = true;
-            timeToUpdate.Text = TIMER.ToString();
-            TIMER--;
-            if(TIMER < 0)
+            if(TIMER > 0)
             {
+                timeToUpdate.Text = TIMER.ToString();
+                TIMER--;
+            }
+            else if(TIMER == 0)
+            {
+                TIMER--;
+                timeToUpdate.Text = "Updating";
+                await GetFromAPI();
                 UpdateDashboard(CURRENT_PORTFOLIO_INDEX); //for now
+            }
+            else if(TIMER < 0)
+            {
+                timeToUpdate.Text += '.';
             }
         }
     }
