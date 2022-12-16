@@ -71,16 +71,16 @@ namespace CryptoPortfolio
             
             //Read Existant Portfolios
             SESSION_PORTFOLIO = XmlHandler.readPortfolio(SESSION.ID);
-
+            TIMER = -1;
+            CURRENT_PAGE = 1;
             if(SESSION_PORTFOLIO.Count == 0)
             {
                 CreateNewPortfolio();
             }
             else 
             {
-                CURRENT_PAGE = 1;
                 CURRENT_PORTFOLIO_INDEX = 0;
-                TIMER = -1;
+
                 await GetFromAPI();
                 ChangePage(CURRENT_PAGE);
             }
@@ -96,19 +96,22 @@ namespace CryptoPortfolio
 
         private async Task GetFromAPI() //Very very slow
         {
-            SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].TotalCost = await SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].GetTotalCost();
-
-            var totalCoins = from transactions in SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].Transactions select transactions.Coin; //IEnumerable of all possesive coins taken from each transaction (here will get repeated coins)
-            //Go through the coins
-            foreach (Coin coin in totalCoins)
+            if (SESSION_PORTFOLIO.Count != 0)
             {
-                try
+                SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].TotalCost = await SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].GetTotalCost();
+
+                var totalCoins = from transactions in SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].Transactions select transactions.Coin; //IEnumerable of all possesive coins taken from each transaction (here will get repeated coins)
+                                                                                                                                                  //Go through the coins
+                foreach (Coin coin in totalCoins)
                 {
-                    SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].TotalCostOf.Add(coin, await SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].GetTotalCostOf(coin));
-                }
-                catch //In case a coin is repeated
-                {
-                    //do nothing
+                    try
+                    {
+                        SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].TotalCostOf.Add(coin, await SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].GetTotalCostOf(coin));
+                    }
+                    catch //In case a coin is repeated
+                    {
+                        //do nothing
+                    }
                 }
             }
         }
@@ -477,11 +480,13 @@ namespace CryptoPortfolio
                 string portfolioName = Interaction.InputBox("Please create a new portfolio", "Portfolio Name"); //What if user clicks cancel ????
                 Portfolio portfolio = new Portfolio(SESSION.ID, portfolioName);
                 XmlHandler.writePortfolio(portfolio);
-                
+                SESSION_PORTFOLIO.Add(portfolio);
+
                 //Update the dashboard with the just created portfolio
                 CURRENT_PORTFOLIO_INDEX = SESSION_PORTFOLIO.Count - 1;
                 ChangePage(1);
                 HardUpdate();
+
             }
         }
 
