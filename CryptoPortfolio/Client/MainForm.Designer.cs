@@ -76,12 +76,12 @@ namespace CryptoPortfolio
             this.gainLossLabel = new System.Windows.Forms.Label();
             this.currentValueLabel = new System.Windows.Forms.Label();
             this.mainDashboardPanel = new System.Windows.Forms.Panel();
-            this.timeToUpdate = new System.Windows.Forms.Label();
             this.percentageShowPanel = new System.Windows.Forms.Panel();
             this.percentageNumberLabel = new System.Windows.Forms.Label();
             this.arrowPanel = new System.Windows.Forms.Panel();
             this.newTransactionButton = new System.Windows.Forms.Button();
             this.gainLossCurrencyLabel = new System.Windows.Forms.Label();
+            this.timeToUpdate = new System.Windows.Forms.Label();
             this.showPortfoliosPanel = new System.Windows.Forms.Panel();
             this.openPortfolio2Button = new System.Windows.Forms.Button();
             this.openPortfolio1Button = new System.Windows.Forms.Button();
@@ -681,17 +681,6 @@ namespace CryptoPortfolio
             this.mainDashboardPanel.Size = new System.Drawing.Size(804, 691);
             this.mainDashboardPanel.TabIndex = 24;
             // 
-            // timeToUpdate
-            // 
-            this.timeToUpdate.Font = new System.Drawing.Font("Inter Medium", 10F);
-            this.timeToUpdate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(241)))), ((int)(((byte)(244)))));
-            this.timeToUpdate.Location = new System.Drawing.Point(3, 597);
-            this.timeToUpdate.Name = "timeToUpdate";
-            this.timeToUpdate.Size = new System.Drawing.Size(178, 19);
-            this.timeToUpdate.TabIndex = 24;
-            this.timeToUpdate.Text = "Loading";
-            this.timeToUpdate.Visible = false;
-            // 
             // percentageShowPanel
             // 
             this.percentageShowPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -756,6 +745,17 @@ namespace CryptoPortfolio
             this.gainLossCurrencyLabel.Size = new System.Drawing.Size(23, 23);
             this.gainLossCurrencyLabel.TabIndex = 16;
             this.gainLossCurrencyLabel.Text = "€";
+            // 
+            // timeToUpdate
+            // 
+            this.timeToUpdate.Font = new System.Drawing.Font("Inter Medium", 10F);
+            this.timeToUpdate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(241)))), ((int)(((byte)(244)))));
+            this.timeToUpdate.Location = new System.Drawing.Point(3, 597);
+            this.timeToUpdate.Name = "timeToUpdate";
+            this.timeToUpdate.Size = new System.Drawing.Size(178, 19);
+            this.timeToUpdate.TabIndex = 24;
+            this.timeToUpdate.Text = "Initializing";
+            this.timeToUpdate.Visible = false;
             // 
             // showPortfoliosPanel
             // 
@@ -1003,6 +1003,7 @@ namespace CryptoPortfolio
             this.Controls.Add(this.mainHistoryPanel);
             this.Controls.Add(this.mainAssetsPanel);
             this.Controls.Add(this.mainInsightPanel);
+            this.Enabled = false;
             this.Font = new System.Drawing.Font("Inter Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);

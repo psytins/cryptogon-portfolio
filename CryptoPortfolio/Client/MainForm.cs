@@ -23,10 +23,10 @@ namespace CryptoPortfolio
         // -------------------
         //Global Variables
         private int TIME_TO_UPDATE = 10; //in seconds
-        private int TIMER = -1; //in seconds
+        private int TIMER; //in seconds
 
         private string CURRENT_VERSION = "Current Version 2.0.0.0 - pre-alpha";
-        private int CURRENT_PAGE = 1;
+        private int CURRENT_PAGE;
 
         /// <summary>
         /// The current user.
@@ -78,8 +78,11 @@ namespace CryptoPortfolio
             }
             else 
             {
+                CURRENT_PAGE = 1;
+                CURRENT_PORTFOLIO_INDEX = 0;
+                TIMER = -1;
                 await GetFromAPI();
-                UpdateDashboard(0);            
+                ChangePage(CURRENT_PAGE);
             }
         }
 
@@ -91,7 +94,7 @@ namespace CryptoPortfolio
             updateTimer.Start();
         }
 
-        private async Task GetFromAPI()
+        private async Task GetFromAPI() //Very very slow
         {
             SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].TotalCost = await SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].GetTotalCost();
 
@@ -115,7 +118,7 @@ namespace CryptoPortfolio
             //Update Portfolio Global
             SESSION_PORTFOLIO.Clear();
             SESSION_PORTFOLIO = XmlHandler.readPortfolio(SESSION.ID);
-            TIMER = 0;
+            HardUpdate(); //to update right away
         }
 
         /// <summary>
@@ -127,7 +130,6 @@ namespace CryptoPortfolio
             ResetUpdateTimer();
 
             mainDashboardPanel.BringToFront();
-            CURRENT_PAGE = 1;
             //Change Side buttons --------
             //Normalize other buttons
             insightButton.BackgroundImage = Properties.Resources.Insights;
@@ -404,11 +406,9 @@ namespace CryptoPortfolio
         /// <param name="portfolio_index">Update to this portfolio index</param>
         public void UpdateInsights(int portfolio_index)
         {
-            SESSION_PORTFOLIO.Clear();
-            SESSION_PORTFOLIO = XmlHandler.readPortfolio(SESSION.ID);
+            ResetUpdateTimer();
 
             mainInsightPanel.BringToFront();
-            CURRENT_PAGE = 2;
             //Change Side buttons --------
             //Normalize other buttons
             dashboardButton.BackgroundImage = Properties.Resources.Dashboard;
@@ -427,11 +427,9 @@ namespace CryptoPortfolio
         /// <param name="portfolio_index">Update to this portfolio index</param>
         public void UpdateAssets(int portfolio_index)
         {
-            SESSION_PORTFOLIO.Clear();
-            SESSION_PORTFOLIO = XmlHandler.readPortfolio(SESSION.ID);
+            ResetUpdateTimer();
 
             mainAssetsPanel.BringToFront();
-            CURRENT_PAGE = 3;
             //Change Side buttons --------
             //Normalize other buttons
             dashboardButton.BackgroundImage = Properties.Resources.Dashboard;
@@ -450,11 +448,9 @@ namespace CryptoPortfolio
         /// <param name="portfolio_index">Update to this portfolio index</param>
         public void UpdateHistory(int portfolio_index)
         {
-            SESSION_PORTFOLIO.Clear();
-            SESSION_PORTFOLIO = XmlHandler.readPortfolio(SESSION.ID);
+            ResetUpdateTimer();
 
             mainHistoryPanel.BringToFront();
-            CURRENT_PAGE = 4;
             //Change Side buttons --------
             //Normalize other buttons
             dashboardButton.BackgroundImage = Properties.Resources.Dashboard;
@@ -481,8 +477,11 @@ namespace CryptoPortfolio
                 string portfolioName = Interaction.InputBox("Please create a new portfolio", "Portfolio Name"); //What if user clicks cancel ????
                 Portfolio portfolio = new Portfolio(SESSION.ID, portfolioName);
                 XmlHandler.writePortfolio(portfolio);
-
-                UpdateDashboard(SESSION_PORTFOLIO.Count); //Update the dashboard with the just created portfolio
+                
+                //Update the dashboard with the just created portfolio
+                CURRENT_PORTFOLIO_INDEX = SESSION_PORTFOLIO.Count - 1;
+                ChangePage(1);
+                HardUpdate();
             }
         }
 
@@ -496,13 +495,16 @@ namespace CryptoPortfolio
             {
                 CreateNewPortfolio();
             }
+            else if(CURRENT_PORTFOLIO_INDEX.ToString() == currButton.Tag.ToString())
+            {
+                //do nothing
+            }
             else
             {
-                //Check where the user is (future) (use if with CURRENT_PAGE)
-                UpdateDashboard(int.Parse(currButton.Tag.ToString()));
+                CURRENT_PORTFOLIO_INDEX = int.Parse(currButton.Tag.ToString()); //change the current portfolio index to the selected
+                ChangePage(1);
+                HardUpdate();
             }
-
-
         }
 
         private void showPortfoliosButton_Click(object sender, EventArgs e) //display all portfolios of the current user
@@ -617,6 +619,7 @@ namespace CryptoPortfolio
                 gainLossLabel.ForeColor = Color.FromArgb(194, 118, 112);
             }
         }
+
         private void newTransactionButton_Click(object sender, EventArgs e)
         {
             TransactionForm newTransaction = new TransactionForm();
@@ -631,6 +634,7 @@ namespace CryptoPortfolio
         {
             
         }
+
         private void dashboardButton_MouseEnter(object sender, EventArgs e)
         {
             if(CURRENT_PAGE != 1)
@@ -688,21 +692,43 @@ namespace CryptoPortfolio
             else
                 historyButton.BackgroundImage = Properties.Resources.History_selected;
         }
+
         private void dashboardButton_Click(object sender, EventArgs e)
         {
+            CURRENT_PAGE = 1;
             UpdateDashboard(CURRENT_PORTFOLIO_INDEX);
         }
         private void insightButton_Click(object sender, EventArgs e)
         {
+            CURRENT_PAGE = 2;
             UpdateInsights(CURRENT_PORTFOLIO_INDEX);
         }
         private void assetsButton_Click(object sender, EventArgs e)
         {
+            CURRENT_PAGE = 3;
             UpdateAssets(CURRENT_PORTFOLIO_INDEX);
         }
         private void historyButton_Click(object sender, EventArgs e)
         {
+            CURRENT_PAGE = 4;
             UpdateHistory(CURRENT_PORTFOLIO_INDEX);
+        }
+
+        private void ChangePage(int pageNumber)
+        {
+            switch(pageNumber)
+            {
+                case 1: UpdateDashboard(CURRENT_PORTFOLIO_INDEX);   break;
+                case 2: UpdateInsights(CURRENT_PORTFOLIO_INDEX);    break;
+                case 3: UpdateAssets(CURRENT_PORTFOLIO_INDEX);      break;
+                case 4: UpdateHistory(CURRENT_PORTFOLIO_INDEX);     break;
+            }
+        }
+        
+        private void HardUpdate()
+        {
+            TIMER = 0;
+            this.Enabled = false;
         }
 
         private async void updateTimer_Tick(object sender, EventArgs e)
@@ -711,6 +737,8 @@ namespace CryptoPortfolio
                 timeToUpdate.Visible = true;
             if(TIMER > 0)
             {
+                this.Enabled = true; //when updating is completed
+
                 timeToUpdate.Text = TIMER.ToString();
                 TIMER--;
             }
@@ -718,8 +746,9 @@ namespace CryptoPortfolio
             {
                 TIMER--;
                 timeToUpdate.Text = "Updating";
+                this.Enabled = false;
                 await GetFromAPI();
-                UpdateDashboard(CURRENT_PORTFOLIO_INDEX); //for now
+                ChangePage(CURRENT_PAGE);
             }
             else if(TIMER < 0)
             {
