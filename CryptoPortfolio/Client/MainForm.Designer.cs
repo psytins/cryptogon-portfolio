@@ -46,7 +46,6 @@ namespace CryptoPortfolio
             this.chartPanel = new System.Windows.Forms.Panel();
             this.chartLabel = new System.Windows.Forms.Label();
             this.totalInvestedStaticLabel = new System.Windows.Forms.Label();
-            this.totalInvestedCurrencyLabel = new System.Windows.Forms.Label();
             this.valueLabel = new System.Windows.Forms.Label();
             this.totalInvestedLabel = new System.Windows.Forms.Label();
             this.separatorPanel = new System.Windows.Forms.Panel();
@@ -59,7 +58,6 @@ namespace CryptoPortfolio
             this.dateHistoryLabel = new System.Windows.Forms.Label();
             this.latestTransactionLabel = new System.Windows.Forms.Label();
             this.gainLossStaticLabel = new System.Windows.Forms.Label();
-            this.valueCurrencyLabel = new System.Windows.Forms.Label();
             this.assetsPanel = new System.Windows.Forms.Panel();
             this.switchAllocationViewButton = new System.Windows.Forms.Button();
             this.assetsAllocationPanel = new System.Windows.Forms.Panel();
@@ -80,7 +78,6 @@ namespace CryptoPortfolio
             this.percentageNumberLabel = new System.Windows.Forms.Label();
             this.arrowPanel = new System.Windows.Forms.Panel();
             this.newTransactionButton = new System.Windows.Forms.Button();
-            this.gainLossCurrencyLabel = new System.Windows.Forms.Label();
             this.timeToUpdate = new System.Windows.Forms.Label();
             this.showPortfoliosPanel = new System.Windows.Forms.Panel();
             this.openPortfolio2Button = new System.Windows.Forms.Button();
@@ -289,19 +286,6 @@ namespace CryptoPortfolio
             this.totalInvestedStaticLabel.TabIndex = 10;
             this.totalInvestedStaticLabel.Text = "Total Invested";
             // 
-            // totalInvestedCurrencyLabel
-            // 
-            this.totalInvestedCurrencyLabel.AutoSize = true;
-            this.totalInvestedCurrencyLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.totalInvestedCurrencyLabel.Font = new System.Drawing.Font("Inter", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalInvestedCurrencyLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(116)))), ((int)(((byte)(149)))));
-            this.totalInvestedCurrencyLabel.Location = new System.Drawing.Point(18, 120);
-            this.totalInvestedCurrencyLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.totalInvestedCurrencyLabel.Name = "totalInvestedCurrencyLabel";
-            this.totalInvestedCurrencyLabel.Size = new System.Drawing.Size(23, 23);
-            this.totalInvestedCurrencyLabel.TabIndex = 11;
-            this.totalInvestedCurrencyLabel.Text = "€";
-            // 
             // valueLabel
             // 
             this.valueLabel.AutoSize = true;
@@ -321,7 +305,7 @@ namespace CryptoPortfolio
             this.totalInvestedLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.totalInvestedLabel.Font = new System.Drawing.Font("Inter SemiBold", 18F, System.Drawing.FontStyle.Bold);
             this.totalInvestedLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(116)))), ((int)(((byte)(149)))));
-            this.totalInvestedLabel.Location = new System.Drawing.Point(37, 115);
+            this.totalInvestedLabel.Location = new System.Drawing.Point(17, 115);
             this.totalInvestedLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.totalInvestedLabel.Name = "totalInvestedLabel";
             this.totalInvestedLabel.Size = new System.Drawing.Size(24, 29);
@@ -450,19 +434,6 @@ namespace CryptoPortfolio
             this.gainLossStaticLabel.Size = new System.Drawing.Size(87, 15);
             this.gainLossStaticLabel.TabIndex = 15;
             this.gainLossStaticLabel.Text = "Gains/Losses";
-            // 
-            // valueCurrencyLabel
-            // 
-            this.valueCurrencyLabel.AutoSize = true;
-            this.valueCurrencyLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.valueCurrencyLabel.Font = new System.Drawing.Font("Inter", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.valueCurrencyLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
-            this.valueCurrencyLabel.Location = new System.Drawing.Point(13, 58);
-            this.valueCurrencyLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.valueCurrencyLabel.Name = "valueCurrencyLabel";
-            this.valueCurrencyLabel.Size = new System.Drawing.Size(29, 29);
-            this.valueCurrencyLabel.TabIndex = 8;
-            this.valueCurrencyLabel.Text = "€";
             // 
             // assetsPanel
             // 
@@ -639,7 +610,7 @@ namespace CryptoPortfolio
             this.gainLossLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gainLossLabel.Font = new System.Drawing.Font("Inter SemiBold", 18F, System.Drawing.FontStyle.Bold);
             this.gainLossLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(116)))), ((int)(((byte)(149)))));
-            this.gainLossLabel.Location = new System.Drawing.Point(188, 114);
+            this.gainLossLabel.Location = new System.Drawing.Point(169, 115);
             this.gainLossLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.gainLossLabel.Name = "gainLossLabel";
             this.gainLossLabel.Size = new System.Drawing.Size(24, 29);
@@ -652,7 +623,7 @@ namespace CryptoPortfolio
             this.currentValueLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.currentValueLabel.Font = new System.Drawing.Font("Inter SemiBold", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.currentValueLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
-            this.currentValueLabel.Location = new System.Drawing.Point(35, 47);
+            this.currentValueLabel.Location = new System.Drawing.Point(15, 45);
             this.currentValueLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.currentValueLabel.Name = "currentValueLabel";
             this.currentValueLabel.Size = new System.Drawing.Size(34, 42);
@@ -666,16 +637,13 @@ namespace CryptoPortfolio
             this.mainDashboardPanel.Controls.Add(this.newTransactionButton);
             this.mainDashboardPanel.Controls.Add(this.currentValueLabel);
             this.mainDashboardPanel.Controls.Add(this.assetsPanel);
-            this.mainDashboardPanel.Controls.Add(this.valueCurrencyLabel);
             this.mainDashboardPanel.Controls.Add(this.gainLossStaticLabel);
             this.mainDashboardPanel.Controls.Add(this.historyPanel);
             this.mainDashboardPanel.Controls.Add(this.separatorPanel);
             this.mainDashboardPanel.Controls.Add(this.totalInvestedLabel);
             this.mainDashboardPanel.Controls.Add(this.valueLabel);
-            this.mainDashboardPanel.Controls.Add(this.totalInvestedCurrencyLabel);
             this.mainDashboardPanel.Controls.Add(this.totalInvestedStaticLabel);
             this.mainDashboardPanel.Controls.Add(this.chartPanel);
-            this.mainDashboardPanel.Controls.Add(this.gainLossCurrencyLabel);
             this.mainDashboardPanel.Location = new System.Drawing.Point(208, 77);
             this.mainDashboardPanel.Name = "mainDashboardPanel";
             this.mainDashboardPanel.Size = new System.Drawing.Size(804, 691);
@@ -687,7 +655,7 @@ namespace CryptoPortfolio
             this.percentageShowPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("percentageShowPanel.BackgroundImage")));
             this.percentageShowPanel.Controls.Add(this.percentageNumberLabel);
             this.percentageShowPanel.Controls.Add(this.arrowPanel);
-            this.percentageShowPanel.Location = new System.Drawing.Point(213, 57);
+            this.percentageShowPanel.Location = new System.Drawing.Point(304, 57);
             this.percentageShowPanel.Name = "percentageShowPanel";
             this.percentageShowPanel.Size = new System.Drawing.Size(60, 30);
             this.percentageShowPanel.TabIndex = 19;
@@ -697,12 +665,12 @@ namespace CryptoPortfolio
             // 
             this.percentageNumberLabel.AutoSize = true;
             this.percentageNumberLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.percentageNumberLabel.Font = new System.Drawing.Font("Inter Light", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.percentageNumberLabel.Font = new System.Drawing.Font("Inter Light", 9F);
             this.percentageNumberLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
             this.percentageNumberLabel.Location = new System.Drawing.Point(17, 7);
             this.percentageNumberLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.percentageNumberLabel.Name = "percentageNumberLabel";
-            this.percentageNumberLabel.Size = new System.Drawing.Size(39, 16);
+            this.percentageNumberLabel.Size = new System.Drawing.Size(36, 15);
             this.percentageNumberLabel.TabIndex = 23;
             this.percentageNumberLabel.Text = "100%";
             // 
@@ -732,19 +700,6 @@ namespace CryptoPortfolio
             this.newTransactionButton.TabIndex = 23;
             this.newTransactionButton.UseVisualStyleBackColor = false;
             this.newTransactionButton.Click += new System.EventHandler(this.newTransactionButton_Click);
-            // 
-            // gainLossCurrencyLabel
-            // 
-            this.gainLossCurrencyLabel.AutoSize = true;
-            this.gainLossCurrencyLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.gainLossCurrencyLabel.Font = new System.Drawing.Font("Inter", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gainLossCurrencyLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(116)))), ((int)(((byte)(149)))));
-            this.gainLossCurrencyLabel.Location = new System.Drawing.Point(169, 120);
-            this.gainLossCurrencyLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.gainLossCurrencyLabel.Name = "gainLossCurrencyLabel";
-            this.gainLossCurrencyLabel.Size = new System.Drawing.Size(23, 23);
-            this.gainLossCurrencyLabel.TabIndex = 16;
-            this.gainLossCurrencyLabel.Text = "€";
             // 
             // timeToUpdate
             // 
@@ -1069,13 +1024,11 @@ namespace CryptoPortfolio
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel chartPanel;
         private System.Windows.Forms.Label totalInvestedStaticLabel;
-        private System.Windows.Forms.Label totalInvestedCurrencyLabel;
         private System.Windows.Forms.Label valueLabel;
         private System.Windows.Forms.Label totalInvestedLabel;
         private System.Windows.Forms.Panel separatorPanel;
         private System.Windows.Forms.Panel historyPanel;
         private System.Windows.Forms.Label gainLossStaticLabel;
-        private System.Windows.Forms.Label valueCurrencyLabel;
         private System.Windows.Forms.Panel assetsPanel;
         private System.Windows.Forms.Label gainLossLabel;
         private System.Windows.Forms.Label currentValueLabel;
@@ -1084,7 +1037,6 @@ namespace CryptoPortfolio
         private System.Windows.Forms.Label percentageNumberLabel;
         private System.Windows.Forms.Panel arrowPanel;
         private System.Windows.Forms.Panel mainDashboardPanel;
-        private System.Windows.Forms.Label gainLossCurrencyLabel;
         private System.Windows.Forms.Panel showPortfoliosPanel;
         private System.Windows.Forms.Button openPortfolio0Button;
         private System.Windows.Forms.Button openPortfolio2Button;

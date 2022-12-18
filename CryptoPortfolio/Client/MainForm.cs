@@ -59,11 +59,6 @@ namespace CryptoPortfolio
 
         private async void MainForm_Load(object sender, EventArgs e)
         {
-            //Set Currency Labels
-            valueCurrencyLabel.Text = Properties.Settings.Default.Currency;
-            totalInvestedCurrencyLabel.Text = Properties.Settings.Default.Currency;
-            gainLossCurrencyLabel.Text = Properties.Settings.Default.Currency;
-
             //Set Version Label
             versionLabel.Text = CURRENT_VERSION;
 
@@ -116,7 +111,7 @@ namespace CryptoPortfolio
             }
         }
 
-        public void ResetAndUpdatePortfolio()
+        public void ResetAndUpdatePortfolio() //just to be sure that everything act right when a new transaction is made
         {            
             //Update Portfolio Global
             SESSION_PORTFOLIO.Clear();
@@ -153,13 +148,16 @@ namespace CryptoPortfolio
             UpdateSubAssetsPanel(false);
 
             //It will change when I implement true values depending on crypto values - done ? 
-            totalInvestedLabel.Text = SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].TotalInvested().ToString();
+            float totalInvested = SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].TotalInvested();
+            totalInvestedLabel.Text = totalInvested.ToString("0.00" + Properties.Settings.Default.Currency);
 
             float currentValue = SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].TotalCost;
-            currentValueLabel.Text = currentValue.ToString();
-            
-            gainLossLabel.Text = (float.Parse(currentValueLabel.Text) - float.Parse(totalInvestedLabel.Text)).ToString();
-            //CheckGainLoss(); //Set the color of Gains/Losses Label
+            currentValueLabel.Text = currentValue.ToString("0.00" + Properties.Settings.Default.Currency);
+
+            float gainLoss = currentValue - totalInvested;
+            gainLossLabel.Text = gainLoss.ToString("0.00" + Properties.Settings.Default.Currency);
+
+            CheckGainLoss(currentValue, totalInvested, gainLoss); //Set the color of Gains/Losses Label
         }
 
         // SUB PANELS IN DASHBOARD ------------------------------------------
@@ -266,7 +264,7 @@ namespace CryptoPortfolio
             {
                 try
                 {
-                    percentageOfEachCoin.Add(coin.Symbol, (SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].TotalCostOf[coin] / totalCostCoins ) * 100);
+                    percentageOfEachCoin.Add(coin.Symbol, (SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].TotalCostOf[coin] / totalCostCoins ));
                 }
                 catch //In case a coin is repeated
                 {
@@ -300,28 +298,28 @@ namespace CryptoPortfolio
                             coinNameN1Label.Visible = true;
                             coinPercentageN1Label.Visible = true;
                             coinNameN1Label.Text = x.Key;
-                            coinPercentageN1Label.Text = x.Value.ToString() + "%";
+                            coinPercentageN1Label.Text = x.Value.ToString("0%");
                             topCoins--;
                             break;
                         case 2:
                             coinNameN2Label.Visible = true;
                             coinPercentageN2Label.Visible = true;
                             coinNameN2Label.Text = x.Key;
-                            coinPercentageN2Label.Text = x.Value.ToString() + "%";
+                            coinPercentageN2Label.Text = x.Value.ToString("0%");
                             topCoins--;
                             break;
                         case 1:
                             coinNameN3Label.Visible = true;
                             coinPercentageN3Label.Visible = true;
                             coinNameN3Label.Text = x.Key;
-                            coinPercentageN3Label.Text = x.Value.ToString() + "%";
+                            coinPercentageN3Label.Text = x.Value.ToString("0%");
                             topCoins--;
                             break;
                         case 0:
                             accum += x.Value;
                             coinNameN4Label.Visible = true;
                             coinPercentageN4Label.Visible = true;
-                            coinPercentageN4Label.Text = accum.ToString() + "%";
+                            coinPercentageN4Label.Text = accum.ToString("0%");
                             break;
                     }
                 }
@@ -360,11 +358,11 @@ namespace CryptoPortfolio
                 Label display = new Label();
 
                 if (switchAllocationViewButton.Tag.ToString() == "0")
-                    display.Text = x.Value + "%";
-                else if(switchAllocationViewButton.Tag.ToString() == "1")
+                    display.Text = x.Value.ToString("0.00%");
+                else if (switchAllocationViewButton.Tag.ToString() == "1")
                 {
                     float totalCostOf = SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].TotalCostOf[SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].GetCoinFromSymbol(x.Key)];
-                    display.Text = totalCostOf.ToString() + Properties.Settings.Default.Currency;
+                    display.Text = totalCostOf.ToString("0.00" + Properties.Settings.Default.Currency);
                 }
 
                 display.Font = new Font("Inter", 8f, FontStyle.Bold);
@@ -588,40 +586,48 @@ namespace CryptoPortfolio
         /// Display a negative percentage in the dashboard.
         /// </summary>
         /// <param name="percentage">Percentage to display</param>
-        private void ShowNegativePercentage(int percentage)
+        private void ShowNegativePercentage(float percentage)
         {
+            percentage = percentage * 100;
+            percentageShowPanel.Visible = true; arrowPanel.Visible = true;
             percentageShowPanel.BackgroundImage = Properties.Resources.percentageDOWN;
             arrowPanel.BackgroundImage = Properties.Resources.Polygon_2;
-            percentageNumberLabel.Text = percentage.ToString() + "%";
+            percentageNumberLabel.Text = percentage.ToString("0.00") + "%";
         }
 
         /// <summary>
         /// Display a positive percentage in the dashboard.
         /// </summary>
         /// <param name="percentage">Percentage to display</param>
-        private void ShowPositivePercentage(int percentage)
+        private void ShowPositivePercentage(float percentage)
         {
+            percentage = percentage * 100;
+            percentageShowPanel.Visible = true; arrowPanel.Visible = true;
             percentageShowPanel.BackgroundImage = Properties.Resources.percentageUP;
             arrowPanel.BackgroundImage = Properties.Resources.Polygon_1;
-            percentageNumberLabel.Text = percentage.ToString() + "%";
+            percentageNumberLabel.Text = percentage.ToString("0.00") + "%";
         }
 
         /// <summary>
         /// Changes the color of Gain/Loss value.
         /// </summary>
-        private void CheckGainLoss()
+        private void CheckGainLoss(float currentValue, float totalInvested, float gainLoss)
         {
-            if(float.Parse(gainLossLabel.Text) == 0f)
+            if(gainLoss == 0f)
             {
+                percentageShowPanel.Visible = false; arrowPanel.Visible = false;
                 gainLossLabel.ForeColor = Color.FromArgb(87, 116, 149); 
             }
-            else if (float.Parse(gainLossLabel.Text) > 0f)
+            else if (gainLoss > 0f)
             {
                 gainLossLabel.ForeColor = Color.FromArgb(120, 188, 97);
+                ShowPositivePercentage((currentValue - totalInvested) / currentValue);
+
             }
-            else if (float.Parse(gainLossLabel.Text) < 0f)
+            else if (gainLoss < 0f)
             {
                 gainLossLabel.ForeColor = Color.FromArgb(194, 118, 112);
+                ShowNegativePercentage((currentValue - totalInvested) / currentValue);
             }
         }
 
