@@ -25,7 +25,7 @@ namespace CryptoPortfolio
         private int TIME_TO_UPDATE = 10; //in seconds
         private int TIMER; //in seconds
 
-        private string CURRENT_VERSION = "Current Version 2.0.0.0 - pre-alpha";
+        private readonly string CURRENT_VERSION = "Current Version 2.0.0.0 - pre-alpha";
         private int CURRENT_PAGE;
 
         /// <summary>
@@ -89,7 +89,7 @@ namespace CryptoPortfolio
             updateTimer.Start();
         }
 
-        private async Task GetFromAPI() //Very very slow
+        private async Task GetFromAPI() //Optimized :)
         {
             if (SESSION_PORTFOLIO.Count != 0)
             {
@@ -108,6 +108,8 @@ namespace CryptoPortfolio
                         //do nothing
                     }
                 }
+
+                SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].ClearTempMarketValues();
             }
         }
 
@@ -116,7 +118,7 @@ namespace CryptoPortfolio
             //Update Portfolio Global
             SESSION_PORTFOLIO.Clear();
             SESSION_PORTFOLIO = XmlHandler.readPortfolio(SESSION.ID);
-            HardUpdate(); //to update right away
+            HardUpdate(); //to update right away (and update the temp vars in object since it was cleaned)
         }
 
         /// <summary>

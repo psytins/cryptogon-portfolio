@@ -15,6 +15,8 @@ namespace CryptoPortfolio
         //Temp Variables
         private float totalCost;
         private Dictionary<Coin, float> totalCostOf;
+        //To hold marketValues
+        private Dictionary<string, float> tempMarketValues;
 
 
         //New Portfolio (no transaction)
@@ -27,6 +29,7 @@ namespace CryptoPortfolio
 
             this.totalCost = 0;
             this.totalCostOf = new Dictionary<Coin, float>();
+            this.tempMarketValues = new Dictionary<string, float>();
         }
         public Portfolio(int id, int ownerID, String portfolioName)
         {
@@ -37,6 +40,7 @@ namespace CryptoPortfolio
 
             this.totalCost = 0;
             this.totalCostOf = new Dictionary<Coin, float>();
+            this.tempMarketValues = new Dictionary<string, float>();
         }
 
         //Temp ---
@@ -109,8 +113,11 @@ namespace CryptoPortfolio
         /// </summary>
         /// <param name="coin">A Coin object that corresponds to the the coin that is suppose to search.</param>
         /// <returns>Return a float number corresponding to the coin cost or return 0 in case the current portfolio does not have any transactions.</returns>
-        public async Task<float> GetTotalCostOf(Coin coin)
+        public async Task<float> GetTotalCostOf(Coin coin) 
         {
+            if(this.tempMarketValues.Count == 0) //to prevent unnecessary http requests
+                this.tempMarketValues = await this.CoinMarketValue();
+           
             float totalCost = 0;
 
             if (this.transactions.Count == 0)
@@ -120,10 +127,10 @@ namespace CryptoPortfolio
                 foreach (Transaction transaction in this.transactions)
                 {
                     if (transaction.TransactionType == Transaction.Type.Buy && transaction.Coin.Symbol == coin.Symbol)
-                        totalCost += await this.CoinMarketValue(coin, transaction.Amount);
+                        totalCost += this.tempMarketValues[transaction.Coin.Symbol + "BUSD"] * transaction.Amount;
 
                     if (transaction.TransactionType == Transaction.Type.Sell && transaction.Coin.Symbol == coin.Symbol)
-                        totalCost -= await this.CoinMarketValue(coin, transaction.Cost); //Here cost is the cost of the sell in Coins (not in fiat)
+                        totalCost += this.tempMarketValues[transaction.Coin.Symbol + "BUSD"] * transaction.Cost; //Here cost is the cost of the sell in Coins (not in fiat)
                 }
 
                 return totalCost;
@@ -134,7 +141,10 @@ namespace CryptoPortfolio
         /// Calculate the total cost of all coins in the current portfolio.
         /// </summary>
         /// <returns>Return a float number corresponding to the total coin cost or return 0 in case the current portfolio does not have any transactions.</returns>
-        public async Task<float> GetTotalCost() {
+        public async Task<float> GetTotalCost() 
+        {
+            if (this.tempMarketValues.Count == 0)
+                this.tempMarketValues = await this.CoinMarketValue();
 
             float totalCost = 0;
 
@@ -145,10 +155,10 @@ namespace CryptoPortfolio
                 foreach (Transaction transaction in this.transactions)
                 {
                     if (transaction.TransactionType == Transaction.Type.Buy)
-                        totalCost += await this.CoinMarketValue(transaction.Coin, transaction.Amount);
+                        totalCost += this.tempMarketValues[transaction.Coin.Symbol + "BUSD"] * transaction.Amount;
 
                     if (transaction.TransactionType == Transaction.Type.Sell)
-                        totalCost -= await this.CoinMarketValue(transaction.Coin, transaction.Cost); //Here cost is the cost of the sell in Coins (not in fiat)
+                        totalCost += this.tempMarketValues[transaction.Coin.Symbol + "BUSD"] * transaction.Cost; //Here cost is the cost of the sell in Coins (not in fiat)
                 }
 
                 return totalCost;
@@ -198,16 +208,14 @@ namespace CryptoPortfolio
             return null;
         }
 
-        public async Task<float> CoinMarketValue(Coin coin, float amount)
+        public async Task<Dictionary<string,float>> CoinMarketValue()
         {
-            if (coin == null)
-                return 0;
+            return await CurrentAvgPrice.GetMarketValues();
+        }
 
-            float marketValue = await CurrentAvgPrice.GetMarketValue(coin.Symbol);
-
-            float value = marketValue * amount;
-
-            return value;
+        public void ClearTempMarketValues()
+        {
+            this.tempMarketValues.Clear();
         }
     }
 }

@@ -7,6 +7,7 @@ namespace CryptoPortfolio
         //Variables
         private String name;
         private String symbol;
+        private float price; //to use in CurrentAvgPrice
 
         public Coin(String name,String symbol)
         {
@@ -23,6 +24,11 @@ namespace CryptoPortfolio
         {
             get { return this.symbol; }
             set { this.symbol = value; }
+        }
+        public float Price
+        { 
+            get { return this.price; }
+            set { this.price = value; }
         }
     }
 }
