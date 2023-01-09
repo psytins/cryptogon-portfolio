@@ -25,7 +25,7 @@ namespace CryptoPortfolio
         private int TIME_TO_UPDATE = 10; //in seconds
         private int TIMER; //in seconds
 
-        private readonly string CURRENT_VERSION = "Current Version 2.0.0.0 - pre-alpha";
+        private readonly string CURRENT_VERSION = "Current Version 2.0.0.0";
         private int CURRENT_PAGE;
 
         /// <summary>

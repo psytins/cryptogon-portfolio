@@ -812,7 +812,7 @@ namespace CryptoPortfolio
             this.versionLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.versionLabel.Font = new System.Drawing.Font("Inter Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.versionLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(241)))), ((int)(((byte)(244)))));
-            this.versionLabel.Location = new System.Drawing.Point(3, 663);
+            this.versionLabel.Location = new System.Drawing.Point(3, 645);
             this.versionLabel.Name = "versionLabel";
             this.versionLabel.Size = new System.Drawing.Size(48, 15);
             this.versionLabel.TabIndex = 9;
@@ -824,11 +824,11 @@ namespace CryptoPortfolio
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label1.Font = new System.Drawing.Font("Inter Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(241)))), ((int)(((byte)(244)))));
-            this.label1.Location = new System.Drawing.Point(3, 644);
+            this.label1.Location = new System.Drawing.Point(3, 666);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(136, 15);
+            this.label1.Size = new System.Drawing.Size(193, 15);
             this.label1.TabIndex = 8;
-            this.label1.Text = "Made by Gonçalo vidal";
+            this.label1.Text = "Made by Gonçalo vidal @ psytins";
             // 
             // panel2
             // 

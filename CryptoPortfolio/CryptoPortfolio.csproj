@@ -145,6 +145,12 @@
     <Compile Include="Client\portfolioStart_old.Designer.cs">
       <DependentUpon>portfolioStart_old.cs</DependentUpon>
     </Compile>
+    <Compile Include="Client\TransactionDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Client\TransactionDetails.Designer.cs">
+      <DependentUpon>TransactionDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="Client\TransactionForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -174,6 +180,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Client\portfolioStart_old.resx">
       <DependentUpon>portfolioStart_old.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Client\TransactionDetails.resx">
+      <DependentUpon>TransactionDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Client\TransactionForm.resx">
       <DependentUpon>TransactionForm.cs</DependentUpon>
@@ -223,9 +232,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="data\coins.xml" />
-    <Content Include="data\portfolio.xml" />
-    <Content Include="data\users.xml" />
+    <Content Include="Data\coins.xml" />
+    <Content Include="Data\portfolio.xml" />
+    <Content Include="Data\users.xml" />
     <None Include="Resources\assetAllocationPanelSample.png" />
     <None Include="Resources\allocationGraphTemp.png" />
     <None Include="Resources\historyPanelSample1.png" />

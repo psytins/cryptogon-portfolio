@@ -61,7 +61,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>wGwyOHsygiIyO9V0ael8iyPJxYAYHzUk4XirCjxLBW0=</dsig:DigestValue>
+        <dsig:DigestValue>ZvMiou7P+TIE0Csg4OXzPyzf23/Muu5cplYpmFQr9mY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -158,7 +158,7 @@
       <dsig:DigestValue>NOm+a+u8X1Mk945oTdA+0J7RjDhEO7EyfiXzlH0DYAk=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="data\coins.xml" size="928" writeableType="applicationData">
+  <file name="Data\coins.xml" size="928" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -167,7 +167,7 @@
       <dsig:DigestValue>QGfljvPSy2I4p2gJZzuuKo6MRR/RkkmEYGOB1ReTvrM=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="data\portfolio.xml" size="70" writeableType="applicationData">
+  <file name="Data\portfolio.xml" size="70" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -176,7 +176,7 @@
       <dsig:DigestValue>G8sq1X3+Ma8OJP1TpPDotS+oX0chOGKJhvR3GBdMQsw=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="data\users.xml" size="63" writeableType="applicationData">
+  <file name="Data\users.xml" size="63" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />

@@ -38,6 +38,8 @@
             this.addTransactionPanel = new System.Windows.Forms.Panel();
             this.closeTwoButton = new System.Windows.Forms.Button();
             this.buyPanel = new System.Windows.Forms.Panel();
+            this.timePicker = new System.Windows.Forms.DateTimePicker();
+            this.datePicker = new System.Windows.Forms.DateTimePicker();
             this.pricePerCoinLabel = new System.Windows.Forms.Label();
             this.amountLabel = new System.Windows.Forms.Label();
             this.pricePerCoinRequiredLabel = new System.Windows.Forms.Label();
@@ -47,7 +49,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.currencyTotalSpent = new System.Windows.Forms.Label();
             this.totalSpentLabel = new System.Windows.Forms.Label();
-            this.timePicker = new System.Windows.Forms.DateTimePicker();
             this.notesTextPanel = new System.Windows.Forms.Panel();
             this.notesTextBox = new System.Windows.Forms.TextBox();
             this.feeTextPanel = new System.Windows.Forms.Panel();
@@ -66,7 +67,6 @@
             this.buyButton = new System.Windows.Forms.Button();
             this.goBackButton = new System.Windows.Forms.Button();
             this.addTransactionLabel = new System.Windows.Forms.Label();
-            this.datePicker = new System.Windows.Forms.DateTimePicker();
             this.selectCoinPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.addTransactionPanel.SuspendLayout();
@@ -223,6 +223,33 @@
             this.buyPanel.Size = new System.Drawing.Size(338, 410);
             this.buyPanel.TabIndex = 7;
             // 
+            // timePicker
+            // 
+            this.timePicker.CalendarFont = new System.Drawing.Font("Inter", 9F);
+            this.timePicker.Font = new System.Drawing.Font("Inter", 12F);
+            this.timePicker.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.timePicker.Location = new System.Drawing.Point(6, 217);
+            this.timePicker.Name = "timePicker";
+            this.timePicker.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.timePicker.ShowUpDown = true;
+            this.timePicker.Size = new System.Drawing.Size(134, 27);
+            this.timePicker.TabIndex = 2;
+            this.timePicker.Value = new System.DateTime(2022, 12, 1, 13, 35, 0, 0);
+            // 
+            // datePicker
+            // 
+            this.datePicker.CalendarFont = new System.Drawing.Font("Inter", 9F);
+            this.datePicker.CalendarForeColor = System.Drawing.Color.DarkBlue;
+            this.datePicker.CalendarMonthBackground = System.Drawing.SystemColors.HotTrack;
+            this.datePicker.CalendarTitleBackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.datePicker.CalendarTrailingForeColor = System.Drawing.Color.Green;
+            this.datePicker.Font = new System.Drawing.Font("Inter", 12F);
+            this.datePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.datePicker.Location = new System.Drawing.Point(6, 184);
+            this.datePicker.Name = "datePicker";
+            this.datePicker.Size = new System.Drawing.Size(135, 27);
+            this.datePicker.TabIndex = 1;
+            // 
             // pricePerCoinLabel
             // 
             this.pricePerCoinLabel.AutoSize = true;
@@ -335,19 +362,6 @@
             this.totalSpentLabel.Size = new System.Drawing.Size(285, 28);
             this.totalSpentLabel.TabIndex = 18;
             this.totalSpentLabel.Text = "0";
-            // 
-            // timePicker
-            // 
-            this.timePicker.CalendarFont = new System.Drawing.Font("Inter", 9F);
-            this.timePicker.Font = new System.Drawing.Font("Inter", 12F);
-            this.timePicker.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.timePicker.Location = new System.Drawing.Point(6, 217);
-            this.timePicker.Name = "timePicker";
-            this.timePicker.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.timePicker.ShowUpDown = true;
-            this.timePicker.Size = new System.Drawing.Size(134, 27);
-            this.timePicker.TabIndex = 2;
-            this.timePicker.Value = new System.DateTime(2022, 12, 1, 13, 35, 0, 0);
             // 
             // notesTextPanel
             // 
@@ -578,20 +592,6 @@
             this.addTransactionLabel.Size = new System.Drawing.Size(164, 23);
             this.addTransactionLabel.TabIndex = 0;
             this.addTransactionLabel.Text = "Add Transaction";
-            // 
-            // datePicker
-            // 
-            this.datePicker.CalendarFont = new System.Drawing.Font("Inter", 9F);
-            this.datePicker.CalendarForeColor = System.Drawing.Color.DarkBlue;
-            this.datePicker.CalendarMonthBackground = System.Drawing.SystemColors.HotTrack;
-            this.datePicker.CalendarTitleBackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.datePicker.CalendarTrailingForeColor = System.Drawing.Color.Green;
-            this.datePicker.Font = new System.Drawing.Font("Inter", 12F);
-            this.datePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.datePicker.Location = new System.Drawing.Point(6, 184);
-            this.datePicker.Name = "datePicker";
-            this.datePicker.Size = new System.Drawing.Size(135, 27);
-            this.datePicker.TabIndex = 1;
             // 
             // TransactionForm
             // 
