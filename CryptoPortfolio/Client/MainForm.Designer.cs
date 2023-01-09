@@ -689,6 +689,7 @@ namespace CryptoPortfolio
             this.newTransactionButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.newTransactionButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("newTransactionButton.BackgroundImage")));
             this.newTransactionButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.newTransactionButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.newTransactionButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.newTransactionButton.FlatAppearance.BorderSize = 0;
             this.newTransactionButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveBorder;
@@ -958,7 +959,6 @@ namespace CryptoPortfolio
             this.Controls.Add(this.mainHistoryPanel);
             this.Controls.Add(this.mainAssetsPanel);
             this.Controls.Add(this.mainInsightPanel);
-            this.Enabled = false;
             this.Font = new System.Drawing.Font("Inter Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);

@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualBasic;
+﻿using CryptoPortfolio.Client;
+using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -235,8 +236,13 @@ namespace CryptoPortfolio
                     tempButton.BackgroundImageLayout = ImageLayout.None;
                     tempButton.FlatAppearance.BorderSize = 0;
                     tempButton.FlatStyle = FlatStyle.Flat;
+                    tempButton.Cursor = Cursors.Hand;
                     //add the event listener to the button
-                    //tempButton.MouseClick += new MouseEventHandler();
+                    tempButton.MouseClick += (s,e) => {
+                        TransactionDetails newTransactionD = new TransactionDetails();
+                        newTransactionD.SetPortfolio(SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX],transaction.ID);
+                        newTransactionD.ShowDialog(this);
+                    };
                     //add it to the tempPanel (panel of each transaction)
                     tempPanel.Controls.Add(tempButton);
 
@@ -741,7 +747,7 @@ namespace CryptoPortfolio
         private void HardUpdate()
         {
             TIMER = 0;
-            this.Enabled = false;
+            //this.Enabled = false;
         }
 
         private async void updateTimer_Tick(object sender, EventArgs e)
@@ -750,7 +756,7 @@ namespace CryptoPortfolio
                 timeToUpdate.Visible = true;
             if(TIMER > 0)
             {
-                this.Enabled = true; //when updating is completed
+                //this.Enabled = true; //when updating is completed
 
                 timeToUpdate.Text = TIMER.ToString();
                 TIMER--;
@@ -759,7 +765,7 @@ namespace CryptoPortfolio
             {
                 TIMER--;
                 timeToUpdate.Text = "Updating";
-                this.Enabled = false;
+                //this.Enabled = false;
                 await GetFromAPI();
                 ChangePage(CURRENT_PAGE);
             }

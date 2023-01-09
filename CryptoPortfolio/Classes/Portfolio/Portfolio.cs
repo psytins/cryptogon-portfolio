@@ -208,6 +208,17 @@ namespace CryptoPortfolio
             return null;
         }
 
+        public Transaction GetTransaction(int id)
+        {
+            foreach (Transaction transaction in this.transactions)
+            {
+                if (transaction.ID == id)
+                    return transaction;
+            }
+
+            return null;
+        }
+
         public async Task<Dictionary<string,float>> CoinMarketValue()
         {
             return await CurrentAvgPrice.GetMarketValues();

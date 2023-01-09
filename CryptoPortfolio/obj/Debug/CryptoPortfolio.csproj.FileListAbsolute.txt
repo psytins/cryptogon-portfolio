@@ -55,3 +55,4 @@ D:\Trabalho\PROJETOS\CryptoPortfolio_\CryptoPortfolio\CryptoPortfolio\bin\Debug\
 D:\Trabalho\PROJETOS\CryptoPortfolio_\CryptoPortfolio\CryptoPortfolio\bin\Debug\System.Numerics.Vectors.xml
 D:\Trabalho\PROJETOS\CryptoPortfolio_\CryptoPortfolio\CryptoPortfolio\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 D:\Trabalho\PROJETOS\CryptoPortfolio_\CryptoPortfolio\CryptoPortfolio\obj\Debug\CryptoPortfolio.csproj.CopyComplete
+D:\Trabalho\PROJETOS\CryptoPortfolio_\CryptoPortfolio\CryptoPortfolio\obj\Debug\CryptoPortfolio.Client.TransactionDetails.resources

@@ -29,13 +29,12 @@
         private void InitializeComponent()
         {
             this.selectCoinPanel = new System.Windows.Forms.Panel();
-            this.closeOneButton = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.smallSearchLineLabel = new System.Windows.Forms.Label();
             this.coinPanel = new System.Windows.Forms.Panel();
             this.selectCoinLabel = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.addTransactionPanel = new System.Windows.Forms.Panel();
+            this.addTransactionLabel = new System.Windows.Forms.Label();
             this.closeTwoButton = new System.Windows.Forms.Button();
             this.buyPanel = new System.Windows.Forms.Panel();
             this.timePicker = new System.Windows.Forms.DateTimePicker();
@@ -66,9 +65,9 @@
             this.sellButon = new System.Windows.Forms.Button();
             this.buyButton = new System.Windows.Forms.Button();
             this.goBackButton = new System.Windows.Forms.Button();
-            this.addTransactionLabel = new System.Windows.Forms.Label();
+            this.closeOneButton = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.selectCoinPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.addTransactionPanel.SuspendLayout();
             this.buyPanel.SuspendLayout();
             this.totalSpentPanel.SuspendLayout();
@@ -79,6 +78,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pricePerCoinNum)).BeginInit();
             this.amountTextPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.amountNum)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // selectCoinPanel
@@ -94,36 +94,6 @@
             this.selectCoinPanel.Name = "selectCoinPanel";
             this.selectCoinPanel.Size = new System.Drawing.Size(351, 476);
             this.selectCoinPanel.TabIndex = 0;
-            // 
-            // closeOneButton
-            // 
-            this.closeOneButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.closeOneButton.BackgroundImage = global::CryptoPortfolio.Properties.Resources.closeButton;
-            this.closeOneButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.closeOneButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.closeOneButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.closeOneButton.FlatAppearance.BorderSize = 0;
-            this.closeOneButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.closeOneButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.closeOneButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.closeOneButton.Location = new System.Drawing.Point(312, 12);
-            this.closeOneButton.Name = "closeOneButton";
-            this.closeOneButton.Size = new System.Drawing.Size(26, 23);
-            this.closeOneButton.TabIndex = 6;
-            this.closeOneButton.UseVisualStyleBackColor = false;
-            this.closeOneButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.CloseForm);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.pictureBox1.BackgroundImage = global::CryptoPortfolio.Properties.Resources.search;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.No;
-            this.pictureBox1.Location = new System.Drawing.Point(170, 60);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(16, 16);
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
             // 
             // smallSearchLineLabel
             // 
@@ -180,6 +150,17 @@
             this.addTransactionPanel.Size = new System.Drawing.Size(351, 476);
             this.addTransactionPanel.TabIndex = 6;
             // 
+            // addTransactionLabel
+            // 
+            this.addTransactionLabel.AutoSize = true;
+            this.addTransactionLabel.Font = new System.Drawing.Font("Inter", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addTransactionLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
+            this.addTransactionLabel.Location = new System.Drawing.Point(24, 7);
+            this.addTransactionLabel.Name = "addTransactionLabel";
+            this.addTransactionLabel.Size = new System.Drawing.Size(164, 23);
+            this.addTransactionLabel.TabIndex = 0;
+            this.addTransactionLabel.Text = "Add Transaction";
+            // 
             // closeTwoButton
             // 
             this.closeTwoButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -196,6 +177,7 @@
             this.closeTwoButton.Size = new System.Drawing.Size(26, 23);
             this.closeTwoButton.TabIndex = 10;
             this.closeTwoButton.UseVisualStyleBackColor = false;
+            this.closeTwoButton.Click += new System.EventHandler(this.CloseForm);
             this.closeTwoButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.CloseForm);
             // 
             // buyPanel
@@ -582,16 +564,35 @@
             this.goBackButton.UseVisualStyleBackColor = false;
             this.goBackButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.GoBack);
             // 
-            // addTransactionLabel
+            // closeOneButton
             // 
-            this.addTransactionLabel.AutoSize = true;
-            this.addTransactionLabel.Font = new System.Drawing.Font("Inter", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addTransactionLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
-            this.addTransactionLabel.Location = new System.Drawing.Point(24, 7);
-            this.addTransactionLabel.Name = "addTransactionLabel";
-            this.addTransactionLabel.Size = new System.Drawing.Size(164, 23);
-            this.addTransactionLabel.TabIndex = 0;
-            this.addTransactionLabel.Text = "Add Transaction";
+            this.closeOneButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.closeOneButton.BackgroundImage = global::CryptoPortfolio.Properties.Resources.closeButton;
+            this.closeOneButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.closeOneButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.closeOneButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.closeOneButton.FlatAppearance.BorderSize = 0;
+            this.closeOneButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.closeOneButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.closeOneButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.closeOneButton.Location = new System.Drawing.Point(312, 12);
+            this.closeOneButton.Name = "closeOneButton";
+            this.closeOneButton.Size = new System.Drawing.Size(26, 23);
+            this.closeOneButton.TabIndex = 6;
+            this.closeOneButton.UseVisualStyleBackColor = false;
+            this.closeOneButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.CloseForm);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.pictureBox1.BackgroundImage = global::CryptoPortfolio.Properties.Resources.search;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.No;
+            this.pictureBox1.Location = new System.Drawing.Point(170, 60);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(16, 16);
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
             // 
             // TransactionForm
             // 
@@ -613,7 +614,6 @@
             this.Load += new System.EventHandler(this.TransactionForm_Load);
             this.selectCoinPanel.ResumeLayout(false);
             this.selectCoinPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.addTransactionPanel.ResumeLayout(false);
             this.addTransactionPanel.PerformLayout();
             this.buyPanel.ResumeLayout(false);
@@ -631,6 +631,7 @@
             this.amountTextPanel.ResumeLayout(false);
             this.amountTextPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.amountNum)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
