@@ -338,10 +338,11 @@ namespace CryptoPortfolio
             // 
             // transactionsPanel
             // 
+            this.transactionsPanel.AutoScroll = true;
             this.transactionsPanel.ForeColor = System.Drawing.Color.White;
             this.transactionsPanel.Location = new System.Drawing.Point(15, 70);
             this.transactionsPanel.Name = "transactionsPanel";
-            this.transactionsPanel.Size = new System.Drawing.Size(450, 187);
+            this.transactionsPanel.Size = new System.Drawing.Size(469, 187);
             this.transactionsPanel.TabIndex = 17;
             // 
             // costHistoryLabel
@@ -350,7 +351,7 @@ namespace CryptoPortfolio
             this.costHistoryLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.costHistoryLabel.Font = new System.Drawing.Font("Inter SemiBold", 9F, System.Drawing.FontStyle.Bold);
             this.costHistoryLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(156)))), ((int)(((byte)(179)))));
-            this.costHistoryLabel.Location = new System.Drawing.Point(322, 50);
+            this.costHistoryLabel.Location = new System.Drawing.Point(344, 50);
             this.costHistoryLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.costHistoryLabel.Name = "costHistoryLabel";
             this.costHistoryLabel.Size = new System.Drawing.Size(67, 15);
@@ -418,9 +419,9 @@ namespace CryptoPortfolio
             this.latestTransactionLabel.Location = new System.Drawing.Point(10, 15);
             this.latestTransactionLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.latestTransactionLabel.Name = "latestTransactionLabel";
-            this.latestTransactionLabel.Size = new System.Drawing.Size(210, 26);
+            this.latestTransactionLabel.Size = new System.Drawing.Size(233, 26);
             this.latestTransactionLabel.TabIndex = 11;
-            this.latestTransactionLabel.Text = "Latest Transaction";
+            this.latestTransactionLabel.Text = "Transactions History";
             // 
             // gainLossStaticLabel
             // 

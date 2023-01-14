@@ -171,85 +171,81 @@ namespace CryptoPortfolio
         {
             transactionsPanel.Controls.Clear(); //reset to update
             int y_location = 0;
-            int limit = 5;
+            //int limit = 5; not used
 
             List<Transaction> orderedTransactions = SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].Transactions;
             //to display the new transactions first
-            foreach (Transaction transaction in orderedTransactions.OrderByDescending(e => e.Date)) //Go throught all existant transactions (first 5)
+            foreach (Transaction transaction in orderedTransactions.OrderByDescending(e => e.Date)) //Go throught all existant transactions
             {
-                if (limit != 0)
-                {
-                    Panel tempPanel = new Panel();
-                    Button tempButton = new Button();
+                Panel tempPanel = new Panel();
+                Button tempButton = new Button();
 
-                    //Creates the panel associated with each transaction
-                    tempPanel.SetBounds(0, y_location, 450, 30);
-                    tempPanel.BackgroundImage = Properties.Resources.historyPanelSample;
-                    tempPanel.BackgroundImageLayout = ImageLayout.None;
+                //Creates the panel associated with each transaction
+                tempPanel.SetBounds(0, y_location, 450, 30);
+                tempPanel.BackgroundImage = Properties.Resources.historyPanelSample;
+                tempPanel.BackgroundImageLayout = ImageLayout.None;
 
-                    //Add the child components 
-                    Label dateLabel = new Label();
-                    dateLabel.AutoSize = true;
-                    _ = transaction.Date.ToShortDateString() == DateTime.Today.ToShortDateString() ? dateLabel.Text = "Today" : dateLabel.Text = transaction.Date.ToShortDateString().Substring(0, 5); 
-                    dateLabel.Font = new Font("Inter", 9.75f, FontStyle.Bold);
-                    dateLabel.ForeColor = Color.FromArgb(68, 113, 153);
-                    dateLabel.Location = new Point(4, 6);
-                    tempPanel.Controls.Add(dateLabel);
+                //Add the child components 
+                Label dateLabel = new Label();
+                dateLabel.AutoSize = true;
+                _ = transaction.Date.ToShortDateString() == DateTime.Today.ToShortDateString() ? dateLabel.Text = "Today" : dateLabel.Text = transaction.Date.ToShortDateString().Substring(0, 5); 
+                dateLabel.Font = new Font("Inter", 9.75f, FontStyle.Bold);
+                dateLabel.ForeColor = Color.FromArgb(68, 113, 153);
+                dateLabel.Location = new Point(4, 6);
+                tempPanel.Controls.Add(dateLabel);
 
-                    Label coinLabel = new Label();
-                    coinLabel.AutoSize = true;
-                    _ = (transaction.Coin.Name.Length <= 10) ? coinLabel.Text = transaction.Coin.Name : coinLabel.Text = transaction.Coin.Symbol;
-                    coinLabel.Font = new Font("Inter", 9.75f, FontStyle.Bold);
-                    coinLabel.ForeColor = Color.FromArgb(68, 113, 153);
-                    coinLabel.Location = new Point(64, 6);
-                    tempPanel.Controls.Add(coinLabel);
+                Label coinLabel = new Label();
+                coinLabel.AutoSize = true;
+                _ = (transaction.Coin.Name.Length <= 10) ? coinLabel.Text = transaction.Coin.Name : coinLabel.Text = transaction.Coin.Symbol;
+                coinLabel.Font = new Font("Inter", 9.75f, FontStyle.Bold);
+                coinLabel.ForeColor = Color.FromArgb(68, 113, 153);
+                coinLabel.Location = new Point(64, 6);
+                tempPanel.Controls.Add(coinLabel);
 
-                    Label amountLabel = new Label();
-                    amountLabel.AutoSize = true;
-                    amountLabel.Text = "+ " + transaction.Amount + " " + transaction.Coin.Symbol;
-                    amountLabel.Font = new Font("Inter", 9.75f, FontStyle.Bold);
-                    amountLabel.ForeColor = Color.FromArgb(135, 156, 179);
-                    amountLabel.Location = new Point(152, 6);
-                    tempPanel.Controls.Add(amountLabel);
+                Label amountLabel = new Label();
+                amountLabel.AutoSize = true;
+                amountLabel.Text = "+ " + transaction.Amount.ToString("0.00");
+                amountLabel.Font = new Font("Inter", 9.75f, FontStyle.Bold);
+                amountLabel.ForeColor = Color.FromArgb(135, 156, 179);
+                amountLabel.Location = new Point(152, 6);
+                tempPanel.Controls.Add(amountLabel);
 
-                    Label typeLabel = new Label();
-                    typeLabel.AutoSize = true;
-                    _ = (transaction.TransactionType == Transaction.Type.Buy) ? typeLabel.Text = "Buy" : typeLabel.Text = "Sell";
-                    typeLabel.Font = new Font("Inter", 9.75f, FontStyle.Bold);
-                    _ = (transaction.TransactionType == Transaction.Type.Buy) ? typeLabel.ForeColor = Color.FromArgb(120, 188, 97) : typeLabel.ForeColor = Color.FromArgb(194, 118, 112);
-                    typeLabel.Location = new Point(265, 6);
-                    tempPanel.Controls.Add(typeLabel);
+                Label typeLabel = new Label();
+                typeLabel.AutoSize = true;
+                _ = (transaction.TransactionType == Transaction.Type.Buy) ? typeLabel.Text = "Buy" : typeLabel.Text = "Sell";
+                typeLabel.Font = new Font("Inter", 9.75f, FontStyle.Bold);
+                _ = (transaction.TransactionType == Transaction.Type.Buy) ? typeLabel.ForeColor = Color.FromArgb(120, 188, 97) : typeLabel.ForeColor = Color.FromArgb(194, 118, 112);
+                typeLabel.Location = new Point(265, 6);
+                tempPanel.Controls.Add(typeLabel);
 
-                    Label totalCostLabel = new Label();
-                    totalCostLabel.AutoSize = true;
-                    totalCostLabel.Text = "- " + transaction.TotalCost + Properties.Settings.Default.Currency; //if the type is sell, it should be the symbol of the coin instead of €
-                    totalCostLabel.Font = new Font("Inter Black", 9.75f, FontStyle.Bold);
-                    totalCostLabel.ForeColor = Color.FromArgb(135, 156, 179);
-                    totalCostLabel.Location = new Point(330, 6);
-                    tempPanel.Controls.Add(totalCostLabel);
+                Label totalCostLabel = new Label();
+                totalCostLabel.AutoSize = true;
+                totalCostLabel.Text = "- " + transaction.TotalCost.ToString("0.00" + Properties.Settings.Default.Currency); //if the type is sell, it should be the symbol of the coin instead of €
+                totalCostLabel.Font = new Font("Inter Black", 9.75f, FontStyle.Bold);
+                totalCostLabel.ForeColor = Color.FromArgb(135, 156, 179);
+                totalCostLabel.Location = new Point(330, 6);
+                tempPanel.Controls.Add(totalCostLabel);
 
-                    //Creates the button associated with each transaction
-                    tempButton.Tag = transaction.ID.ToString();
-                    //Design attributes
-                    tempButton.SetBounds(421, 3, 24, 24);
-                    tempButton.BackgroundImage = Properties.Resources.historyButtonSample;
-                    tempButton.BackgroundImageLayout = ImageLayout.None;
-                    tempButton.FlatAppearance.BorderSize = 0;
-                    tempButton.FlatStyle = FlatStyle.Flat;
-                    tempButton.Cursor = Cursors.Hand;
-                    //add the event listener to the button
-                    tempButton.MouseClick += (s,e) => {
-                        TransactionDetails newTransactionD = new TransactionDetails();
-                        newTransactionD.SetPortfolio(SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX],transaction.ID);
-                        newTransactionD.ShowDialog(this);
-                    };
-                    //add it to the tempPanel (panel of each transaction)
-                    tempPanel.Controls.Add(tempButton);
+                //Creates the button associated with each transaction
+                tempButton.Tag = transaction.ID.ToString();
+                //Design attributes
+                tempButton.SetBounds(421, 3, 24, 24);
+                tempButton.BackgroundImage = Properties.Resources.historyButtonSample;
+                tempButton.BackgroundImageLayout = ImageLayout.None;
+                tempButton.FlatAppearance.BorderSize = 0;
+                tempButton.FlatStyle = FlatStyle.Flat;
+                tempButton.Cursor = Cursors.Hand;
+                //add the event listener to the button
+                tempButton.MouseClick += (s,e) => {
+                    TransactionDetails newTransactionD = new TransactionDetails();
+                    newTransactionD.SetPortfolio(SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX],transaction.ID);
+                    newTransactionD.ShowDialog(this);
+                };
+                //add it to the tempPanel (panel of each transaction)
+                tempPanel.Controls.Add(tempButton);
 
-                    transactionsPanel.Controls.Add(tempPanel);
-                    y_location += 36;
-                    limit--;
-                }
+                transactionsPanel.Controls.Add(tempPanel);
+                y_location += 36;
             }
         }
 
