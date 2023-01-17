@@ -54,14 +54,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CryptoPortfolio.exe" size="200736">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CryptoPortfolio.exe" size="201760">
       <assemblyIdentity name="CryptoPortfolio" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>89/0ngUnBq81sOgBm7jXT4LaXYeaacwCuAlSjKcpnsU=</dsig:DigestValue>
+        <dsig:DigestValue>QqLmXJqCJ/QD3CXJyOw9PI15cIpD7NCM62oDwIr9Ev0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

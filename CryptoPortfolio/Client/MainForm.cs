@@ -1,5 +1,6 @@
 ﻿using CryptoPortfolio.Client;
 using Microsoft.VisualBasic;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -276,8 +277,9 @@ namespace CryptoPortfolio
                 }
             }
 
+            //Top 3
             if (!switchButton)
-            {            
+            {
                 int topCoins = 3; //the top <3> coins will be shown in labels 
                 // TOP 3 LABELS ------------------------
                 //Reset top 3 labels
@@ -293,7 +295,8 @@ namespace CryptoPortfolio
                 coinNameN4Label.Visible = false;
                 coinPercentageN4Label.Visible = false;
                 //Populate top 3 labels
-                float accum = 0;
+                float[] percentageToChart = new float[4];
+                float accum = 0; 
                 foreach (var x in percentageOfEachCoin.OrderByDescending(e => e.Value))
                 {
                     switch (topCoins)
@@ -303,6 +306,7 @@ namespace CryptoPortfolio
                             coinPercentageN1Label.Visible = true;
                             coinNameN1Label.Text = x.Key;
                             coinPercentageN1Label.Text = x.Value.ToString("0%");
+                            percentageToChart[0] = x.Value * 100;
                             topCoins--;
                             break;
                         case 2:
@@ -310,6 +314,7 @@ namespace CryptoPortfolio
                             coinPercentageN2Label.Visible = true;
                             coinNameN2Label.Text = x.Key;
                             coinPercentageN2Label.Text = x.Value.ToString("0%");
+                            percentageToChart[1] = x.Value * 100;
                             topCoins--;
                             break;
                         case 1:
@@ -317,6 +322,7 @@ namespace CryptoPortfolio
                             coinPercentageN3Label.Visible = true;
                             coinNameN3Label.Text = x.Key;
                             coinPercentageN3Label.Text = x.Value.ToString("0%");
+                            percentageToChart[2] = x.Value * 100;
                             topCoins--;
                             break;
                         case 0:
@@ -324,11 +330,13 @@ namespace CryptoPortfolio
                             coinNameN4Label.Visible = true;
                             coinPercentageN4Label.Visible = true;
                             coinPercentageN4Label.Text = accum.ToString("0%");
+                            percentageToChart[3] = x.Value * 100;
                             break;
                     }
                 }
 
                 // Create and poupulate the CHART ---------------
+                assetsChart.Series[0].Points.DataBindY(percentageToChart);
             }
 
             //ASSETS ALLOCATION PANEL -------------------
@@ -768,6 +776,20 @@ namespace CryptoPortfolio
             else if(TIMER < 0)
             {
                 timeToUpdate.Text += '.';
+            }
+        }
+
+        private void signInOutButton_Click(object sender, EventArgs e)
+        {
+            
+            DialogResult option = MessageBox.Show("You sure you want to sign out ?","Are you sure?", MessageBoxButtons.YesNo,MessageBoxIcon.Question,MessageBoxDefaultButton.Button2);
+            if (option == DialogResult.Yes)
+            {
+                //Create new MainForm Object
+                loginForm login = new loginForm();
+
+                login.Show();
+                this.Dispose();
             }
         }
     }

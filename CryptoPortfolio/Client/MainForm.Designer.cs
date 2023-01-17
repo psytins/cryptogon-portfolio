@@ -31,6 +31,10 @@ namespace CryptoPortfolio
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.accountNameLabel = new System.Windows.Forms.Label();
             this.portfolioNameLabel = new System.Windows.Forms.Label();
             this.mouseGrab = new System.Windows.Forms.Panel();
@@ -59,9 +63,9 @@ namespace CryptoPortfolio
             this.latestTransactionLabel = new System.Windows.Forms.Label();
             this.gainLossStaticLabel = new System.Windows.Forms.Label();
             this.assetsPanel = new System.Windows.Forms.Panel();
+            this.assetsChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.switchAllocationViewButton = new System.Windows.Forms.Button();
             this.assetsAllocationPanel = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.coinPercentageN2Label = new System.Windows.Forms.Label();
             this.coinNameN2Label = new System.Windows.Forms.Label();
             this.coinPercentageN3Label = new System.Windows.Forms.Label();
@@ -95,6 +99,7 @@ namespace CryptoPortfolio
             this.assetsButton = new System.Windows.Forms.Button();
             this.historyButton = new System.Windows.Forms.Button();
             this.updateTimer = new System.Windows.Forms.Timer(this.components);
+            this.portfolioChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.mouseGrab.SuspendLayout();
             this.mainInsightPanel.SuspendLayout();
             this.mainAssetsPanel.SuspendLayout();
@@ -102,13 +107,14 @@ namespace CryptoPortfolio
             this.chartPanel.SuspendLayout();
             this.historyPanel.SuspendLayout();
             this.assetsPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.assetsChart)).BeginInit();
             this.mainDashboardPanel.SuspendLayout();
             this.percentageShowPanel.SuspendLayout();
             this.showPortfoliosPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logoImage)).BeginInit();
             this.sideBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.portfolioChart)).BeginInit();
             this.SuspendLayout();
             // 
             // accountNameLabel
@@ -120,9 +126,9 @@ namespace CryptoPortfolio
             this.accountNameLabel.Location = new System.Drawing.Point(866, 27);
             this.accountNameLabel.Margin = new System.Windows.Forms.Padding(0);
             this.accountNameLabel.Name = "accountNameLabel";
-            this.accountNameLabel.Size = new System.Drawing.Size(115, 19);
+            this.accountNameLabel.Size = new System.Drawing.Size(16, 19);
             this.accountNameLabel.TabIndex = 4;
-            this.accountNameLabel.Text = "Gonçalo Vidal";
+            this.accountNameLabel.Text = "-";
             // 
             // portfolioNameLabel
             // 
@@ -133,9 +139,9 @@ namespace CryptoPortfolio
             this.portfolioNameLabel.Location = new System.Drawing.Point(866, 45);
             this.portfolioNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.portfolioNameLabel.Name = "portfolioNameLabel";
-            this.portfolioNameLabel.Size = new System.Drawing.Size(63, 14);
+            this.portfolioNameLabel.Size = new System.Drawing.Size(12, 14);
             this.portfolioNameLabel.TabIndex = 5;
-            this.portfolioNameLabel.Text = "Investment";
+            this.portfolioNameLabel.Text = "-";
             // 
             // mouseGrab
             // 
@@ -254,6 +260,7 @@ namespace CryptoPortfolio
             // 
             this.chartPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(241)))), ((int)(((byte)(244)))));
             this.chartPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.chartPanel.Controls.Add(this.portfolioChart);
             this.chartPanel.Controls.Add(this.chartLabel);
             this.chartPanel.Location = new System.Drawing.Point(22, 162);
             this.chartPanel.Name = "chartPanel";
@@ -439,9 +446,9 @@ namespace CryptoPortfolio
             // assetsPanel
             // 
             this.assetsPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(241)))), ((int)(((byte)(244)))));
+            this.assetsPanel.Controls.Add(this.assetsChart);
             this.assetsPanel.Controls.Add(this.switchAllocationViewButton);
             this.assetsPanel.Controls.Add(this.assetsAllocationPanel);
-            this.assetsPanel.Controls.Add(this.pictureBox2);
             this.assetsPanel.Controls.Add(this.coinPercentageN2Label);
             this.assetsPanel.Controls.Add(this.coinNameN2Label);
             this.assetsPanel.Controls.Add(this.coinPercentageN3Label);
@@ -456,6 +463,29 @@ namespace CryptoPortfolio
             this.assetsPanel.Name = "assetsPanel";
             this.assetsPanel.Size = new System.Drawing.Size(275, 516);
             this.assetsPanel.TabIndex = 22;
+            // 
+            // assetsChart
+            // 
+            this.assetsChart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(241)))), ((int)(((byte)(244)))));
+            chartArea2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(241)))), ((int)(((byte)(244)))));
+            chartArea2.Name = "ChartArea1";
+            this.assetsChart.ChartAreas.Add(chartArea2);
+            this.assetsChart.Location = new System.Drawing.Point(87, 48);
+            this.assetsChart.Name = "assetsChart";
+            this.assetsChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
+            this.assetsChart.PaletteCustomColors = new System.Drawing.Color[] {
+        System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(161)))), ((int)(((byte)(96))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(186)))), ((int)(((byte)(143))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(96)))), ((int)(((byte)(96))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(137)))), ((int)(((byte)(186)))))};
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series2.CustomProperties = "DoughnutRadius=45";
+            series2.Font = new System.Drawing.Font("Inter", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series2.Name = "Series1";
+            this.assetsChart.Series.Add(series2);
+            this.assetsChart.Size = new System.Drawing.Size(178, 175);
+            this.assetsChart.TabIndex = 23;
             // 
             // switchAllocationViewButton
             // 
@@ -485,16 +515,6 @@ namespace CryptoPortfolio
             this.assetsAllocationPanel.Name = "assetsAllocationPanel";
             this.assetsAllocationPanel.Size = new System.Drawing.Size(269, 242);
             this.assetsAllocationPanel.TabIndex = 22;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackgroundImage = global::CryptoPortfolio.Properties.Resources.allocationGraphTemp;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBox2.Location = new System.Drawing.Point(114, 76);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(150, 150);
-            this.pictureBox2.TabIndex = 21;
-            this.pictureBox2.TabStop = false;
             // 
             // coinPercentageN2Label
             // 
@@ -853,6 +873,7 @@ namespace CryptoPortfolio
             this.signInOutButton.Size = new System.Drawing.Size(160, 30);
             this.signInOutButton.TabIndex = 5;
             this.signInOutButton.UseVisualStyleBackColor = true;
+            this.signInOutButton.Click += new System.EventHandler(this.signInOutButton_Click);
             // 
             // pictureBox1
             // 
@@ -946,6 +967,20 @@ namespace CryptoPortfolio
             this.updateTimer.Interval = 1000;
             this.updateTimer.Tick += new System.EventHandler(this.updateTimer_Tick);
             // 
+            // portfolioChart
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.portfolioChart.ChartAreas.Add(chartArea1);
+            this.portfolioChart.Location = new System.Drawing.Point(3, 44);
+            this.portfolioChart.Name = "portfolioChart";
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineArea;
+            series1.Font = new System.Drawing.Font("Inter", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series1.Name = "Series1";
+            this.portfolioChart.Series.Add(series1);
+            this.portfolioChart.Size = new System.Drawing.Size(475, 200);
+            this.portfolioChart.TabIndex = 13;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 19F);
@@ -984,7 +1019,7 @@ namespace CryptoPortfolio
             this.historyPanel.PerformLayout();
             this.assetsPanel.ResumeLayout(false);
             this.assetsPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.assetsChart)).EndInit();
             this.mainDashboardPanel.ResumeLayout(false);
             this.mainDashboardPanel.PerformLayout();
             this.percentageShowPanel.ResumeLayout(false);
@@ -994,6 +1029,7 @@ namespace CryptoPortfolio
             this.sideBar.ResumeLayout(false);
             this.sideBar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.portfolioChart)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1059,10 +1095,11 @@ namespace CryptoPortfolio
         private System.Windows.Forms.Label coinNameN4Label;
         private System.Windows.Forms.Label coinPercentageN1Label;
         private System.Windows.Forms.Label coinNameN1Label;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel assetsAllocationPanel;
         private System.Windows.Forms.Button switchAllocationViewButton;
         private System.Windows.Forms.Timer updateTimer;
         private System.Windows.Forms.Label timeToUpdate;
+        private System.Windows.Forms.DataVisualization.Charting.Chart assetsChart;
+        private System.Windows.Forms.DataVisualization.Charting.Chart portfolioChart;
     }
 }
