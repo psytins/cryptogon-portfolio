@@ -17,6 +17,9 @@ namespace CryptoPortfolio
         private Dictionary<Coin, float> totalCostOf;
         //To hold marketValues
         private Dictionary<string, float> tempMarketValues;
+        //To Chart
+        private float[] arrayToDisplayChart;
+        private int[] indexesChart;
 
 
         //New Portfolio (no transaction)
@@ -30,6 +33,8 @@ namespace CryptoPortfolio
             this.totalCost = 0;
             this.totalCostOf = new Dictionary<Coin, float>();
             this.tempMarketValues = new Dictionary<string, float>();
+            this.arrayToDisplayChart = new float[100];
+            this.indexesChart = new int[100];
         }
         public Portfolio(int id, int ownerID, String portfolioName)
         {
@@ -41,6 +46,8 @@ namespace CryptoPortfolio
             this.totalCost = 0;
             this.totalCostOf = new Dictionary<Coin, float>();
             this.tempMarketValues = new Dictionary<string, float>();
+            this.arrayToDisplayChart = new float[100];
+            this.indexesChart = new int[100];
         }
 
         //Temp ---
@@ -54,6 +61,18 @@ namespace CryptoPortfolio
         {
             get { return this.totalCostOf; }
             set { this.totalCostOf = value; }
+        }
+
+        public float[] ArrayToDisplayChart 
+        {
+            get { return this.arrayToDisplayChart;}
+            set { this.arrayToDisplayChart = value;}
+        }
+
+        public int[] IndexesChart 
+        {
+            get { return this.indexesChart; }
+            set { this.indexesChart = value;}
         }
 
         //----

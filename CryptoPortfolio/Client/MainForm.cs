@@ -151,7 +151,6 @@ namespace CryptoPortfolio
             UpdateSubChartPanel();
             UpdateSubAssetsPanel(false);
 
-            //It will change when I implement true values depending on crypto values - done ? 
             float totalInvested = SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].TotalInvested();
             totalInvestedLabel.Text = totalInvested.ToString("0.00" + Properties.Settings.Default.Currency);
 
@@ -408,7 +407,17 @@ namespace CryptoPortfolio
         /// </summary>
         private void UpdateSubChartPanel()
         {
-           
+            for(int idx = 0; idx < SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].ArrayToDisplayChart.Length; idx++)
+            {
+                if (SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].ArrayToDisplayChart[idx] == 0.0f)
+                {
+                    SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].ArrayToDisplayChart[idx] = SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].TotalCost;
+                    SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].IndexesChart[idx] = idx + 1;
+                    break;
+                }
+            }
+
+            portfolioChart.Series[0].Points.DataBindXY(SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].IndexesChart, SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].ArrayToDisplayChart);
 
         }
         // -------------------------------------------------------------------
