@@ -42,6 +42,9 @@ namespace CryptoPortfolio
             sub_root            .Add(new XElement("OwnershipID", portfolioToRegister.OwnerID));
             sub_root            .Add(new XElement("PortfolioName", portfolioToRegister.PorfolioName));
 
+            //Add the chart info
+            XElement sub_root_chart_info = new XElement("ChartInfo");
+
             //Add Transactions -----------
             XElement sub_root_transactions = new XElement("TransactionHistory");//Create the Head for transactions
 
@@ -61,6 +64,8 @@ namespace CryptoPortfolio
                 sub_root_transactions           .Add(sub_root_transaction);
             }
 
+            sub_root.Add(sub_root_chart_info);
+
             sub_root.Add(sub_root_transactions);
 
             root.Add(sub_root);//Add the Head to the root
@@ -78,7 +83,6 @@ namespace CryptoPortfolio
 
             XElement sub_root = xmldoc.Descendants("Portfolio").Where(x => x.Element("ID").Value == respectivePortfolio.ID.ToString()).First();
             XElement sub_root_transactions = sub_root.Descendants("TransactionHistory").First();
-
 
             XElement sub_root_transaction   = new XElement("Transaction");//Create the Head for the transaction
             sub_root_transaction            .Add(new XElement("ID", transactionToRegister.ID));
@@ -188,7 +192,7 @@ namespace CryptoPortfolio
                                        select new Transaction(
                                                int.Parse(transactions.Element("ID").Value),
                                                int.Parse(transactions.Element("Type").Value) == 1 ? Transaction.Type.Buy : Transaction.Type.Sell,
-                                               readCoin(transactions.Element("Coin").Value),                                   
+                                               readCoin(transactions.Element("Coin").Value),
                                                DateTime.Parse(transactions.Element("Date").Value),
                                                float.Parse(transactions.Element("Amount").Value),
                                                float.Parse(transactions.Element("CoinPrice").Value),
@@ -196,10 +200,15 @@ namespace CryptoPortfolio
                                                float.Parse(transactions.Element("Fee").Value),
                                                float.Parse(transactions.Element("TotalCost").Value),
                                                transactions.Element("Notes").Value);
-                                        
+
 
                 portfolios.Transactions = transactionQuery.ToList();
 
+                //Chart Info
+                foreach (float e in xdoc.Descendants("Portfolio").Where(x => x.Element("ID").Value == portfolios.ID.ToString()).Descendants("ChartInfo").Elements().ToList().Select(v => (float)v))
+                {
+                    portfolios.ToDisplayChart.Add(e);
+                }                
 
                 finalList.Add(portfolios); // !!!    
             }
@@ -239,6 +248,27 @@ namespace CryptoPortfolio
 
         // UPDATE #########################################################
         // ###############################################################
+
+        public static void saveChartInfo(Portfolio respectivePortfolio) //To save chart info when the app is closed
+        {
+            NumberFormatInfo commaDecimal = new CultureInfo("pt-PT", false).NumberFormat; //Number Format, to display commas instead of points
+            commaDecimal.NumberDecimalSeparator = ",";
+
+            XDocument xmldoc = XDocument.Load(Application.LocalUserAppDataPath + Properties.Settings.Default.XMLportfolioPath);
+            XElement root = xmldoc.Root;
+
+            XElement sub_root = xmldoc.Descendants("Portfolio").Where(x => x.Element("ID").Value == respectivePortfolio.ID.ToString()).First();
+
+            XElement sub_root_chartInfos = sub_root.Descendants("ChartInfo").First();
+
+            sub_root_chartInfos.RemoveNodes(); //remove the nodes to update with new ones 
+            foreach (float e in respectivePortfolio.ToDisplayChart) 
+            {
+                sub_root_chartInfos.Add(new XElement("Value",e));
+            }
+
+            xmldoc.Save(Application.LocalUserAppDataPath + Properties.Settings.Default.XMLportfolioPath); //Save to XML
+        }
 
 
         // DELETE #########################################################

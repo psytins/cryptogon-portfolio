@@ -57,6 +57,7 @@ namespace CryptoPortfolio
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             //Closed here
+            XmlHandler.saveChartInfo(SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX]);
         }
 
         private async void MainForm_Load(object sender, EventArgs e)
@@ -407,18 +408,17 @@ namespace CryptoPortfolio
         /// </summary>
         private void UpdateSubChartPanel()
         {
-            for(int idx = 0; idx < SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].ArrayToDisplayChart.Length; idx++)
+            if (SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].ToDisplayChart.Count == 50)
             {
-                if (SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].ArrayToDisplayChart[idx] == 0.0f)
-                {
-                    SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].ArrayToDisplayChart[idx] = SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].TotalCost;
-                    SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].IndexesChart[idx] = idx + 1;
-                    break;
-                }
+                SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].ToDisplayChart.RemoveAt(0);
             }
 
-            portfolioChart.Series[0].Points.DataBindXY(SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].IndexesChart, SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].ArrayToDisplayChart);
+            if(SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].TotalCost != 0 || SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].ToDisplayChart.Count == 0)
+                SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].ToDisplayChart.Add(SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].TotalCost);
 
+            portfolioChart.Series[0].Points.DataBindY(SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].ToDisplayChart);
+
+            XmlHandler.saveChartInfo(SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX]);
         }
         // -------------------------------------------------------------------
 

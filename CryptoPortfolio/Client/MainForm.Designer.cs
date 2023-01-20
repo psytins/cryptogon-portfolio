@@ -31,10 +31,10 @@ namespace CryptoPortfolio
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.accountNameLabel = new System.Windows.Forms.Label();
             this.portfolioNameLabel = new System.Windows.Forms.Label();
             this.mouseGrab = new System.Windows.Forms.Panel();
@@ -48,6 +48,7 @@ namespace CryptoPortfolio
             this.mainHistoryPanel = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.chartPanel = new System.Windows.Forms.Panel();
+            this.portfolioChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chartLabel = new System.Windows.Forms.Label();
             this.totalInvestedStaticLabel = new System.Windows.Forms.Label();
             this.valueLabel = new System.Windows.Forms.Label();
@@ -99,12 +100,12 @@ namespace CryptoPortfolio
             this.assetsButton = new System.Windows.Forms.Button();
             this.historyButton = new System.Windows.Forms.Button();
             this.updateTimer = new System.Windows.Forms.Timer(this.components);
-            this.portfolioChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.mouseGrab.SuspendLayout();
             this.mainInsightPanel.SuspendLayout();
             this.mainAssetsPanel.SuspendLayout();
             this.mainHistoryPanel.SuspendLayout();
             this.chartPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.portfolioChart)).BeginInit();
             this.historyPanel.SuspendLayout();
             this.assetsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.assetsChart)).BeginInit();
@@ -114,7 +115,6 @@ namespace CryptoPortfolio
             ((System.ComponentModel.ISupportInitialize)(this.logoImage)).BeginInit();
             this.sideBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.portfolioChart)).BeginInit();
             this.SuspendLayout();
             // 
             // accountNameLabel
@@ -266,6 +266,23 @@ namespace CryptoPortfolio
             this.chartPanel.Name = "chartPanel";
             this.chartPanel.Size = new System.Drawing.Size(481, 250);
             this.chartPanel.TabIndex = 20;
+            // 
+            // portfolioChart
+            // 
+            this.portfolioChart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(241)))), ((int)(((byte)(244)))));
+            chartArea1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(241)))), ((int)(((byte)(244)))));
+            chartArea1.Name = "ChartArea1";
+            chartArea1.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(241)))), ((int)(((byte)(244)))));
+            this.portfolioChart.ChartAreas.Add(chartArea1);
+            this.portfolioChart.Location = new System.Drawing.Point(0, 44);
+            this.portfolioChart.Name = "portfolioChart";
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineArea;
+            series1.Font = new System.Drawing.Font("Inter", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series1.Name = "Series1";
+            this.portfolioChart.Series.Add(series1);
+            this.portfolioChart.Size = new System.Drawing.Size(481, 200);
+            this.portfolioChart.TabIndex = 13;
             // 
             // chartLabel
             // 
@@ -967,20 +984,6 @@ namespace CryptoPortfolio
             this.updateTimer.Interval = 1000;
             this.updateTimer.Tick += new System.EventHandler(this.updateTimer_Tick);
             // 
-            // portfolioChart
-            // 
-            chartArea1.Name = "ChartArea1";
-            this.portfolioChart.ChartAreas.Add(chartArea1);
-            this.portfolioChart.Location = new System.Drawing.Point(3, 44);
-            this.portfolioChart.Name = "portfolioChart";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineArea;
-            series1.Font = new System.Drawing.Font("Inter", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series1.Name = "Series1";
-            this.portfolioChart.Series.Add(series1);
-            this.portfolioChart.Size = new System.Drawing.Size(475, 200);
-            this.portfolioChart.TabIndex = 13;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 19F);
@@ -1015,6 +1018,7 @@ namespace CryptoPortfolio
             this.mainHistoryPanel.PerformLayout();
             this.chartPanel.ResumeLayout(false);
             this.chartPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.portfolioChart)).EndInit();
             this.historyPanel.ResumeLayout(false);
             this.historyPanel.PerformLayout();
             this.assetsPanel.ResumeLayout(false);
@@ -1029,7 +1033,6 @@ namespace CryptoPortfolio
             this.sideBar.ResumeLayout(false);
             this.sideBar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.portfolioChart)).EndInit();
             this.ResumeLayout(false);
 
         }
