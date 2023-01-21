@@ -205,7 +205,7 @@ namespace CryptoPortfolio
 
                 Label amountLabel = new Label();
                 amountLabel.AutoSize = true;
-                amountLabel.Text = "+ " + transaction.Amount.ToString("0.00");
+                _ = (transaction.TransactionType == Transaction.Type.Buy) ? amountLabel.Text = "+ " + transaction.Amount.ToString("0.00 " + transaction.Coin.Symbol) : amountLabel.Text = "- " + transaction.Amount.ToString("0.00 " + transaction.Coin.Symbol);
                 amountLabel.Font = new Font("Inter", 9.75f, FontStyle.Bold);
                 amountLabel.ForeColor = Color.FromArgb(135, 156, 179);
                 amountLabel.Location = new Point(152, 6);
@@ -216,12 +216,12 @@ namespace CryptoPortfolio
                 _ = (transaction.TransactionType == Transaction.Type.Buy) ? typeLabel.Text = "Buy" : typeLabel.Text = "Sell";
                 typeLabel.Font = new Font("Inter", 9.75f, FontStyle.Bold);
                 _ = (transaction.TransactionType == Transaction.Type.Buy) ? typeLabel.ForeColor = Color.FromArgb(120, 188, 97) : typeLabel.ForeColor = Color.FromArgb(194, 118, 112);
-                typeLabel.Location = new Point(265, 6);
+                typeLabel.Location = new Point(275, 6);
                 tempPanel.Controls.Add(typeLabel);
 
                 Label totalCostLabel = new Label();
                 totalCostLabel.AutoSize = true;
-                totalCostLabel.Text = "- " + transaction.TotalCost.ToString("0.00" + Properties.Settings.Default.Currency); //if the type is sell, it should be the symbol of the coin instead of €
+                _ = (transaction.TransactionType == Transaction.Type.Buy) ? totalCostLabel.Text = "- " + transaction.TotalCost.ToString("0.00" + Properties.Settings.Default.Currency) : totalCostLabel.Text = "+ " + transaction.TotalCost.ToString("0.00" + Properties.Settings.Default.Currency);  //if the type is sell, it should be the symbol of the coin instead of €
                 totalCostLabel.Font = new Font("Inter Black", 9.75f, FontStyle.Bold);
                 totalCostLabel.ForeColor = Color.FromArgb(135, 156, 179);
                 totalCostLabel.Location = new Point(330, 6);
@@ -850,11 +850,6 @@ namespace CryptoPortfolio
         private void currencyComboBox_SelectionChangeCommitted(object sender, EventArgs e)
         {
             MessageBox.Show("Note that changing the currency will reset your chart information.", "Be Carefull", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-        }
-
-        private void SelectPortfolio(object sender, MouseEventArgs e)
-        {
 
         }
     }

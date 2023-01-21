@@ -80,6 +80,7 @@ namespace CryptoPortfolio
             CURRENT_COIN = coin;
 
             addTransactionPanel.BringToFront();
+            timePicker.Text = DateTime.Now.ToLongTimeString();
             amountNum           .Value = 0;
             float pricePerCoin         = await CurrentAvgPrice.GetMarketValue(coin.Symbol);
             pricePerCoinNum.Value      = decimal.Parse(pricePerCoin.ToString());
@@ -98,7 +99,7 @@ namespace CryptoPortfolio
             this.Dispose();
         }
 
-        private void CalculateTotal(object sender, EventArgs e) //bug: when numeric is leaved empty, this don't trigger.
+        private void CalculateTotal(object sender, EventArgs e) //bug: when numeric is leaved empty, this don't trigger. 
         {
             decimal newValue = (amountNum.Value * pricePerCoinNum.Value) + feeNum.Value;
             totalSpentLabel.Text = newValue.ToString(); //Show a total updated
@@ -108,22 +109,46 @@ namespace CryptoPortfolio
         {
             if (ValidateTransaction())
             {
-                Transaction tempTransaction = new Transaction(
-                    Transaction.Type.Buy,
-                    CURRENT_COIN,
-                    DateTime.Parse(datePicker.Value.ToShortDateString() + " " + timePicker.Value.ToLongTimeString()),
-                    (float)amountNum.Value,
-                    (float)pricePerCoinNum.Value,
-                    (float.Parse(totalSpentLabel.Text) - (float)feeNum.Value),
-                    (float)feeNum.Value,
-                    float.Parse(totalSpentLabel.Text),
-                    notesTextBox.Text);
+                //Buy -------------
+                if (sellPanel.Visible == false)
+                {
+                    Transaction tempTransaction = new Transaction(
+                        Transaction.Type.Buy,
+                        CURRENT_COIN,
+                        DateTime.Parse(datePicker.Value.ToShortDateString() + " " + timePicker.Value.ToLongTimeString()),
+                        (float)amountNum.Value,
+                        (float)pricePerCoinNum.Value,
+                        (float.Parse(totalSpentLabel.Text) - (float)feeNum.Value),
+                        (float)feeNum.Value,
+                        float.Parse(totalSpentLabel.Text),
+                        notesTextBox.Text);
 
-                XmlHandler.writeTransaction(tempTransaction, CURRENT_PORTFOLIO);
+                    XmlHandler.writeTransaction(tempTransaction, CURRENT_PORTFOLIO);
 
-                ((MainForm)Owner).ResetAndUpdatePortfolio();
+                    ((MainForm)Owner).ResetAndUpdatePortfolio();
 
-                this.Dispose();
+                    this.Dispose();
+                }
+                //Sell -------------
+                else if(sellPanel.Visible == true)
+                {
+                    Transaction tempTransaction = new Transaction(
+                        Transaction.Type.Sell,
+                        CURRENT_COIN,
+                        DateTime.Parse(datePicker.Value.ToShortDateString() + " " + timePicker.Value.ToLongTimeString()),
+                        (float)amountNum.Value,
+                        (float)pricePerCoinNum.Value,
+                        (float.Parse(totalSpentLabel.Text) - (float)feeNum.Value),
+                        (float)feeNum.Value,
+                        float.Parse(totalSpentLabel.Text),
+                        notesTextBox.Text);
+
+                    XmlHandler.writeTransaction(tempTransaction, CURRENT_PORTFOLIO);
+
+                    ((MainForm)Owner).ResetAndUpdatePortfolio();
+
+                    this.Dispose();
+                }
             }
         }
 
@@ -143,10 +168,34 @@ namespace CryptoPortfolio
                 pricePerCoinRequiredLabel.Visible = true;
                 return false;
             }
+            else if(sellPanel.Visible == true && float.Parse(amountNum.Value.ToString()) > CURRENT_PORTFOLIO.TotalAmountOf(CURRENT_COIN))
+            {
+                MessageBox.Show("You don't have that amount of " + CURRENT_COIN.Name + " to sell!", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
             else
             {
                 return true;
             }
+        }
+        private void sellButon_Click(object sender, EventArgs e)
+        {
+            buyButton.BackgroundImage = Properties.Resources.buyTab_un;
+            sellButon.BackgroundImage = Properties.Resources.sellTab;
+            sellPanel.Visible = true;
+            totalLabel.Text = "Total Earned";
+            amountLabel.Text = "Amount to Sell";
+           
+        }
+
+        private void buyButton_Click(object sender, EventArgs e)
+        {
+            sellButon.BackgroundImage = Properties.Resources.sellTab_un;
+            buyButton.BackgroundImage = Properties.Resources.buyTab;
+            sellPanel.Visible = false;
+            totalLabel.Text = "Total Spent";
+            amountLabel.Text = "Amount";
+
         }
     }
 }

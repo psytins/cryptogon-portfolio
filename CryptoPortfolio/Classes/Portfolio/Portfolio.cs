@@ -114,7 +114,10 @@ namespace CryptoPortfolio
             {
                 foreach (Transaction transaction in this.transactions)
                 {
-                    totalInvested += transaction.TotalCost;
+                    if (transaction.TransactionType == Transaction.Type.Buy)
+                        totalInvested += transaction.TotalCost;
+                    if (transaction.TransactionType == Transaction.Type.Sell)
+                        totalInvested -= transaction.TotalCost;
                 }
 
                 return totalInvested;
@@ -143,7 +146,7 @@ namespace CryptoPortfolio
                         totalCost += this.tempMarketValues[transaction.Coin.Symbol + "BUSD"] * transaction.Amount;
 
                     if (transaction.TransactionType == Transaction.Type.Sell && transaction.Coin.Symbol == coin.Symbol)
-                        totalCost += this.tempMarketValues[transaction.Coin.Symbol + "BUSD"] * transaction.Cost; //Here cost is the cost of the sell in Coins (not in fiat)
+                        totalCost -= this.tempMarketValues[transaction.Coin.Symbol + "BUSD"] * transaction.Amount;
                 }
 
                 return totalCost;
@@ -171,7 +174,7 @@ namespace CryptoPortfolio
                         totalCost += this.tempMarketValues[transaction.Coin.Symbol + "BUSD"] * transaction.Amount;
 
                     if (transaction.TransactionType == Transaction.Type.Sell)
-                        totalCost += this.tempMarketValues[transaction.Coin.Symbol + "BUSD"] * transaction.Cost; //Here cost is the cost of the sell in Coins (not in fiat)
+                        totalCost -= this.tempMarketValues[transaction.Coin.Symbol + "BUSD"] * transaction.Amount; //Here cost is the cost of the sell in Coins (not in fiat)
                 }
 
                 return totalCost;
@@ -198,7 +201,7 @@ namespace CryptoPortfolio
                         totalAmount += transaction.Amount;
 
                     if (transaction.TransactionType == Transaction.Type.Sell && transaction.Coin.Symbol == coin.Symbol)
-                        totalAmount -= transaction.Cost;
+                        totalAmount -= transaction.Amount;
                 }
 
                 return totalAmount;
