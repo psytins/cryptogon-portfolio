@@ -50,12 +50,27 @@ namespace CryptoPortfolio.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("€")]
         public string Currency {
             get {
                 return ((string)(this["Currency"]));
+            }
+            set {
+                this["Currency"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("10")]
+        public int TimeToUpdate {
+            get {
+                return ((int)(this["TimeToUpdate"]));
+            }
+            set {
+                this["TimeToUpdate"] = value;
             }
         }
     }

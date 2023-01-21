@@ -38,9 +38,16 @@ namespace CryptoPortfolio
             this.accountNameLabel = new System.Windows.Forms.Label();
             this.portfolioNameLabel = new System.Windows.Forms.Label();
             this.mouseGrab = new System.Windows.Forms.Panel();
-            this.notificationButton = new System.Windows.Forms.Button();
+            this.refreshButton = new System.Windows.Forms.Button();
             this.showPortfoliosButton = new System.Windows.Forms.Button();
             this.settingsButton = new System.Windows.Forms.Button();
+            this.settingsPanel = new System.Windows.Forms.Panel();
+            this.saveChangesLabel = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.currencyComboBox = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.updateTimeComboBox = new System.Windows.Forms.ComboBox();
+            this.updateTimeLabel = new System.Windows.Forms.Label();
             this.mainInsightPanel = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.mainAssetsPanel = new System.Windows.Forms.Panel();
@@ -101,6 +108,7 @@ namespace CryptoPortfolio
             this.historyButton = new System.Windows.Forms.Button();
             this.updateTimer = new System.Windows.Forms.Timer(this.components);
             this.mouseGrab.SuspendLayout();
+            this.settingsPanel.SuspendLayout();
             this.mainInsightPanel.SuspendLayout();
             this.mainAssetsPanel.SuspendLayout();
             this.mainHistoryPanel.SuspendLayout();
@@ -146,7 +154,7 @@ namespace CryptoPortfolio
             // mouseGrab
             // 
             this.mouseGrab.Controls.Add(this.accountNameLabel);
-            this.mouseGrab.Controls.Add(this.notificationButton);
+            this.mouseGrab.Controls.Add(this.refreshButton);
             this.mouseGrab.Controls.Add(this.showPortfoliosButton);
             this.mouseGrab.Controls.Add(this.portfolioNameLabel);
             this.mouseGrab.Controls.Add(this.settingsButton);
@@ -157,21 +165,21 @@ namespace CryptoPortfolio
             this.mouseGrab.TabIndex = 13;
             this.mouseGrab.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mouseGrab_MouseDown);
             // 
-            // notificationButton
+            // refreshButton
             // 
-            this.notificationButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
-            this.notificationButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("notificationButton.BackgroundImage")));
-            this.notificationButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.notificationButton.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.notificationButton.FlatAppearance.BorderSize = 0;
-            this.notificationButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.notificationButton.Location = new System.Drawing.Point(804, 35);
-            this.notificationButton.Margin = new System.Windows.Forms.Padding(4);
-            this.notificationButton.Name = "notificationButton";
-            this.notificationButton.Size = new System.Drawing.Size(24, 22);
-            this.notificationButton.TabIndex = 2;
-            this.notificationButton.UseVisualStyleBackColor = false;
-            this.notificationButton.Click += new System.EventHandler(this.notificationButton_Click);
+            this.refreshButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
+            this.refreshButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("refreshButton.BackgroundImage")));
+            this.refreshButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.refreshButton.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.refreshButton.FlatAppearance.BorderSize = 0;
+            this.refreshButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.refreshButton.Location = new System.Drawing.Point(804, 35);
+            this.refreshButton.Margin = new System.Windows.Forms.Padding(4);
+            this.refreshButton.Name = "refreshButton";
+            this.refreshButton.Size = new System.Drawing.Size(24, 22);
+            this.refreshButton.TabIndex = 2;
+            this.refreshButton.UseVisualStyleBackColor = false;
+            this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
             // 
             // showPortfoliosButton
             // 
@@ -181,7 +189,7 @@ namespace CryptoPortfolio
             this.showPortfoliosButton.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.showPortfoliosButton.FlatAppearance.BorderSize = 0;
             this.showPortfoliosButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.showPortfoliosButton.Location = new System.Drawing.Point(981, 31);
+            this.showPortfoliosButton.Location = new System.Drawing.Point(981, 37);
             this.showPortfoliosButton.Margin = new System.Windows.Forms.Padding(4);
             this.showPortfoliosButton.Name = "showPortfoliosButton";
             this.showPortfoliosButton.Size = new System.Drawing.Size(32, 15);
@@ -204,6 +212,100 @@ namespace CryptoPortfolio
             this.settingsButton.TabIndex = 3;
             this.settingsButton.UseVisualStyleBackColor = false;
             this.settingsButton.Click += new System.EventHandler(this.settingsButton_Click);
+            // 
+            // settingsPanel
+            // 
+            this.settingsPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
+            this.settingsPanel.Controls.Add(this.saveChangesLabel);
+            this.settingsPanel.Controls.Add(this.button1);
+            this.settingsPanel.Controls.Add(this.currencyComboBox);
+            this.settingsPanel.Controls.Add(this.label4);
+            this.settingsPanel.Controls.Add(this.updateTimeComboBox);
+            this.settingsPanel.Controls.Add(this.updateTimeLabel);
+            this.settingsPanel.Location = new System.Drawing.Point(795, 62);
+            this.settingsPanel.Name = "settingsPanel";
+            this.settingsPanel.Size = new System.Drawing.Size(201, 132);
+            this.settingsPanel.TabIndex = 25;
+            this.settingsPanel.Visible = false;
+            // 
+            // saveChangesLabel
+            // 
+            this.saveChangesLabel.AutoSize = true;
+            this.saveChangesLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(241)))), ((int)(((byte)(244)))));
+            this.saveChangesLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.saveChangesLabel.Font = new System.Drawing.Font("Inter Medium", 12F);
+            this.saveChangesLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
+            this.saveChangesLabel.Location = new System.Drawing.Point(47, 100);
+            this.saveChangesLabel.Name = "saveChangesLabel";
+            this.saveChangesLabel.Size = new System.Drawing.Size(119, 19);
+            this.saveChangesLabel.TabIndex = 7;
+            this.saveChangesLabel.Text = "Save Changes";
+            this.saveChangesLabel.Click += new System.EventHandler(this.SaveChanges);
+            // 
+            // button1
+            // 
+            this.button1.BackgroundImage = global::CryptoPortfolio.Properties.Resources.logout_button;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(26, 94);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(160, 30);
+            this.button1.TabIndex = 6;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.SaveChanges);
+            // 
+            // currencyComboBox
+            // 
+            this.currencyComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.currencyComboBox.Items.AddRange(new object[] {
+            "$",
+            "€"});
+            this.currencyComboBox.Location = new System.Drawing.Point(96, 52);
+            this.currencyComboBox.Name = "currencyComboBox";
+            this.currencyComboBox.Size = new System.Drawing.Size(102, 27);
+            this.currencyComboBox.TabIndex = 3;
+            this.currencyComboBox.SelectionChangeCommitted += new System.EventHandler(this.currencyComboBox_SelectionChangeCommitted);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Inter Medium", 10F);
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(235)))), ((int)(((byte)(238)))));
+            this.label4.Location = new System.Drawing.Point(3, 57);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(68, 17);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Currency";
+            // 
+            // updateTimeComboBox
+            // 
+            this.updateTimeComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.updateTimeComboBox.Items.AddRange(new object[] {
+            "10",
+            "20",
+            "30",
+            "60",
+            "120",
+            "No Update"});
+            this.updateTimeComboBox.Location = new System.Drawing.Point(96, 13);
+            this.updateTimeComboBox.Name = "updateTimeComboBox";
+            this.updateTimeComboBox.Size = new System.Drawing.Size(102, 27);
+            this.updateTimeComboBox.TabIndex = 1;
+            // 
+            // updateTimeLabel
+            // 
+            this.updateTimeLabel.AutoSize = true;
+            this.updateTimeLabel.Font = new System.Drawing.Font("Inter Medium", 10F);
+            this.updateTimeLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(235)))), ((int)(((byte)(238)))));
+            this.updateTimeLabel.Location = new System.Drawing.Point(3, 18);
+            this.updateTimeLabel.Name = "updateTimeLabel";
+            this.updateTimeLabel.Size = new System.Drawing.Size(93, 17);
+            this.updateTimeLabel.TabIndex = 0;
+            this.updateTimeLabel.Text = "Update Time";
             // 
             // mainInsightPanel
             // 
@@ -339,7 +441,7 @@ namespace CryptoPortfolio
             // separatorPanel
             // 
             this.separatorPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(156)))), ((int)(((byte)(179)))));
-            this.separatorPanel.Location = new System.Drawing.Point(165, 102);
+            this.separatorPanel.Location = new System.Drawing.Point(153, 102);
             this.separatorPanel.Name = "separatorPanel";
             this.separatorPanel.Size = new System.Drawing.Size(1, 42);
             this.separatorPanel.TabIndex = 14;
@@ -881,6 +983,7 @@ namespace CryptoPortfolio
             // 
             this.signInOutButton.BackgroundImage = global::CryptoPortfolio.Properties.Resources.logout_button;
             this.signInOutButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.signInOutButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.signInOutButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.signInOutButton.FlatAppearance.BorderSize = 0;
             this.signInOutButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -990,14 +1093,15 @@ namespace CryptoPortfolio
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.settingsPanel);
             this.Controls.Add(this.showPortfoliosPanel);
             this.Controls.Add(this.logoImage);
-            this.Controls.Add(this.mouseGrab);
             this.Controls.Add(this.sideBar);
             this.Controls.Add(this.mainDashboardPanel);
             this.Controls.Add(this.mainHistoryPanel);
             this.Controls.Add(this.mainAssetsPanel);
             this.Controls.Add(this.mainInsightPanel);
+            this.Controls.Add(this.mouseGrab);
             this.Font = new System.Drawing.Font("Inter Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -1010,6 +1114,8 @@ namespace CryptoPortfolio
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.mouseGrab.ResumeLayout(false);
             this.mouseGrab.PerformLayout();
+            this.settingsPanel.ResumeLayout(false);
+            this.settingsPanel.PerformLayout();
             this.mainInsightPanel.ResumeLayout(false);
             this.mainInsightPanel.PerformLayout();
             this.mainAssetsPanel.ResumeLayout(false);
@@ -1041,7 +1147,7 @@ namespace CryptoPortfolio
 
         private System.Windows.Forms.Panel sideBar;
         private System.Windows.Forms.PictureBox logoImage;
-        private System.Windows.Forms.Button notificationButton;
+        private System.Windows.Forms.Button refreshButton;
         private System.Windows.Forms.Button settingsButton;
         private System.Windows.Forms.Label accountNameLabel;
         private System.Windows.Forms.Label portfolioNameLabel;
@@ -1104,5 +1210,12 @@ namespace CryptoPortfolio
         private System.Windows.Forms.Label timeToUpdate;
         private System.Windows.Forms.DataVisualization.Charting.Chart assetsChart;
         private System.Windows.Forms.DataVisualization.Charting.Chart portfolioChart;
+        private System.Windows.Forms.Panel settingsPanel;
+        private System.Windows.Forms.Label updateTimeLabel;
+        private System.Windows.Forms.ComboBox updateTimeComboBox;
+        private System.Windows.Forms.ComboBox currencyComboBox;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label saveChangesLabel;
     }
 }

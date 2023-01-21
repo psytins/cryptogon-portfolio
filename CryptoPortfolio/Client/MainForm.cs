@@ -24,7 +24,6 @@ namespace CryptoPortfolio
         public static extern bool ReleaseCapture();
         // -------------------
         //Global Variables
-        private int TIME_TO_UPDATE = 10; //in seconds
         private int TIMER; //in seconds
 
         private readonly string CURRENT_VERSION = "Current Version 2.0.0.0";
@@ -65,8 +64,7 @@ namespace CryptoPortfolio
             //Set Version Label
             versionLabel.Text = CURRENT_VERSION;
 
-            //Load Components ----
-            
+            //Load Components ----s            
             //Read Existant Portfolios
             SESSION_PORTFOLIO = XmlHandler.readPortfolio(SESSION.ID);
             TIMER = -1;
@@ -88,7 +86,7 @@ namespace CryptoPortfolio
         {
             timeToUpdate.Visible = false;
             updateTimer.Stop();
-            TIMER = TIME_TO_UPDATE;
+            TIMER = Properties.Settings.Default.TimeToUpdate;
             updateTimer.Start();
         }
 
@@ -146,6 +144,7 @@ namespace CryptoPortfolio
             //Dashboard Update -------------
             accountNameLabel.Text = SESSION.FirstName + " " + SESSION.LastName;
             portfolioNameLabel.Text = SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].PorfolioName;
+            settingsPanel.Visible = false;
             showPortfoliosPanel.Visible = false;
             //Update Sub Panels
             UpdateSubHistoryPanel();
@@ -429,8 +428,9 @@ namespace CryptoPortfolio
         public void UpdateInsights(int portfolio_index)
         {
             ResetUpdateTimer();
-
             mainInsightPanel.BringToFront();
+            settingsPanel.Visible = false;
+            showPortfoliosPanel.Visible = false;
             //Change Side buttons --------
             //Normalize other buttons
             dashboardButton.BackgroundImage = Properties.Resources.Dashboard;
@@ -452,6 +452,8 @@ namespace CryptoPortfolio
             ResetUpdateTimer();
 
             mainAssetsPanel.BringToFront();
+            settingsPanel.Visible = false;
+            showPortfoliosPanel.Visible = false;
             //Change Side buttons --------
             //Normalize other buttons
             dashboardButton.BackgroundImage = Properties.Resources.Dashboard;
@@ -473,6 +475,8 @@ namespace CryptoPortfolio
             ResetUpdateTimer();
 
             mainHistoryPanel.BringToFront();
+            settingsPanel.Visible = false;
+            showPortfoliosPanel.Visible = false;
             //Change Side buttons --------
             //Normalize other buttons
             dashboardButton.BackgroundImage = Properties.Resources.Dashboard;
@@ -533,7 +537,7 @@ namespace CryptoPortfolio
 
         private void showPortfoliosButton_Click(object sender, EventArgs e) //display all portfolios of the current user
         {
-
+            settingsPanel.Visible = false;
             //Show panel
             if (showPortfoliosPanel.Visible == false)
             {
@@ -658,13 +662,58 @@ namespace CryptoPortfolio
             newTransaction.SetPortfolio(SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX], CURRENT_PORTFOLIO_INDEX);
             newTransaction.ShowDialog(this);
         }
-        private void notificationButton_Click(object sender, EventArgs e)
+        private void refreshButton_Click(object sender, EventArgs e)
         {
-           
+            HardUpdate();           
         }
         private void settingsButton_Click(object sender, EventArgs e)
         {
-            
+            showPortfoliosPanel.Visible = false;
+            switch (Properties.Settings.Default.Currency)
+            {
+                case "€": currencyComboBox.SelectedIndex = 1; break;
+                case "$": currencyComboBox.SelectedIndex = 0; break;
+            }
+
+            switch (Properties.Settings.Default.TimeToUpdate)
+            {
+                case 10: updateTimeComboBox.SelectedIndex = 0; break;
+                case 20: updateTimeComboBox.SelectedIndex = 1; break;
+                case 30: updateTimeComboBox.SelectedIndex = 2; break;
+                case 60: updateTimeComboBox.SelectedIndex = 3; break;
+                case 120: updateTimeComboBox.SelectedIndex = 4; break;
+                default: updateTimeComboBox.SelectedIndex = 5; break;
+            }
+
+            if (settingsPanel.Visible == true)
+                settingsPanel.Visible = false;
+            else
+            {
+                settingsPanel.BringToFront();
+                settingsPanel.Visible = true;
+            }
+        }
+
+        private void SaveChanges(object sender, EventArgs e)
+        {
+            if (Properties.Settings.Default.Currency != currencyComboBox.Text)
+                SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX].ToDisplayChart.Clear();
+
+            Properties.Settings.Default.Currency = currencyComboBox.Text;
+
+
+            if (updateTimeComboBox.Text != "No Update")
+            {
+                updateTimer.Enabled = true;
+                Properties.Settings.Default.TimeToUpdate = int.Parse(updateTimeComboBox.Text);
+            }
+            else
+                updateTimer.Enabled = false;
+
+            MessageBox.Show("Settings changed!","Settings",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            settingsPanel.Visible = false;
+
+            HardUpdate();
         }
 
         private void dashboardButton_MouseEnter(object sender, EventArgs e)
@@ -748,7 +797,7 @@ namespace CryptoPortfolio
 
         private void ChangePage(int pageNumber)
         {
-            switch(pageNumber)
+            switch (pageNumber)
             {
                 case 1: UpdateDashboard(CURRENT_PORTFOLIO_INDEX);   break;
                 case 2: UpdateInsights(CURRENT_PORTFOLIO_INDEX);    break;
@@ -800,6 +849,12 @@ namespace CryptoPortfolio
                 login.Show();
                 this.Dispose();
             }
+        }
+
+        private void currencyComboBox_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            MessageBox.Show("Note that changing the currency will reset your chart information.", "Be Carefull", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
         }
     }
 }
