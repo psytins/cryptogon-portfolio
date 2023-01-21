@@ -9,10 +9,6 @@
     <Short>ETH</Short>
   </Coin>
   <Coin>
-    <Name>Cronos</Name>
-    <Short>CRO</Short>
-  </Coin>
-  <Coin>
     <Name>Sandbox</Name>
     <Short>SAND</Short>
   </Coin>
@@ -27,10 +23,6 @@
   <Coin>
     <Name>TerraClassic</Name>
     <Short>LUNC</Short>
-  </Coin>
-  <Coin>
-    <Name>ShibaINU</Name>
-    <Short>SHIB</Short>
   </Coin>
   <Coin>
     <Name>Gala</Name>

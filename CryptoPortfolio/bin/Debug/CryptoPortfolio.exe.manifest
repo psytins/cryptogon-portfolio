@@ -159,13 +159,13 @@
       <dsig:DigestValue>PPiZTyZWVcv71aIaR/PV0wBoVKYf4KMbx1AsFUIW9oc=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Data\coins.xml" size="928" writeableType="applicationData">
+  <file name="Data\coins.xml" size="785" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>kg9nJ48CLzHcIzWfITQkhCCyvACLiEED9UYCQRNH26Y=</dsig:DigestValue>
+      <dsig:DigestValue>6GMAPsB+Bi7XkH/0kLPTD2wDv32Dwq0zt+dtGPIqbng=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Data\portfolio.xml" size="70" writeableType="applicationData">
