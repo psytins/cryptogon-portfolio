@@ -62,7 +62,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>NKULFUCsk9lk6OtjClrPS+g+CRd1p+N8bEeOkzAYkdU=</dsig:DigestValue>
+        <dsig:DigestValue>DfUbxzG4e9kQClg3L15ctbSZE6h+LFueKPnHDP71sbY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -165,7 +165,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>QGfljvPSy2I4p2gJZzuuKo6MRR/RkkmEYGOB1ReTvrM=</dsig:DigestValue>
+      <dsig:DigestValue>kg9nJ48CLzHcIzWfITQkhCCyvACLiEED9UYCQRNH26Y=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Data\portfolio.xml" size="70" writeableType="applicationData">
