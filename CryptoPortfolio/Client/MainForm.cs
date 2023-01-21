@@ -852,5 +852,10 @@ namespace CryptoPortfolio
             MessageBox.Show("Note that changing the currency will reset your chart information.", "Be Carefull", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
+
+        private void SelectPortfolio(object sender, MouseEventArgs e)
+        {
+
+        }
     }
 }
