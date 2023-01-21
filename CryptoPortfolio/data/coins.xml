@@ -1,6 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Coins>
   <Coin>
+    <Name>Bitcoin</Name>
+    <Short>BTC</Short>
+  </Coin>
+  <Coin>
     <Name>Ethereum</Name>
     <Short>ETH</Short>
   </Coin>
@@ -43,9 +47,5 @@
   <Coin>
     <Name>Polygon</Name>
     <Short>MATIC</Short>
-  </Coin>
-  <Coin>
-    <Name>Bitcoin</Name>
-    <Short>BTC</Short>
   </Coin>
 </Coins>

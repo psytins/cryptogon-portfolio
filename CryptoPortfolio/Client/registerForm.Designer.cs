@@ -29,7 +29,10 @@ namespace CryptoPortfolio
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(registerForm));
             this.mouseGrab = new System.Windows.Forms.Panel();
+            this.minimizeButton = new System.Windows.Forms.Button();
+            this.closeButton = new System.Windows.Forms.Button();
             this.topPanel = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.nothinErrorLabel = new System.Windows.Forms.TextBox();
@@ -52,8 +55,6 @@ namespace CryptoPortfolio
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.signInButton = new System.Windows.Forms.Button();
-            this.closeButton = new System.Windows.Forms.Button();
-            this.minimizeButton = new System.Windows.Forms.Button();
             this.mouseGrab.SuspendLayout();
             this.topPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -70,6 +71,38 @@ namespace CryptoPortfolio
             this.mouseGrab.Size = new System.Drawing.Size(512, 60);
             this.mouseGrab.TabIndex = 0;
             this.mouseGrab.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mouseGrab_MouseDown);
+            // 
+            // minimizeButton
+            // 
+            this.minimizeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.minimizeButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.minimizeButton.FlatAppearance.BorderSize = 0;
+            this.minimizeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.minimizeButton.Font = new System.Drawing.Font("Inter SemiBold", 12F);
+            this.minimizeButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(156)))), ((int)(((byte)(179)))));
+            this.minimizeButton.Location = new System.Drawing.Point(431, 8);
+            this.minimizeButton.Name = "minimizeButton";
+            this.minimizeButton.Size = new System.Drawing.Size(45, 25);
+            this.minimizeButton.TabIndex = 10;
+            this.minimizeButton.Text = "___";
+            this.minimizeButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.minimizeButton.UseVisualStyleBackColor = true;
+            this.minimizeButton.Click += new System.EventHandler(this.minimizeButton_Click);
+            // 
+            // closeButton
+            // 
+            this.closeButton.BackgroundImage = global::CryptoPortfolio.Properties.Resources.closeButton_2;
+            this.closeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.closeButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.closeButton.FlatAppearance.BorderSize = 0;
+            this.closeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.closeButton.Location = new System.Drawing.Point(478, 11);
+            this.closeButton.Name = "closeButton";
+            this.closeButton.Size = new System.Drawing.Size(22, 22);
+            this.closeButton.TabIndex = 9;
+            this.closeButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.closeButton.UseVisualStyleBackColor = true;
+            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
             // topPanel
             // 
@@ -390,38 +423,6 @@ namespace CryptoPortfolio
             this.signInButton.UseVisualStyleBackColor = false;
             this.signInButton.Click += new System.EventHandler(this.signInButton_Click);
             // 
-            // closeButton
-            // 
-            this.closeButton.BackgroundImage = global::CryptoPortfolio.Properties.Resources.closeButton_2;
-            this.closeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.closeButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.closeButton.FlatAppearance.BorderSize = 0;
-            this.closeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.closeButton.Location = new System.Drawing.Point(478, 11);
-            this.closeButton.Name = "closeButton";
-            this.closeButton.Size = new System.Drawing.Size(22, 22);
-            this.closeButton.TabIndex = 9;
-            this.closeButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.closeButton.UseVisualStyleBackColor = true;
-            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
-            // 
-            // minimizeButton
-            // 
-            this.minimizeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.minimizeButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.minimizeButton.FlatAppearance.BorderSize = 0;
-            this.minimizeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.minimizeButton.Font = new System.Drawing.Font("Inter SemiBold", 12F);
-            this.minimizeButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(156)))), ((int)(((byte)(179)))));
-            this.minimizeButton.Location = new System.Drawing.Point(431, 8);
-            this.minimizeButton.Name = "minimizeButton";
-            this.minimizeButton.Size = new System.Drawing.Size(45, 25);
-            this.minimizeButton.TabIndex = 10;
-            this.minimizeButton.Text = "___";
-            this.minimizeButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.minimizeButton.UseVisualStyleBackColor = true;
-            this.minimizeButton.Click += new System.EventHandler(this.minimizeButton_Click);
-            // 
             // registerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 19F);
@@ -433,6 +434,7 @@ namespace CryptoPortfolio
             this.Controls.Add(this.topPanel);
             this.Font = new System.Drawing.Font("Inter", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "registerForm";
             this.Text = "Register";

@@ -29,23 +29,24 @@ namespace CryptoPortfolio
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(loginForm));
             this.mouseGrab = new System.Windows.Forms.Panel();
+            this.minimizeButton = new System.Windows.Forms.Button();
+            this.closeButton = new System.Windows.Forms.Button();
             this.topPanel = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.nothinErrorLabel = new System.Windows.Forms.TextBox();
             this.passwordErrorLabel = new System.Windows.Forms.TextBox();
             this.emailErrorLabel = new System.Windows.Forms.TextBox();
+            this.signinButton = new System.Windows.Forms.Button();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.passwordLineLabel = new System.Windows.Forms.Label();
             this.emailAddressTextBox = new System.Windows.Forms.TextBox();
             this.emailLineLabel = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.signupButton = new System.Windows.Forms.Button();
-            this.closeButton = new System.Windows.Forms.Button();
-            this.signinButton = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.minimizeButton = new System.Windows.Forms.Button();
             this.mouseGrab.SuspendLayout();
             this.topPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -62,6 +63,38 @@ namespace CryptoPortfolio
             this.mouseGrab.Size = new System.Drawing.Size(512, 60);
             this.mouseGrab.TabIndex = 0;
             this.mouseGrab.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mouseGrab_MouseDown);
+            // 
+            // minimizeButton
+            // 
+            this.minimizeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.minimizeButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.minimizeButton.FlatAppearance.BorderSize = 0;
+            this.minimizeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.minimizeButton.Font = new System.Drawing.Font("Inter SemiBold", 12F);
+            this.minimizeButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(156)))), ((int)(((byte)(179)))));
+            this.minimizeButton.Location = new System.Drawing.Point(432, 8);
+            this.minimizeButton.Name = "minimizeButton";
+            this.minimizeButton.Size = new System.Drawing.Size(45, 25);
+            this.minimizeButton.TabIndex = 9;
+            this.minimizeButton.Text = "___";
+            this.minimizeButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.minimizeButton.UseVisualStyleBackColor = true;
+            this.minimizeButton.Click += new System.EventHandler(this.minimizeButton_Click);
+            // 
+            // closeButton
+            // 
+            this.closeButton.BackgroundImage = global::CryptoPortfolio.Properties.Resources.closeButton_2;
+            this.closeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.closeButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.closeButton.FlatAppearance.BorderSize = 0;
+            this.closeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.closeButton.Location = new System.Drawing.Point(478, 11);
+            this.closeButton.Name = "closeButton";
+            this.closeButton.Size = new System.Drawing.Size(22, 22);
+            this.closeButton.TabIndex = 8;
+            this.closeButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.closeButton.UseVisualStyleBackColor = true;
+            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
             // topPanel
             // 
@@ -150,6 +183,26 @@ namespace CryptoPortfolio
             this.emailErrorLabel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.emailErrorLabel.Visible = false;
             // 
+            // signinButton
+            // 
+            this.signinButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.signinButton.BackgroundImage = global::CryptoPortfolio.Properties.Resources.signinButton;
+            this.signinButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.signinButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.signinButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.signinButton.FlatAppearance.BorderSize = 0;
+            this.signinButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.signinButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.signinButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.signinButton.Location = new System.Drawing.Point(100, 396);
+            this.signinButton.Name = "signinButton";
+            this.signinButton.Size = new System.Drawing.Size(300, 50);
+            this.signinButton.TabIndex = 12;
+            this.signinButton.UseVisualStyleBackColor = false;
+            this.signinButton.Click += new System.EventHandler(this.signinButton_Click);
+            this.signinButton.MouseEnter += new System.EventHandler(this.signinButton_MouseEnter);
+            this.signinButton.MouseLeave += new System.EventHandler(this.signinButton_MouseLeave);
+            // 
             // passwordTextBox
             // 
             this.passwordTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
@@ -203,6 +256,17 @@ namespace CryptoPortfolio
             this.emailLineLabel.Text = "____________________________________________________________";
             this.emailLineLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.pictureBox1.BackgroundImage = global::CryptoPortfolio.Properties.Resources.Logo_login;
+            this.pictureBox1.Location = new System.Drawing.Point(11, 11);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(155, 50);
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -234,69 +298,6 @@ namespace CryptoPortfolio
             this.signupButton.UseVisualStyleBackColor = false;
             this.signupButton.Click += new System.EventHandler(this.signupButton_Click);
             // 
-            // closeButton
-            // 
-            this.closeButton.BackgroundImage = global::CryptoPortfolio.Properties.Resources.closeButton_2;
-            this.closeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.closeButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.closeButton.FlatAppearance.BorderSize = 0;
-            this.closeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.closeButton.Location = new System.Drawing.Point(478, 11);
-            this.closeButton.Name = "closeButton";
-            this.closeButton.Size = new System.Drawing.Size(22, 22);
-            this.closeButton.TabIndex = 8;
-            this.closeButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.closeButton.UseVisualStyleBackColor = true;
-            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
-            // 
-            // signinButton
-            // 
-            this.signinButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.signinButton.BackgroundImage = global::CryptoPortfolio.Properties.Resources.signinButton;
-            this.signinButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.signinButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.signinButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.signinButton.FlatAppearance.BorderSize = 0;
-            this.signinButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.signinButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.signinButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.signinButton.Location = new System.Drawing.Point(100, 396);
-            this.signinButton.Name = "signinButton";
-            this.signinButton.Size = new System.Drawing.Size(300, 50);
-            this.signinButton.TabIndex = 12;
-            this.signinButton.UseVisualStyleBackColor = false;
-            this.signinButton.Click += new System.EventHandler(this.signinButton_Click);
-            this.signinButton.MouseEnter += new System.EventHandler(this.signinButton_MouseEnter);
-            this.signinButton.MouseLeave += new System.EventHandler(this.signinButton_MouseLeave);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.pictureBox1.BackgroundImage = global::CryptoPortfolio.Properties.Resources.Logo_login;
-            this.pictureBox1.Location = new System.Drawing.Point(11, 11);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(155, 50);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
-            // minimizeButton
-            // 
-            this.minimizeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.minimizeButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.minimizeButton.FlatAppearance.BorderSize = 0;
-            this.minimizeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.minimizeButton.Font = new System.Drawing.Font("Inter SemiBold", 12F);
-            this.minimizeButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(156)))), ((int)(((byte)(179)))));
-            this.minimizeButton.Location = new System.Drawing.Point(432, 8);
-            this.minimizeButton.Name = "minimizeButton";
-            this.minimizeButton.Size = new System.Drawing.Size(45, 25);
-            this.minimizeButton.TabIndex = 9;
-            this.minimizeButton.Text = "___";
-            this.minimizeButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.minimizeButton.UseVisualStyleBackColor = true;
-            this.minimizeButton.Click += new System.EventHandler(this.minimizeButton_Click);
-            // 
             // loginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 19F);
@@ -308,6 +309,7 @@ namespace CryptoPortfolio
             this.Controls.Add(this.topPanel);
             this.Font = new System.Drawing.Font("Inter", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "loginForm";
             this.Text = "Login";

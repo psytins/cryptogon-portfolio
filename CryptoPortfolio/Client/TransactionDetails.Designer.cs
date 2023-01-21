@@ -28,13 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TransactionDetails));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.tittleLabel = new System.Windows.Forms.Label();
-            this.typeLabel = new System.Windows.Forms.Label();
-            this.transactionNumLabel = new System.Windows.Forms.Label();
-            this.boughtLabel = new System.Windows.Forms.Label();
-            this.dateLabel = new System.Windows.Forms.Label();
+            this.transactionTypeLabel = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.timeLabel = new System.Windows.Forms.Label();
+            this.dateLabel = new System.Windows.Forms.Label();
+            this.boughtLabel = new System.Windows.Forms.Label();
+            this.transactionNumLabel = new System.Windows.Forms.Label();
+            this.typeLabel = new System.Windows.Forms.Label();
+            this.tittleLabel = new System.Windows.Forms.Label();
             this.coinPriceLabel = new System.Windows.Forms.Label();
             this.feesLabel = new System.Windows.Forms.Label();
             this.totalLabel = new System.Windows.Forms.Label();
@@ -43,8 +46,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.notesTextBox = new System.Windows.Forms.TextBox();
             this.closeButton = new System.Windows.Forms.Button();
-            this.transactionTypeLabel = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,60 +65,27 @@
             this.panel1.Size = new System.Drawing.Size(512, 122);
             this.panel1.TabIndex = 0;
             // 
-            // tittleLabel
+            // transactionTypeLabel
             // 
-            this.tittleLabel.AutoSize = true;
-            this.tittleLabel.Font = new System.Drawing.Font("Inter", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tittleLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(220)))), ((int)(((byte)(227)))));
-            this.tittleLabel.Location = new System.Drawing.Point(10, 13);
-            this.tittleLabel.Name = "tittleLabel";
-            this.tittleLabel.Size = new System.Drawing.Size(241, 29);
-            this.tittleLabel.TabIndex = 0;
-            this.tittleLabel.Text = "Transaction Details";
+            this.transactionTypeLabel.AutoSize = true;
+            this.transactionTypeLabel.Font = new System.Drawing.Font("Inter Medium", 12F);
+            this.transactionTypeLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(186)))), ((int)(((byte)(143)))));
+            this.transactionTypeLabel.Location = new System.Drawing.Point(156, 62);
+            this.transactionTypeLabel.Name = "transactionTypeLabel";
+            this.transactionTypeLabel.Size = new System.Drawing.Size(16, 19);
+            this.transactionTypeLabel.TabIndex = 7;
+            this.transactionTypeLabel.Text = "-";
             // 
-            // typeLabel
+            // label3
             // 
-            this.typeLabel.AutoSize = true;
-            this.typeLabel.Font = new System.Drawing.Font("Inter", 12F);
-            this.typeLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(220)))), ((int)(((byte)(227)))));
-            this.typeLabel.Location = new System.Drawing.Point(16, 42);
-            this.typeLabel.Name = "typeLabel";
-            this.typeLabel.Size = new System.Drawing.Size(163, 19);
-            this.typeLabel.TabIndex = 1;
-            this.typeLabel.Text = "Transaction number:";
-            // 
-            // transactionNumLabel
-            // 
-            this.transactionNumLabel.AutoSize = true;
-            this.transactionNumLabel.Font = new System.Drawing.Font("Inter Medium", 12F);
-            this.transactionNumLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(220)))), ((int)(((byte)(227)))));
-            this.transactionNumLabel.Location = new System.Drawing.Point(176, 42);
-            this.transactionNumLabel.Name = "transactionNumLabel";
-            this.transactionNumLabel.Size = new System.Drawing.Size(16, 19);
-            this.transactionNumLabel.TabIndex = 2;
-            this.transactionNumLabel.Text = "-";
-            // 
-            // boughtLabel
-            // 
-            this.boughtLabel.AutoSize = true;
-            this.boughtLabel.Font = new System.Drawing.Font("Inter Medium", 14F);
-            this.boughtLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(220)))), ((int)(((byte)(227)))));
-            this.boughtLabel.Location = new System.Drawing.Point(11, 94);
-            this.boughtLabel.Name = "boughtLabel";
-            this.boughtLabel.Size = new System.Drawing.Size(259, 23);
-            this.boughtLabel.TabIndex = 3;
-            this.boughtLabel.Text = "You bought 3,00 Ethereum !";
-            // 
-            // dateLabel
-            // 
-            this.dateLabel.AutoSize = true;
-            this.dateLabel.Font = new System.Drawing.Font("Inter", 12F);
-            this.dateLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(220)))), ((int)(((byte)(227)))));
-            this.dateLabel.Location = new System.Drawing.Point(403, 13);
-            this.dateLabel.Name = "dateLabel";
-            this.dateLabel.Size = new System.Drawing.Size(16, 19);
-            this.dateLabel.TabIndex = 4;
-            this.dateLabel.Text = "-";
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Inter", 12F);
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(220)))), ((int)(((byte)(227)))));
+            this.label3.Location = new System.Drawing.Point(16, 62);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(140, 19);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Transaction type:";
             // 
             // timeLabel
             // 
@@ -130,6 +98,61 @@
             this.timeLabel.TabIndex = 5;
             this.timeLabel.Text = "-";
             this.timeLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // dateLabel
+            // 
+            this.dateLabel.AutoSize = true;
+            this.dateLabel.Font = new System.Drawing.Font("Inter", 12F);
+            this.dateLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(220)))), ((int)(((byte)(227)))));
+            this.dateLabel.Location = new System.Drawing.Point(403, 13);
+            this.dateLabel.Name = "dateLabel";
+            this.dateLabel.Size = new System.Drawing.Size(16, 19);
+            this.dateLabel.TabIndex = 4;
+            this.dateLabel.Text = "-";
+            // 
+            // boughtLabel
+            // 
+            this.boughtLabel.AutoSize = true;
+            this.boughtLabel.Font = new System.Drawing.Font("Inter Medium", 14F);
+            this.boughtLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(220)))), ((int)(((byte)(227)))));
+            this.boughtLabel.Location = new System.Drawing.Point(11, 94);
+            this.boughtLabel.Name = "boughtLabel";
+            this.boughtLabel.Size = new System.Drawing.Size(126, 23);
+            this.boughtLabel.TabIndex = 3;
+            this.boughtLabel.Text = "You bought -";
+            // 
+            // transactionNumLabel
+            // 
+            this.transactionNumLabel.AutoSize = true;
+            this.transactionNumLabel.Font = new System.Drawing.Font("Inter Medium", 12F);
+            this.transactionNumLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(220)))), ((int)(((byte)(227)))));
+            this.transactionNumLabel.Location = new System.Drawing.Point(176, 42);
+            this.transactionNumLabel.Name = "transactionNumLabel";
+            this.transactionNumLabel.Size = new System.Drawing.Size(16, 19);
+            this.transactionNumLabel.TabIndex = 2;
+            this.transactionNumLabel.Text = "-";
+            // 
+            // typeLabel
+            // 
+            this.typeLabel.AutoSize = true;
+            this.typeLabel.Font = new System.Drawing.Font("Inter", 12F);
+            this.typeLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(220)))), ((int)(((byte)(227)))));
+            this.typeLabel.Location = new System.Drawing.Point(16, 42);
+            this.typeLabel.Name = "typeLabel";
+            this.typeLabel.Size = new System.Drawing.Size(163, 19);
+            this.typeLabel.TabIndex = 1;
+            this.typeLabel.Text = "Transaction number:";
+            // 
+            // tittleLabel
+            // 
+            this.tittleLabel.AutoSize = true;
+            this.tittleLabel.Font = new System.Drawing.Font("Inter", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tittleLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(220)))), ((int)(((byte)(227)))));
+            this.tittleLabel.Location = new System.Drawing.Point(10, 13);
+            this.tittleLabel.Name = "tittleLabel";
+            this.tittleLabel.Size = new System.Drawing.Size(241, 29);
+            this.tittleLabel.TabIndex = 0;
+            this.tittleLabel.Text = "Transaction Details";
             // 
             // coinPriceLabel
             // 
@@ -227,28 +250,6 @@
             this.closeButton.UseVisualStyleBackColor = false;
             this.closeButton.Click += new System.EventHandler(this.CloseForm);
             // 
-            // transactionTypeLabel
-            // 
-            this.transactionTypeLabel.AutoSize = true;
-            this.transactionTypeLabel.Font = new System.Drawing.Font("Inter Medium", 12F);
-            this.transactionTypeLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(186)))), ((int)(((byte)(143)))));
-            this.transactionTypeLabel.Location = new System.Drawing.Point(156, 62);
-            this.transactionTypeLabel.Name = "transactionTypeLabel";
-            this.transactionTypeLabel.Size = new System.Drawing.Size(16, 19);
-            this.transactionTypeLabel.TabIndex = 7;
-            this.transactionTypeLabel.Text = "-";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Inter", 12F);
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(220)))), ((int)(((byte)(227)))));
-            this.label3.Location = new System.Drawing.Point(16, 62);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(140, 19);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Transaction type:";
-            // 
             // TransactionDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 19F);
@@ -266,6 +267,7 @@
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Inter", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.MaximizeBox = false;
             this.Name = "TransactionDetails";

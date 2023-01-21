@@ -23,11 +23,11 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <TargetCulture>pt</TargetCulture>
-    <ProductName>CryptoGon - Portfólio</ProductName>
+    <TargetCulture>en-US</TargetCulture>
+    <ProductName>CryptoGon</ProductName>
     <PublisherName>Gonçalo Vidal</PublisherName>
-    <ApplicationRevision>3</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>2.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -80,6 +80,9 @@
     <LangVersion>7.3</LangVersion>
     <ErrorReport>prompt</ErrorReport>
     <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Logo2.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -235,6 +238,7 @@
     <Content Include="Data\coins.xml" />
     <Content Include="Data\portfolio.xml" />
     <Content Include="Data\users.xml" />
+    <Content Include="Logo2.ico" />
     <None Include="Resources\closeButton 2.png" />
     <None Include="Resources\refresh_btn.png" />
     <None Include="Resources\assetAllocationPanelSample.png" />

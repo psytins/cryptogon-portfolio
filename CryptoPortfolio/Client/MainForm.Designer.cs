@@ -31,10 +31,10 @@ namespace CryptoPortfolio
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.accountNameLabel = new System.Windows.Forms.Label();
             this.portfolioNameLabel = new System.Windows.Forms.Label();
             this.mouseGrab = new System.Windows.Forms.Panel();
@@ -422,17 +422,17 @@ namespace CryptoPortfolio
             // portfolioChart
             // 
             this.portfolioChart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(241)))), ((int)(((byte)(244)))));
-            chartArea3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(241)))), ((int)(((byte)(244)))));
-            chartArea3.Name = "ChartArea1";
-            chartArea3.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(241)))), ((int)(((byte)(244)))));
-            this.portfolioChart.ChartAreas.Add(chartArea3);
+            chartArea1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(241)))), ((int)(((byte)(244)))));
+            chartArea1.Name = "ChartArea1";
+            chartArea1.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(241)))), ((int)(((byte)(244)))));
+            this.portfolioChart.ChartAreas.Add(chartArea1);
             this.portfolioChart.Location = new System.Drawing.Point(0, 44);
             this.portfolioChart.Name = "portfolioChart";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineArea;
-            series3.Font = new System.Drawing.Font("Inter", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series3.Name = "Series1";
-            this.portfolioChart.Series.Add(series3);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineArea;
+            series1.Font = new System.Drawing.Font("Inter", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series1.Name = "Series1";
+            this.portfolioChart.Series.Add(series1);
             this.portfolioChart.Size = new System.Drawing.Size(481, 200);
             this.portfolioChart.TabIndex = 13;
             // 
@@ -636,9 +636,9 @@ namespace CryptoPortfolio
             // assetsChart
             // 
             this.assetsChart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(241)))), ((int)(((byte)(244)))));
-            chartArea4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(241)))), ((int)(((byte)(244)))));
-            chartArea4.Name = "ChartArea1";
-            this.assetsChart.ChartAreas.Add(chartArea4);
+            chartArea2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(241)))), ((int)(((byte)(244)))));
+            chartArea2.Name = "ChartArea1";
+            this.assetsChart.ChartAreas.Add(chartArea2);
             this.assetsChart.Location = new System.Drawing.Point(87, 48);
             this.assetsChart.Name = "assetsChart";
             this.assetsChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
@@ -647,12 +647,12 @@ namespace CryptoPortfolio
         System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(186)))), ((int)(((byte)(143))))),
         System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(96)))), ((int)(((byte)(96))))),
         System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(137)))), ((int)(((byte)(186)))))};
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series4.CustomProperties = "DoughnutRadius=45";
-            series4.Font = new System.Drawing.Font("Inter", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series4.Name = "Series1";
-            this.assetsChart.Series.Add(series4);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series2.CustomProperties = "DoughnutRadius=45";
+            series2.Font = new System.Drawing.Font("Inter", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series2.Name = "Series1";
+            this.assetsChart.Series.Add(series2);
             this.assetsChart.Size = new System.Drawing.Size(178, 175);
             this.assetsChart.TabIndex = 23;
             // 
@@ -845,7 +845,7 @@ namespace CryptoPortfolio
             this.percentageShowPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("percentageShowPanel.BackgroundImage")));
             this.percentageShowPanel.Controls.Add(this.percentageNumberLabel);
             this.percentageShowPanel.Controls.Add(this.arrowPanel);
-            this.percentageShowPanel.Location = new System.Drawing.Point(304, 57);
+            this.percentageShowPanel.Location = new System.Drawing.Point(255, 31);
             this.percentageShowPanel.Name = "percentageShowPanel";
             this.percentageShowPanel.Size = new System.Drawing.Size(60, 30);
             this.percentageShowPanel.TabIndex = 19;
@@ -1158,6 +1158,7 @@ namespace CryptoPortfolio
             this.Controls.Add(this.mouseGrab);
             this.Font = new System.Drawing.Font("Inter Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1024, 768);
