@@ -44,6 +44,8 @@ namespace CryptoPortfolio
 
             //Add the chart info
             XElement sub_root_chart_info = new XElement("ChartInfo");
+            //Settings
+            XElement sub_root_settings = new XElement("Settings");
 
             //Add Transactions -----------
             XElement sub_root_transactions = new XElement("TransactionHistory");//Create the Head for transactions
@@ -63,6 +65,8 @@ namespace CryptoPortfolio
                 sub_root_transaction            .Add(new XElement("Notes", transactions.Notes));
                 sub_root_transactions           .Add(sub_root_transaction);
             }
+
+            sub_root.Add(sub_root_settings);
 
             sub_root.Add(sub_root_chart_info);
 
@@ -208,7 +212,10 @@ namespace CryptoPortfolio
                 foreach (float e in xdoc.Descendants("Portfolio").Where(x => x.Element("ID").Value == portfolios.ID.ToString()).Descendants("ChartInfo").Elements().ToList().Select(v => (float)v))
                 {
                     portfolios.ToDisplayChart.Add(e);
-                }                
+                }
+
+                Properties.Settings.Default.TimeToUpdate = int.Parse(xdoc.Descendants("Portfolio").Where(x => x.Element("ID").Value == portfolios.ID.ToString()).Descendants("Settings").Descendants("UserTimeToUpdate").ElementAt(0).Value);
+                Properties.Settings.Default.Currency = xdoc.Descendants("Portfolio").Where(x => x.Element("ID").Value == portfolios.ID.ToString()).Descendants("Settings").Descendants("UserCurrency").ElementAt(0).Value;
 
                 finalList.Add(portfolios); // !!!    
             }
@@ -267,6 +274,24 @@ namespace CryptoPortfolio
                 sub_root_chartInfos.Add(new XElement("Value",e));
             }
 
+            xmldoc.Save(Application.LocalUserAppDataPath + Properties.Settings.Default.XMLportfolioPath); //Save to XML
+        }
+
+        public static void saveSettings(Portfolio respectivePortfolio) //To save settings info when the app is closed
+        {
+            XDocument xmldoc = XDocument.Load(Application.LocalUserAppDataPath + Properties.Settings.Default.XMLportfolioPath);
+            XElement root = xmldoc.Root;
+
+            XElement sub_root = xmldoc.Descendants("Portfolio").Where(x => x.Element("ID").Value == respectivePortfolio.ID.ToString()).First();
+
+            XElement sub_root_settings = sub_root.Descendants("Settings").First();
+
+            sub_root_settings.RemoveNodes(); //remove the nodes to update with new ones 
+
+
+            sub_root_settings.Add(new XElement("UserTimeToUpdate", Properties.Settings.Default.TimeToUpdate.ToString()));
+            sub_root_settings.Add(new XElement("UserCurrency", Properties.Settings.Default.Currency.ToString()));
+            
             xmldoc.Save(Application.LocalUserAppDataPath + Properties.Settings.Default.XMLportfolioPath); //Save to XML
         }
 

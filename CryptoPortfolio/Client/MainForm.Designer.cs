@@ -289,8 +289,7 @@ namespace CryptoPortfolio
             "20",
             "30",
             "60",
-            "120",
-            "No Update"});
+            "120"});
             this.updateTimeComboBox.Location = new System.Drawing.Point(96, 13);
             this.updateTimeComboBox.Name = "updateTimeComboBox";
             this.updateTimeComboBox.Size = new System.Drawing.Size(102, 27);

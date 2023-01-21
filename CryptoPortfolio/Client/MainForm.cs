@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Runtime.Remoting.Metadata;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
@@ -503,7 +504,8 @@ namespace CryptoPortfolio
                 string portfolioName = Interaction.InputBox("Please create a new portfolio", "Portfolio Name"); //What if user clicks cancel ????
                 Portfolio portfolio = new Portfolio(SESSION.ID, portfolioName);
                 XmlHandler.writePortfolio(portfolio);
-                SESSION_PORTFOLIO.Add(portfolio);
+                XmlHandler.saveSettings(portfolio);
+                SESSION_PORTFOLIO.Add(portfolio);               
 
                 //Update the dashboard with the just created portfolio
                 CURRENT_PORTFOLIO_INDEX = SESSION_PORTFOLIO.Count - 1;
@@ -701,18 +703,12 @@ namespace CryptoPortfolio
 
             Properties.Settings.Default.Currency = currencyComboBox.Text;
 
-
-            if (updateTimeComboBox.Text != "No Update")
-            {
-                updateTimer.Enabled = true;
-                Properties.Settings.Default.TimeToUpdate = int.Parse(updateTimeComboBox.Text);
-            }
-            else
-                updateTimer.Enabled = false;
+            Properties.Settings.Default.TimeToUpdate = int.Parse(updateTimeComboBox.Text);
 
             MessageBox.Show("Settings changed!","Settings",MessageBoxButtons.OK,MessageBoxIcon.Information);
             settingsPanel.Visible = false;
 
+            XmlHandler.saveSettings(SESSION_PORTFOLIO.ToArray()[CURRENT_PORTFOLIO_INDEX]);
             HardUpdate();
         }
 
