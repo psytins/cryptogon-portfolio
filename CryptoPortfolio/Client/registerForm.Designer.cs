@@ -52,6 +52,9 @@ namespace CryptoPortfolio
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.signInButton = new System.Windows.Forms.Button();
+            this.closeButton = new System.Windows.Forms.Button();
+            this.minimizeButton = new System.Windows.Forms.Button();
+            this.mouseGrab.SuspendLayout();
             this.topPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -59,6 +62,8 @@ namespace CryptoPortfolio
             // mouseGrab
             // 
             this.mouseGrab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
+            this.mouseGrab.Controls.Add(this.minimizeButton);
+            this.mouseGrab.Controls.Add(this.closeButton);
             this.mouseGrab.Location = new System.Drawing.Point(0, 0);
             this.mouseGrab.Margin = new System.Windows.Forms.Padding(4);
             this.mouseGrab.Name = "mouseGrab";
@@ -152,14 +157,14 @@ namespace CryptoPortfolio
             this.passwordErrorLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
             this.passwordErrorLabel.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.passwordErrorLabel.Font = new System.Drawing.Font("Inter SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passwordErrorLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(118)))), ((int)(((byte)(112)))));
+            this.passwordErrorLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
             this.passwordErrorLabel.Location = new System.Drawing.Point(41, 277);
             this.passwordErrorLabel.Multiline = true;
             this.passwordErrorLabel.Name = "passwordErrorLabel";
             this.passwordErrorLabel.Size = new System.Drawing.Size(450, 40);
             this.passwordErrorLabel.TabIndex = 15;
-            this.passwordErrorLabel.Text = "Minimum eight characters, at least one uppercase letter,\r\none lowercase letter an" +
-    "d one number.";
+            this.passwordErrorLabel.Text = "Shoud have minimum eight characters, at least one uppercase letter,\r\none lowercas" +
+    "e letter and one number!";
             this.passwordErrorLabel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.passwordErrorLabel.Visible = false;
             // 
@@ -385,6 +390,38 @@ namespace CryptoPortfolio
             this.signInButton.UseVisualStyleBackColor = false;
             this.signInButton.Click += new System.EventHandler(this.signInButton_Click);
             // 
+            // closeButton
+            // 
+            this.closeButton.BackgroundImage = global::CryptoPortfolio.Properties.Resources.closeButton_2;
+            this.closeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.closeButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.closeButton.FlatAppearance.BorderSize = 0;
+            this.closeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.closeButton.Location = new System.Drawing.Point(478, 11);
+            this.closeButton.Name = "closeButton";
+            this.closeButton.Size = new System.Drawing.Size(22, 22);
+            this.closeButton.TabIndex = 9;
+            this.closeButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.closeButton.UseVisualStyleBackColor = true;
+            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
+            // 
+            // minimizeButton
+            // 
+            this.minimizeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.minimizeButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.minimizeButton.FlatAppearance.BorderSize = 0;
+            this.minimizeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.minimizeButton.Font = new System.Drawing.Font("Inter SemiBold", 12F);
+            this.minimizeButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(156)))), ((int)(((byte)(179)))));
+            this.minimizeButton.Location = new System.Drawing.Point(431, 8);
+            this.minimizeButton.Name = "minimizeButton";
+            this.minimizeButton.Size = new System.Drawing.Size(45, 25);
+            this.minimizeButton.TabIndex = 10;
+            this.minimizeButton.Text = "___";
+            this.minimizeButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.minimizeButton.UseVisualStyleBackColor = true;
+            this.minimizeButton.Click += new System.EventHandler(this.minimizeButton_Click);
+            // 
             // registerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 19F);
@@ -401,6 +438,7 @@ namespace CryptoPortfolio
             this.Text = "Register";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.registerForm_FormClosed);
             this.Load += new System.EventHandler(this.registerForm_Load);
+            this.mouseGrab.ResumeLayout(false);
             this.topPanel.ResumeLayout(false);
             this.topPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -434,5 +472,7 @@ namespace CryptoPortfolio
         private System.Windows.Forms.TextBox nothinErrorLabel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button closeButton;
+        private System.Windows.Forms.Button minimizeButton;
     }
 }

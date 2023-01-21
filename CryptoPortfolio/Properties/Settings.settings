@@ -12,10 +12,10 @@
       <Value Profile="(Default)">//data//users.xml</Value>
     </Setting>
     <Setting Name="Currency" Type="System.String" Scope="User">
-      <Value Profile="(Default)">€</Value>
+      <Value Profile="(Default)">$</Value>
     </Setting>
     <Setting Name="TimeToUpdate" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">10</Value>
+      <Value Profile="(Default)">60</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -173,6 +173,16 @@ namespace CryptoPortfolio.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap closeButton_2 {
+            get {
+                object obj = ResourceManager.GetObject("closeButton_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap coinButton {
             get {
                 object obj = ResourceManager.GetObject("coinButton", resourceCulture);

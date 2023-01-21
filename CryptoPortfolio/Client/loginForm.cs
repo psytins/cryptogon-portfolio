@@ -31,9 +31,9 @@ namespace CryptoPortfolio
 
         private void loginForm_Load(object sender, EventArgs e)
         {
-            emailAddressTextBox.Text = "teste";
-            passwordTextBox.Text = "teste";
-            signinButton_Click(sender, e);
+            //emailAddressTextBox.Text = "teste";
+            //passwordTextBox.Text = "teste";
+            //signinButton_Click(sender, e);
         }
 
         // TEMPORARY. JUST FOR TESTING ! --------------------
@@ -98,7 +98,7 @@ namespace CryptoPortfolio
             if (validateRegister())
             {
                 User validatedUser = XmlHandler.readUser(emailAddressTextBox.Text);
-                MessageBox.Show("Welcome " + validatedUser.FirstName + " " + validatedUser.LastName);
+                MessageBox.Show("Welcome " + validatedUser.FirstName + " " + validatedUser.LastName + "!", "Welcome!", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 //Create new MainForm Object
                 MainForm mainForm = new MainForm();
@@ -171,6 +171,20 @@ namespace CryptoPortfolio
         {
             new registerForm().Show(); 
             this.Close();
+        }
+
+        private void closeButton_Click(object sender, EventArgs e)
+        {
+            DialogResult option = MessageBox.Show("You sure you want to exit the application ?", "Are you sure?", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            if (option == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
+
+        private void minimizeButton_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

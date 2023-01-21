@@ -433,7 +433,7 @@
             this.pricePerCoinNum.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(220)))), ((int)(((byte)(227)))));
             this.pricePerCoinNum.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.pricePerCoinNum.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.pricePerCoinNum.DecimalPlaces = 2;
+            this.pricePerCoinNum.DecimalPlaces = 6;
             this.pricePerCoinNum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
             this.pricePerCoinNum.Location = new System.Drawing.Point(22, 7);
             this.pricePerCoinNum.Maximum = new decimal(new int[] {
@@ -473,7 +473,7 @@
             this.amountNum.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(220)))), ((int)(((byte)(227)))));
             this.amountNum.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.amountNum.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.amountNum.DecimalPlaces = 2;
+            this.amountNum.DecimalPlaces = 3;
             this.amountNum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(76)))), ((int)(((byte)(119)))));
             this.amountNum.Location = new System.Drawing.Point(51, 7);
             this.amountNum.Maximum = new decimal(new int[] {

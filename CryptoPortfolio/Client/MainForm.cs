@@ -852,5 +852,20 @@ namespace CryptoPortfolio
             MessageBox.Show("Note that changing the currency will reset your chart information.", "Be Carefull", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
+
+        private void closeButton_Click(object sender, EventArgs e)
+        {
+            DialogResult option = MessageBox.Show("You sure you want to exit the application ?", "Are you sure?", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            if (option == DialogResult.Yes)
+            {
+               Application.Exit();
+            }
+
+        }
+
+        private void minimizeButton_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
     }
 }

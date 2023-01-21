@@ -235,6 +235,7 @@
     <Content Include="Data\coins.xml" />
     <Content Include="Data\portfolio.xml" />
     <Content Include="Data\users.xml" />
+    <None Include="Resources\closeButton 2.png" />
     <None Include="Resources\refresh_btn.png" />
     <None Include="Resources\assetAllocationPanelSample.png" />
     <None Include="Resources\allocationGraphTemp.png" />

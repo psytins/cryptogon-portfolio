@@ -54,14 +54,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CryptoPortfolio.exe" size="209440">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CryptoPortfolio.exe" size="213024">
       <assemblyIdentity name="CryptoPortfolio" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>yV2xiVe+EE2GryJgjfTIH1RW7eUTkRnYLniTFXFcyBQ=</dsig:DigestValue>
+        <dsig:DigestValue>ZYN2p3Ef7nzAkdSrbFrjORd5GgI1qkuRR9WXEbkU4Fw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -149,13 +149,13 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="CryptoPortfolio.exe.config" size="2383">
+  <file name="CryptoPortfolio.exe.config" size="2381">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>DTqB8Q67pBuUFDT7f7tXuRqsdLDtUMprTrWjIYC7Bgs=</dsig:DigestValue>
+      <dsig:DigestValue>PPiZTyZWVcv71aIaR/PV0wBoVKYf4KMbx1AsFUIW9oc=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Data\coins.xml" size="928" writeableType="applicationData">

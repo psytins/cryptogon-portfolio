@@ -31,7 +31,7 @@ namespace CryptoPortfolio
 
         private void registerForm_Load(object sender, EventArgs e)
         {
-            signInButton_Click(sender, e);
+            //signInButton_Click(sender, e);
         }
 
         // TEMPORARY. JUST FOR TESTING ! --------------------
@@ -221,19 +221,19 @@ namespace CryptoPortfolio
                 emailLineLabel.ForeColor = Color.FromArgb(194, 118, 112);
                 return false;
             }
-            else if (!password_regex.IsMatch(passwordTextBox.Text))
-            {
-                buttonRun();
-                passwordErrorLabel.Visible = true;
-                passwordLineLabel.ForeColor = Color.FromArgb(194, 118, 112);
-                return false;
-            }
             else if ( passwordTextBox.Text != confirmPasswordTextBox.Text)
             {
                 buttonRun();
                 confirmPasswordErrorLabel.Visible = true;
                 confirmPasswordLineLabel.ForeColor = Color.FromArgb(194, 118, 112);
                 return false;
+            }
+            else if (!password_regex.IsMatch(passwordTextBox.Text))
+            {
+                //buttonRun();
+                passwordErrorLabel.Visible = true;
+                passwordLineLabel.ForeColor = Color.FromArgb(194, 118, 112);
+                return true;
             }
             else
             {
@@ -263,5 +263,18 @@ namespace CryptoPortfolio
             this.Close();
         }
 
+        private void closeButton_Click(object sender, EventArgs e)
+        {
+            DialogResult option = MessageBox.Show("You sure you want to exit the application ?", "Are you sure?", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            if (option == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
+
+        private void minimizeButton_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
     }
 }
